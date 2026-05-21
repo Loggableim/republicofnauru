@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republic of Nauru · Official Government Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fb;
+  color: #1e293b;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Design Switcher */
+.design-switcher {
+  position: fixed; top: 16px; right: 16px; z-index: 999;
+  display: flex; gap: 8px;
+  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+  padding: 8px 12px; border-radius: 12px; border: 1px solid #e2e8f0;
+  font-size: 13px; font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.design-switcher a {
+  padding: 6px 14px; border-radius: 8px; transition: all .25s;
+  color: #64748b;
+}
+.design-switcher a:hover { color: #002B7F; background: #f1f5f9; }
+.design-switcher a.active { color: #fff; background: #002B7F; }
+
+/* Top Bar */
+.top-bar {
+  background: #002B7F; color: #fff;
+  font-size: 12px; padding: 8px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.top-bar a { color: rgba(255,255,255,.75); }
+.top-bar a:hover { color: #FFC72C; }
+.top-bar .time { font-weight: 500; }
+
+/* Nav */
+nav {
+  background: #fff; border-bottom: 1px solid #e2e8f0;
+  padding: 0 48px; position: sticky; top: 0; z-index: 100;
+}
+nav .nav-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1280px; margin: 0 auto; height: 72px;
+}
+nav .logo {
+  display: flex; align-items: center; gap: 12px;
+  font-weight: 700; font-size: 18px; color: #002B7F;
+}
+nav .logo .flag {
+  width: 36px; height: 24px; border-radius: 3px;
+  background: linear-gradient(180deg, #002B7F 33%, #FFC72C 33% 66%, #002B7F 66%);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+nav .logo .flag::after {
+  content: '★'; color: #fff; font-size: 10px; line-height: 1;
+}
+nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+nav .nav-links a {
+  font-size: 13px; font-weight: 500; color: #475569;
+  padding: 8px 0; transition: color .25s;
+}
+nav .nav-links a:hover { color: #002B7F; }
+nav .nav-links .btn {
+  background: #002B7F; color: #fff !important;
+  padding: 8px 20px !important; border-radius: 8px; font-weight: 600;
+  transition: background .25s;
+}
+nav .nav-links .btn:hover { background: #001f5c; }
+
+/* News Ticker */
+.news-ticker {
+  background: #f1f5f9; border-bottom: 1px solid #e2e8f0;
+  padding: 10px 48px; overflow: hidden;
+  display: flex; align-items: center; gap: 16px;
+}
+.news-ticker .label {
+  background: #FFC72C; color: #002B7F;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px; white-space: nowrap;
+}
+.news-ticker .scroll {
+  overflow: hidden; position: relative; flex: 1;
+}
+.news-ticker .scroll-inner {
+  display: flex; gap: 48px; white-space: nowrap;
+  animation: scroll 25s linear infinite;
+}
+.news-ticker .scroll-inner span { font-size: 13px; color: #475569; }
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #002B7F 0%, #003d9e 50%, #002B7F 100%);
+  color: #fff; padding: 80px 48px 60px;
+}
+.hero-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr; gap: 60px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700; line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.hero h1 .yellow { color: #FFC72C; }
+.hero p {
+  color: rgba(255,255,255,.7);
+  font-size: 15px; max-width: 520px; margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero-cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #FFC72C; color: #002B7F;
+  padding: 12px 28px; border-radius: 8px;
+  font-weight: 600; font-size: 14px; transition: all .25s;
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,199,44,0.3); }
+.hero-cta-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(255,255,255,.25); color: #fff;
+  padding: 12px 28px; border-radius: 8px;
+  font-weight: 500; font-size: 14px; transition: all .25s;
+}
+.hero-cta-outline:hover { background: rgba(255,255,255,.1); }
+.hero-quicklinks {
+  background: rgba(255,255,255,.08);
+  border-radius: 16px; padding: 32px;
+  backdrop-filter: blur(4px);
+}
+.hero-quicklinks h3 { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.6); margin-bottom: 1.25rem; }
+.hero-quicklinks .ql-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.08);
+  font-size: 14px; transition: color .25s; cursor: pointer;
+}
+.hero-quicklinks .ql-item:last-child { border-bottom: none; }
+.hero-quicklinks .ql-item:hover { color: #FFC72C; }
+.hero-quicklinks .ql-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+
+/* Sections */
+.section { padding: 64px 48px; }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-header { margin-bottom: 2.5rem; }
+.section-header .tag {
+  display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; color: #002B7F; margin-bottom: 0.75rem;
+}
+.section-header h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700; color: #0f172a;
+}
+.section-header p { color: #64748b; margin-top: 0.5rem; }
+
+/* News Grid */
+.news-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.news-card {
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 12px; overflow: hidden; transition: all .25s;
+}
+.news-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.06); }
+.news-card-img {
+  height: 160px; background: linear-gradient(135deg, #002B7F 0%, #1a4a8a 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+}
+.news-card-body { padding: 20px; }
+.news-card-date { font-size: 11px; color: #94a3b8; font-weight: 500; }
+.news-card h3 { font-size: 15px; font-weight: 600; margin: 8px 0; color: #0f172a; }
+.news-card p { font-size: 13px; color: #64748b; line-height: 1.6; }
+.news-card-tag {
+  display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  background: #eef2ff; color: #002B7F; padding: 3px 8px; border-radius: 4px; margin-top: 8px;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.service-card {
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 12px; padding: 28px 20px; text-align: center;
+  transition: all .3s; cursor: default;
+}
+.service-card:hover { border-color: #002B7F; box-shadow: 0 4px 20px rgba(0,43,127,.08); }
+.service-icon { font-size: 2rem; margin-bottom: 1rem; }
+.service-card h3 { font-size: 14px; font-weight: 600; color: #0f172a; }
+.service-card p { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+/* History Section */
+.history-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #e2e8f0; border-radius: 12px; overflow: hidden;
+}
+.history-item {
+  background: #fff; padding: 28px 20px; text-align: center;
+}
+.history-item .year { font-size: 1.5rem; font-weight: 700; color: #002B7F; }
+.history-item p { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+/* Directory */
+.dir-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.dir-card {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 12px; padding: 20px; transition: all .25s; cursor: pointer;
+}
+.dir-card:hover { border-color: #002B7F; }
+.dir-card .dir-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: #eef2ff; display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+}
+.dir-card h3 { font-size: 14px; font-weight: 600; color: #0f172a; }
+.dir-card p { font-size: 12px; color: #64748b; }
+
+/* Contact */
+.contact-panel {
+  background: #fff; border: 1px solid #e2e8f0;
+  border-radius: 16px; padding: 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+.contact-panel h3 { font-size: 18px; font-weight: 600; color: #0f172a; margin-bottom: 1rem; }
+.contact-panel .info-line { font-size: 14px; color: #475569; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+.contact-panel form { display: flex; flex-direction: column; gap: 12px; }
+.contact-panel input, .contact-panel textarea {
+  border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 16px;
+  font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color .25s;
+}
+.contact-panel input:focus, .contact-panel textarea:focus { border-color: #002B7F; }
+.contact-panel textarea { min-height: 100px; resize: vertical; }
+.contact-panel button {
+  background: #002B7F; color: #fff; border: none;
+  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer;
+  transition: background .25s;
+}
+.contact-panel button:hover { background: #001f5c; }
+
+/* Footer */
+footer {
+  background: #0f172a; color: #94a3b8;
+  padding: 48px 48px; margin-top: 64px;
+}
+footer .footer-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+}
+footer h4 { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+footer a { display: block; font-size: 13px; color: #94a3b8; margin-bottom: 0.5rem; }
+footer a:hover { color: #FFC72C; }
+footer p { font-size: 13px; }
+footer .copyright {
+  max-width: 1280px; margin: 2rem auto 0; padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 12px; text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-bar { padding: 8px 20px; flex-direction: column; gap: 4px; font-size: 11px; }
+  nav { padding: 0 20px; }
+  nav .nav-links { gap: 0.8rem; font-size: 12px; flex-wrap: wrap; }
+  nav .nav-links a { font-size: 12px; }
+  .hero { padding: 60px 24px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .section { padding: 40px 24px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .history-strip { grid-template-columns: repeat(2, 1fr); }
+  .dir-grid { grid-template-columns: 1fr; }
+  .contact-panel { grid-template-columns: 1fr; }
+  footer .footer-inner { grid-template-columns: 1fr 1fr; }
+  .design-switcher { top: auto; bottom: 16px; right: 16px; font-size: 11px; }
+  .design-switcher a { padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>🏛️ Republic of Nauru — Official Government Portal</span>
+  <span>
+    <a href="#">🇳🇷 Nauru Language</a> |
+    <a href="#">Accessibility</a> |
+    <span class="time">Nauru Time (UTC+12)</span>
+  </span>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="flag"></div>
+      Republic of Nauru
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Government</a>
+      <a href="#">Services</a>
+      <a href="#">News</a>
+      <a href="#">Tourism</a>
+      <a href="#">Contact</a>
+      <a href="#" class="btn">Search ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div class="design-switcher">
+  <a href="v1-pacific-luxury.html">V1 Luxury</a>
+  <a href="v2-government-portal.html" class="active">V2 Official</a>
+  <a href="v3-tropical-vibes.html">V3 Vibes</a>
+  <a href="v4-hybrid.html">★ V4 Hybrid</a>
+</div>
+
+<div class="news-ticker">
+  <span class="label">Latest News</span>
+  <div class="scroll">
+    <div class="scroll-inner">
+      <span>🇳🇷 Nauru signs landmark climate resilience agreement with Pacific Island Forum</span>
+      <span>📰 President addresses UN General Assembly on rising sea levels</span>
+      <span>🏝️ New eco-tourism initiative launched at Anibare Bay</span>
+      <span>📊 2026 National Budget approved — focus on infrastructure & education</span>
+      <span>🇳🇷 Nauru signs landmark climate resilience agreement with Pacific Island Forum</span>
+      <span>📰 President addresses UN General Assembly on rising sea levels</span>
+      <span>🏝️ New eco-tourism initiative launched at Anibare Bay</span>
+      <span>📊 2026 National Budget approved — focus on infrastructure & education</span>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>The Official Portal of the<br><span class="yellow">Republic of Nauru</span></h1>
+      <p>Welcome to the government information portal of the Republic of Nauru. Access public services, official announcements, tourism information, and resources for citizens and visitors alike.</p>
+      <div class="hero-cta-group">
+        <a href="#" class="hero-cta">🔍 Explore Services</a>
+        <a href="#" class="hero-cta-outline">📋 Citizen Portal</a>
+      </div>
+    </div>
+    <div class="hero-quicklinks">
+      <h3>Quick Links</h3>
+      <div class="ql-item"><span class="ql-icon">🆔</span> Passport & Visas</div>
+      <div class="ql-item"><span class="ql-icon">🏢</span> Business Registration</div>
+      <div class="ql-item"><span class="ql-icon">🏫</span> Education Services</div>
+      <div class="ql-item"><span class="ql-icon">🏥</span> Health & Medical</div>
+      <div class="ql-item"><span class="ql-icon">🌿</span> Environmental Policy</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="tag">📰 Press & Announcements</span>
+      <h2>Latest News</h2>
+      <p>Official press releases and government announcements from the Republic of Nauru.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-card-img">🌊</div>
+        <div class="news-card-body">
+          <div class="news-card-date">May 21, 2026</div>
+          <h3>Climate Resilience Agreement Signed</h3>
+          <p>Nauru joins Pacific Island Forum's $500M climate adaptation fund for coastal protection and renewable energy.</p>
+          <span class="news-card-tag">Environment</span>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img">📊</div>
+        <div class="news-card-body">
+          <div class="news-card-date">May 18, 2026</div>
+          <h3>2026 National Budget Approved</h3>
+          <p>Parliament approves $120M budget with increased allocations for education, healthcare, and infrastructure development.</p>
+          <span class="news-card-tag">Economy</span>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-img">🏝️</div>
+        <div class="news-card-body">
+          <div class="news-card-date">May 15, 2026</div>
+          <h3>Eco-Tourism Initiative Launched</h3>
+          <p>New sustainable tourism program aims to boost eco-friendly travel to Nauru's pristine natural attractions.</p>
+          <span class="news-card-tag">Tourism</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="tag">🛠️ Government Services</span>
+      <h2>Citizen & Visitor Services</h2>
+      <p>Quick access to the most commonly requested services and information.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛂</div>
+        <h3>Passports & Visas</h3>
+        <p>Apply for or renew passports and travel documents</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Business Registry</h3>
+        <p>Register companies, trademarks, and permits</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎓</div>
+        <h3>Education</h3>
+        <p>Schools, scholarships, and academic resources</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏥</div>
+        <h3>Healthcare</h3>
+        <p>Medical services, hospitals, and public health info</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Housing & Land</h3>
+        <p>Property registration and housing assistance</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Legal & Justice</h3>
+        <p>Courts, legislation, and legal aid services</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Environment</h3>
+        <p>Climate policy, conservation, and permits</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚢</div>
+        <h3>Transport</h3>
+        <p>Maritime, aviation, and road transport info</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="tag">🏛️ About Nauru</span>
+      <h2>A Brief History</h2>
+      <p>From ancient Micronesian settlement to modern independent republic.</p>
+    </div>
+    <div class="history-strip">
+      <div class="history-item">
+        <div class="year">~1000 BCE</div>
+        <p>First Micronesian settlers arrive</p>
+      </div>
+      <div class="history-item">
+        <div class="year">1798</div>
+        <p>Discovered by Captain Fearn</p>
+      </div>
+      <div class="history-item">
+        <div class="year">1968</div>
+        <p>Independence achieved</p>
+      </div>
+      <div class="history-item">
+        <div class="year">1999</div>
+        <p>UN member state</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="tag">📞 Government Directory</span>
+      <h2>Government Offices</h2>
+      <p>Contact information for key government ministries and departments.</p>
+    </div>
+    <div class="dir-grid">
+      <div class="dir-card">
+        <div class="dir-icon">🏛️</div>
+        <div>
+          <h3>Office of the President</h3>
+          <p>Executive Building, Yaren · +674 557 3131</p>
+        </div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-icon">📊</div>
+        <div>
+          <h3>Ministry of Finance</h3>
+          <p>Government Complex, Yaren · +674 557 3135</p>
+        </div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-icon">🎓</div>
+        <div>
+          <h3>Ministry of Education</h3>
+          <p>Education Building, Aiwo · +674 557 3140</p>
+        </div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-icon">🌿</div>
+        <div>
+          <h3>Ministry of Environment</h3>
+          <p>Environmental Centre, Yaren · +674 557 3145</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff;">
+  <div class="section-inner" style="max-width:900px;">
+    <div class="section-header">
+      <span class="tag">✉️ Contact Us</span>
+      <h2>Get in Touch</h2>
+      <p>Reach out to the Government Information Office for inquiries.</p>
+    </div>
+    <div class="contact-panel">
+      <div>
+        <h3>Contact Information</h3>
+        <div class="info-line">📍 Government Offices, Yaren District, Republic of Nauru</div>
+        <div class="info-line">📞 +674 557 3133 (Switchboard)</div>
+        <div class="info-line">✉️ info@republicofnauru.com</div>
+        <div class="info-line">🕐 Mon–Fri, 9:00 AM – 5:00 PM (UTC+12)</div>
+        <div style="margin-top:2rem;background:#f8f9fb;border-radius:12px;padding:20px;">
+          <p style="font-size:13px;color:#64748b;"><strong>Emergency Services:</strong> Police: 110 · Fire: 111 · Ambulance: 112</p>
+        </div>
+      </div>
+      <form>
+        <h3>Send a Message</h3>
+        <input type="text" placeholder="Your Name" disabled>
+        <input type="email" placeholder="Your Email" disabled>
+        <input type="text" placeholder="Subject" disabled>
+        <textarea placeholder="Your Message" disabled></textarea>
+        <button type="button">Submit Inquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;background:#f1f5f9;">
+  <div class="section-inner">
+    <h2 style="font-size:1.5rem;font-weight:700;color:#0f172a;margin-bottom:0.5rem;">🇳🇷 Republic of Nauru</h2>
+    <p style="color:#64748b;font-size:14px;max-width:600px;margin:0 auto 2rem;">"God's Will First" — National Motto · Independence: January 31, 1968</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="hero-cta" style="background:#002B7F;color:#fff;">Visit Nauru →</a>
+      <a href="#" class="hero-cta" style="background:transparent;border:1px solid #002B7F;color:#002B7F;">Government Directory</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>Republic of Nauru</h4>
+      <p>The official government portal of the Republic of Nauru. Providing information and services to citizens, residents, and visitors since 1968.</p>
+    </div>
+    <div>
+      <h4>Government</h4>
+      <a href="#">President's Office</a>
+      <a href="#">Parliament</a>
+      <a href="#">Ministries</a>
+      <a href="#">Judiciary</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="#">Citizen Portal</a>
+      <a href="#">Business Hub</a>
+      <a href="#">Visa Information</a>
+      <a href="#">Public Notices</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="#">Press Releases</a>
+      <a href="#">Publications</a>
+      <a href="#">Laws & Policies</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+  <div class="copyright">© 2026 Republic of Nauru. All rights reserved. | Privacy Policy | Terms of Use</div>
+</footer>
+
+</body>
+</html>

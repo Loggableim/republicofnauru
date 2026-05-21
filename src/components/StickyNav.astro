@@ -1,0 +1,65 @@
+---
+export interface Props {
+  links?: { label: string; url: string }[];
+}
+const defaultLinks = [
+  { label: 'News', url: '/news/' },
+  { label: 'Services', url: '/services/' },
+  { label: 'About', url: '/about/' },
+  { label: 'History', url: '/about/history/' },
+  { label: 'Directory', url: '/directory/' },
+  { label: 'Contact', url: '/contact/' },
+];
+const { links = defaultLinks } = Astro.props;
+---
+
+<div class="sticky-nav">
+  <div class="nav-inner">
+    <a href="/" class="logo-sm">
+      <div class="flag-mini"></div>
+      Rep. of Nauru
+    </a>
+    <div class="nav-links">
+      {links.map(link => (
+        <a href={link.url}>{link.label}</a>
+      ))}
+      <a href="/news/" class="search-btn" aria-label="Latest news">📰</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sticky-nav {
+    background: #fff; border-bottom: 2px solid #1a1a2e;
+    padding: 0 48px; position: sticky; top: 0; z-index: 50;
+  }
+  .sticky-nav .nav-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1280px; margin: 0 auto; height: 64px;
+  }
+  .sticky-nav .logo-sm {
+    display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: #002B7F;
+    text-decoration: none;
+  }
+  .sticky-nav .logo-sm .flag-mini {
+    width: 28px; height: 18px; border-radius: 2px;
+    background: linear-gradient(180deg, #002B7F 33%, #FFC72C 33% 66%, #002B7F 66%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .sticky-nav .logo-sm .flag-mini::after { content: '★'; color: #fff; font-size: 8px; }
+  .sticky-nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .sticky-nav .nav-links a {
+    font-size: 13px; font-weight: 500; color: #475569;
+    padding: 8px 0; transition: color .25s;
+    text-decoration: none;
+  }
+  .sticky-nav .nav-links a:hover { color: #FFC72C; }
+  .sticky-nav .nav-links .search-btn { font-size: 18px; cursor: pointer; text-decoration: none; }
+  @media (max-width: 768px) {
+    .sticky-nav { padding: 0 20px; }
+    .sticky-nav .logo-sm { display: none; }
+    .sticky-nav .nav-links { gap: 0.8rem; font-size: 12px; overflow-x: auto; width: 100%; justify-content: center; }
+    .sticky-nav .nav-links a { font-size: 12px; white-space: nowrap; }
+  }
+</style>

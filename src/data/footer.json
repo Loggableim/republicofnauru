@@ -1,0 +1,39 @@
+{
+  "footerColumns": [
+    {
+      "title": "Republic of Nauru",
+      "links": [],
+      "text": "Your independent information portal about the Republic of Nauru — the world's smallest island nation. Discover its people, culture, history, and natural beauty."
+    },
+    {
+      "title": "Discover",
+      "links": [
+        { "label": "About Nauru", "url": "/about/", "localeKey": "about" },
+        { "label": "Travel Tips", "url": "/visit/", "localeKey": "visit" },
+        { "label": "Culture & Heritage", "url": "/about/culture/", "localeKey": "culture" },
+        { "label": "History", "url": "/about/history/", "localeKey": "history" }
+      ]
+    },
+    {
+      "title": "Visit",
+      "links": [
+        { "label": "Visa Information", "url": "/visit/visa/", "localeKey": "visa" },
+        { "label": "Accommodation", "url": "/visit/accommodation/", "localeKey": "accommodation" },
+        { "label": "Transport", "url": "/visit/transport/", "localeKey": "transport" },
+        { "label": "Weather", "url": "/visit/weather/", "localeKey": "weather" }
+      ]
+    },
+    {
+      "title": "Resources",
+      "links": [
+        { "label": "News", "url": "/news/", "localeKey": "news" },
+        { "label": "Contact", "url": "/contact/", "localeKey": "contact" },
+        { "label": "Directory", "url": "/directory/", "localeKey": "directory" },
+        { "label": "Services", "url": "/services/", "localeKey": "services" }
+      ]
+    }
+  ],
+  "social": ["📷", "🎵", "💬", "📺"],
+  "copyright": "© 2026 republicofnauru.com",
+  "disclaimer": "This is an independent informational website. Content is based on public sources and independent research. For official government information, please visit nauru.gov.nr. All travel information should be verified with relevant authorities before making arrangements."
+}

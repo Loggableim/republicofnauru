@@ -1,0 +1,39 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import servicesData from '../../data/services.json';
+---
+
+<SubpageLayout
+  title="Services"
+  description="Information and resources for citizens and visitors to the Republic of Nauru"
+  sectionEmoji="🛠️"
+  sectionLabel="Citizen & Visitor Services"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>Nauru offers a range of government services for both citizens and visitors. Below is an overview of the key service areas — click through to each section for detailed information, contact details, and application procedures.</p>
+
+  <h2>Available Services</h2>
+
+  {servicesData.map(svc => (
+    <>
+      <h3>{svc.icon} {svc.title}</h3>
+      <p>{svc.desc}. For detailed information including application forms, fees, processing times, and contact details, please visit the relevant government department in Yaren or contact the Government Information Office.</p>
+    </>
+  ))}
+
+  <div class="info-box">
+    <h4>🏛️ Government Information Office</h4>
+    <p>The GIO is your first point of contact for most administrative inquiries. Located in Yaren, the office provides information on government services, processes applications, and publishes official announcements including the Nauru Bulletin and media releases. Contact: +674 557 3133 or visit the Government Complex in Yaren during business hours (Mon–Fri, 9:00 AM – 5:00 PM UTC+12).</p>
+  </div>
+
+  <h2>Online Resources</h2>
+  <p>While Nauru's online service portal is still developing, several resources are available digitally:</p>
+  <ul>
+    <li><strong>Government Email:</strong> Access via webmail.nauru.gov.nr (for government account holders)</li>
+    <li><strong>RONLAW:</strong> Nauru's legislation database at ronlaw.gov.nr — search and download laws and regulations</li>
+    <li><strong>Nauru Bulletin:</strong> Official government newspaper published by the Government Information Office</li>
+    <li><strong>Radio Nauru:</strong> Live stream at radionauru.nr — news, music, and community programming</li>
+    <li><strong>Moodle:</strong> Nauru's e-learning platform for students and educators</li>
+  </ul>
+</SubpageLayout>

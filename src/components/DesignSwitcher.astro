@@ -1,0 +1,39 @@
+---
+export interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class={`design-switcher ${className}`}>
+  <a href="/" class="active">★ V4 Hybrid</a>
+</div>
+
+<style>
+  .design-switcher {
+    position: fixed; top: 16px; right: 16px; z-index: 999;
+    display: flex; gap: 8px;
+    background: rgba(250,248,240,.95); backdrop-filter: blur(12px);
+    padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.08);
+    font-size: 13px; font-weight: 500;
+    box-shadow: 0 4px 16px rgba(0,0,0,.06);
+  }
+  .design-switcher a {
+    padding: 6px 14px; border-radius: 8px; transition: all .25s;
+    color: #64748b;
+  }
+  .design-switcher a:hover { color: #1a1a2e; background: #FFC72C; }
+  .design-switcher a.active { color: #1a1a2e; background: #FFC72C; font-weight: 600; }
+
+  /* Mobile: bottom statt top, kompakter */
+  @media (max-width: 768px) {
+    .design-switcher {
+      top: auto;
+      bottom: 16px;
+      font-size: 11px;
+    }
+    .design-switcher a {
+      padding: 4px 10px;
+    }
+  }
+</style>

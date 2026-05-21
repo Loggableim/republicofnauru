@@ -1,0 +1,34 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import countryData from '../../data/our-country.json';
+---
+
+<SubpageLayout
+  title={countryData.title}
+  description={countryData.subtitle}
+  sectionEmoji="🌍"
+  sectionLabel="Geography & Nature"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>{countryData.intro}</p>
+
+  {countryData.sections.map(section => (
+    <>
+      <h2>{section.heading}</h2>
+      {section.content.split('\n\n').map(para => (
+        para.trim() ? <p>{para}</p> : null
+      ))}
+    </>
+  ))}
+
+  <h2>Quick Facts</h2>
+  <div class="fact-grid">
+    {countryData.quickFacts.map(fact => (
+      <div class="fact">
+        <div class="num">{fact.value}</div>
+        <div class="label">{fact.label}</div>
+      </div>
+    ))}
+  </div>
+</SubpageLayout>

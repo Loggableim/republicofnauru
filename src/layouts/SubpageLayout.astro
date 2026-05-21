@@ -1,0 +1,214 @@
+---
+import '../styles/global.css';
+import BaseLayout from './BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  sectionEmoji?: string;
+  sectionLabel?: string;
+  bgClass?: string;
+  includeTopBar?: boolean;
+  includeFooter?: boolean;
+}
+
+const {
+  title = 'Republic of Nauru',
+  description = 'Visitor Information',
+  sectionEmoji = '',
+  sectionLabel = '',
+  bgClass = 'bg-cream',
+  includeTopBar = false,
+  includeFooter = false,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  {includeTopBar && <TopBar />}
+  <div class="page-wrapper">
+    <header class="page-header">
+      <a href="/" class="page-back">← Home</a>
+      <h1>{title}</h1>
+      {description && <p class="page-subtitle">{description}</p>}
+      {sectionLabel && (
+        <div class="page-section-label">
+          <span class="emoji">{sectionEmoji}</span> {sectionLabel}
+        </div>
+      )}
+    </header>
+    <main class={`page-content ${bgClass}`}>
+      <article class="page-article">
+        <slot />
+      </article>
+    </main>
+  </div>
+  {includeFooter && <Footer />}
+</BaseLayout>
+
+<style>
+  .page-wrapper {
+    min-height: 100vh;
+    background: #faf8f0;
+  }
+
+  .page-header {
+    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
+    padding: 60px 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::after {
+    content: '🇳🇷';
+    position: absolute;
+    font-size: clamp(15rem, 30vw, 35rem);
+    right: -3%;
+    top: -15%;
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .page-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0,43,127,0.6);
+    margin-bottom: 1.5rem;
+    transition: all .2s;
+    position: relative;
+    z-index: 2;
+  }
+  .page-back:hover { color: #002B7F; gap: 10px; }
+
+  .page-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #002B7F;
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 2;
+  }
+  .page-subtitle {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: rgba(0,43,127,0.65);
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .page-section-label {
+    margin-top: 1.25rem;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(0,43,127,0.5);
+    position: relative;
+    z-index: 2;
+  }
+  .page-section-label .emoji { font-size: 14px; }
+
+  .page-content {
+    padding: 48px;
+  }
+  .page-article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .page-article :global(h2) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #FFC72C;
+  }
+  .page-article :global(h3) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #002B7F;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .page-article :global(p) {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 1rem;
+  }
+  .page-article :global(ul) {
+    margin: 0.5rem 0 1.5rem 1.5rem;
+    list-style: none;
+  }
+  .page-article :global(ul li) {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #475569;
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  .page-article :global(ul li::before) {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #FFC72C;
+    font-weight: bold;
+  }
+  .page-article :global(.info-box) {
+    background: #fff;
+    border: 2px solid #1a1a2e;
+    padding: 24px;
+    margin: 1.5rem 0;
+    box-shadow: 4px 4px 0 #1a1a2e;
+  }
+  .page-article :global(.info-box h4) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: #002B7F;
+    margin-bottom: 0.5rem;
+  }
+  .page-article :global(.info-box p) {
+    margin-bottom: 0;
+  }
+  .page-article :global(.fact-grid) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 1.5rem 0;
+  }
+  .page-article :global(.fact-grid .fact) {
+    background: #fff;
+    border: 2px solid #1a1a2e;
+    padding: 20px;
+    text-align: center;
+  }
+  .page-article :global(.fact-grid .fact .num) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #002B7F;
+  }
+  .page-article :global(.fact-grid .fact .label) {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .page-header { padding: 40px 24px 30px; }
+    .page-content { padding: 32px 24px; }
+    .page-article :global(.fact-grid) { grid-template-columns: 1fr; }
+  }
+</style>

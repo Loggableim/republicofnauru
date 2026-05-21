@@ -1,0 +1,45 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import peopleData from '../../data/the-people.json';
+---
+
+<SubpageLayout
+  title={peopleData.title}
+  description={peopleData.subtitle}
+  sectionEmoji="👥"
+  sectionLabel="Population & Identity"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>{peopleData.intro}</p>
+
+  {peopleData.sections.map(section => (
+    <>
+      <h2>{section.heading}</h2>
+      {section.content.split('\n\n').map(para => (
+        para.trim() ? <p>{para}</p> : null
+      ))}
+    </>
+  ))}
+
+  <h2>Key Statistics</h2>
+  <div class="fact-grid">
+    {peopleData.statistics.map(stat => (
+      <div class="fact">
+        <div class="num">{stat.value}</div>
+        <div class="label">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+
+  <h2>Learn a Few Words of Nauruan</h2>
+  <p>Here are some basic Nauruan phrases to try during your visit. Locals will appreciate the effort!</p>
+  <ul>
+    <li><strong>Ekamawir oma</strong> — Good morning</li>
+    <li><strong>Ekamawir arön</strong> — Good afternoon/evening</li>
+    <li><strong>Ña eko?</strong> — How are you?</li>
+    <li><strong>Nab</strong> — Yes</li>
+    <li><strong>Oe</strong> — No</li>
+    <li><strong>IoỊy</strong> — Thank you</li>
+  </ul>
+</SubpageLayout>

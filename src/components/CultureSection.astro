@@ -1,0 +1,47 @@
+---
+export interface Props {
+  items: { icon: string; title: string; desc: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section no-bottom-padding">
+  <div class="section-inner">
+    <div class="section-tag">🎭 Culture & Life</div>
+    <div class="section-header">
+      <h2>Vibe of the island.</h2>
+      <p>Traditional dance, island flavors, and community celebrations that define Nauruan identity.</p>
+    </div>
+    <div class="culture-strip">
+      {items.map((item, i) => (
+        <div class="culture-card">
+          <div class="cc-icon">{item.icon}</div>
+          <h3>{item.title}</h3>
+          <p>{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .culture-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  }
+  .culture-card {
+    padding: 48px 32px; text-align: center;
+    transition: all .3s;
+  }
+  .culture-card:hover { transform: scale(1.02); z-index: 2; }
+  .culture-card:nth-child(1) { background: #FFC72C; color: #002B7F; }
+  .culture-card:nth-child(2) { background: #002B7F; color: #FFC72C; }
+  .culture-card:nth-child(3) { background: #1a1a2e; color: #FFC72C; }
+  .culture-card .cc-icon { font-size: 3rem; margin-bottom: 1rem; }
+  .culture-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .culture-card p { font-size: 13px; opacity: 0.8; line-height: 1.6; }
+  @media (max-width: 768px) {
+    .culture-strip { grid-template-columns: 1fr; }
+    .culture-card { padding: 32px 24px; }
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import siteData from '../../data/site.json';
+---
+
+<SubpageLayout
+  title="About Nauru"
+  description="Discover the world's smallest republic — its land, people, history, and culture"
+  sectionEmoji="🏝️"
+  sectionLabel="Republic of Nauru"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>Nauru is a tiny island nation in the central Pacific Ocean. With just 21 square kilometres of land and a population of approximately 10,000, it is the world's third-smallest country by area and the second-least populous — but what it lacks in size, it more than makes up for in character, history, and natural beauty.</p>
+
+  <p>Known as "Pleasant Island" to its first European visitors, Nauru has a story that spans over 3,000 years — from the first Micronesian navigators who crossed vast oceans in outrigger canoes, through colonial rule, phosphate-driven wealth, world war occupation, and its emergence as an independent republic. Today, Nauru is a nation looking to the future, balancing its rich heritage with the challenges of climate change, economic diversification, and cultural preservation.</p>
+
+  <h2>Quick Facts</h2>
+
+  <div class="fact-grid">
+    {siteData.stats.map(stat => (
+      <div class="fact">
+        <div class="num">{stat.num}</div>
+        <div class="label">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+
+  <h2>Explore Nauru</h2>
+  <p>Use the links below to dive deeper into different aspects of the Republic of Nauru:</p>
+
+  <ul>
+    <li><strong><a href="/about/our-country">Our Country</a></strong> — Geography, climate, flora, fauna, and environmental challenges</li>
+    <li><strong><a href="/about/history">History</a></strong> — From ancient settlement to independence and beyond — the full timeline</li>
+    <li><strong><a href="/about/the-people">The People</a></strong> — Population, language, social structure, and the 12 original tribes</li>
+    <li><strong><a href="/about/culture">Culture & Heritage</a></strong> — Dance, music, cuisine, celebrations, handicrafts, and community life</li>
+    <li><strong><a href="/about/economy">Economy</a></strong> — Phosphate, fisheries, aid, and the path to a diversified future</li>
+    <li><strong><a href="/about/national-days">National Days</a></strong> — Independence Day, Constitution Day, Angam Day, and public holidays</li>
+  </ul>
+
+  <h2>The National Flag</h2>
+  <p>The flag of Nauru is a powerful symbol of the nation's identity. The blue field represents the Pacific Ocean, the yellow stripe marks Nauru's position just 53 kilometres south of the equator, and the white 12-pointed star symbolises the 12 original tribes that have inhabited the island for centuries. The flag was adopted on January 31, 1968 — Nauru's Independence Day.</p>
+
+  <div class="info-box">
+    <h4>🌟 "God's Will First"</h4>
+    <p>The national motto of the Republic of Nauru reflects the deep Christian faith of the Nauruan people. It appears on the national coat of arms, which also features symbols of the island's traditional governance, phosphate mining, and the frigate bird — a symbol of freedom and the Pacific.</p>
+  </div>
+</SubpageLayout>

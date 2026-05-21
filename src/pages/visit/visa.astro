@@ -1,0 +1,11 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import visaData from '../../data/visa.json';
+---
+
+<SubpageLayout title={visaData.title} description={visaData.subtitle} sectionEmoji="🛂" sectionLabel="Travel Documents" includeTopBar={true} includeFooter={true}>
+  <p set:html={visaData.intro} />
+  {visaData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+  <h2>Contact</h2>
+  <div class="info-box"><h4>{visaData.contactInfo.department}</h4><p>{visaData.contactInfo.location}<br/>{visaData.contactInfo.phone}<br/>{visaData.contactInfo.notes}</p></div>
+</SubpageLayout>

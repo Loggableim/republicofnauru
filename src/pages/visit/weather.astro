@@ -1,0 +1,9 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import weatherData from '../../data/weather.json';
+---
+
+<SubpageLayout title={weatherData.title} description={weatherData.subtitle} sectionEmoji="🌤️" sectionLabel="When to Visit" includeTopBar={true} includeFooter={true}>
+  <p>{weatherData.intro}</p>
+  {weatherData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+</SubpageLayout>

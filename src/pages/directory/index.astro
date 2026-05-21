@@ -1,0 +1,38 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import directoryData from '../../data/directory.json';
+---
+
+<SubpageLayout
+  title="Key Contacts"
+  description="Important government offices and public services in the Republic of Nauru"
+  sectionEmoji="📞"
+  sectionLabel="Directory"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>Below are the contact details for key government institutions in Nauru. All offices are located in the Yaren district (the administrative centre) unless otherwise noted. For directory inquiries, contact the Government Information Office switchboard on +674 557 3133.</p>
+
+  <h2>Government Offices</h2>
+
+  {directoryData.map(entry => (
+    <div class="info-box">
+      <h4>{entry.icon} {entry.name}</h4>
+      <p>{entry.detail}</p>
+    </div>
+  ))}
+
+  <h2>Additional Contacts</h2>
+  <ul>
+    <li><strong>Parliament of Nauru:</strong> Parliament House, Yaren — +674 557 3000</li>
+    <li><strong>Government Information Office:</strong> Media inquiries, publications, and public communications — +674 557 3133 ext. 307</li>
+    <li><strong>Nauru Immigration:</strong> Visa and entry permit inquiries — Email via Department of Immigration, Government Complex, Yaren</li>
+    <li><strong>Nauru Port Authority:</strong> Shipping, cargo, and maritime services — Aiwo District</li>
+    <li><strong>Nauru Police Force:</strong> Emergency: 110 | Non-emergency: +674 557 3122</li>
+    <li><strong>Nauru General Hospital:</strong> Emergency: 112 | Appointments: +674 557 3150</li>
+    <li><strong>Fire Service:</strong> Emergency: 111</li>
+  </ul>
+
+  <h2>Government Email</h2>
+  <p>Government email addresses follow the format <strong>firstname.lastname@nauru.gov.nr</strong>. For general inquiries, contact the Government Information Office which can direct your message to the appropriate department.</p>
+</SubpageLayout>

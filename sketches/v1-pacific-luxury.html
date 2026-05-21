@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republic of Nauru · Pacific Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a1628;
+  color: #e8e4de;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 { font-family: 'Playfair Display', serif; font-weight: 600; color: #fff; }
+a { text-decoration: none; color: inherit; }
+
+/* Design Switcher */
+.design-switcher {
+  position: fixed; top: 16px; right: 16px; z-index: 999;
+  display: flex; gap: 8px;
+  background: rgba(10,22,40,.75); backdrop-filter: blur(12px);
+  padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.08);
+  font-size: 13px; font-weight: 500;
+}
+.design-switcher a {
+  padding: 6px 14px; border-radius: 8px; transition: all .25s;
+  color: rgba(255,255,255,.5);
+}
+.design-switcher a:hover { color: #fff; background: rgba(255,255,255,.08); }
+.design-switcher a.active { color: #fff; background: #C9A94E; color: #0a1628; }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 40%, #0d2137 100%);
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(201,169,78,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 70%, rgba(201,169,78,0.05) 0%, transparent 70%);
+}
+.hero-particles {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.hero-particles span {
+  position: absolute; width: 4px; height: 4px;
+  background: rgba(201,169,78,0.3); border-radius: 50%;
+  animation: float 20s infinite;
+}
+.hero-particles span:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.hero-particles span:nth-child(2) { top: 40%; left: 80%; animation-delay: -3s; width: 6px; height: 6px; }
+.hero-particles span:nth-child(3) { top: 60%; left: 30%; animation-delay: -7s; }
+.hero-particles span:nth-child(4) { top: 30%; left: 60%; animation-delay: -11s; }
+.hero-particles span:nth-child(5) { top: 70%; left: 70%; animation-delay: -5s; width: 3px; height: 3px; }
+.hero-particles span:nth-child(6) { top: 80%; left: 20%; animation-delay: -15s; }
+.hero-particles span:nth-child(7) { top: 15%; left: 45%; animation-delay: -9s; }
+.hero-particles span:nth-child(8) { top: 55%; left: 85%; animation-delay: -2s; width: 5px; height: 5px; }
+@keyframes float {
+  0%,100% { transform: translateY(0) scale(1); opacity: .3; }
+  50% { transform: translateY(-40px) scale(1.5); opacity: .8; }
+}
+
+.hero-content { position: relative; text-align: center; z-index: 2; padding: 2rem; }
+.hero-badge {
+  display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  color: #C9A94E; border: 1px solid rgba(201,169,78,0.3);
+  padding: 8px 20px; border-radius: 100px; margin-bottom: 2rem;
+  font-weight: 500;
+}
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1.05; letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 .gold { color: #C9A94E; }
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300; color: rgba(232,228,222,0.7);
+  max-width: 600px; margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #C9A94E; color: #0a1628;
+  padding: 16px 40px; border-radius: 50px;
+  font-weight: 600; font-size: 15px;
+  transition: all .3s;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,169,78,0.3); }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: rgba(232,228,222,0.4); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  background: linear-gradient(180deg, rgba(10,22,40,.9) 0%, transparent 100%);
+  backdrop-filter: blur(8px);
+}
+nav .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: #fff; letter-spacing: -0.5px; }
+nav .logo .gold { color: #C9A94E; }
+nav .nav-links { display: flex; gap: 2rem; font-size: 14px; font-weight: 500; }
+nav .nav-links a { color: rgba(255,255,255,.6); transition: color .25s; }
+nav .nav-links a:hover { color: #C9A94E; }
+
+/* Sections */
+.section { padding: 100px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  display: inline-block; font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  color: #C9A94E; margin-bottom: 1rem; font-weight: 500;
+}
+.section h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 1rem; line-height: 1.1;
+}
+.section > .section-inner > p.sub {
+  color: rgba(232,228,222,0.6);
+  font-weight: 300; max-width: 600px; margin-bottom: 3rem;
+}
+
+/* Welcome */
+.welcome-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center;
+}
+.welcome-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; }
+.welcome-stat {
+  background: rgba(255,255,255,.03);
+  padding: 32px 24px; text-align: center;
+}
+.welcome-stat .num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #C9A94E; }
+.welcome-stat .label { font-size: 13px; color: rgba(232,228,222,0.5); margin-top: 4px; }
+
+/* Cards Grid */
+.cards-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 20px; padding: 40px 32px;
+  transition: all .35s; cursor: default;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(201,169,78,0.2); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.card-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+.card p { font-size: 14px; color: rgba(232,228,222,0.55); line-height: 1.7; }
+
+/* Timeline */
+.timeline {
+  position: relative; padding-left: 32px;
+}
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: rgba(201,169,78,0.2);
+}
+.timeline-item { position: relative; padding: 0 0 40px 32px; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -33px; top: 8px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #C9A94E; border: 2px solid #0a1628;
+}
+.timeline-item .year { font-family: 'Playfair Display', serif; color: #C9A94E; font-size: 1.2rem; }
+.timeline-item p { font-size: 14px; color: rgba(232,228,222,0.55); margin-top: 4px; }
+
+/* Contact */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+}
+.contact-info p { font-size: 14px; color: rgba(232,228,222,0.55); margin-bottom: 0.5rem; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px; padding: 14px 18px;
+  font-family: 'Inter', sans-serif; font-size: 14px;
+  color: #e8e4de; outline: none; transition: border-color .25s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: #C9A94E; }
+.contact-form textarea { min-height: 120px; resize: vertical; }
+.contact-form button {
+  background: #C9A94E; color: #0a1628; border: none;
+  padding: 14px 32px; border-radius: 12px;
+  font-weight: 600; font-size: 15px; cursor: pointer;
+  transition: all .3s;
+}
+.contact-form button:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,78,0.25); }
+
+/* Footer */
+footer {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 40px 48px; text-align: center;
+  font-size: 13px; color: rgba(232,228,222,0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; flex-direction: column; gap: 12px; }
+  nav .nav-links { gap: 1rem; font-size: 13px; flex-wrap: wrap; justify-content: center; }
+  .section { padding: 60px 24px; }
+  .welcome-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .design-switcher { top: auto; bottom: 16px; right: 16px; font-size: 11px; }
+  .design-switcher a { padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Republic<span class="gold">.</span>of<span class="gold">.</span>Nauru</div>
+  <div class="nav-links">
+    <a href="#">Welcome</a>
+    <a href="#">Discover</a>
+    <a href="#">History</a>
+    <a href="#">Plan</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<div class="design-switcher">
+  <a href="v1-pacific-luxury.html" class="active">V1 Luxury</a>
+  <a href="v2-government-portal.html">V2 Official</a>
+  <a href="v3-tropical-vibes.html">V3 Vibes</a>
+  <a href="v4-hybrid.html">★ V4 Hybrid</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-particles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">Republic of Nauru</div>
+    <h1>Where Paradise<br><span class="gold">Meets the Pacific</span></h1>
+    <p>Discover the world's smallest island nation — where pristine beaches, rich phosphate history, and warm island hospitality await.</p>
+    <a href="#" class="hero-cta">Explore Nauru →</a>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<section class="section" id="welcome">
+  <div class="section-inner">
+    <div class="welcome-grid">
+      <div>
+        <div class="section-label">Welcome</div>
+        <h2>The Jewel of<br>Micronesia</h2>
+        <p class="sub" style="margin-bottom:2rem;">Nestled in the heart of the Pacific Ocean, the Republic of Nauru offers a unique blend of natural beauty, rich cultural heritage, and fascinating history spanning over 3,000 years.</p>
+        <div class="welcome-stats">
+          <div class="welcome-stat"><div class="num">21 km²</div><div class="label">Land Area</div></div>
+          <div class="welcome-stat"><div class="num">10,000</div><div class="label">Population</div></div>
+          <div class="welcome-stat"><div class="num">3,000+</div><div class="label">Years of History</div></div>
+          <div class="welcome-stat"><div class="num">53°E</div><div class="label">Just South of Equator</div></div>
+        </div>
+      </div>
+      <div style="background:rgba(201,169,78,0.05);border-radius:20px;padding:40px;border:1px solid rgba(201,169,78,0.1);">
+        <p style="font-size:1.8rem;font-family:'Playfair Display',serif;font-style:italic;color:#C9A94E;margin-bottom:1.5rem;">"God's Will First"</p>
+        <p style="font-size:14px;color:rgba(232,228,222,0.5);font-style:italic;">— National Motto of the Republic of Nauru</p>
+        <hr style="border-color:rgba(201,169,78,0.1);margin:2rem 0;">
+        <p style="font-size:14px;color:rgba(232,228,222,0.6);">Nauru is the world's third-smallest country by area and the second-least populous, after Vatican City. Its phosphate deposits made it one of the wealthiest nations per capita in the 1970s.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:rgba(255,255,255,.02);">
+  <div class="section-inner">
+    <div class="section-label">Discover</div>
+    <h2>Experience the<br>Island Life</h2>
+    <p class="sub">From stunning coral reefs to unique birdlife, from WWII relics to vibrant local culture.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">🏖️</div>
+        <h3>Pristine Beaches</h3>
+        <p>Anibare Bay offers crystal-clear waters and white sandy beaches — perfect for snorkeling, swimming, and sunset walks along the Pacific shoreline.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤿</div>
+        <h3>Coral Reefs</h3>
+        <p>The surrounding reef teems with marine life. Explore underwater caves, vibrant coral gardens, and tropical fish in Nauru's protected lagoon.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <h3>Cultural Heritage</h3>
+        <p>Experience traditional Nauruan dance, music, and crafts. The annual Angam Day and Constitution Day celebrations showcase living culture.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌴</div>
+        <h3>Natural Wonders</h3>
+        <p>Explore the raised coral island's unique ecosystem — from the central plateau to the lush coastal vegetation and incredible bird migration routes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌊</div>
+        <h3>Command Ridge</h3>
+        <p>The highest point at 65 meters offers panoramic views of the entire island. A winding road leads to WWII gun emplacements with stunning ocean vistas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🐟</div>
+        <h3>Pacific Cuisine</h3>
+        <p>Fresh seafood, coconut-based dishes, and tropical fruits define Nauruan cuisine. Don't miss the traditional coconut fish and breadfruit specialties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+  <div class="section-inner" style="max-width:800px;">
+    <div class="section-label">History</div>
+    <h2>3,000 Years of<br>Pacific Heritage</h2>
+    <p class="sub">From ancient Micronesian settlers to phosphate discovery and modern independence.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">~1000 BCE</div>
+        <p>First Micronesian settlers arrive by outrigger canoe from the Caroline Islands.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1798</div>
+        <p>British whaling captain John Fearn discovers Nauru, naming it "Pleasant Island."</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1888</div>
+        <p>Nauru becomes part of the German Empire's Marshall Islands protectorate.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1900</div>
+        <p>Phosphate discovered — the richest deposits in the world, transforming Nauru's future.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1968</div>
+        <p>Nauru gains full independence on January 31, with Hammer DeRoburt as first President.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">1999</div>
+        <p>Nauru joins the United Nations as the world's smallest independent republic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;background:linear-gradient(135deg,rgba(201,169,78,0.08) 0%,transparent 100%);">
+  <div class="section-inner">
+    <div class="section-label">Plan Your Visit</div>
+    <h2>Ready to Discover<br>the Pacific's Best-Kept Secret?</h2>
+    <p class="sub" style="margin:0 auto 2.5rem;">Whether you're drawn by history, nature, or pure adventure — Nauru welcomes you.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="hero-cta">Travel Information →</a>
+      <a href="#" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;border-radius:50px;border:1px solid rgba(255,255,255,.15);font-size:15px;font-weight:500;transition:all.3s;background:transparent;">Accommodation</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-inner" style="max-width:900px;">
+    <div class="section-label">Contact</div>
+    <h2>Get in Touch</h2>
+    <p class="sub">Reach out to the Nauru Tourism Bureau or Government Information Office.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>📍</strong> Government Offices, Yaren District</p>
+        <p><strong>📞</strong> +674 557 3133</p>
+        <p><strong>✉️</strong> info@republicofnauru.com</p>
+        <p style="margin-top:2rem;font-size:13px;color:rgba(232,228,222,0.4);">Monday – Friday, 9:00 AM – 5:00 PM (Nauru Time UTC+12)</p>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" disabled>
+        <input type="email" placeholder="Your Email" disabled>
+        <textarea placeholder="Your Message" disabled></textarea>
+        <button type="button">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Republic of Nauru. All rights reserved. | <a href="#" style="color:rgba(232,228,222,0.4);">Privacy Policy</a> | <a href="#" style="color:rgba(232,228,222,0.4);">Terms of Use</a></p>
+  <p style="margin-top:8px;font-size:12px;color:rgba(232,228,222,0.25);">Website conception for republicofnauru.com — Design Variant V1: Pacific Luxury</p>
+</footer>
+
+</body>
+</html>

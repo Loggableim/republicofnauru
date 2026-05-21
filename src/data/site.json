@@ -1,0 +1,30 @@
+{
+  "name": "Republic of Nauru",
+  "shortName": "nauru·info",
+  "domain": "republicofnauru.com",
+  "motto": "God's Will First",
+  "established": "1968",
+  "flagColors": {
+    "blue": "#002B7F",
+    "yellow": "#FFC72C",
+    "white": "#ffffff"
+  },
+  "stats": [
+    { "num": "21", "label": "km² Area" },
+    { "num": "10k", "label": "Population" },
+    { "num": "65m", "label": "Highest Point" },
+    { "num": "3", "label": "Languages" },
+    { "num": "1968", "label": "Independence" }
+  ],
+  "heroEyebrow": "✦ Republic of Nauru",
+  "heroHeadline": ["Small", "Island.", "Big Heart."],
+  "heroHeadlineOutline": 2,
+  "heroSubtext": "Meet the world's smallest republic — 21 km² of pure Pacific energy. Culture, nature, and the warmest people you'll ever meet. Your independent guide to discovery, travel, and island life.",
+  "heroCta": "Explore Nauru →",
+  "heroFacts": [
+    { "icon": "📍", "text": "Just 53 km south of the equator" },
+    { "icon": "👥", "text": "10,000 islanders" },
+    { "icon": "🏝️", "text": "3,000+ years of history" },
+    { "icon": "✈️", "text": "Flights from Brisbane & Nadi" }
+  ]
+}

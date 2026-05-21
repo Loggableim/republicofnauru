@@ -1,0 +1,10 @@
+[
+  { "icon": "🛂", "title": "Passports & Visas", "desc": "Apply for or renew travel documents" },
+  { "icon": "🏢", "title": "Business Registry", "desc": "Register companies & permits" },
+  { "icon": "🎓", "title": "Education", "desc": "Schools, scholarships & resources" },
+  { "icon": "🏥", "title": "Healthcare", "desc": "Public health & medical services" },
+  { "icon": "🏠", "title": "Housing & Land", "desc": "Property registration assistance" },
+  { "icon": "⚖️", "title": "Legal & Justice", "desc": "Courts, legislation & legal aid" },
+  { "icon": "🌿", "title": "Environment", "desc": "Climate policy & conservation" },
+  { "icon": "🚢", "title": "Transport", "desc": "Maritime, aviation & roads" }
+]

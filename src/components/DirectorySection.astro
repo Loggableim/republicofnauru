@@ -1,0 +1,50 @@
+---
+export interface Props {
+  items: { icon: string; name: string; detail: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section bg-cream">
+  <div class="section-inner">
+    <div class="section-tag">📞 Directory</div>
+    <div class="section-header">
+      <h2>Key Contacts</h2>
+      <p>Important government offices and public services in the Republic of Nauru.</p>
+    </div>
+    <div class="dir-grid">
+      {items.map(item => (
+        <div class="dir-card">
+          <div class="dir-icon">{item.icon}</div>
+          <div>
+            <h3>{item.name}</h3>
+            <p>{item.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .dir-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+  .dir-card {
+    display: flex; align-items: center; gap: 16px;
+    background: #fff; border: 2px solid #1a1a2e;
+    padding: 20px; transition: all .25s; cursor: pointer;
+  }
+  .dir-card:hover { border-color: #FFC72C; transform: translate(-2px, -2px); box-shadow: 4px 4px 0 #002B7F; }
+  .dir-card .dir-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: #FFC72C; display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);
+  }
+  .dir-card h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .dir-card p { font-size: 12px; color: #64748b; }
+  @media (max-width: 768px) {
+    .dir-grid { grid-template-columns: 1fr; }
+  }
+</style>

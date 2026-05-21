@@ -1,0 +1,9 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import accomData from '../../data/accommodation.json';
+---
+
+<SubpageLayout title={accomData.title} description={accomData.subtitle} sectionEmoji="🏨" sectionLabel="Places to Stay" includeTopBar={true} includeFooter={true}>
+  <p set:html={accomData.intro} />
+  {accomData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+</SubpageLayout>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republic of Nauru · Island Vibes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #faf8f0;
+  color: #1a1a2e;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; letter-spacing: -0.03em;
+}
+a { text-decoration: none; color: inherit; }
+
+/* Design Switcher */
+.design-switcher {
+  position: fixed; top: 16px; right: 16px; z-index: 999;
+  display: flex; gap: 8px;
+  background: rgba(250,248,240,.95); backdrop-filter: blur(12px);
+  padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,.08);
+  font-size: 13px; font-weight: 500;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+.design-switcher a {
+  padding: 6px 14px; border-radius: 8px; transition: all .25s;
+  color: #64748b;
+}
+.design-switcher a:hover { color: #1a1a2e; background: #FFC72C; }
+.design-switcher a.active { color: #1a1a2e; background: #FFC72C; font-weight: 600; }
+
+/* Color blocks */
+.bg-yellow { background: #FFC72C; }
+.bg-navy { background: #002B7F; }
+.bg-white { background: #fff; }
+.bg-cream { background: #faf8f0; }
+.text-yellow { color: #FFC72C; }
+.text-navy { color: #002B7F; }
+.text-white { color: #fff; }
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  mix-blend-mode: difference;
+}
+nav .logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700; color: #fff;
+  letter-spacing: -1px;
+}
+nav .menu-icon {
+  width: 32px; height: 20px; display: flex; flex-direction: column; justify-content: space-between;
+  cursor: pointer;
+}
+nav .menu-icon span {
+  display: block; width: 100%; height: 2px; background: #fff; border-radius: 2px;
+  transition: all .3s;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '🇳🇷';
+  position: absolute; font-size: clamp(20rem, 40vw, 50rem);
+  right: -5%; top: -10%; opacity: 0.06; line-height: 1;
+  pointer-events: none;
+}
+.hero-top {
+  flex: 1; display: flex; align-items: center;
+  padding: 120px 48px 0;
+}
+.hero-text {
+  max-width: 800px; position: relative; z-index: 2;
+}
+.hero-text .eyebrow {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 4px; color: #002B7F; margin-bottom: 1.5rem;
+  border: 2px solid #002B7F; padding: 6px 16px; border-radius: 100px;
+}
+.hero-text h1 {
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.95; color: #002B7F;
+  margin-bottom: 1.5rem;
+}
+.hero-text h1 .outline {
+  color: transparent; -webkit-text-stroke: 2px #002B7F;
+}
+.hero-text p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: rgba(0,43,127,0.7); font-weight: 400;
+  max-width: 500px; margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #002B7F; color: #FFC72C;
+  padding: 18px 40px; border-radius: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 16px;
+  clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  transition: all .3s;
+}
+.hero-cta:hover { transform: translateX(4px); }
+
+.hero-bottom {
+  padding: 24px 48px;
+  display: flex; gap: 48px; align-items: center;
+  border-top: 1px solid rgba(0,43,127,0.1);
+}
+.hero-bottom .hb-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600; color: #002B7F;
+}
+
+/* Section general */
+.section { padding: 80px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+/* Tag section */
+.section-tag {
+  display: flex; align-items: center; gap: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 3px; color: #002B7F; margin-bottom: 1.5rem;
+}
+.section-tag::after {
+  content: ''; flex: 1;
+  height: 2px; background: #FFC72C;
+}
+.section h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.0; color: #1a1a2e; margin-bottom: 1rem;
+}
+
+/* Features Grid — asymmetrisch! */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 24px;
+}
+.feature-card {
+  padding: 40px 32px;
+  transition: all .35s; cursor: default;
+}
+.feature-card.bg-navy { color: #fff; }
+.feature-card.bg-yellow { color: #002B7F; }
+.feature-card.bg-white {
+  background: #fff; border: 2px solid #1a1a2e;
+  box-shadow: 6px 6px 0 #1a1a2e;
+}
+.feature-card:first-child { grid-row: span 2; }
+.feature-card .icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+.feature-card h3 {
+  font-size: 1.4rem; margin-bottom: 0.75rem;
+}
+.feature-card p {
+  font-size: 14px; opacity: 0.7; line-height: 1.6;
+}
+
+/* Facts Strip */
+.facts-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border: 2px solid #1a1a2e;
+}
+.fact-item {
+  padding: 32px 24px; text-align: center;
+  border-right: 1px solid #1a1a2e;
+}
+.fact-item:last-child { border-right: none; }
+.fact-item .num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem; font-weight: 700; color: #002B7F;
+}
+.fact-item .label { font-size: 11px; color: #1a1a2e; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+/* Timeline editorial */
+.timeline-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: #1a1a2e;
+}
+.timeline-grid > div {
+  background: #faf8f0; padding: 32px 28px;
+}
+.tl-year {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem; font-weight: 700; color: #FFC72C;
+  margin-bottom: 0.25rem;
+}
+.tl-title { font-weight: 600; font-size: 15px; color: #1a1a2e; }
+.tl-desc { font-size: 13px; color: #64748b; margin-top: 4px; }
+
+/* News editorial */
+.news-stack { display: flex; flex-direction: column; gap: 16px; }
+.news-row {
+  display: grid; grid-template-columns: 80px 1fr 80px;
+  gap: 20px; align-items: center;
+  padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,.06);
+  cursor: pointer; transition: all .25s;
+}
+.news-row:hover { padding-left: 12px; background: rgba(255,199,44,0.08); margin: 0 -12px; padding-right: 12px; border-radius: 12px; }
+.news-row .nr-date { font-size: 13px; font-weight: 600; color: #002B7F; }
+.news-row .nr-title { font-size: 16px; font-weight: 500; }
+.news-row .nr-arrow { font-size: 1.4rem; text-align: right; color: #FFC72C; font-weight: 700; }
+
+/* Culture Grid */
+.culture-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+}
+.culture-card {
+  padding: 48px 32px; text-align: center;
+  transition: all .3s;
+}
+.culture-card:hover { transform: scale(1.02); z-index: 2; }
+.culture-card:nth-child(1) { background: #FFC72C; color: #002B7F; }
+.culture-card:nth-child(2) { background: #002B7F; color: #FFC72C; }
+.culture-card:nth-child(3) { background: #1a1a2e; color: #FFC72C; }
+.culture-card .cc-icon { font-size: 3rem; margin-bottom: 1rem; }
+.culture-card h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.culture-card p { font-size: 13px; opacity: 0.8; line-height: 1.6; }
+
+/* Contact block */
+.contact-block {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; border: 2px solid #1a1a2e;
+}
+.contact-block > div {
+  padding: 24px; background: #fff;
+  border-right: 1px solid #1a1a2e;
+}
+.contact-block > div:last-child { border-right: none; background: #FFC72C; }
+.contact-block h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+.contact-block p { font-size: 13px; color: #475569; }
+.contact-block .big-link {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1.2rem; color: #002B7F;
+}
+
+/* CTA banner */
+.cta-banner {
+  background: #FFC72C; padding: 80px 48px; text-align: center;
+}
+.cta-banner h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #002B7F; line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+  background: #1a1a2e; color: rgba(255,255,255,.4);
+  padding: 48px 48px; text-align: center;
+  font-size: 13px;
+}
+footer a { color: #FFC72C; }
+footer .social {
+  display: flex; justify-content: center; gap: 24px;
+  margin-bottom: 2rem;
+}
+footer .social a {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; transition: all .3s;
+}
+footer .social a:hover { background: #FFC72C; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .hero-top { padding: 100px 24px 0; }
+  .hero-bottom { padding: 16px 24px; flex-wrap: wrap; gap: 16px; }
+  .section { padding: 48px 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .features-grid .feature-card:first-child { grid-row: auto; }
+  .facts-strip { grid-template-columns: repeat(2, 1fr); }
+  .facts-strip .fact-item:nth-child(5) { grid-column: span 2; }
+  .timeline-grid { grid-template-columns: 1fr; }
+  .news-row { grid-template-columns: 1fr; gap: 4px; }
+  .culture-grid { grid-template-columns: 1fr; }
+  .contact-block { grid-template-columns: 1fr; }
+  .contact-block > div { border-right: none; border-bottom: 1px solid #1a1a2e; }
+  .cta-banner { padding: 48px 24px; }
+  .design-switcher { top: auto; bottom: 16px; right: 16px; font-size: 11px; }
+  .design-switcher a { padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">nauru·island</div>
+  <div class="menu-icon">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="design-switcher">
+  <a href="v1-pacific-luxury.html">V1 Luxury</a>
+  <a href="v2-government-portal.html">V2 Official</a>
+  <a href="v3-tropical-vibes.html" class="active">V3 Vibes</a>
+  <a href="v4-hybrid.html">★ V4 Hybrid</a>
+</div>
+
+<section class="hero">
+  <div class="hero-top">
+    <div class="hero-text">
+      <div class="eyebrow">✦ Republic of Nauru</div>
+      <h1>Small<br>Island.<br><span class="outline">Big Heart.</span></h1>
+      <p>Meet the world's smallest republic — 21 km² of pure Pacific energy. Culture, nature, and the warmest people you'll ever meet.</p>
+      <a href="#" class="hero-cta">Dive In →</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-item">📍 Just 53 km south of the equator</div>
+    <div class="hb-item">👥 10,000 islanders</div>
+    <div class="hb-item">🏝️ 3,000+ years of history</div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="section-inner">
+    <div class="section-tag">What Makes Nauru</div>
+    <h2>In a nutshell.</h2>
+    
+    <div class="features-grid" style="margin-top:2.5rem;">
+      <div class="feature-card bg-navy">
+        <div class="icon">🌊</div>
+        <h3>Surrounded by the Pacific</h3>
+        <p>Nauru sits alone in the western Pacific, a raised coral island ringed by a pristine reef. The ocean defines everything here — from our food to our way of life.</p>
+        <p style="margin-top:1rem;">The island's phosphate-rich interior rises to 65 meters at Command Ridge, offering breathtaking 360° views of the endless blue Pacific horizon.</p>
+      </div>
+      <div class="feature-card bg-white">
+        <div class="icon">🤝</div>
+        <h3>Community First</h3>
+        <p>Nauruan culture is built on community bonds, extended family networks, and the traditional concept of <em>engam</em> — mutual support and sharing.</p>
+      </div>
+      <div class="feature-card bg-yellow">
+        <div class="icon">🌿</div>
+        <h3>Natural Rebirth</h3>
+        <p>After decades of phosphate mining, Nauru is reclaiming its landscape through innovative rehabilitation and eco-tourism initiatives.</p>
+      </div>
+      <div class="feature-card bg-white" style="grid-column: span 2;">
+        <div class="icon">★</div>
+        <h3>The Star on the Flag</h3>
+        <p>The 12-pointed star represents Nauru's twelve original tribes. The yellow stripe marks the equator, and the blue field is the Pacific Ocean. "God's Will First" — our national motto since independence in 1968.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream" style="padding-top:0;">
+  <div class="section-inner">
+    <div class="section-tag">Nauru by Numbers</div>
+    <div class="facts-strip">
+      <div class="fact-item"><div class="num">21</div><div class="label">km² Area</div></div>
+      <div class="fact-item"><div class="num">10k</div><div class="label">Population</div></div>
+      <div class="fact-item"><div class="num">65m</div><div class="label">Highest Point</div></div>
+      <div class="fact-item"><div class="num">3</div><div class="label">Languages</div></div>
+      <div class="fact-item"><div class="num">1968</div><div class="label">Independence</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="section-inner">
+    <div class="section-tag">Timeline</div>
+    <h2>How we got here.</h2>
+    <div class="timeline-grid" style="margin-top:2.5rem;">
+      <div>
+        <div class="tl-year">~1000 BCE</div>
+        <div class="tl-title">First Settlers</div>
+        <div class="tl-desc">Micronesian navigators arrive by outrigger canoe from the Caroline Islands.</div>
+      </div>
+      <div>
+        <div class="tl-year">1798</div>
+        <div class="tl-title">"Pleasant Island"</div>
+        <div class="tl-desc">British Captain John Fearn spots Nauru, naming it for its welcoming shores.</div>
+      </div>
+      <div>
+        <div class="tl-year">1900</div>
+        <div class="tl-title">Phosphate Rush</div>
+        <div class="tl-desc">Discovery of the world's richest phosphate deposits changes everything.</div>
+      </div>
+      <div>
+        <div class="tl-year">1968</div>
+        <div class="tl-title">Independence!</div>
+        <div class="tl-desc">Nauru becomes the world's smallest independent republic on January 31.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream">
+  <div class="section-inner">
+    <div class="section-tag">Culture & Life</div>
+    <h2>Vibe of the island.</h2>
+    <div class="culture-grid" style="margin-top:2.5rem;">
+      <div class="culture-card">
+        <div class="cc-icon">🕺</div>
+        <h3>Dance & Music</h3>
+        <p>Traditional Nauruan dance tells stories of the ocean, the harvest, and community life. Rhythmic hip movements and choreographed hand gestures passed down through generations.</p>
+      </div>
+      <div class="culture-card">
+        <div class="cc-icon">🍛</div>
+        <h3>Island Flavors</h3>
+        <p>Coconut, fresh fish, breadfruit, and pandanus — Nauruan cuisine is pure Pacific. Don't leave without trying coconut-crusted reef fish.</p>
+      </div>
+      <div class="culture-card">
+        <div class="cc-icon">🎉</div>
+        <h3>Celebrations</h3>
+        <p>Angam Day (Oct 26) celebrates the Nauruan population reaching 1,500. Constitution Day (May 17) is a week-long festival of culture and community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="section-inner">
+    <div class="section-tag">Latest</div>
+    <h2>News & Stories.</h2>
+    <div class="news-stack" style="margin-top:2rem;">
+      <div class="news-row">
+        <div class="nr-date">May 21</div>
+        <div class="nr-title">Nauru signs Pacific climate resilience deal — $500M fund for island nations</div>
+        <div class="nr-arrow">→</div>
+      </div>
+      <div class="news-row">
+        <div class="nr-date">May 18</div>
+        <div class="nr-title">New eco-tourism trail opens at Anibare Bay — kayaking, snorkeling, guided walks</div>
+        <div class="nr-arrow">→</div>
+      </div>
+      <div class="news-row">
+        <div class="nr-date">May 14</div>
+        <div class="nr-title">2026 National Budget: Record investment in renewable energy & education</div>
+        <div class="nr-arrow">→</div>
+      </div>
+      <div class="news-row">
+        <div class="nr-date">May 10</div>
+        <div class="nr-title">Nauruan artists showcase at Pacific Arts Festival — weaving, carving, dance</div>
+        <div class="nr-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-cream" style="padding-bottom:0;">
+  <div class="section-inner">
+    <div class="section-tag">Connect</div>
+    <h2>Hit us up.</h2>
+    <div class="contact-block" style="margin-top:2rem;">
+      <div>
+        <h4>📍 Visit</h4>
+        <p>Yaren District, Republic of Nauru<br>Mon–Fri, 9AM–5PM</p>
+      </div>
+      <div>
+        <h4>📞 Call</h4>
+        <p>+674 557 3133<br>Switchboard</p>
+      </div>
+      <div>
+        <h4>✉️ Email</h4>
+        <div class="big-link">
+          <span>→</span> info@republicofnauru.com
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Ready for the<br>island life?</h2>
+  <a href="#" class="hero-cta">Plan Your Trip →</a>
+  <p style="margin-top:1.5rem;color:rgba(0,43,127,0.6);font-size:14px;">✈️ Nauru International Airport · Direct flights from Brisbane & Nadi</p>
+</div>
+
+<footer>
+  <div class="social">
+    <a href="#">📷</a>
+    <a href="#">🎵</a>
+    <a href="#">💬</a>
+    <a href="#">📺</a>
+  </div>
+  <p>© 2026 Republic of Nauru · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+  <p style="margin-top:8px;font-size:12px;">Made with ❤️ in the Pacific · republicofnauru.com</p>
+</footer>
+
+</body>
+</html>

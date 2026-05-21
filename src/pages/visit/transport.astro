@@ -1,0 +1,9 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import transportData from '../../data/transport.json';
+---
+
+<SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeTopBar={true} includeFooter={true}>
+  <p>{transportData.intro}</p>
+  {transportData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+</SubpageLayout>

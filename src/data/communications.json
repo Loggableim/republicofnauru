@@ -1,0 +1,27 @@
+{
+  "title": "Communications",
+  "subtitle": "Internet, phone, and staying connected while visiting Nauru",
+  "intro": "Nauru has limited but functional telecommunications infrastructure. While you won't be entirely cut off, expect slower speeds and more limited connectivity than you may be used to.",
+  "sections": [
+    {
+      "heading": "Mobile Phone Service",
+      "content": "The sole mobile network operator in Nauru is Digicel, a Pacific-wide telecommunications company. Digicel Nauru offers 4G LTE coverage in populated areas (primarily the coastal strip), though coverage is limited in the interior plateau.\n\nVisitors can purchase a prepaid SIM card from the Digicel store in Yaren or Aiwo. You will need your passport for registration. SIM cards are available for approximately $5–10 AUD with prepaid data and call credit.\n\nCalling code: +674\n\nInternational roaming may work with some Australian and NZ carriers, but it's expensive and unreliable — a local SIM is recommended for stays of more than a few days."
+    },
+    {
+      "heading": "Internet Connectivity",
+      "content": "Internet access in Nauru is available but notably slower and more expensive than in most developed countries. The island relies on satellite connectivity (Starlink has recently become available in some locations) and a submarine fibre optic cable connection.\n\nTypical internet speeds:\n- Home/business connections: 2–10 Mbps download\n- Mobile data (Digicel 4G): 5–20 Mbps in coverage areas\n- At hotels: variable, often 1–5 Mbps\n\nWi-Fi is available at the Menen Hotel and some guesthouses, but speeds can be inconsistent, especially during peak usage.\n\nFor visitors who need reliable connectivity, consider:\n- Purchasing a Digicel prepaid SIM with data bundle\n- Checking if your accommodation has Starlink (increasingly available)\n- Downloading content (maps, guides, entertainment) before arrival"
+    },
+    {
+      "heading": "Internet Café & Public Access",
+      "content": "Cenpac (the national telecommunications provider) operates an internet café in Yaren where visitors can use computers with internet access for a fee. This is a backup option if your accommodation's internet is unreliable.\n\nSome government buildings and the Nauru Library offer limited public Wi-Fi."
+    },
+    {
+      "heading": "Postal Services",
+      "content": "Nauru Post operates a postal service from its office in Yaren. International mail can be sent and received, though delivery times vary considerably:\n- To/from Australia: 1–3 weeks\n- To/from Europe or North America: 3–6 weeks\n- Tracking is not available for standard mail\n\nCourier services (DHL, FedEx) operate to Nauru but are expensive and subject to customs clearance."
+    },
+    {
+      "heading": "Media & Broadcasting",
+      "content": "Radio Nauru (broadcasting on AM and FM) is the national radio station, providing news, music, and community programming in both Nauruan and English. It can be streamed online at radionauru.nr.\n\nThere is no locally produced television service — satellite TV (Digicel Play) is available in some hotels and homes. International news channels are accessible via satellite.\n\nThe Nauru Bulletin is the government's official newspaper, published periodically and available online through the Government Information Office."
+    }
+  ]
+}

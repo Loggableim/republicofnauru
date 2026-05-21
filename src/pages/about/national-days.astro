@@ -1,0 +1,24 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import ndData from '../../data/national-days.json';
+---
+
+<SubpageLayout
+  title={ndData.title}
+  description={ndData.subtitle}
+  sectionEmoji="🎉"
+  sectionLabel="Calendar"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>{ndData.intro}</p>
+
+  {ndData.sections.map(section => (
+    <>
+      <h2>{section.heading}</h2>
+      {section.content.split('\n\n').map(para => (
+        para.trim() ? <p>{para}</p> : null
+      ))}
+    </>
+  ))}
+</SubpageLayout>

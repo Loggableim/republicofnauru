@@ -1,17 +1,41 @@
 ---
+import Layout from '../layouts/BaseLayout.astro';
+import DesignSwitcher from '../components/DesignSwitcher.astro';
+import TopBar from '../components/TopBar.astro';
+import NewsTicker from '../components/NewsTicker.astro';
+import Hero from '../components/Hero.astro';
+import StickyNav from '../components/StickyNav.astro';
+import NewsSection from '../components/NewsSection.astro';
+import StatsSection from '../components/StatsSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import CultureSection from '../components/CultureSection.astro';
+import TimelineSection from '../components/TimelineSection.astro';
+import DirectorySection from '../components/DirectorySection.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import ContactSection from '../components/ContactSection.astro';
+import Footer from '../components/Footer.astro';
 
+import siteData from '../data/site.json';
+import newsData from '../data/news.json';
+import servicesData from '../data/services.json';
+import cultureData from '../data/culture.json';
+import timelineData from '../data/timeline.json';
+import directoryData from '../data/directory.json';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Republic of Nauru · Visitor Information">
+  <DesignSwitcher />
+  <TopBar />
+  <NewsTicker />
+  <Hero />
+  <StickyNav />
+  <NewsSection news={newsData} />
+  <StatsSection stats={siteData.stats} />
+  <ServicesSection items={servicesData} />
+  <CultureSection items={cultureData} />
+  <TimelineSection items={timelineData} />
+  <DirectorySection items={directoryData} />
+  <CtaBanner />
+  <ContactSection />
+  <Footer />
+</Layout>

@@ -1,0 +1,207 @@
+---
+import siteData from '../data/site.json';
+
+const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, heroFacts } = siteData;
+---
+
+<nav>
+  <a href="/" class="logo">
+    <span class="flag-mini"></span>
+    <span class="logo-text">nauru·info</span>
+  </a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/visit/">Visit</a>
+    <a href="/services/">Services</a>
+    <a href="/news/">News</a>
+    <a href="/contact/" class="btn">Contact</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" type="button">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-top">
+    <div class="hero-text">
+      <div class="eyebrow">{heroEyebrow}</div>
+      <h1>
+        {heroHeadline.map((line, i) => (
+          i === heroHeadlineOutline
+            ? <span class="outline">{line}<br/></span>
+            : <>{line}<br/></>
+        ))}
+      </h1>
+      <p>{heroSubtext}</p>
+      <a href="/about/" class="hero-cta">{heroCta}</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    {heroFacts.map(fact => (
+      <div class="hb-item">{fact.icon} {fact.text}</div>
+    ))}
+  </div>
+</section>
+
+<style>
+  /* ===== NAV ===== */
+  nav {
+    position: absolute; top: 36px; left: 0; right: 0; width: 100%; z-index: 100;
+    padding: 14px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  nav .logo {
+    display: inline-flex; align-items: center; gap: 8px;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+  nav .flag-mini {
+    display: inline-block;
+    width: 28px; height: 18px; border-radius: 2px;
+    background: linear-gradient(180deg, #002B7F 33%, #FFC72C 33% 66%, #002B7F 66%);
+    position: relative; flex-shrink: 0;
+  }
+  nav .flag-mini::after {
+    content: '★'; color: #fff; font-size: 8px;
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  }
+  nav .logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px; font-weight: 700; color: #002B7F;
+    letter-spacing: -0.5px; white-space: nowrap;
+  }
+
+  /* Nav links: flex row, never wrap */
+  nav .nav-links {
+    display: flex; align-items: center; gap: 2px;
+    flex-shrink: 1; min-width: 0;
+  }
+  nav .nav-links a {
+    font-size: 13px; font-weight: 500; color: #475569;
+    padding: 7px 14px; border-radius: 6px;
+    white-space: nowrap; transition: all .2s;
+    text-decoration: none;
+  }
+  nav .nav-links a:hover {
+    color: #002B7F; background: rgba(0,43,127,0.07);
+  }
+  nav .nav-links .btn {
+    background: #002B7F; color: #fff !important;
+    padding: 7px 18px !important; border-radius: 6px; font-weight: 600;
+  }
+  nav .nav-links .btn:hover {
+    background: #001547; color: #fff !important;
+  }
+
+  /* Hamburger: hidden on desktop */
+  .hamburger {
+    display: none;
+    flex-direction: column; justify-content: space-between;
+    width: 26px; height: 18px;
+    background: none; border: none; cursor: pointer;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block; width: 100%; height: 2.5px;
+    background: #002B7F; border-radius: 2px;
+    transition: all .3s;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero::after {
+    content: '🇳🇷';
+    position: absolute; font-size: clamp(20rem, 40vw, 50rem);
+    right: -5%; top: -10%; opacity: 0.06; line-height: 1;
+    pointer-events: none;
+  }
+  .hero-top {
+    flex: 1; display: flex; align-items: center;
+    padding: 110px 48px 0;
+  }
+  .hero-text { max-width: 780px; position: relative; z-index: 2; }
+  .hero-text .eyebrow {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 4px; color: #002B7F; margin-bottom: 1.5rem;
+    border: 2px solid #002B7F; padding: 6px 16px; border-radius: 100px;
+  }
+  .hero-text h1 {
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: 0.95; color: #002B7F;
+    margin-bottom: 1.5rem;
+  }
+  .hero-text .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px #002B7F;
+    paint-order: stroke fill;
+  }
+  .hero-text p {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: rgba(0,43,127,0.7); font-weight: 400;
+    max-width: 520px; margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #002B7F; color: #FFC72C;
+    padding: 18px 40px; border-radius: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 16px;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: all .3s;
+  }
+  .hero-cta:hover { transform: translateX(4px); }
+  .hero-bottom {
+    padding: 24px 48px;
+    display: flex; gap: 48px; align-items: center;
+    border-top: 1px solid rgba(0,43,127,0.1);
+    flex-wrap: wrap;
+  }
+  .hero-bottom .hb-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px; font-weight: 600; color: #002B7F;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 12px 24px; }
+    nav .nav-links a { padding: 6px 10px; font-size: 12px; }
+    nav .logo-text { font-size: 16px; }
+    .hero-bottom { gap: 24px; }
+  }
+
+  @media (max-width: 768px) {
+    nav { top: 60px; }
+    nav .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-top { padding: 80px 24px 0; }
+    .hero-text h1 { font-size: clamp(2.8rem, 12vw, 4.5rem); }
+    .hero-text p { max-width: 100%; }
+    .hero-text .eyebrow { font-size: 10px; padding: 4px 12px; }
+    .hero-cta {
+      padding: 14px 28px; font-size: 14px;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+    .hero-bottom { padding: 14px 20px; gap: 10px; }
+    .hero-bottom .hb-item { font-size: 11px; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 10px 16px; top: 60px; }
+    .hero-top { padding: 70px 16px 0; }
+    .hero-text h1 { font-size: clamp(2.2rem, 14vw, 3.5rem); }
+    .hero-bottom { gap: 6px; }
+    .hero-bottom .hb-item { font-size: 10px; }
+    .hero-cta { padding: 12px 24px; font-size: 13px; width: 100%; justify-content: center; }
+  }
+</style>

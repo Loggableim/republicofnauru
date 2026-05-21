@@ -1,0 +1,34 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import timelineData from '../../data/timeline.json';
+---
+
+<SubpageLayout
+  title="History of Nauru"
+  description="From ancient Micronesian settlement to the modern independent republic — 3,000 years of Pacific heritage"
+  sectionEmoji="📜"
+  sectionLabel="A Nation's Journey"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>Nauru's history spans over three millennia, from the first Micronesian navigators who crossed the Pacific in outrigger canoes, through the upheavals of colonialism and world wars, to its emergence as the world's smallest independent republic. Few nations of any size have a story as dramatic — boom and bust, survival against the odds, and a people whose identity has endured through every challenge.</p>
+
+  <h2>Timeline of Key Events</h2>
+
+  {timelineData.map(entry => (
+    <>
+      <h3>{entry.year} — {entry.title}</h3>
+      <p>{entry.desc}</p>
+    </>
+  ))}
+
+  <h2>Nauru Today</h2>
+  <p>Today's Nauru is a nation in transition. The phosphate wealth that once made it one of the richest nations per capita is largely depleted, leaving behind a landscape of limestone pinnacles on the central plateau and a challenging economic inheritance. Yet Nauru is reinventing itself — as a voice for small island states in the climate crisis, as a steward of some of the Pacific's richest tuna fisheries through the Parties to the Nauru Agreement (PNA), and as a nation exploring sustainable tourism, renewable energy, and new economic partnerships.</p>
+
+  <p>The Nauruan people remain at the heart of the story — resilient, warm, and deeply connected to their heritage. The 12-pointed star on the flag still represents the 12 original tribes. 'God's Will First' remains the national motto. And the spirit of 'Angam' — survival against the odds, returning home, celebrating life — continues to define the Nauruan character.</p>
+
+  <div class="info-box">
+    <h4>🌟 Angam: The Spirit of Survival</h4>
+    <p>The Nauruan word 'Angam' means 'to celebrate' or 'to reach home'. It refers to the survival of the Nauruan people as a distinct community — first after the devastating influenza epidemic of 1920 decimated the population, and again after the tragic relocation to Chuuk during World War II. When the Nauruan population reached the critical threshold of 1,500 — considered the minimum for survival — the nation celebrated Angam Day. Today, October 26 is one of the most significant dates on the Nauruan calendar, a day of dance, song, and profound gratitude for the endurance of the Nauruan people.</p>
+  </div>
+</SubpageLayout>

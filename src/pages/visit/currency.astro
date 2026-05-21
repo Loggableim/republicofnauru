@@ -1,0 +1,11 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import currencyData from '../../data/currency.json';
+---
+
+<SubpageLayout title={currencyData.title} description={currencyData.subtitle} sectionEmoji="💵" sectionLabel="Money Matters" includeTopBar={true} includeFooter={true}>
+  <p>{currencyData.intro}</p>
+  {currencyData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+  <h2>Quick Tips</h2>
+  <ul>{currencyData.quickTips.map(t => <li>{t}</li>)}</ul>
+</SubpageLayout>

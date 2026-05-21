@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Page Not Found · Republic of Nauru">
+  <TopBar />
+  <main class="not-found">
+    <div class="nf-content">
+      <div class="nf-flag">🇳🇷</div>
+      <h1>Page Not Found</h1>
+      <p class="nf-sub">Sorry — this page doesn't exist on our little island.<br>Even the world's smallest republic has its limits.</p>
+      <a href="/" class="nf-btn">Return Home →</a>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 70vh;
+    display: flex; align-items: center; justify-content: center;
+    background: #faf8f0;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .nf-content { max-width: 500px; }
+  .nf-flag { font-size: 5rem; margin-bottom: 1.5rem; }
+  .not-found h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+  }
+  .nf-sub {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .nf-btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: #002B7F; color: #FFC72C;
+    padding: 16px 36px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 15px;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: all .3s;
+    text-decoration: none;
+  }
+  .nf-btn:hover { transform: translateX(4px); }
+</style>

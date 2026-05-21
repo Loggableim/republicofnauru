@@ -1,0 +1,46 @@
+---
+export interface Props {
+  items: { year: string; title: string; desc: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section bg-white">
+  <div class="section-inner">
+    <div class="section-tag">📜 History</div>
+    <div class="section-header">
+      <h2>How we got here.</h2>
+      <p>From ancient Micronesian settlement to independent republic — 3,000 years in four chapters.</p>
+    </div>
+    <div class="timeline-grid">
+      {items.map(item => (
+        <div>
+          <div class="tl-year">{item.year}</div>
+          <div class="tl-title">{item.title}</div>
+          <div class="tl-desc">{item.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: #1a1a2e;
+  }
+  .timeline-grid > div {
+    background: #faf8f0; padding: 32px 28px;
+  }
+  .tl-year {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem; font-weight: 700; color: #FFC72C;
+    margin-bottom: 0.25rem;
+  }
+  .tl-title { font-weight: 600; font-size: 15px; color: #1a1a2e; }
+  .tl-desc { font-size: 13px; color: #64748b; margin-top: 4px; }
+  @media (max-width: 768px) {
+    .timeline-grid { grid-template-columns: 1fr; }
+  }
+</style>

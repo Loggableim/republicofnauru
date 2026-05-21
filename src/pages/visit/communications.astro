@@ -1,0 +1,9 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import commsData from '../../data/communications.json';
+---
+
+<SubpageLayout title={commsData.title} description={commsData.subtitle} sectionEmoji="📡" sectionLabel="Staying Connected" includeTopBar={true} includeFooter={true}>
+  <p>{commsData.intro}</p>
+  {commsData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+</SubpageLayout>

@@ -1,0 +1,31 @@
+{
+  "title": "Our Country",
+  "subtitle": "Geography, climate, and natural features of the world's smallest republic",
+  "intro": "Nauru is a raised coral island in the central Pacific Ocean, located just 53 kilometres south of the equator. With a land area of just 21 square kilometres, it is the world's third-smallest country by area — after Vatican City and Monaco — and the second-least populous after Vatican City. Despite its tiny size, Nauru boasts remarkable geographical features and a unique ecosystem shaped by millions of years of geological activity.",
+  "sections": [
+    {
+      "heading": "Location & Geography",
+      "content": "Nauru lies in Micronesia, northeast of Australia and southwest of the Marshall Islands. Its nearest neighbour is Banaba (Ocean Island) in Kiribati, approximately 300 kilometres to the east. The island is an oval-shaped raised coral atoll, approximately 6 kilometres long and 4 kilometres wide.\n\nThe interior of Nauru is a central plateau — the result of millions of years of seabird guano deposits that transformed into phosphate-rich limestone. This plateau rises to 65 metres at Command Ridge, the highest point on the island. The plateau is surrounded by a narrow coastal strip, 100–300 metres wide, where most of the population lives.\n\nThe entire island is encircled by a fringing coral reef that is exposed at low tide. There is no natural harbour, though small boats can access the island through a ship channel on the western side near Aiwo."
+    },
+    {
+      "heading": "Climate & Weather",
+      "content": "Nauru has a tropical monsoon climate with consistently warm temperatures year-round. Daytime temperatures typically range from 28°C to 35°C, with high humidity. The wet season runs from November to February, associated with the monsoon, while the dry season spans March to October — though rain can occur at any time.\n\nNauru is located in the equatorial belt and is occasionally affected by cyclones, though less frequently than islands further from the equator. Annual rainfall averages approximately 2,000mm, but varies significantly with El Niño and La Niña patterns — severe droughts are not uncommon.\n\nThe average water temperature around the island is a pleasant 28°C, ideal for swimming and snorkeling year-round."
+    },
+    {
+      "heading": "Flora & Fauna",
+      "content": "Nauru's original vegetation has been significantly altered by phosphate mining, but the coastal fringe retains much of its natural character. The island is home to coconut palms, pandanus trees, breadfruit trees, and the indigenous tomano tree (Calophyllum inophyllum), a hardwood species used in traditional carving.\n\nBirdlife is notable — Nauru is on a major Pacific migration route, and species such as the Pacific golden plover, ruddy turnstone, and various terns pass through regularly. The Nauru reed warbler (Acrocephalus rehsei) is the island's only endemic land bird, found nowhere else on Earth.\n\nThe surrounding reef teems with marine life: over 150 species of fish have been recorded in Nauru's waters, including parrotfish, surgeonfish, triggerfish, and the occasional sea turtle. Green sea turtles nest on the island's beaches from November to February."
+    },
+    {
+      "heading": "Environmental Challenges",
+      "content": "Phosphate mining has left approximately 80% of Nauru's land area environmentally degraded. The central plateau is a landscape of jagged limestone pinnacles (known locally as 'dolomite' pinnacles) separated by deep pits — a terrain so hostile that it's been described as a 'moonscape'. Approximately 20–30 years of secondary phosphate deposits remain.\n\nClimate change poses an existential threat to Nauru. Rising sea levels, increased storm intensity, and ocean acidification threaten the coastal zone where 90% of the population lives. Nauru is an active voice in Pacific Islands Forum climate advocacy, pushing for global emissions reductions and climate adaptation funding.\n\nLand rehabilitation is a growing priority. The government requires mining companies to restore mined-out areas, and innovative approaches — including filling pits with waste rock and organic matter — are being explored to reclaim land for future use."
+    }
+  ],
+  "quickFacts": [
+    { "label": "Land Area", "value": "21 km²" },
+    { "label": "Highest Point", "value": "65 m (Command Ridge)" },
+    { "label": "Distance from Equator", "value": "53 km south" },
+    { "label": "Coastline", "value": "30 km" },
+    { "label": "Exclusive Economic Zone", "value": "308,480 km²" },
+    { "label": "Time Zone", "value": "UTC+12" }
+  ]
+}

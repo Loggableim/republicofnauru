@@ -1,0 +1,76 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import newsData from '../../data/news.json';
+---
+
+<SubpageLayout
+  title="News & Stories"
+  description="Latest news, press releases, and stories about the Republic of Nauru"
+  sectionEmoji="📰"
+  sectionLabel="Latest Updates"
+  includeTopBar={true}
+  includeFooter={true}
+>
+  <p>Stay informed with the latest news and developments from the Republic of Nauru — covering government announcements, community stories, cultural events, and international partnerships.</p>
+
+  <h2>Latest Headlines</h2>
+
+  {newsData.map(item => (
+    <article class="news-item">
+      <div class="news-date">{item.date}</div>
+      <h3>{item.emoji} {item.title}</h3>
+      <p>{item.summary}</p>
+      <span class="news-tag">{item.tag}</span>
+    </article>
+  ))}
+
+  <h2>News Archive</h2>
+  <p>For older news and press releases, visit the Government Information Office's media release page at <a href="https://www.nauru.gov.nr/government-information-office/media-release.aspx" target="_blank">nauru.gov.nr</a>, which maintains an archive of official announcements and government statements dating back several years.</p>
+
+  <p>You can also browse the Nauru Bulletin — the government's official newspaper — available in PDF format covering editions from 2019 to the present. These contain a wealth of information about community events, government initiatives, and life on the island.</p>
+
+  <div class="info-box">
+    <h4>📡 Stay Connected</h4>
+    <p>For real-time updates, listen to Radio Nauru (available via live stream at radionauru.nr) or follow the Government Information Office's announcements. The Nauru Bulletin is published periodically and distributed through government offices and online.</p>
+  </div>
+</SubpageLayout>
+
+<style>
+  .news-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .news-item:last-child {
+    border-bottom: none;
+  }
+  .news-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 0.25rem;
+  }
+  .news-item h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+  }
+  .news-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #FFC72C;
+    color: #002B7F;
+    padding: 3px 10px;
+    clip-path: polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);
+    margin-top: 0.5rem;
+  }
+  .news-item p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.7;
+  }
+</style>

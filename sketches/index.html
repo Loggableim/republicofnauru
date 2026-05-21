@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Republic of Nauru · Design Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0c0c1d;
+  color: #e8e4de;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+a { text-decoration: none; color: inherit; }
+
+header {
+  text-align: center; padding: 80px 24px 40px;
+  max-width: 700px; margin: 0 auto;
+}
+header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #FFC72C, #fff, #002B7F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header p { color: rgba(255,255,255,.5); font-size: 15px; }
+header .flag-bar {
+  display: flex; justify-content: center; gap: 0; margin: 2rem auto;
+  width: 200px; height: 8px; border-radius: 4px; overflow: hidden;
+}
+header .flag-bar span { flex: 1; }
+header .flag-bar .blue { background: #002B7F; }
+header .flag-bar .yellow { background: #FFC72C; }
+header .flag-bar .white { background: #fff; }
+
+.grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px 60px;
+}
+.card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px; overflow: hidden;
+  transition: all .35s;
+}
+.card:hover { transform: translateY(-6px); border-color: rgba(255,199,44,0.3); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.card-preview {
+  height: 200px; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
+}
+.card-preview.v1 { background: linear-gradient(135deg, #0a1628, #1a2f4a); }
+.card-preview.v1::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(201,169,78,0.08), transparent);
+}
+.card-preview.v2 { background: linear-gradient(135deg, #002B7F, #003d9e); }
+.card-preview.v3 { background: linear-gradient(135deg, #FFC72C, #FFE082); }
+.card-preview.v4 { background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 40%, #0d2137 100%); }
+.card-preview.v4::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 20% 30%, rgba(255,199,44,0.1) 0%, transparent 70%);
+}
+.card-body { padding: 28px; }
+.card-badge {
+  display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 2px; padding: 4px 12px; border-radius: 100px; margin-bottom: 1rem;
+}
+.card-badge.v1 { background: rgba(201,169,78,0.15); color: #C9A94E; }
+.card-badge.v2 { background: rgba(0,43,127,0.15); color: #6a9bff; }
+.card-badge.v3 { background: rgba(255,199,44,0.15); color: #FFC72C; }
+.card-badge.v4 { background: rgba(255,199,44,0.15); color: #FFC72C; }
+.card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.card p { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.7; margin-bottom: 1.25rem; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.card-tags span {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px;
+  background: rgba(255,255,255,.04); color: rgba(255,255,255,.4);
+}
+.card-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600;
+  transition: all .3s;
+}
+.card-link.v1 { color: #C9A94E; }
+.card-link.v2 { color: #6a9bff; }
+.card-link.v3 { color: #FFC72C; }
+.card-link.v4 { color: #FFC72C; }
+.card-link:hover { gap: 12px; }
+
+.comparison {
+  max-width: 1000px; margin: 0 auto 80px; padding: 0 24px;
+}
+.comparison h2 {
+  text-align: center; margin-bottom: 2rem;
+  font-size: 1.5rem; color: rgba(255,255,255,.6);
+}
+.comparison table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.comparison th {
+  text-align: left; padding: 12px 16px;
+  font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+  color: rgba(255,255,255,.3); border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.comparison td {
+  padding: 16px; border-bottom: 1px solid rgba(255,255,255,.04);
+  color: rgba(255,255,255,.6);
+}
+.comparison td:first-child { color: rgba(255,255,255,.3); font-weight: 500; }
+.comparison .rating { color: #FFC72C; }
+
+.footer-note {
+  text-align: center; padding: 0 24px 60px;
+  font-size: 12px; color: rgba(255,255,255,.2);
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="flag-bar"><span class="blue"></span><span class="yellow"></span><span class="white"></span></div>
+  <h1>Republic of Nauru</h1>
+  <p>Three radically different design concepts for the official website republicofnauru.com</p>
+</header>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-preview v1">🏝️</div>
+    <div class="card-body">
+      <div class="card-badge v1">V1 · Pacific Luxury</div>
+      <h3>Tropical Resort Editorial</h3>
+      <p>Dark navy meets gold — elegant, sophisticated, immersive. Full-screen hero with particle effects, serif typography (Playfair Display), glassmorphism cards, and a resort-like luxury feel. Focused on tourism & discovery.</p>
+      <div class="card-tags">
+        <span>Dunkel</span><span>Gold-Akzente</span><span>Elegant</span><span>Tourismus</span>
+      </div>
+      <a href="v1-pacific-luxury.html" class="card-link v1">Open Live Preview →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview v2">🏛️</div>
+    <div class="card-body">
+      <div class="card-badge v2">V2 · Government Portal</div>
+      <h3>Official State Portal</h3>
+      <p>Clean, trustworthy, accessible. Nauru Blue (#002B7F) as primary — white backgrounds, data-dense layouts, news ticker, service grid, directory & citizen-facing information architecture. Designed for utility & clarity.</p>
+      <div class="card-tags">
+        <span>Hell/Weiß</span><span>Behördlich</span><span>Grid-basiert</span><span>Services</span>
+      </div>
+      <a href="v2-government-portal.html" class="card-link v2">Open Live Preview →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-preview v3">🌴</div>
+    <div class="card-body">
+      <div class="card-badge v3">V3 · Island Vibes</div>
+      <h3>Bold Editorial Magazine</h3>
+      <p>Dominant yellow, Space Grotesk typography, asymmetrical grids, brutalist-inspired edges. Youthful, energetic, social-media-ready. The flag's yellow takes center stage — pure island confidence. Culture & lifestyle focus.</p>
+      <div class="card-tags">
+        <span>Gelb-dominant</span><span>Asymmetrisch</span><span>Bold</span><span>Magazin</span>
+      </div>
+      <a href="v3-tropical-vibes.html" class="card-link v3">Open Live Preview →</a>
+    </div>
+  </div>
+
+  <!-- V4 Hybrid -->
+  <div class="card" style="border-color:rgba(255,199,44,0.4);">
+    <div class="card-preview" style="background:linear-gradient(135deg,#FFC72C 0%,#FFE082 50%,#FFC72C 100%);">★</div>
+    <div class="card-body">
+      <div class="card-badge" style="background:rgba(255,199,44,0.2);color:#FFC72C;">★ V4 · Hybrid</div>
+      <h3>V1 Hero × V2 Government × V3 Editorial</h3>
+      <p>Der ultimative Blend: V1s preisgekrönter Hero (dunkles Navy + Gold) bleibt unangetastet — darunter V2s Informationsarchitektur (Services, Directory, Contact) mit V3s bolden Gelb-Akzenten, Space Grotesk-Section-Headern und asymmetrischem Editorial Design. Kein Kompromiss.</p>
+      <div class="card-tags">
+        <span>Hybrid</span><span>V1 Hero</span><span>V2+V3 Fusion</span><span>★ Empfohlen</span>
+      </div>
+      <a href="v4-pacific-government.html" class="card-link" style="color:#FFC72C;">Open Live Preview →</a>
+    </div>
+  </div>
+</div>
+
+<div class="comparison">
+  <h2>⚖️ Design Comparison</h2>
+  <table>
+    <tr>
+      <th>Dimension</th>
+      <th>V1 · Pacific Luxury</th>
+      <th>V2 · Government Portal</th>
+      <th>V3 · Island Vibes</th>
+      <th>★ V4 · Hybrid</th>
+    </tr>
+    <tr>
+      <td>Atmosphäre</td>
+      <td class="rating">★★★★★ Elegant, luxuriös</td>
+      <td>★★★☆☆ Seriös, vertrauenswürdig</td>
+      <td>★★★★☆ Energetisch, verspielt</td>
+      <td class="rating">★★★★★ Bold + Funktional</td>
+    </tr>
+    <tr>
+      <td>Primärfarbe</td>
+      <td>Navy (#0a1628) + Gold (#C9A94E)</td>
+      <td>Nauru-Blau (#002B7F) + Weiß</td>
+      <td>Gelb (#FFC72C) + Navy</td>
+      <td>Gelb + Navy + Weiß</td>
+    </tr>
+    <tr>
+      <td>Typografie</td>
+      <td>Playfair Display (Serif) · edel</td>
+      <td>Inter (Sans) · funktional</td>
+      <td>Space Grotesk · fett, modern</td>
+      <td>Space Grotesk + Inter</td>
+    </tr>
+    <tr>
+      <td>Layout</td>
+      <td>Zentriert, Fullscreen Hero</td>
+      <td>Grid-basiert, News-Ticker</td>
+      <td>Asymmetrisch, Editorial</td>
+      <td>V3 Hero + V2 Grids</td>
+    </tr>
+    <tr>
+      <td>Informationsdichte</td>
+      <td>Niedrig</td>
+      <td>Hoch</td>
+      <td>Mittel</td>
+      <td>Hoch</td>
+    </tr>
+    <tr>
+      <td>Best for</td>
+      <td>"Traumreiseziel"-Feeling</td>
+      <td>Government Services & Info</td>
+      <td>Island Lifestyle & Culture</td>
+      <td>★ Alles in einem</td>
+    </tr>
+    <tr>
+      <td>Interaktivität</td>
+      <td>Parallax-Partikel, Hover-Karten</td>
+      <td>News-Ticker, Quicklinks</td>
+      <td>Clip-Path CTAs, Hover-States</td>
+      <td>Clip-Path + Hover + Bold Cards</td>
+    </tr>
+  </table>
+</div>
+
+<div class="footer-note">
+  Built with ❤️ for republicofnauru.com · All design variants are concept mockups · Nauru Flag: Blue | Yellow | White
+</div>
+
+</body>
+</html>

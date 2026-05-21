@@ -1,0 +1,40 @@
+---
+export interface Props {
+  locale?: string;
+  accessibility?: boolean;
+  timezone?: string;
+}
+const { locale = 'en', accessibility = true, timezone = 'UTC+12' } = Astro.props;
+---
+
+<div class="top-bar">
+  <a href="/" class="top-bar-brand">🏝️ Republic of Nauru — Visitor Information</a>
+  <span class="top-bar-right">
+    <a href="/about/">About</a>
+    <a href="/visit/">Visit</a>
+    <a href="/contact/">Contact</a>
+    <span class="lang-sep">|</span>
+    <a href="#" class="lang-active">🇬🇧 EN</a>
+    <a href="#" class="lang-inactive">🇳🇷 NA</a>
+  </span>
+</div>
+
+<style>
+  .top-bar {
+    background: #002B7F; color: #fff;
+    font-size: 12px; padding: 8px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .top-bar a { color: rgba(255,255,255,.75); text-decoration: none; }
+  .top-bar a:hover { color: #FFC72C; }
+  .top-bar-brand { color: #fff !important; text-decoration: none; }
+  .top-bar-right { display: flex; align-items: center; gap: 12px; }
+  .lang-sep { color: rgba(255,255,255,.3); }
+  .lang-active { font-weight: 600; color: #FFC72C !important; }
+  .lang-inactive { color: rgba(255,255,255,.5) !important; }
+  .lang-inactive:hover { color: #FFC72C !important; }
+  @media (max-width: 768px) {
+    .top-bar { padding: 8px 20px; flex-direction: column; gap: 4px; font-size: 11px; }
+    .top-bar-brand { font-size: 11px; }
+  }
+</style>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "climate",
+    "date": "May 21, 2026",
+    "title": "Climate Resilience Agreement Signed",
+    "summary": "Nauru joins Pacific Island Forum's $500M climate adaptation fund for coastal protection and renewable energy.",
+    "tag": "Environment",
+    "emoji": "🌊",
+    "imgClass": "eco"
+  },
+  {
+    "id": "budget",
+    "date": "May 18, 2026",
+    "title": "2026 National Budget Approved",
+    "summary": "$120M budget with increased allocations for education, healthcare, and infrastructure development.",
+    "tag": "Economy",
+    "emoji": "📊",
+    "imgClass": "econ"
+  },
+  {
+    "id": "eco-tourism",
+    "date": "May 15, 2026",
+    "title": "Eco-Tourism Initiative Launched",
+    "summary": "New sustainable tourism program boosting eco-friendly travel to Nauru's pristine natural attractions.",
+    "tag": "Tourism",
+    "emoji": "🏝️",
+    "imgClass": "tour"
+  }
+]
