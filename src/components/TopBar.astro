@@ -7,34 +7,49 @@ export interface Props {
 const { locale = 'en', accessibility = true, timezone = 'UTC+12' } = Astro.props;
 ---
 
-<div class="top-bar">
-  <a href="/" class="top-bar-brand">🏝️ Republic of Nauru — Visitor Information</a>
-  <span class="top-bar-right">
-    <a href="/about/">About</a>
-    <a href="/visit/">Visit</a>
-    <a href="/contact/">Contact</a>
-    <span class="lang-sep">|</span>
-    <a href="#" class="lang-active">🇬🇧 EN</a>
-    <a href="#" class="lang-inactive">🇳🇷 NA</a>
-  </span>
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Republic of Nauru — Visitor Information</span>
+    <nav class="topbar-links" aria-label="Utility links">
+      <a href="/about/">About</a>
+      <a href="/visit/">Visit</a>
+      <a href="/contact/">Contact</a>
+      <span class="divider">|</span>
+      <span class="lang-active" aria-current="true">EN</span>
+      <span class="lang-inactive" title="Nauruan translation in progress">NA</span>
+    </nav>
+  </div>
 </div>
 
 <style>
-  .top-bar {
-    background: #002B7F; color: #fff;
-    font-size: 12px; padding: 8px 48px;
-    display: flex; justify-content: space-between; align-items: center;
+  .topbar {
+    background: #002B7F;
+    color: #fff;
+    padding: 10px 48px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
   }
-  .top-bar a { color: rgba(255,255,255,.75); text-decoration: none; }
-  .top-bar a:hover { color: #FFC72C; }
-  .top-bar-brand { color: #fff !important; text-decoration: none; }
-  .top-bar-right { display: flex; align-items: center; gap: 12px; }
-  .lang-sep { color: rgba(255,255,255,.3); }
-  .lang-active { font-weight: 600; color: #FFC72C !important; }
-  .lang-inactive { color: rgba(255,255,255,.5) !important; }
-  .lang-inactive:hover { color: #FFC72C !important; }
+  .topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .topbar-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar a { color: #fff; text-decoration: none; opacity: .85; }
+  .topbar a:hover { opacity: 1; text-decoration: underline; }
+  .divider { opacity: .5; }
+  .lang-active { color: #FFC72C; font-weight: 700; }
+  .lang-inactive { opacity: .7; }
   @media (max-width: 768px) {
-    .top-bar { padding: 8px 20px; flex-direction: column; gap: 4px; font-size: 11px; }
-    .top-bar-brand { font-size: 11px; }
+    .topbar { padding: 10px 20px; }
+    .topbar-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .topbar-links { flex-wrap: wrap; gap: 10px; }
   }
 </style>

@@ -1,4 +1,4 @@
----
+﻿---
 import footerData from '../data/footer.json';
 ---
 
@@ -14,7 +14,7 @@ import footerData from '../data/footer.json';
         {col.title === 'Republic of Nauru' && (
           <div class="social">
             {footerData.social.map(icon => (
-              <a href="#">{icon}</a>
+              <span class="social-icon" aria-hidden="true">{icon}</span>
             ))}
           </div>
         )}
@@ -43,13 +43,13 @@ import footerData from '../data/footer.json';
   footer a:hover { color: #FFC72C; }
   footer p { font-size: 13px; }
   footer .social { display: flex; gap: 12px; margin-top: 1rem; }
-  footer .social a {
+  footer .social .social-icon {
     width: 36px; height: 36px; border-radius: 50%;
     background: rgba(255,255,255,.06);
     display: inline-flex; align-items: center; justify-content: center;
     font-size: 1.1rem;
   }
-  footer .social a:hover { background: #FFC72C; }
+  footer .social .social-icon:hover { background: #FFC72C; color: #1a1a2e; }
   footer .copyright {
     max-width: 1280px; margin: 2rem auto 0; padding-top: 2rem;
     border-top: 1px solid rgba(255,255,255,.06);
@@ -66,3 +66,4 @@ import footerData from '../data/footer.json';
     footer { padding: 32px 24px; }
   }
 </style>
+

@@ -1,0 +1,31 @@
+---
+export interface Props {
+  path: { label: string; url: string }[];
+}
+const { path } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  {path.map((p, i) => (
+    i < path.length - 1
+      ? <><span class="sep">/</span><a href={p.url}>{p.label}</a></>
+      : <><span class="sep">/</span><span class="current">{p.label}</span></>
+  ))}
+</nav>
+
+<style>
+  .breadcrumbs {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: rgba(0,43,127,0.5);
+    margin-bottom: 1rem; flex-wrap: wrap;
+    position: relative; z-index: 2;
+  }
+  .breadcrumbs a {
+    color: rgba(0,43,127,0.6);
+    text-decoration: none; transition: color .2s;
+  }
+  .breadcrumbs a:hover { color: #002B7F; }
+  .breadcrumbs .sep { color: rgba(0,43,127,0.2); }
+  .breadcrumbs .current { color: #002B7F; font-weight: 500; }
+</style>

@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopBar from '../components/TopBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Search · Republic of Nauru" description="Search the Republic of Nauru website">
+  <TopBar />
+  <div class="page-wrapper" id="main-content">
+    <header class="page-header">
+      <a href="/" class="page-back">&#8592; Home</a>
+      <h1>&#128269; Search</h1>
+      <p class="page-subtitle">Find information across the site</p>
+    </header>
+    <main class="page-content">
+      <div class="search-wrapper">
+        <input type="search" id="search-input" placeholder="Search the site..." class="search-input" />
+        <div id="search-results" class="search-results">
+          <div class="search-hint">Type at least 2 characters to search.</div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <Footer />
+</BaseLayout>
+
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var results = document.getElementById('search-results');
+  if (!input || !results) return;
+
+  var timer;
+  input.addEventListener('input', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      var query = input.value.trim();
+      if (query.length < 2) {
+        results.innerHTML = '<div class="search-hint">Type at least 2 characters to search.</div>';
+        return;
+      }
+
+      // Search via Pagefind (loads async)
+      if (!window.pagefind) {
+        var s = document.createElement('script');
+        s.src = '/pagefind/pagefind.js';
+        s.onload = function() {
+          window.pagefind.init().then(function() {
+            doSearch(query);
+          });
+        };
+        document.body.appendChild(s);
+        results.innerHTML = '<div class="no-results">Loading search index...</div>';
+        return;
+      }
+
+      doSearch(query);
+
+      function doSearch(q) {
+        window.pagefind.search(q).then(function(search) {
+          if (!search.results || search.results.length === 0) {
+            results.innerHTML = '<div class="no-results">No results found</div>';
+            return;
+          }
+
+          Promise.all(search.results.slice(0, 10).map(function(r) {
+            return r.data();
+          })).then(function(data) {
+            var items = data.map(function(d) {
+              return '<a href="' + d.url + '" class="result-item">' +
+                '<strong>' + (d.meta && d.meta.title || 'Page') + '</strong>' +
+                (d.excerpt ? '<p>' + d.excerpt.substring(0, 150) + '</p>' : '') + '</a>';
+            });
+            results.innerHTML = items.join('');
+          });
+        });
+      }
+    }, 300);
+  });
+})();
+</script>
+
+<style>
+  .page-wrapper { min-height: 100vh; background: #faf8f0; }
+  .page-header {
+    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
+    padding: 60px 48px 40px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-header::after {
+    content: '\01F50D'; position: absolute;
+    font-size: clamp(15rem, 30vw, 35rem); right: -3%; top: -15%;
+    opacity: 0.06; line-height: 1; pointer-events: none;
+  }
+  .page-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: rgba(0,43,127,0.6);
+    margin-bottom: 1.5rem; transition: all .2s; position: relative; z-index: 2;
+    text-decoration: none;
+  }
+  .page-back:hover { color: #002B7F; gap: 10px; }
+  .page-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700;
+    color: #002B7F; line-height: 1.05; margin-bottom: .75rem; position: relative; z-index: 2;
+  }
+  .page-subtitle { font-size: clamp(0.95rem, 1.5vw, 1.1rem); color: rgba(0,43,127,0.65); position: relative; z-index: 2; }
+  .page-content { padding: 48px; max-width: 700px; margin: 0 auto; }
+  .search-input {
+    width: 100%; padding: 16px 20px; font-size: 18px;
+    border: 2px solid #1a1a2e; border-radius: 0;
+    background: #fff; font-family: inherit;
+    outline: none; transition: box-shadow .2s;
+  }
+  .search-input:focus { box-shadow: 4px 4px 0 #FFC72C; }
+  .search-results { margin-top: 1rem; }
+  .result-item {
+    display: block; padding: 16px; margin-bottom: 8px;
+    background: #fff; border: 2px solid #e2e8f0; text-decoration: none;
+    transition: border-color .2s;
+  }
+  .result-item:hover { border-color: #FFC72C; }
+  .result-item strong { font-size: 15px; color: #002B7F; }
+  .result-item p { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .no-results, .search-hint { padding: 24px; text-align: center; color: #64748b; font-size: 15px; }
+  .search-hint { color: #94a3b8; }
+  @media (max-width: 768px) {
+    .page-header { padding: 40px 24px 30px; }
+    .page-content { padding: 32px 24px; }
+  }
+</style>

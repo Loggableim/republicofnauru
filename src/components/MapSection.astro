@@ -1,0 +1,31 @@
+---
+---
+
+<div id="nauru-map" style="height: 400px; width: 100%; border: 2px solid #1a1a2e; margin: 1.5rem 0;"></div>
+<div style="font-size: 11px; color: #64748b; margin-top: 4px;">&copy; <a href="https://openstreetmap.org/copyright" style="color:#64748b;">OpenStreetMap</a> contributors</div>
+
+<script>
+(function() {
+  const mapEl = document.getElementById('nauru-map');
+  if (!mapEl || typeof L !== 'undefined') return;
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css';
+  document.head.appendChild(link);
+
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js';
+  script.onload = function() {
+    const map = L.map('nauru-map', { zoomControl: true }).setView([-0.5228, 166.9315], 9);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.marker([-0.5228, 166.9315]).addTo(map).bindPopup('<strong>Republic of Nauru</strong><br>Yaren District');
+    L.marker([-0.5472, 166.9190]).addTo(map).bindPopup('Nauru International Airport (INU)');
+    L.marker([-0.5236, 166.9532]).addTo(map).bindPopup('Anibare Bay');
+  };
+  document.body.appendChild(script);
+})();
+</script>

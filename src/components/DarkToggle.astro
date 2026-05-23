@@ -1,0 +1,36 @@
+---
+---
+
+<button id="dark-toggle" class="dark-toggle" aria-label="Toggle dark mode" type="button">&#127769;</button>
+
+<script>
+(function() {
+  var btn = document.getElementById('dark-toggle');
+  var stored = localStorage.getItem('nauru-dark');
+  if (stored === 'dark') document.documentElement.classList.add('dark');
+
+  btn.onclick = function() {
+    document.documentElement.classList.toggle('dark');
+    var isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('nauru-dark', isDark ? 'dark' : 'light');
+    btn.textContent = isDark ? '&#9728;&#65039;' : '&#127769;';
+  };
+
+  if (document.documentElement.classList.contains('dark')) btn.textContent = '&#9728;&#65039;';
+})();
+</script>
+
+<style>
+  .dark-toggle {
+    position: fixed; bottom: 80px; right: 16px; z-index: 999;
+    background: #fff; border: 2px solid #1a1a2e;
+    width: 44px; height: 44px; border-radius: 50%;
+    font-size: 20px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .3s; box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+  .dark-toggle:hover { background: #FFC72C; transform: scale(1.1); }
+  @media (max-width: 768px) {
+    .dark-toggle { bottom: 76px; right: 12px; width: 40px; height: 40px; font-size: 18px; }
+  }
+</style>
