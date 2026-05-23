@@ -4,24 +4,72 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  locale?: string;
 }
 
-const { title = 'Republic of Nauru', description = 'Official portal of the Republic of Nauru' } = Astro.props;
+const {
+  title = 'Republic of Nauru',
+  description = 'Independent visitor information portal for the Republic of Nauru.',
+  locale = 'en',
+} = Astro.props;
+
+const siteUrl = 'https://republicofnauru.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = new URL('/favicon.svg', siteUrl).toString();
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Republic of Nauru',
+  url: siteUrl,
+  inLanguage: locale,
+  description,
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Republic of Nauru (Independent Information Portal)',
+  url: siteUrl,
+  logo: ogImage,
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <meta name="description" content={description}>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content={description} />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Republic of Nauru" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImage} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <slot name="head" />
 </head>
 <body>
-  <slot />
+  <div data-pagefind-body>
+    <slot />
+  </div>
 </body>
 </html>
