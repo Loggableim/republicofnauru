@@ -1,48 +1,59 @@
-﻿---
+---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout
-  title="Plan Your Visit"
-  description="Everything you need to know about travelling to the Republic of Nauru"
-  sectionEmoji="✈️"
-  sectionLabel="Travel Guide"
-  includeTopBar={true}
-  includeFooter={true}
->
-  <p>Planning a trip to the world's smallest republic? You're in for a unique adventure. Nauru offers something genuinely different — pristine coral reefs, fascinating history, warm Pacific hospitality, and the kind of off-the-beaten-path experience that's increasingly rare in our globalised world.</p>
+<SubpageLayout title="Plan Your Visit" description="Everything you need to know about travelling to the Republic of Nauru — visas, money, transport, accommodation, climate and the practical realities on the ground." sectionEmoji="✈️" sectionLabel="Travel Guide" includeTopBar={true} includeFooter={true}>
+  <p>Nauru is tiny, remote and wonderfully unusual. That combination makes trip planning straightforward once the basics are clear — but the basics matter. This page brings together the essential travel decisions you need to make before you book.</p>
+  <div class="callout-grid">
+    <a href="/visit/visa/" class="callout"><h3>Visa first</h3><p>Start with entry requirements and timing.</p></a>
+    <a href="/visit/accommodation/" class="callout"><h3>Book stay early</h3><p>Availability can be more important than price.</p></a>
+    <a href="/visit/transport/" class="callout"><h3>Arrival flow</h3><p>Understand the airport, transfers, and island transport.</p></a>
+    <a href="/visit/currency/" class="callout"><h3>Cash & payments</h3><p>Budgeting matters on a small remote island.</p></a>
+  </div>
 
-  <p>Use the links below to explore each aspect of travel to Nauru in detail.</p>
+  <h2>Before you go</h2>
+  <table>
+    <thead><tr><th>Topic</th><th>What to decide</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>Visa</td><td>Check entry rules and processing times</td><td>Applications can take weeks</td></tr>
+      <tr><td>Accommodation</td><td>Reserve a room before booking flights</td><td>Choice is limited</td></tr>
+      <tr><td>Money</td><td>Bring sufficient cash and backup payment options</td><td>ATMs/cards can be unreliable</td></tr>
+      <tr><td>Packing</td><td>Light clothing, sun protection, rain cover</td><td>Tropical weather changes quickly</td></tr>
+    </tbody>
+  </table>
 
-  <h2>Before You Go</h2>
+  <h2>Practical planning checklist</h2>
   <ul>
-    <li><strong><a href="/visit/visa">Visa Requirements</a></strong> — Everything about entering Nauru, from application to arrival</li>
-    <li><strong><a href="/visit/weather">Weather & Climate</a></strong> — Best time to visit, temperatures, rainfall, and what to pack</li>
-    <li><strong><a href="/visit/currency">Currency & Payments</a></strong> — Australian dollars, cash requirements, and banking</li>
-    <li><strong><a href="/visit/attire">Attire & Dress Code</a></strong> — What to wear in Nauru's tropical climate and cultural settings</li>
+    <li>Check passport validity and visa rules.</li>
+    <li>Book accommodation before finalising flights.</li>
+    <li>Plan a cash budget for food, transport and small extras.</li>
+    <li>Prepare for limited connectivity with offline copies of key documents.</li>
+    <li>Download maps, confirmations and essentials before arrival.</li>
   </ul>
 
-  <h2>When You Arrive</h2>
-  <ul>
-    <li><strong><a href="/visit/transport">Transport</a></strong> — Flights, car hire, taxis, and getting around the island</li>
-    <li><strong><a href="/visit/accommodation">Accommodation</a></strong> — Hotels, guesthouses, and where to stay</li>
-    <li><strong><a href="/visit/communications">Communications</a></strong> — Internet, mobile phones, and staying connected</li>
-  </ul>
-
-  <h2>Quick Travel Tips</h2>
-  <ul>
-    <li>Nauru uses the Australian dollar (AUD) — bring sufficient cash as ATMs are unreliable</li>
-    <li>Book accommodation well in advance (4–8 weeks recommended)</li>
-    <li>Visa applications take 2–6 weeks — apply early</li>
-    <li>Flights arrive from Brisbane (Australia) and Nadi (Fiji) via Nauru Airlines</li>
-    <li>Internet is slow and expensive — download what you need before arrival</li>
-    <li>The best time to visit is May–October (dry season)</li>
-    <li>Nauru is generally safe, but exercise usual precautions with valuables</li>
-  </ul>
+  <h2>Explore the detailed guides</h2>
+  <div class="link-grid">
+    <a href="/visit/visa/">Visa requirements</a>
+    <a href="/visit/weather/">Weather & climate</a>
+    <a href="/visit/currency/">Currency & payments</a>
+    <a href="/visit/attire/">Attire & dress code</a>
+    <a href="/visit/transport/">Transport</a>
+    <a href="/visit/accommodation/">Accommodation</a>
+    <a href="/visit/communications/">Communications</a>
+  </div>
 
   <div class="info-box">
     <h4>✈️ Nauru International Airport (INU)</h4>
-    <p>Located approximately 2 kilometres from Yaren, the airport has a single runway and a small terminal. There are no VIP lounges, air bridges, or extensive duty-free shopping — just basic facilities and a warm welcome to one of the world's most remote destinations. The airport code is INU.</p>
+    <p>The airport is compact and practical rather than polished. Expect a simple arrival process, limited facilities, and a quick transition to your hotel or guesthouse once you land. That simplicity is part of the island experience — but it means planning ahead matters.</p>
   </div>
 </SubpageLayout>
 
+<style>
+  .callout-grid,.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout,.link-grid a{display:block;padding:18px;border:2px solid #1a1a2e;background:#fff;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e}
+  th,td{padding:12px;border-bottom:1px solid rgba(26,26,46,.12);text-align:left;vertical-align:top}
+  th{background:#002B7F;color:#fff}
+  @media (max-width: 720px){.callout-grid,.link-grid{grid-template-columns:1fr}}
+</style>

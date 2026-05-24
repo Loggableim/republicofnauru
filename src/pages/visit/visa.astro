@@ -5,7 +5,30 @@ import visaData from '../../data/visa.json';
 
 <SubpageLayout title={visaData.title} description={visaData.subtitle} sectionEmoji="🛂" sectionLabel="Travel Documents" includeTopBar={true} includeFooter={true}>
   <p set:html={visaData.intro} />
-  {visaData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
-  <h2>Contact</h2>
-  <div class="info-box"><h4>{visaData.contactInfo.department}</h4><p>{visaData.contactInfo.location}<br/>{visaData.contactInfo.phone}<br/>{visaData.contactInfo.notes}</p></div>
+  <div class="callout-grid">
+    <div class="callout"><h3>Prepare documents</h3><p>Passport, supporting papers and any required confirmations should be ready before you apply.</p></div>
+    <div class="callout"><h3>Expect lead time</h3><p>Do not leave the visa process to the last minute — processing can take multiple weeks.</p></div>
+    <div class="callout"><h3>Double-check rules</h3><p>Requirements can change; verify with the responsible authority before departure.</p></div>
+    <div class="callout"><h3>Keep copies</h3><p>Save digital and printed copies of all important documents.</p></div>
+  </div>
+  {visaData.sections.map((s) => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map((p) => (p.trim() ? <p>{p}</p> : null))}
+    </Fragment>
+  ))}<h2>Visa checklist</h2>
+  <ul>
+    <li>Check passport validity.</li>
+    <li>Confirm the current entry requirement for your nationality.</li>
+    <li>Apply with enough lead time.</li>
+    <li>Keep proof of onward travel and accommodation ready.</li>
+  </ul>
+  <div class="info-box"><h4>Contact</h4><p>{visaData.contactInfo.department}<br/>{visaData.contactInfo.location}<br/>{visaData.contactInfo.phone}<br/>{visaData.contactInfo.notes}</p></div>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+</style>

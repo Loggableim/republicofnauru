@@ -1,40 +1,113 @@
-﻿---
+---
 import Layout from '../layouts/BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import NewsTicker from '../components/NewsTicker.astro';
 import Hero from '../components/Hero.astro';
 import StickyNav from '../components/StickyNav.astro';
-import NewsSection from '../components/NewsSection.astro';
-import StatsSection from '../components/StatsSection.astro';
-import ServicesSection from '../components/ServicesSection.astro';
-import CultureSection from '../components/CultureSection.astro';
-import TimelineSection from '../components/TimelineSection.astro';
-import DirectorySection from '../components/DirectorySection.astro';
-import CtaBanner from '../components/CtaBanner.astro';
-import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
-
 import siteData from '../data/site.json';
 import newsData from '../data/news.json';
-import servicesData from '../data/services.json';
-import cultureData from '../data/culture.json';
-import timelineData from '../data/timeline.json';
-import directoryData from '../data/directory.json';
 ---
 
-<Layout title="Republic of Nauru · Visitor Information">
+<Layout title="Republic of Nauru · Visitor Information" description="A practical, independent guide to visiting the Republic of Nauru — visas, transport, accommodation, weather, money and local essentials.">
   <TopBar />
   <NewsTicker />
   <Hero />
   <StickyNav />
-  <NewsSection news={newsData} />
-  <StatsSection stats={siteData.stats} />
-  <ServicesSection items={servicesData} />
-  <CultureSection items={cultureData} />
-  <TimelineSection items={timelineData} />
-  <DirectorySection items={directoryData} />
-  <CtaBanner />
-  <ContactSection />
+
+  <main id="main-content">
+    <section class="section action-hub">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Start here</span>
+          <h2>Plan your trip in five practical steps</h2>
+          <p>Use the sections below as an on-ramp: if you are planning a first visit, this is the fastest path from idea to arrival.</p>
+        </div>
+        <div class="hub-grid">
+          <a class="hub-card" href="/visit/visa/"><span>1</span><h3>Visa & entry</h3><p>Check documents, timing, and application steps.</p></a>
+          <a class="hub-card" href="/visit/accommodation/"><span>2</span><h3>Where to stay</h3><p>Compare accommodation styles and what to book first.</p></a>
+          <a class="hub-card" href="/visit/transport/"><span>3</span><h3>How to get around</h3><p>Arrival flow, airport basics, taxis, and car hire.</p></a>
+          <a class="hub-card" href="/visit/currency/"><span>4</span><h3>Money & budget</h3><p>Cash planning, card reality, and daily spend guidance.</p></a>
+          <a class="hub-card" href="/visit/weather/"><span>5</span><h3>Weather & packing</h3><p>Best months, rainfall, and what to bring.</p></a>
+          <a class="hub-card" href="/search/"><span>⌕</span><h3>Search the site</h3><p>Jump straight to the exact topic you need.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-links bg-white">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Most useful pages</span>
+          <h2>Explore the core visitor content</h2>
+        </div>
+        <div class="link-grid">
+          <a href="/visit/visa/">Visa requirements</a>
+          <a href="/visit/accommodation/">Accommodation guide</a>
+          <a href="/visit/transport/">Transport & arrival</a>
+          <a href="/visit/currency/">Currency & payments</a>
+          <a href="/visit/communications/">Communications</a>
+          <a href="/visit/weather/">Weather & climate</a>
+          <a href="/about/history/">History</a>
+          <a href="/about/culture/">Culture & etiquette</a>
+          <a href="/directory/">Directory</a>
+          <a href="/news/">Updates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-cream">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why this matters</span>
+          <h2>Visitors need facts, not fluff</h2>
+          <p>Nauru is small, remote and logistics-heavy. These pages are designed to answer the questions people actually ask before booking.</p>
+        </div>
+        <div class="facts-grid">
+          <div class="fact-box"><strong>Visa timing</strong><p>Applications can take weeks, so planning early is essential.</p></div>
+          <div class="fact-box"><strong>Cash reality</strong><p>Cards are not something to rely on everywhere on island.</p></div>
+          <div class="fact-box"><strong>Accommodation</strong><p>Options are limited, so availability matters more than choice.</p></div>
+          <div class="fact-box"><strong>Connectivity</strong><p>Internet is functional but not something to build a trip around.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Latest updates</span>
+          <h2>Recent news and practical updates</h2>
+        </div>
+        <div class="news-grid">
+          {newsData.slice(0,3).map((item) => (
+            <a class="news-card" href={`/news/${item.id}/`}>
+              <span class="news-tag">{item.tag}</span>
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
   <Footer />
 </Layout>
 
+<style>
+  .section{padding:72px 24px}
+  .container{max-width:1200px;margin:0 auto}
+  .section-head{max-width:760px;margin-bottom:28px}
+  .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:#002B7F;margin-bottom:12px}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+  p{color:#475569;line-height:1.7}
+  .hub-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .hub-card,.news-card,.link-grid a,.fact-box{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .hub-card span,.news-tag{display:inline-flex;align-items:center;justify-content:center;background:#002B7F;color:#fff;font-weight:700;width:34px;height:34px;border-radius:999px;margin-bottom:12px}
+  .hub-card h3,.news-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .link-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+  .link-grid a{font-weight:600;color:#1a1a2e}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .fact-box strong{display:block;color:#002B7F;margin-bottom:8px}
+  @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}.link-grid{grid-template-columns:1fr 1fr 1fr}}
+  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid,.link-grid{grid-template-columns:1fr}}
+</style>

@@ -5,5 +5,29 @@ import transportData from '../../data/transport.json';
 
 <SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeTopBar={true} includeFooter={true}>
   <p>{transportData.intro}</p>
-  {transportData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+  <div class="callout-grid">
+    <div class="callout"><h3>Arrival flow</h3><p>Land, clear the airport, collect your bags and move straight to your accommodation or arranged pickup.</p></div>
+    <div class="callout"><h3>Island distances</h3><p>Nauru is tiny — transport is less about distance and more about timing, availability and flexibility.</p></div>
+    <div class="callout"><h3>Local tips</h3><p>Keep your hotel contact handy and confirm pickup arrangements before arrival.</p></div>
+    <div class="callout"><h3>Budgeting</h3><p>Short transfers are common; save cash for the occasional taxi or private arrangement.</p></div>
+  </div>
+  {transportData.sections.map((s) => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map((p) => (p.trim() ? <p>{p}</p> : null))}
+    </Fragment>
+  ))}<h2>Transport checklist</h2>
+  <ul>
+    <li>Confirm your arrival and transfer details before departure.</li>
+    <li>Store the airport and accommodation contacts offline.</li>
+    <li>Ask your host about the quickest way from the terminal to your stay.</li>
+    <li>Keep some cash for immediate expenses after arrival.</li>
+  </ul>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+</style>

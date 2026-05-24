@@ -5,5 +5,22 @@ import accomData from '../../data/accommodation.json';
 
 <SubpageLayout title={accomData.title} description={accomData.subtitle} sectionEmoji="🏨" sectionLabel="Places to Stay" includeTopBar={true} includeFooter={true}>
   <p set:html={accomData.intro} />
-  {accomData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
-</SubpageLayout>
+  <div class="callout-grid">
+    <div class="callout"><h3>Book early</h3><p>Rooms are limited; the best strategy is to reserve before you confirm travel.</p></div>
+    <div class="callout"><h3>Match stay to trip</h3><p>Short visits suit simple accommodation; longer stays benefit from better amenities.</p></div>
+    <div class="callout"><h3>Ask about inclusions</h3><p>Confirm breakfast, airport transfers, Wi-Fi and payment methods in advance.</p></div>
+    <div class="callout"><h3>Have a backup</h3><p>Keep one alternative property in mind in case availability changes.</p></div>
+  </div>
+  {accomData.sections.map((s) => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map((p) => (p.trim() ? <p>{p}</p> : null))}
+    </Fragment>
+  ))}</SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+</style>
