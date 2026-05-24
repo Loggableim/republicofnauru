@@ -3,74 +3,49 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import newsData from '../../data/news.json';
 ---
 
-<SubpageLayout
-  title="News & Stories"
-  description="Latest news, press releases, and stories about the Republic of Nauru"
-  sectionEmoji="📰"
-  sectionLabel="Latest Updates"
-  includeTopBar={true}
-  includeFooter={true}
->
-  <p>Stay informed with the latest news and developments from the Republic of Nauru — covering government announcements, community stories, cultural events, and international partnerships.</p>
+<SubpageLayout title="News & Stories" description="Latest news, press releases, and stories about the Republic of Nauru — with clickable article detail pages and practical context for visitors." sectionEmoji="📰" sectionLabel="Latest Updates" includeTopBar={true} includeFooter={true}>
+  <p>Stay informed with the latest news and developments from the Republic of Nauru. Each item below opens a full article page with a practical summary, why it matters, and related topics to explore next.</p>
 
-  <h2>Latest Headlines</h2>
+  <div class="news-lead-grid">
+    {newsData.map(item => (
+      <a href={`/news/${item.id}/`} class="news-item">
+        <div class="news-date">{item.date}</div>
+        <h3>{item.emoji} {item.title}</h3>
+        <p>{item.summary}</p>
+        <div class="news-item-footer">
+          <span class="news-tag">{item.tag}</span>
+          <span class="news-link">Read story →</span>
+        </div>
+      </a>
+    ))}
+  </div>
 
-  {newsData.map(item => (
-    <article class="news-item">
-      <div class="news-date">{item.date}</div>
-      <h3>{item.emoji} {item.title}</h3>
-      <p>{item.summary}</p>
-      <span class="news-tag">{item.tag}</span>
-    </article>
-  ))}
-
-  <h2>News Archive</h2>
-  <p>For older news and press releases, visit the Government Information Office's media release page at <a href="https://www.nauru.gov.nr/government-information-office/media-release.aspx" target="_blank">nauru.gov.nr</a>, which maintains an archive of official announcements and government statements dating back several years.</p>
-
-  <p>You can also browse the Nauru Bulletin — the government's official newspaper — available in PDF format covering editions from 2019 to the present. These contain a wealth of information about community events, government initiatives, and life on the island.</p>
-
+  <h2>Why news matters to visitors</h2>
   <div class="info-box">
-    <h4>📡 Stay Connected</h4>
-    <p>For real-time updates, listen to Radio Nauru (available via live stream at radionauru.nr) or follow the Government Information Office's announcements. The Nauru Bulletin is published periodically and distributed through government offices and online.</p>
+    <h4>📌 Use news as a planning tool</h4>
+    <p>News is most useful when it helps you understand current conditions: infrastructure changes, climate projects, tourism developments and budget decisions can all influence the visitor experience. Treat this section as a context layer for your trip planning.</p>
+  </div>
+
+  <h2>Suggested next pages</h2>
+  <div class="quick-links">
+    <a href="/visit/">Start planning</a>
+    <a href="/about/">About Nauru</a>
+    <a href="/directory/">Directory</a>
+    <a href="/search/">Search the site</a>
   </div>
 </SubpageLayout>
 
 <style>
-  .news-item {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #e2e8f0;
-  }
-  .news-item:last-child {
-    border-bottom: none;
-  }
-  .news-date {
-    font-size: 12px;
-    font-weight: 600;
-    color: #94a3b8;
-    margin-bottom: 0.25rem;
-  }
-  .news-item h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #1a1a2e;
-    margin-bottom: 0.5rem;
-  }
-  .news-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: #FFC72C;
-    color: #002B7F;
-    padding: 3px 10px;
-    clip-path: polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);
-    margin-top: 0.5rem;
-  }
-  .news-item p {
-    font-size: 14px;
-    color: #64748b;
-    line-height: 1.7;
-  }
+  .news-lead-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:1.5rem 0 2rem; }
+  .news-item { display:block; padding:18px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; }
+  .news-item:hover { transform: translate(-2px,-2px); box-shadow:6px 6px 0 #002B7F; }
+  .news-date { font-size:12px; font-weight:600; color:#94a3b8; margin-bottom:8px; }
+  .news-item h3 { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:600; color:#1a1a2e; margin-bottom:0.5rem; }
+  .news-item p { font-size:14px; color:#64748b; line-height:1.7; }
+  .news-item-footer { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-top:12px; }
+  .news-tag { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; background:#FFC72C; color:#002B7F; padding:3px 10px; clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%); }
+  .news-link { font-size:12px; font-weight:700; color:#002B7F; }
+  .quick-links { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:1rem; }
+  .quick-links a { display:block; padding:14px 16px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; font-weight:700; }
+  @media (max-width: 720px) { .news-lead-grid,.quick-links { grid-template-columns:1fr; } }
 </style>

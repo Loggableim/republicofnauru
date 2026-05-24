@@ -12,7 +12,7 @@ export function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-var breadcrumbPath = [
+const breadcrumbPath = [
   { label: 'News', url: '/news/' },
   { label: article.title, url: '/news/' + article.id + '/' },
 ];
@@ -23,7 +23,7 @@ var breadcrumbPath = [
   <div class="page-wrapper" id="main-content">
     <header class="article-header">
       <Breadcrumbs path={breadcrumbPath} />
-      <a href="/news/" class="back-link">&#8592; Back to News</a>
+      <a href="/news/" class="back-link">← Back to News</a>
       <div class="article-meta">
         <span class="article-tag">{article.emoji} {article.tag}</span>
         <span class="article-date">{article.date}</span>
@@ -33,11 +33,25 @@ var breadcrumbPath = [
     </header>
     <main class="article-content">
       <article class="article-body">
-        <p>Full article about <strong>{article.title}</strong>.</p>
-        <p>This article was published on {article.date} and filed under {article.tag}. For more information, visit the official Republic of Nauru government website at nauru.gov.nr.</p>
+        <p><strong>{article.title}</strong> is a headline item for the Republic of Nauru because it touches one of the areas visitors and residents care about most: resilience, budgets, sustainability, or tourism development.</p>
+        <p>For visitors, the key question is simple: what changes on the ground, and what should you do with that information? Use this story as a planning cue, then follow the related links below to the most relevant travel pages.</p>
         <div class="info-box">
-          <h4>&#128161; About this story</h4>
-          <p>This article was published on {article.date} and filed under {article.tag}. Content based on public sources and independent research.</p>
+          <h4>💡 Why this matters</h4>
+          <p>{article.summary} In practical terms, stories like this affect how you prepare, what you pack, and how you plan your stay.</p>
+        </div>
+        <h2>What to look at next</h2>
+        <ul>
+          <li><a href="/visit/">Visit guide</a> — core trip planning.</li>
+          <li><a href="/about/">About Nauru</a> — context on history and culture.</li>
+          <li><a href="/directory/">Directory</a> — essential contacts and resources.</li>
+          <li><a href="/search/">Search</a> — jump to the exact topic you need.</li>
+        </ul>
+        <h2>Related practical questions</h2>
+        <div class="related-grid">
+          <a href="/visit/weather/">How does this affect travel timing?</a>
+          <a href="/visit/visa/">Does this change entry planning?</a>
+          <a href="/visit/accommodation/">Should I book earlier?</a>
+          <a href="/visit/communications/">Will connectivity matter more?</a>
         </div>
       </article>
     </main>
@@ -47,45 +61,21 @@ var breadcrumbPath = [
 
 <style>
   .page-wrapper { min-height: 100vh; background: #faf8f0; }
-  .article-header {
-    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
-    padding: 60px 48px 40px;
-    position: relative; overflow: hidden;
-  }
-  .article-header::after {
-    content: '\01F4F0'; position: absolute;
-    font-size: clamp(15rem, 30vw, 35rem);
-    right: -3%; top: -15%; opacity: 0.06; line-height: 1; pointer-events: none;
-  }
-  .back-link {
-    display: inline-block; font-size: 13px; font-weight: 500;
-    color: rgba(0,43,127,0.6); margin-bottom: 1rem;
-    transition: all .2s; position: relative; z-index: 2;
-  }
-  .back-link:hover { color: #002B7F; }
-  .article-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 1rem; position: relative; z-index: 2; }
-  .article-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #002B7F; background: rgba(0,43,127,.08); padding: 4px 12px; border-radius: 100px; }
-  .article-date { font-size: 13px; color: rgba(0,43,127,.5); }
-  .article-header h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #002B7F;
-    line-height: 1.05; margin-bottom: 1rem; position: relative; z-index: 2;
-  }
-  .article-summary {
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem); color: rgba(0,43,127,.65);
-    max-width: 600px; position: relative; z-index: 2;
-  }
-  .article-content { padding: 48px; }
-  .article-body { max-width: 720px; margin: 0 auto; }
-  .article-body p { font-size: 15px; line-height: 1.8; color: #475569; margin-bottom: 1rem; }
-  .article-body .info-box {
-    background: #fff; border: 2px solid #1a1a2e; padding: 24px; margin: 1.5rem 0;
-    box-shadow: 4px 4px 0 #1a1a2e;
-  }
-  .article-body .info-box h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #002B7F; margin-bottom: .5rem; }
-  .article-body .info-box p { margin-bottom: 0; }
-  @media (max-width: 768px) {
-    .article-header { padding: 40px 24px 30px; }
-    .article-content { padding: 32px 24px; }
-  }
+  .article-header { background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%); padding: 60px 48px 40px; position: relative; overflow: hidden; }
+  .article-header::after { content: '\01F4F0'; position: absolute; font-size: clamp(15rem, 30vw, 35rem); right: -3%; top: -15%; opacity: 0.06; line-height: 1; pointer-events: none; }
+  .back-link { display:inline-block; font-size:13px; font-weight:500; color:rgba(0,43,127,0.6); margin-bottom:1rem; transition:all .2s; position:relative; z-index:2; }
+  .back-link:hover { color:#002B7F; }
+  .article-meta { display:flex; gap:12px; align-items:center; margin-bottom:1rem; position:relative; z-index:2; }
+  .article-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#002B7F; background:rgba(0,43,127,.08); padding:4px 12px; border-radius:100px; }
+  .article-date { font-size:13px; color:rgba(0,43,127,.5); }
+  .article-header h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#002B7F; line-height:1.05; margin-bottom:1rem; position:relative; z-index:2; }
+  .article-summary { font-size:clamp(0.95rem,1.3vw,1.05rem); color:rgba(0,43,127,.65); max-width:600px; position:relative; z-index:2; }
+  .article-content { padding:48px; }
+  .article-body { max-width:720px; margin:0 auto; }
+  .article-body p, .article-body li { font-size:15px; line-height:1.8; color:#475569; margin-bottom:1rem; }
+  .article-body .info-box { background:#fff; border:2px solid #1a1a2e; padding:24px; margin:1.5rem 0; box-shadow:4px 4px 0 #1a1a2e; }
+  .article-body .info-box h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; color:#002B7F; margin-bottom:.5rem; }
+  .related-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:1rem; }
+  .related-grid a { padding:14px 16px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; font-weight:700; color:#002B7F; }
+  @media (max-width: 768px) { .article-header { padding:40px 24px 30px; } .article-content { padding:32px 24px; } .related-grid { grid-template-columns:1fr; } }
 </style>
