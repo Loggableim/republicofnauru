@@ -1,0 +1,21 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Education & Learning" description="Schools, e-learning and study resources." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <p>Schools, e-learning and study resources. This page gives you the practical entry points and the next steps you are most likely to need.</p>
+  <h2>Quick overview</h2>
+  <p>Use this page as a starting point. Verify current procedures with the relevant office before you rely on them.</p>
+  <div class="utility-grid">
+    <a href="/services/">Back to services</a>
+    <a href="/directory/">Directory</a>
+    <a href="/contact/">Contact</a>
+    <a href="/news/">Latest updates</a>
+  </div>
+</SubpageLayout>
+
+<style>
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block}
+  @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
+</style>
