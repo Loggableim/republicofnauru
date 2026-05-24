@@ -9,7 +9,12 @@ import siteData from '../data/site.json';
 import newsData from '../data/news.json';
 ---
 
-<Layout title="Republic of Nauru · Visitor Information" description="A practical, independent guide to visiting the Republic of Nauru — visas, transport, accommodation, weather, money and local essentials.">
+<Layout title="Republic of Nauru · Visitor Information" description="A practical, independent guide to visiting the Republic of Nauru — visas, transport, accommodation, weather, money and local essentials." locale="en">
+  <div class="language-banner">
+    <a href="/" aria-current="page">EN</a>
+    <a href="/na/">NA</a>
+    <span>English is live now; Nauruan content is being rolled out on the main pages.</span>
+  </div>
   <TopBar />
   <NewsTicker />
   <Hero />
@@ -31,6 +36,7 @@ import newsData from '../data/news.json';
           <a class="hub-card" href="/directory/"><span>📞</span><h3>Directory</h3><p>Key contacts and public services.</p></a>
           <a class="hub-card" href="/news/"><span>📰</span><h3>News & updates</h3><p>Current announcements and practical changes.</p></a>
         </div>
+
       </div>
     </section>
 
@@ -96,6 +102,12 @@ import newsData from '../data/news.json';
 </Layout>
 
 <style>
+  .language-banner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:2px solid #1a1a2e}
+  .language-banner a{font-weight:700;color:#002B7F}
+  .language-banner span{color:#475569}
+  .na-callout{margin-top:18px;border:2px solid #1a1a2e;background:#faf8f0;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  .na-callout p{margin:4px 0 0}
+  .na-callout a{font-weight:700;color:#002B7F;white-space:nowrap}
   .section{padding:72px 24px}
   .container{max-width:1200px;margin:0 auto}
   .section-head{max-width:760px;margin-bottom:28px}
@@ -113,3 +125,10 @@ import newsData from '../data/news.json';
   @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}.link-grid{grid-template-columns:1fr 1fr 1fr}}
   @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid,.link-grid{grid-template-columns:1fr}}
 </style>
+        <div class="na-callout">
+          <div>
+            <strong>Dorerin Naoero</strong>
+            <p>We are building a full Nauruan-language version of the main pages. For now, the most important sections are being translated and linked from the English pages.</p>
+          </div>
+          <a href="/na/">Open NA hub →</a>
+        </div>

@@ -1,7 +1,17 @@
 {
   "locales": [
-    { "code": "en", "label": "English", "flag": "🇬🇧", "active": true },
-    { "code": "na", "label": "Dorerin Naoero", "flag": "🇳🇷", "active": false }
+    {
+      "code": "en",
+      "label": "English",
+      "flag": "🇬🇧",
+      "active": true
+    },
+    {
+      "code": "na",
+      "label": "Dorerin Naoero",
+      "flag": "🇳🇷",
+      "active": false
+    }
   ],
   "default": "en",
   "meta": {
@@ -27,28 +37,121 @@
     }
   },
   "nav": {
-    "home": { "en": "Home", "na": "Mwet" },
-    "about": { "en": "About", "na": "Etimine" },
-    "services": { "en": "Services", "na": "Ekauwe" },
-    "tourism": { "en": "Tourism", "na": "Tūrism" },
-    "news": { "en": "News", "na": "Edorer" },
-    "visit": { "en": "Plan Your Visit", "na": "Kain ekawir" },
-    "directory": { "en": "Directory", "na": "Tebor" },
-    "contact": { "en": "Contact", "na": "Kain kõme" },
-    "history": { "en": "History", "na": "Edorer" },
-    "search": { "en": "Search", "na": "Kanek" }
+    "home": {
+      "en": "Home",
+      "na": "Mwet"
+    },
+    "about": {
+      "en": "About",
+      "na": "Etimine"
+    },
+    "services": {
+      "en": "Services",
+      "na": "Ekauwe"
+    },
+    "tourism": {
+      "en": "Tourism",
+      "na": "Tūrism"
+    },
+    "news": {
+      "en": "News",
+      "na": "Edorer"
+    },
+    "visit": {
+      "en": "Plan Your Visit",
+      "na": "Kain ekawir"
+    },
+    "directory": {
+      "en": "Directory",
+      "na": "Tebor"
+    },
+    "contact": {
+      "en": "Contact",
+      "na": "Kain kõme"
+    },
+    "history": {
+      "en": "History",
+      "na": "Edorer"
+    },
+    "search": {
+      "en": "Search",
+      "na": "Kanek"
+    }
   },
   "sections": {
-    "latestNews": { "en": "Latest News", "na": "Edorer Eñin" },
-    "pressAnnouncements": { "en": "Press & Announcements", "na": "Edorer Ijino" },
-    "services": { "en": "Services", "na": "Ekauwe" },
-    "citizenVisitor": { "en": "Citizen & Visitor Services", "na": "Ekauwe ion ñago" },
-    "cultureLife": { "en": "Culture & Life", "na": "Ebõk ion Mwet" },
-    "history": { "en": "History", "na": "Edorer" },
-    "directory": { "en": "Directory", "na": "Tebor" },
-    "contact": { "en": "Contact", "na": "Kain kõme" },
-    "getInTouch": { "en": "Get in Touch", "na": "Kain kõme" },
-    "readyFor": { "en": "Ready for the island life?", "na": "Ekom" },
-    "planYourTrip": { "en": "Plan Your Trip", "na": "Kain ekawir" }
+    "latestNews": {
+      "en": "Latest News",
+      "na": "Edorer Eñin"
+    },
+    "pressAnnouncements": {
+      "en": "Press & Announcements",
+      "na": "Edorer Ijino"
+    },
+    "services": {
+      "en": "Services",
+      "na": "Ekauwe"
+    },
+    "citizenVisitor": {
+      "en": "Citizen & Visitor Services",
+      "na": "Ekauwe ion ñago"
+    },
+    "cultureLife": {
+      "en": "Culture & Life",
+      "na": "Ebõk ion Mwet"
+    },
+    "history": {
+      "en": "History",
+      "na": "Edorer"
+    },
+    "directory": {
+      "en": "Directory",
+      "na": "Tebor"
+    },
+    "contact": {
+      "en": "Contact",
+      "na": "Kain kõme"
+    },
+    "getInTouch": {
+      "en": "Get in Touch",
+      "na": "Kain kõme"
+    },
+    "readyFor": {
+      "en": "Ready for the island life?",
+      "na": "Ekom"
+    },
+    "planYourTrip": {
+      "en": "Plan Your Trip",
+      "na": "Kain ekawir"
+    }
+  },
+  "pages": {
+    "home": {
+      "en": "Home",
+      "na": "Mwet"
+    },
+    "about": {
+      "en": "About Nauru",
+      "na": "Etimine Naoero"
+    },
+    "visit": {
+      "en": "Plan Your Visit",
+      "na": "Kain ekawir"
+    },
+    "services": {
+      "en": "Citizen & Visitor Services",
+      "na": "Ekauwe ion ñago"
+    },
+    "news": {
+      "en": "News & Updates",
+      "na": "Edorer Ijino"
+    },
+    "directory": {
+      "en": "Directory",
+      "na": "Tebor"
+    },
+    "contact": {
+      "en": "Contact",
+      "na": "Kain kõme"
+    }
   }
 }
