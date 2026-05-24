@@ -1,10 +1,11 @@
 ---
-export interface Props {
-  locale?: string;
-  accessibility?: boolean;
-  timezone?: string;
-}
-const { locale = 'en', accessibility = true, timezone = 'UTC+12' } = Astro.props;
+const topics = [
+  { label: 'Visa', href: '/visit/visa/' },
+  { label: 'Weather', href: '/visit/weather/' },
+  { label: 'Budget', href: '/visit/currency/' },
+  { label: 'Culture', href: '/about/culture/' },
+  { label: 'News', href: '/news/' },
+];
 ---
 
 <div class="topbar">
@@ -13,43 +14,34 @@ const { locale = 'en', accessibility = true, timezone = 'UTC+12' } = Astro.props
     <nav class="topbar-links" aria-label="Utility links">
       <a href="/about/">About</a>
       <a href="/visit/">Visit</a>
+      <a href="/news/">Press & Announcements</a>
       <a href="/contact/">Contact</a>
       <span class="divider">|</span>
       <span class="lang-active" aria-current="true">EN</span>
       <span class="lang-inactive" title="Nauruan translation in progress">NA</span>
     </nav>
   </div>
+  <div class="topbar-topics" aria-label="Quick topic links">
+    {topics.map((topic) => (
+      <a href={topic.href} class="topic-pill">{topic.label} →</a>
+    ))}
+  </div>
 </div>
 
 <style>
-  .topbar {
-    background: #002B7F;
-    color: #fff;
-    padding: 10px 48px;
-    font-size: 12px;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-  }
-  .topbar-inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-  .topbar-links {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .topbar a { color: #fff; text-decoration: none; opacity: .85; }
-  .topbar a:hover { opacity: 1; text-decoration: underline; }
-  .divider { opacity: .5; }
-  .lang-active { color: #FFC72C; font-weight: 700; }
-  .lang-inactive { opacity: .7; }
+  .topbar { background:#002B7F; color:#fff; padding:10px 48px; font-size:12px; border-bottom:1px solid rgba(255,255,255,.1); }
+  .topbar-inner { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  .topbar-links { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .topbar a { color:#fff; text-decoration:none; opacity:.85; }
+  .topbar a:hover { opacity:1; text-decoration:underline; }
+  .divider { opacity:.5; }
+  .lang-active { color:#FFC72C; font-weight:700; }
+  .lang-inactive { opacity:.7; }
+  .topbar-topics { max-width:1280px; margin:8px auto 0; display:flex; gap:10px; flex-wrap:wrap; }
+  .topic-pill { display:inline-flex; align-items:center; padding:6px 10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:11px; font-weight:700; }
   @media (max-width: 768px) {
-    .topbar { padding: 10px 20px; }
-    .topbar-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
-    .topbar-links { flex-wrap: wrap; gap: 10px; }
+    .topbar { padding:10px 20px; }
+    .topbar-inner { flex-direction:column; align-items:flex-start; gap:8px; }
+    .topbar-topics { margin-top:10px; }
   }
 </style>

@@ -1,0 +1,22 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Budget, Infrastructure & Public Services" description="A practical look at budget decisions and how they shape everyday life on Nauru." sectionEmoji="📰" sectionLabel="Press Topic" includeTopBar={true} includeFooter={true}>
+  <p>A practical look at budget decisions and how they shape everyday life on Nauru.</p>
+  <h2>What this means</h2>
+  <p>This topic explains spending priorities, public services, and how infrastructure decisions affect mobility, health and planning.</p>
+  <h2>Related pages</h2>
+  <div class="utility-grid">
+    <a href="/news/">Back to news</a>
+    <a href="/visit/">Visit guide</a>
+    <a href="/about/">About Nauru</a>
+    <a href="/directory/">Directory</a>
+  </div>
+</SubpageLayout>
+
+<style>
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block}
+  @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
+</style>

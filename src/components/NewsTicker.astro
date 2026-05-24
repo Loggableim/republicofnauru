@@ -1,96 +1,43 @@
 ---
 export interface Props {
-  items?: { icon: string; text: string }[];
+  items?: { icon: string; text: string; href: string }[];
 }
 
 const defaultItems = [
-  { icon: "🇳🇷", text: "Nauru signs landmark climate resilience agreement with Pacific Island Forum" },
-  { icon: "📰", text: "President addresses UN General Assembly on rising sea levels" },
-  { icon: "🏝️", text: "New eco-tourism initiative launched at Anibare Bay" },
-  { icon: "📊", text: "2026 National Budget approved — focus on infrastructure & education" },
+  { icon: "🇳🇷", text: "Climate resilience agreement and coastal adaptation updates", href: "/news/climate/" },
+  { icon: "📰", text: "Government announcements and public policy updates", href: "/news/budget/" },
+  { icon: "🏝️", text: "Eco-tourism and travel impact stories", href: "/news/eco-tourism/" },
+  { icon: "📊", text: "Budget, infrastructure and education briefing", href: "/news/budget/" },
 ];
 
 const { items = defaultItems } = Astro.props;
-// Duplicate for infinite scroll effect
 const doubled = [...items, ...items];
 ---
 
 <div class="news-ticker">
-  <span class="label">Latest News</span>
+  <a class="label" href="/news/">Latest News</a>
   <div class="scroll">
     <div class="scroll-inner">
       {doubled.map(item => (
-        <span>{item.icon} {item.text}</span>
+        <a href={item.href}>{item.icon} {item.text}</a>
       ))}
     </div>
   </div>
 </div>
 
 <style>
-  .news-ticker {
-    background: #002B7F; 
-    border-bottom: 2px solid #FFC72C;
-    padding: 8px 48px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    overflow: hidden;
-  }
-  .news-ticker .label {
-    background: #FFC72C;
-    color: #002B7F;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 4px 10px;
-    border-radius: 3px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .news-ticker .scroll {
-    overflow: hidden;
-    position: relative;
-    flex: 1;
-  }
-  .news-ticker .scroll-inner {
-    display: flex;
-    gap: 48px;
-    white-space: nowrap;
-    animation: ticker-scroll 30s linear infinite;
-    width: max-content;
-  }
-  .news-ticker .scroll-inner span {
-    font-size: 12px;
-    color: rgba(255,255,255,.85);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  @keyframes ticker-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* Pause on hover */
-  .news-ticker:hover .scroll-inner {
-    animation-play-state: paused;
-  }
-
+  .news-ticker { background:#002B7F; border-bottom:2px solid #FFC72C; padding:8px 48px; display:flex; align-items:center; gap:16px; overflow:hidden; }
+  .news-ticker .label { background:#FFC72C; color:#002B7F; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:4px 10px; border-radius:3px; white-space:nowrap; flex-shrink:0; }
+  .news-ticker .scroll { overflow:hidden; position:relative; flex:1; }
+  .news-ticker .scroll-inner { display:flex; gap:48px; white-space:nowrap; animation:ticker-scroll 30s linear infinite; width:max-content; }
+  .news-ticker .scroll-inner a { font-size:12px; color:rgba(255,255,255,.85); white-space:nowrap; flex-shrink:0; text-decoration:none; }
+  .news-ticker .scroll-inner a:hover { color:#fff; text-decoration:underline; }
+  @keyframes ticker-scroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+  .news-ticker:hover .scroll-inner { animation-play-state:paused; }
   @media (max-width: 768px) {
-    .news-ticker {
-      padding: 6px 20px;
-      gap: 10px;
-    }
-    .news-ticker .label {
-      font-size: 9px;
-      padding: 3px 8px;
-    }
-    .news-ticker .scroll-inner {
-      gap: 24px;
-      animation-duration: 20s;
-    }
-    .news-ticker .scroll-inner span {
-      font-size: 11px;
-    }
+    .news-ticker { padding:6px 20px; gap:10px; }
+    .news-ticker .label { font-size:9px; padding:3px 8px; }
+    .news-ticker .scroll-inner { gap:24px; animation-duration:20s; }
+    .news-ticker .scroll-inner a { font-size:11px; }
   }
 </style>
