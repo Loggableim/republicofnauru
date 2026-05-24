@@ -3,36 +3,45 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import directoryData from '../../data/directory.json';
 ---
 
-<SubpageLayout
-  title="Key Contacts"
-  description="Important government offices and public services in the Republic of Nauru"
-  sectionEmoji="📞"
-  sectionLabel="Directory"
-  includeTopBar={true}
-  includeFooter={true}
->
-  <p>Below are the contact details for key government institutions in Nauru. All offices are located in the Yaren district (the administrative centre) unless otherwise noted. For directory inquiries, contact the Government Information Office switchboard on +674 557 3133.</p>
+<SubpageLayout title="Key Contacts" description="Important government offices and public services in the Republic of Nauru, organised by what you need them for." sectionEmoji="📞" sectionLabel="Directory" includeTopBar={true} includeFooter={true}>
+  <p>Use this directory when you need a real-world contact rather than a broad description. The grouped cards below are designed to tell you what each office is for, when you need it, and where it fits into a trip or research workflow.</p>
 
-  <h2>Government Offices</h2>
+  <h2>Emergency & urgent help</h2>
+  <div class="contact-grid">
+    <div class="contact-card"><h4>🚨 Police</h4><p>Emergency: 110 · Non-emergency: +674 557 3122</p><p>Use for urgent safety, reporting incidents and lost property.</p></div>
+    <div class="contact-card"><h4>🏥 Hospital</h4><p>Emergency: 112 · Appointments: +674 557 3150</p><p>Use for medical help, treatment and general health questions.</p></div>
+    <div class="contact-card"><h4>🔥 Fire Service</h4><p>Emergency: 111</p><p>Use for fire, smoke or immediate hazard response.</p></div>
+    <div class="contact-card"><h4>✈️ Airport</h4><p>Nauru International Airport (INU)</p><p>Use for arrivals, departures and transfer coordination.</p></div>
+  </div>
 
-  {directoryData.map(entry => (
-    <div class="info-box">
-      <h4>{entry.icon} {entry.name}</h4>
-      <p>{entry.detail}</p>
-    </div>
-  ))}
+  <h2>Government offices</h2>
+  <div class="contact-grid">
+    {directoryData.map(entry => (
+      <div class="contact-card">
+        <h4>{entry.icon} {entry.name}</h4>
+        <p>{entry.detail}</p>
+      </div>
+    ))}
+  </div>
 
-  <h2>Additional Contacts</h2>
-  <ul>
-    <li><strong>Parliament of Nauru:</strong> Parliament House, Yaren — +674 557 3000</li>
-    <li><strong>Government Information Office:</strong> Media inquiries, publications, and public communications — +674 557 3133 ext. 307</li>
-    <li><strong>Nauru Immigration:</strong> Visa and entry permit inquiries — Email via Department of Immigration, Government Complex, Yaren</li>
-    <li><strong>Nauru Port Authority:</strong> Shipping, cargo, and maritime services — Aiwo District</li>
-    <li><strong>Nauru Police Force:</strong> Emergency: 110 | Non-emergency: +674 557 3122</li>
-    <li><strong>Nauru General Hospital:</strong> Emergency: 112 | Appointments: +674 557 3150</li>
-    <li><strong>Fire Service:</strong> Emergency: 111</li>
-  </ul>
+  <h2>When to use the directory</h2>
+  <div class="utility-grid">
+    <a href="/visit/visa/" class="utility-card"><h3>Before travel</h3><p>Check visa and immigration touchpoints.</p></a>
+    <a href="/visit/transport/" class="utility-card"><h3>On arrival</h3><p>Coordinate transfer or local transport.</p></a>
+    <a href="/about/" class="utility-card"><h3>Background</h3><p>Understand institutions and country context.</p></a>
+    <a href="/news/" class="utility-card"><h3>Current context</h3><p>Look at announcements and updates.</p></a>
+  </div>
 
-  <h2>Government Email</h2>
-  <p>Government email addresses follow the format <strong>firstname.lastname@nauru.gov.nr</strong>. For general inquiries, contact the Government Information Office which can direct your message to the appropriate department.</p>
+  <div class="info-box">
+    <h4>📌 Practical note</h4>
+    <p>Contact details can change. Use the directory as a starting point, then verify the latest details with the relevant office before you depend on them.</p>
+  </div>
 </SubpageLayout>
+
+<style>
+  .contact-grid,.utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .contact-card,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .contact-card h4,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .contact-card p{margin:0 0 8px;line-height:1.7;color:#475569}
+  @media (max-width: 720px){.contact-grid,.utility-grid{grid-template-columns:1fr}}
+</style>

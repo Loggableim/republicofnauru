@@ -31,4 +31,21 @@ import timelineData from '../../data/timeline.json';
     <h4>🌟 Angam: The Spirit of Survival</h4>
     <p>The Nauruan word 'Angam' means 'to celebrate' or 'to reach home'. It refers to the survival of the Nauruan people as a distinct community — first after the devastating influenza epidemic of 1920 decimated the population, and again after the tragic relocation to Chuuk during World War II. When the Nauruan population reached the critical threshold of 1,500 — considered the minimum for survival — the nation celebrated Angam Day. Today, October 26 is one of the most significant dates on the Nauruan calendar, a day of dance, song, and profound gratitude for the endurance of the Nauruan people.</p>
   </div>
+
+
+  <h2>Next steps</h2>
+  <div class="utility-grid">
+    <a href="/visit/" class="utility-card"><h3>Plan a visit</h3><p>Turn context into a practical trip plan.</p></a>
+    <a href="/directory/" class="utility-card"><h3>Open the directory</h3><p>Find the key contacts and services.</p></a>
+    <a href="/news/" class="utility-card"><h3>Read updates</h3><p>See current news and story context.</p></a>
+    <a href="/search/" class="utility-card"><h3>Search the site</h3><p>Jump to a specific fact or page.</p></a>
+  </div>
 </SubpageLayout>
+
+
+<style>
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
+</style>

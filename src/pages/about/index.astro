@@ -3,20 +3,11 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import siteData from '../../data/site.json';
 ---
 
-<SubpageLayout
-  title="About Nauru"
-  description="Discover the world's smallest republic — its land, people, history, and culture"
-  sectionEmoji="🏝️"
-  sectionLabel="Republic of Nauru"
-  includeTopBar={true}
-  includeFooter={true}
->
-  <p>Nauru is a tiny island nation in the central Pacific Ocean. With just 21 square kilometres of land and a population of approximately 10,000, it is the world's third-smallest country by area and the second-least populous — but what it lacks in size, it more than makes up for in character, history, and natural beauty.</p>
-
-  <p>Known as "Pleasant Island" to its first European visitors, Nauru has a story that spans over 3,000 years — from the first Micronesian navigators who crossed vast oceans in outrigger canoes, through colonial rule, phosphate-driven wealth, world war occupation, and its emergence as an independent republic. Today, Nauru is a nation looking to the future, balancing its rich heritage with the challenges of climate change, economic diversification, and cultural preservation.</p>
+<SubpageLayout title="About Nauru" description="Discover the world's smallest republic — its land, people, history, and culture, with practical context for travellers and researchers." sectionEmoji="🏝️" sectionLabel="Republic of Nauru" includeTopBar={true} includeFooter={true}>
+  <p>Nauru is a tiny island nation in the central Pacific Ocean, but its story is unusually large: settlement, phosphate boom, war, independence, climate pressure and cultural resilience all shape the country today.</p>
+  <p>Use this section as a context hub: if you are visiting, researching, or simply trying to understand the island better, the pages below give you the background and the practical implications in one place.</p>
 
   <h2>Quick Facts</h2>
-
   <div class="fact-grid">
     {siteData.stats.map(stat => (
       <div class="fact">
@@ -27,22 +18,41 @@ import siteData from '../../data/site.json';
   </div>
 
   <h2>Explore Nauru</h2>
-  <p>Use the links below to dive deeper into different aspects of the Republic of Nauru:</p>
+  <div class="link-grid">
+    <a href="/about/our-country/">Our Country</a>
+    <a href="/about/history/">History</a>
+    <a href="/about/the-people/">The People</a>
+    <a href="/about/culture/">Culture & Heritage</a>
+    <a href="/about/economy/">Economy</a>
+    <a href="/about/national-days/">National Days</a>
+  </div>
 
-  <ul>
-    <li><strong><a href="/about/our-country">Our Country</a></strong> — Geography, climate, flora, fauna, and environmental challenges</li>
-    <li><strong><a href="/about/history">History</a></strong> — From ancient settlement to independence and beyond — the full timeline</li>
-    <li><strong><a href="/about/the-people">The People</a></strong> — Population, language, social structure, and the 12 original tribes</li>
-    <li><strong><a href="/about/culture">Culture & Heritage</a></strong> — Dance, music, cuisine, celebrations, handicrafts, and community life</li>
-    <li><strong><a href="/about/economy">Economy</a></strong> — Phosphate, fisheries, aid, and the path to a diversified future</li>
-    <li><strong><a href="/about/national-days">National Days</a></strong> — Independence Day, Constitution Day, Angam Day, and public holidays</li>
-  </ul>
+  <h2>Start with the practical angle</h2>
+  <div class="utility-grid">
+    <a href="/visit/visa/" class="utility-card"><h3>Before arrival</h3><p>Visa rules, documents and timing.</p></a>
+    <a href="/visit/accommodation/" class="utility-card"><h3>Where to stay</h3><p>Find a place that matches your trip length.</p></a>
+    <a href="/directory/" class="utility-card"><h3>Useful contacts</h3><p>Government offices and public services.</p></a>
+    <a href="/search/" class="utility-card"><h3>Search the site</h3><p>Jump to the exact topic you need.</p></a>
+  </div>
 
   <h2>The National Flag</h2>
-  <p>The flag of Nauru is a powerful symbol of the nation's identity. The blue field represents the Pacific Ocean, the yellow stripe marks Nauru's position just 53 kilometres south of the equator, and the white 12-pointed star symbolises the 12 original tribes that have inhabited the island for centuries. The flag was adopted on January 31, 1968 — Nauru's Independence Day.</p>
+  <p>The blue field represents the Pacific Ocean, the yellow stripe marks Nauru's position just south of the equator, and the white 12-pointed star symbolises the 12 original tribes. The design is simple, memorable and deeply tied to identity.</p>
 
   <div class="info-box">
     <h4>🌟 "God's Will First"</h4>
-    <p>The national motto of the Republic of Nauru reflects the deep Christian faith of the Nauruan people. It appears on the national coat of arms, which also features symbols of the island's traditional governance, phosphate mining, and the frigate bird — a symbol of freedom and the Pacific.</p>
+    <p>The national motto appears on the coat of arms alongside symbols of governance, phosphate history and the frigate bird — all central to modern Nauruan identity.</p>
   </div>
 </SubpageLayout>
+
+<style>
+  .fact-grid,.link-grid,.utility-grid{display:grid;gap:16px}
+  .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
+  .fact,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#002B7F}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
+  .link-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:1rem 0 2rem}
+  .link-grid a{border:2px solid #1a1a2e;background:#fff;padding:14px 16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700}
+  .utility-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
+  .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.fact-grid,.link-grid,.utility-grid{grid-template-columns:1fr}}
+</style>
