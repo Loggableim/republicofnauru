@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import TopBar from '../../components/TopBar.astro';
+import Footer from '../../components/Footer.astro';
+import StickyNav from '../../components/StickyNav.astro';
+import newsData from '../../data/news.json';
+---
+
+<Layout title="Republik Naoero · Taramit Ñago" description="Dorerin Naoero: a practical bilingual hub for travel, services, news and island context." locale="na">
+  <div class="language-banner">
+    <a href="/">EN</a>
+    <a href="/na/" aria-current="page">NA</a>
+    <span>Dorerin Naoero e eñin. English fallback is always one click away.</span>
+  </div>
+
+  <TopBar locale="na" />
+  <StickyNav locale="na" />
+
+  <main id="main-content">
+    <section class="hero-na">
+      <div class="container">
+        <p class="eyebrow">✦ Republik Naoero</p>
+        <h1>Small island.<br/><span>Big heart.</span></h1>
+        <p class="hero-copy">Dorerin Naoero i eñin: use this hub for travel planning, citizen services, local context and the newest announcements. The pages below open the practical routes first.</p>
+        <div class="hero-actions">
+          <a href="/na/visit/" class="cta primary">Kain ekawir</a>
+          <a href="/na/services/" class="cta">Ekauwe ion ñago</a>
+          <a href="/na/news/" class="cta">Edorer Ijino</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Kain ekawir</span>
+          <h2>Quick access</h2>
+          <p>Jump directly to the pages people need most: visas, accommodation, transport, contacts and current news.</p>
+        </div>
+        <div class="hub-grid">
+          <a class="hub-card" href="/na/visit/visa/"><span>🛂</span><h3>Viza</h3><p>Entry rules and travel documents.</p></a>
+          <a class="hub-card" href="/na/services/"><span>🛠️</span><h3>Ekauwe ion ñago</h3><p>Citizen and visitor services.</p></a>
+          <a class="hub-card" href="/na/directory/"><span>📞</span><h3>Tebor</h3><p>Key contacts and offices.</p></a>
+          <a class="hub-card" href="/na/about/"><span>🏝️</span><h3>Etimine Naoero</h3><p>Country, people and history.</p></a>
+          <a class="hub-card" href="/na/news/"><span>📰</span><h3>Edorer Ijino</h3><p>Announcements and context.</p></a>
+          <a class="hub-card" href="/na/search/"><span>🔎</span><h3>Kanek</h3><p>Search the site fast.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-cream">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Etimine Naoero</span>
+          <h2>What you need to know first</h2>
+          <p>Nauru is small, remote and logistics-heavy. Planning early makes a real difference for visitors and residents alike.</p>
+        </div>
+        <div class="facts-grid">
+          <div class="fact-box"><strong>Visa timing</strong><p>Apply early and verify rules before departure.</p></div>
+          <div class="fact-box"><strong>Accommodation</strong><p>Reserve first, then confirm flights.</p></div>
+          <div class="fact-box"><strong>Cash & payments</strong><p>Bring cash and a backup method.</p></div>
+          <div class="fact-box"><strong>Connectivity</strong><p>Save offline copies of key documents.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Edorer eñin</span>
+          <h2>Latest stories with practical context</h2>
+          <p>Use the news feed as a planning cue — what is changing, and what does it mean for your trip or request?</p>
+        </div>
+        <div class="news-grid">
+          {newsData.slice(0,3).map((item) => (
+            <a class="news-card" href={`/na/news/${item.id}/`}>
+              <span class="news-tag">{item.tag}</span>
+              <h3>{item.emoji} {item.title}</h3>
+              <p>{item.summary}</p>
+              <span class="news-link">Open story →</span>
+            </a>
+          ))}
+        </div>
+        <div class="na-callout">
+          <div>
+            <strong>Dorerin Naoero</strong>
+            <p>The Nauruan-language hub now leads the main pages. Use it first; switch to EN whenever you need the fallback or a cross-check.</p>
+          </div>
+          <a href="/">Open EN hub →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .language-banner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:2px solid #1a1a2e}
+  .language-banner a{font-weight:700;color:#002B7F}
+  .language-banner span{color:#475569}
+  .section{padding:72px 24px}
+  .container{max-width:1200px;margin:0 auto}
+  .section-head{max-width:760px;margin-bottom:28px}
+  .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:#002B7F;margin-bottom:12px}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
+  p{color:#475569;line-height:1.7}
+  .hero-na{padding:96px 24px 72px;background:linear-gradient(135deg,#FFC72C 0%,#FFE082 50%,#FFC72C 100%);position:relative;overflow:hidden}
+  .hero-na::after{content:'🇳🇷';position:absolute;font-size:clamp(18rem,36vw,44rem);right:-5%;top:-10%;opacity:.06;line-height:1;pointer-events:none}
+  .hero-na h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,8vw,6.2rem);line-height:.95;color:#002B7F;margin:0 0 1rem;position:relative;z-index:2}
+  .hero-na h1 span{color:transparent;-webkit-text-stroke:2px #002B7F}
+  .hero-copy{max-width:720px;font-size:1.05rem;color:rgba(0,43,127,.72);position:relative;z-index:2}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;position:relative;z-index:2}
+  .cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:2px solid #1a1a2e;background:#fff;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;color:#002B7F}
+  .cta.primary{background:#002B7F;color:#FFC72C}
+  .hub-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .hub-card,.news-card,.fact-box{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .hub-card span,.news-tag{display:inline-flex;align-items:center;justify-content:center;background:#002B7F;color:#fff;font-weight:700;width:34px;height:34px;border-radius:999px;margin-bottom:12px}
+  .hub-card h3,.news-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .news-link{font-size:12px;font-weight:700;color:#002B7F}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .fact-box strong{display:block;color:#002B7F;margin-bottom:8px}
+  .na-callout{margin-top:18px;border:2px solid #1a1a2e;background:#faf8f0;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  .na-callout p{margin:4px 0 0}
+  .na-callout a{font-weight:700;color:#002B7F;white-space:nowrap}
+  @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr}.na-callout{flex-direction:column;align-items:flex-start}.hero-actions{flex-direction:column;align-items:flex-start}.cta{width:100%}}
+</style>
