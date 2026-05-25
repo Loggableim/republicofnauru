@@ -5,7 +5,6 @@ import NewsTicker from '../components/NewsTicker.astro';
 import Hero from '../components/Hero.astro';
 import StickyNav from '../components/StickyNav.astro';
 import Footer from '../components/Footer.astro';
-import siteData from '../data/site.json';
 import newsData from '../data/news.json';
 ---
 
@@ -13,12 +12,12 @@ import newsData from '../data/news.json';
   <div class="language-banner">
     <a href="/" aria-current="page">EN</a>
     <a href="/na/">NA</a>
-    <span>English is live now; Nauruan content is being rolled out on the main pages.</span>
+    <span>English is live now; the Nauruan-language hub is now available for the main pages.</span>
   </div>
-  <TopBar />
+  <TopBar locale="en" />
   <NewsTicker />
   <Hero />
-  <StickyNav />
+  <StickyNav locale="en" />
 
   <main id="main-content">
     <section class="section action-hub">
@@ -36,7 +35,6 @@ import newsData from '../data/news.json';
           <a class="hub-card" href="/directory/"><span>📞</span><h3>Directory</h3><p>Key contacts and public services.</p></a>
           <a class="hub-card" href="/news/"><span>📰</span><h3>News & updates</h3><p>Current announcements and practical changes.</p></a>
         </div>
-
       </div>
     </section>
 
@@ -85,7 +83,8 @@ import newsData from '../data/news.json';
           <h2>What people click most</h2>
           <p>These cards point to the pages that help visitors and citizens move from a vague question to a concrete next step.</p>
         </div>
-        <div class="news-grid">          {newsData.slice(0,3).map((item) => (
+        <div class="news-grid">
+          {newsData.slice(0,3).map((item) => (
             <a class="news-card" href={`/news/${item.id}/`}>
               <span class="news-tag">{item.tag}</span>
               <h3>{item.emoji} {item.title}</h3>
@@ -93,6 +92,13 @@ import newsData from '../data/news.json';
               <span class="news-link">Open story →</span>
             </a>
           ))}
+        </div>
+        <div class="na-callout">
+          <div>
+            <strong>Dorerin Naoero</strong>
+            <p>The Nauruan-language hub is now live for the main pages. Use it for the bilingual navigation and the translated landing pages.</p>
+          </div>
+          <a href="/na/">Open NA hub →</a>
         </div>
       </div>
     </section>
@@ -122,13 +128,7 @@ import newsData from '../data/news.json';
   .link-grid a{font-weight:600;color:#1a1a2e}
   .facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
   .fact-box strong{display:block;color:#002B7F;margin-bottom:8px}
+  .news-link{font-size:12px;font-weight:700;color:#002B7F}
   @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}.link-grid{grid-template-columns:1fr 1fr 1fr}}
-  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid,.link-grid{grid-template-columns:1fr}}
+  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid,.link-grid{grid-template-columns:1fr}.na-callout{flex-direction:column;align-items:flex-start}}
 </style>
-        <div class="na-callout">
-          <div>
-            <strong>Dorerin Naoero</strong>
-            <p>We are building a full Nauruan-language version of the main pages. For now, the most important sections are being translated and linked from the English pages.</p>
-          </div>
-          <a href="/na/">Open NA hub →</a>
-        </div>

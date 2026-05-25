@@ -1,0 +1,78 @@
+---
+import SubpageLayout from '../../../layouts/SubpageLayout.astro';
+import contactData from '../../../data/contact.json';
+---
+
+<SubpageLayout title="Kain kõme" description="Contact the Republic of Nauru guide team — questions, feedback and practical travel help." sectionEmoji="✉️" sectionLabel="Kain kõme" includeTopBar={true} includeFooter={true} locale="na">
+  <p><strong>Kain kõme</strong> is the fastest way to reach us if you have a question about the website, a correction to share, or a practical issue you could not solve on the pages above.</p>
+
+  <h2>Contact information</h2>
+  <ul>
+    <li><strong>{contactData.address}</strong></li>
+    <li><strong>{contactData.phone}</strong></li>
+    <li><strong>{contactData.email}</strong></li>
+    <li><strong>{contactData.hours}</strong></li>
+  </ul>
+
+  <div class="info-box">
+    <h4>{contactData.emergency}</h4>
+    <p>For police, fire or medical emergencies while in Nauru, dial the appropriate emergency number above. For non-urgent medical matters, contact Nauru General Hospital on +674 557 3150.</p>
+  </div>
+
+  <h2>Send us a message</h2>
+  <p>Use the form below to send us a message. Fields marked with * are required.</p>
+
+  <form class="contact-form" action="#" method="post">
+    <input type="text" placeholder="Your Name / Inam" required />
+    <input type="email" placeholder="Your Email / Imel" required />
+    <input type="text" placeholder="Subject / Tema" />
+    <textarea placeholder="Your Message / Mesedj" required></textarea>
+    <button type="button" class="submit-btn">Send Message →</button>
+  </form>
+
+  <h2>Visiting in person?</h2>
+  <p>The Government Information Office is located in the Government Complex in Yaren District. Walk-in visitors are welcome during business hours (Monday–Friday, 9:00 AM – 5:00 PM Nauru Time UTC+12). It is still best to call ahead if you need a specific department.</p>
+</SubpageLayout>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 1.5rem 0;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    border: 2px solid #1a1a2e;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color .25s;
+    background: #fff;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #FFC72C;
+  }
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .submit-btn {
+    background: #002B7F;
+    color: #FFC72C;
+    border: none;
+    padding: 14px 28px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+    transition: all .25s;
+    align-self: flex-start;
+  }
+  .submit-btn:hover {
+    transform: translateX(4px);
+  }
+</style>

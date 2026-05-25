@@ -1,0 +1,52 @@
+---
+import SubpageLayout from '../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Etimine Naoero" description="A Nauruan-language hub for the island's land, people, history and culture — with practical links to the pages visitors and researchers open most." sectionEmoji="🏝️" sectionLabel="Republik Naoero" includeTopBar={true} includeFooter={true} locale="na">
+  <p><strong>Etimine Naoero</strong> is the starting point for the island's context. Use it when you want the background story, the country basics, and the quickest route into the practical visitor pages.</p>
+  <p>The page is structured like a guide: first the country, then the people, then the history, culture and the national days that shape everyday life.</p>
+
+  <h2>Mwet ijo · Quick facts</h2>
+  <div class="fact-grid">
+    <div class="fact"><div class="num">21 km²</div><div class="label">Land area</div></div>
+    <div class="fact"><div class="num">12</div><div class="label">Original tribes</div></div>
+    <div class="fact"><div class="num">1</div><div class="label">Island state</div></div>
+    <div class="fact"><div class="num">2</div><div class="label">Core languages</div></div>
+  </div>
+
+  <h2>Etimine links</h2>
+  <div class="link-grid">
+    <a href="/about/our-country/">Our Country</a>
+    <a href="/about/history/">History</a>
+    <a href="/about/the-people/">The People</a>
+    <a href="/about/culture/">Culture & Heritage</a>
+    <a href="/about/economy/">Economy</a>
+    <a href="/about/national-days/">National Days</a>
+  </div>
+
+  <h2>Practical shortcuts</h2>
+  <div class="utility-grid">
+    <a href="/na/visit/" class="utility-card"><h3>Kain ekawir</h3><p>Travel planning, visas and arrival basics.</p></a>
+    <a href="/na/services/" class="utility-card"><h3>Ekauwe ion ñago</h3><p>Fast access to services for citizens and visitors.</p></a>
+    <a href="/na/directory/" class="utility-card"><h3>Tebor</h3><p>Key offices and emergency contacts.</p></a>
+    <a href="/na/news/" class="utility-card"><h3>Edorer Ijino</h3><p>Announcements and current context.</p></a>
+  </div>
+
+  <div class="info-box">
+    <h4>🌟 Flag & identity</h4>
+    <p>The blue field, yellow stripe and white 12-pointed star are the clearest visual summary of Nauru's place in the Pacific and the island's 12 original tribes. The coat of arms and motto keep that identity anchored in state life.</p>
+  </div>
+</SubpageLayout>
+
+<style>
+  .fact-grid,.link-grid,.utility-grid{display:grid;gap:16px}
+  .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
+  .fact,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#002B7F}
+  .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
+  .link-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:1rem 0 2rem}
+  .link-grid a{border:2px solid #1a1a2e;background:#fff;padding:14px 16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700}
+  .utility-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
+  .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.fact-grid,.link-grid,.utility-grid{grid-template-columns:1fr}}
+</style>

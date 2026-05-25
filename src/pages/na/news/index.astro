@@ -1,0 +1,51 @@
+---
+import SubpageLayout from '../../../layouts/SubpageLayout.astro';
+import newsData from '../../../data/news.json';
+---
+
+<SubpageLayout title="Edorer Ijino" description="Nauruan-language news and announcements landing page: current topics, practical context and the stories people click most." sectionEmoji="📰" sectionLabel="Edorer" includeTopBar={true} includeFooter={true} locale="na">
+  <p><strong>Edorer Ijino</strong> gives you the current story layer. Use it when you want to understand what is changing on the island — from budgets and climate projects to tourism and policy updates.</p>
+
+  <div class="news-lead-grid">
+    {newsData.map((item) => (
+      <a href={`/news/${item.id}/`} class="news-item">
+        <div class="news-date">{item.date}</div>
+        <h3>{item.emoji} {item.title}</h3>
+        <p>{item.summary}</p>
+        <div class="news-item-footer">
+          <span class="news-tag">{item.tag}</span>
+          <span class="news-link">Open story →</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <h2>Why news matters</h2>
+  <div class="info-box">
+    <h4>📌 Use news as a planning tool</h4>
+    <p>News is most useful when it gives you the current context: infrastructure changes, climate work, tourism updates and budget decisions can all affect what you need to know before you travel or request a service.</p>
+  </div>
+
+  <h2>Suggested next pages</h2>
+  <div class="quick-links">
+    <a href="/na/visit/">Kain ekawir</a>
+    <a href="/na/about/">Etimine Naoero</a>
+    <a href="/na/directory/">Tebor</a>
+    <a href="/search/">Search the site</a>
+  </div>
+</SubpageLayout>
+
+<style>
+  .news-lead-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:1.5rem 0 2rem; }
+  .news-item { display:block; padding:18px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; }
+  .news-item:hover { transform: translate(-2px,-2px); box-shadow:6px 6px 0 #002B7F; }
+  .news-date { font-size:12px; font-weight:600; color:#94a3b8; margin-bottom:8px; }
+  .news-item h3 { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:600; color:#1a1a2e; margin-bottom:0.5rem; }
+  .news-item p { font-size:14px; color:#64748b; line-height:1.7; }
+  .news-item-footer { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-top:12px; }
+  .news-tag { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; background:#FFC72C; color:#002B7F; padding:3px 10px; clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%); }
+  .news-link { font-size:12px; font-weight:700; color:#002B7F; }
+  .quick-links { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:1rem; }
+  .quick-links a { display:block; padding:14px 16px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; font-weight:700; }
+  @media (max-width: 720px) { .news-lead-grid,.quick-links { grid-template-columns:1fr; } }
+</style>

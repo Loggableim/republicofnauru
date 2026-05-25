@@ -1,0 +1,99 @@
+---
+import SubpageLayout from '../../../layouts/SubpageLayout.astro';
+
+const serviceCards = [
+  {
+    icon: '🛂',
+    label: 'Paspot & visas',
+    desc: 'Entry documents, travel permission and the most common first stop before a trip.',
+    href: '/na/visit/visa/',
+  },
+  {
+    icon: '🎓',
+    label: 'Education',
+    desc: 'Schools, learning pathways and study resources for families and students.',
+    href: '/na/about/',
+  },
+  {
+    icon: '🏥',
+    label: 'Healthcare',
+    desc: 'Public health, medical help and when to use the hospital or emergency services.',
+    href: '/na/directory/',
+  },
+  {
+    icon: '🏢',
+    label: 'Business registry',
+    desc: 'Company registration, permits and government office routing.',
+    href: '/na/directory/',
+  },
+  {
+    icon: '🏠',
+    label: 'Housing & land',
+    desc: 'Property questions, housing support and practical land guidance.',
+    href: '/na/directory/',
+  },
+  {
+    icon: '⚖️',
+    label: 'Legal & justice',
+    desc: 'Courts, legislation, legal support and where to verify current rules.',
+    href: '/na/directory/',
+  },
+  {
+    icon: '🌿',
+    label: 'Environment',
+    desc: 'Climate policy, conservation and island resilience context.',
+    href: '/na/news/',
+  },
+  {
+    icon: '🚢',
+    label: 'Transport',
+    desc: 'Airport, roads and local mobility after arrival on the island.',
+    href: '/na/visit/transport/',
+  },
+];
+---
+
+<SubpageLayout title="Ekauwe ion ñago" description="Quick access to the most requested citizen and visitor services — passports, education, healthcare, housing and the offices people ask for first." sectionEmoji="🛠️" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <p><strong>Ekauwe ion ñago</strong> is the service hub. It points people to the right office faster, so they can move from a question to the next action step without having to search through the whole site.</p>
+
+  <h2>Quick access</h2>
+  <div class="service-grid">
+    {serviceCards.map((svc) => (
+      <a href={svc.href} class="service-card">
+        <h3>{svc.icon} {svc.label}</h3>
+        <p>{svc.desc}</p>
+        <span>Open info page →</span>
+      </a>
+    ))}
+  </div>
+
+  <h2>Next steps</h2>
+  <div class="utility-grid">
+    <a href="/na/directory/" class="utility-card"><h3>Tebor</h3><p>Find the correct office or emergency contact.</p></a>
+    <a href="/na/visit/visa/" class="utility-card"><h3>Kain ekawir</h3><p>Entry and travel document guidance.</p></a>
+    <a href="/na/visit/transport/" class="utility-card"><h3>Transport</h3><p>Arrival and mobility basics.</p></a>
+    <a href="/na/news/" class="utility-card"><h3>Edorer Ijino</h3><p>Policy and service updates.</p></a>
+  </div>
+
+  <div class="info-box">
+    <h4>🏛️ Government Information Office</h4>
+    <p>The GIO is the first stop for many administrative questions. It publishes announcements and can point you toward the correct department.</p>
+  </div>
+
+  <h2>Online resources</h2>
+  <ul>
+    <li><strong>RONLAW:</strong> Nauru's legislation database at ronlaw.gov.nr</li>
+    <li><strong>Nauru Bulletin:</strong> Official government newspaper</li>
+    <li><strong>Radio Nauru:</strong> Live stream at radionauru.nr</li>
+    <li><strong>Moodle:</strong> e-learning platform for students and educators</li>
+  </ul>
+</SubpageLayout>
+
+<style>
+  .service-grid,.utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .service-card,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .service-card h3,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .service-card p{margin:0 0 10px;line-height:1.7;color:#475569}
+  .service-card span{font-size:12px;font-weight:700;color:#002B7F}
+  @media (max-width: 720px){.service-grid,.utility-grid{grid-template-columns:1fr}}
+</style>

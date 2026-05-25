@@ -12,6 +12,7 @@ interface Props {
   bgClass?: string;
   includeTopBar?: boolean;
   includeFooter?: boolean;
+  locale?: 'en' | 'na';
 }
 
 const {
@@ -22,14 +23,18 @@ const {
   bgClass = 'bg-cream',
   includeTopBar = false,
   includeFooter = false,
-} = Astro.props;
+  locale = 'en',
+} = Astro.props as Props;
+
+const homeHref = locale === 'na' ? '/na/' : '/';
+const homeLabel = locale === 'na' ? 'Mwet' : 'Home';
 ---
 
-<BaseLayout title={title} description={description}>
-  {includeTopBar && <TopBar />}
+<BaseLayout title={title} description={description} locale={locale}>
+  {includeTopBar && <TopBar locale={locale} />}
   <div class="page-wrapper">
     <header class="page-header">
-      <a href="/" class="page-back">← Home</a>
+      <a href={homeHref} class="page-back">← {homeLabel}</a>
       <h1>{title}</h1>
       {description && <p class="page-subtitle">{description}</p>}
       {sectionLabel && (

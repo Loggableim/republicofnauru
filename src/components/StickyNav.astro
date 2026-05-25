@@ -1,29 +1,43 @@
 ---
 export interface Props {
+  locale?: 'en' | 'na';
   links?: { label: string; url: string }[];
 }
-const defaultLinks = [
-  { label: 'News', url: '/news/' },
-  { label: 'Services', url: '/services/' },
-  { label: 'About', url: '/about/' },
-  { label: 'History', url: '/about/history/' },
-  { label: 'Directory', url: '/directory/' },
-  { label: 'Contact', url: '/contact/' },
-];
-const { links = defaultLinks } = Astro.props;
+
+const { locale = 'en' } = Astro.props as Props;
+
+const defaultLinks = locale === 'na'
+  ? [
+      { label: 'Edorer', url: '/na/news/' },
+      { label: 'Ekauwe', url: '/na/services/' },
+      { label: 'Etimine', url: '/na/about/' },
+      { label: 'Edorer', url: '/na/about/history/' },
+      { label: 'Tebor', url: '/na/directory/' },
+      { label: 'Kain kõme', url: '/na/contact/' },
+    ]
+  : [
+      { label: 'News', url: '/news/' },
+      { label: 'Services', url: '/services/' },
+      { label: 'About', url: '/about/' },
+      { label: 'History', url: '/about/history/' },
+      { label: 'Directory', url: '/directory/' },
+      { label: 'Contact', url: '/contact/' },
+    ];
+
+const { links = defaultLinks } = Astro.props as Props;
 ---
 
 <div class="sticky-nav">
   <div class="nav-inner">
-    <a href="/" class="logo-sm">
+    <a href={locale === 'na' ? '/na/' : '/'} class="logo-sm">
       <div class="flag-mini"></div>
-      Rep. of Nauru
+      {locale === 'na' ? 'Rep. Naoero' : 'Rep. of Nauru'}
     </a>
     <div class="nav-links">
-      {links.map(link => (
+      {links.map((link) => (
         <a href={link.url}>{link.label}</a>
       ))}
-      <a href="/news/" class="search-btn" aria-label="Latest news">📰</a>
+      <a href={locale === 'na' ? '/na/news/' : '/news/'} class="search-btn" aria-label={locale === 'na' ? 'Edorer' : 'Latest news'}>📰</a>
     </div>
   </div>
 </div>

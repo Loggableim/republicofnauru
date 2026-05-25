@@ -1,0 +1,60 @@
+---
+import SubpageLayout from '../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Kain ekawir" description="A practical Nauruan-language travel guide for visas, transport, money, accommodation and the island basics you should know before you fly." sectionEmoji="✈️" sectionLabel="Taramit Ñago" includeTopBar={true} includeFooter={true} locale="na">
+  <p><strong>Kain ekawir</strong> collects the trip-planning steps that matter most. If you are coming to Nauru, this is the page to read first: start with the visa, then lock down accommodation, then think through cash, communications and local transport.</p>
+
+  <div class="callout-grid">
+    <a href="/visit/visa/" class="callout"><h3>Visa first</h3><p>Entry rules and processing timing.</p></a>
+    <a href="/visit/accommodation/" class="callout"><h3>Book early</h3><p>Choice is limited, so availability matters.</p></a>
+    <a href="/visit/transport/" class="callout"><h3>Arrival flow</h3><p>Airport, transfer and island mobility basics.</p></a>
+    <a href="/visit/currency/" class="callout"><h3>Cash & payments</h3><p>Budgeting and payment planning.</p></a>
+  </div>
+
+  <h2>Before you go</h2>
+  <table>
+    <thead><tr><th>Topic</th><th>Decision</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>Visa</td><td>Confirm the current entry rules</td><td>Processing can take weeks</td></tr>
+      <tr><td>Accommodation</td><td>Reserve before you finalise flights</td><td>Rooms sell out quickly</td></tr>
+      <tr><td>Money</td><td>Bring cash and a backup payment method</td><td>ATMs/cards may be limited</td></tr>
+      <tr><td>Packing</td><td>Light clothes, sun protection, rain cover</td><td>The climate changes fast</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Practical checklist</h2>
+  <ul>
+    <li>Check passport validity and entry requirements.</li>
+    <li>Book accommodation before confirming flights.</li>
+    <li>Carry a cash budget for meals, taxis and small extras.</li>
+    <li>Save offline copies of documents and confirmations.</li>
+    <li>Download maps, schedules and contact numbers in advance.</li>
+  </ul>
+
+  <h2>More detailed travel pages</h2>
+  <div class="link-grid">
+    <a href="/visit/visa/">Visa requirements</a>
+    <a href="/visit/weather/">Weather & climate</a>
+    <a href="/visit/currency/">Currency & payments</a>
+    <a href="/visit/attire/">Attire & dress code</a>
+    <a href="/visit/transport/">Transport</a>
+    <a href="/visit/accommodation/">Accommodation</a>
+    <a href="/visit/communications/">Communications</a>
+  </div>
+
+  <div class="info-box">
+    <h4>✈️ Nauru International Airport (INU)</h4>
+    <p>The airport is compact and practical. Expect a short arrival process, limited facilities and a quick transfer to your hotel or guesthouse. The simple setup is part of the island experience — but it also means planning ahead matters.</p>
+  </div>
+</SubpageLayout>
+
+<style>
+  .callout-grid,.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout,.link-grid a{display:block;padding:18px;border:2px solid #1a1a2e;background:#fff;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e}
+  th,td{padding:12px;border-bottom:1px solid rgba(26,26,46,.12);text-align:left;vertical-align:top}
+  th{background:#002B7F;color:#fff}
+  @media (max-width: 720px){.callout-grid,.link-grid{grid-template-columns:1fr}}
+</style>

@@ -1,30 +1,43 @@
 ---
+interface Props {
+  locale?: 'en' | 'na';
+}
+
+const { locale = 'en' } = Astro.props as Props;
+
+const nav = {
+  about: { en: 'About', na: 'Etimine' },
+  visit: { en: 'Visit', na: 'Kain ekawir' },
+  press: { en: 'Press & Announcements', na: 'Edorer Ijino' },
+  contact: { en: 'Contact', na: 'Kain kõme' },
+};
+
 const topics = [
-  { label: 'Visa', href: '/visit/visa/' },
-  { label: 'Weather', href: '/visit/weather/' },
-  { label: 'Budget', href: '/visit/currency/' },
-  { label: 'Culture', href: '/about/culture/' },
-  { label: 'News', href: '/news/' },
-  { label: 'Services', href: '/services/' },
+  { en: 'Visa', na: 'Visa', href: '/visit/visa/' },
+  { en: 'Weather', na: 'Uab', href: '/visit/weather/' },
+  { en: 'Budget', na: 'Budjet', href: '/visit/currency/' },
+  { en: 'Culture', na: 'Ebõk', href: '/about/culture/' },
+  { en: 'News', na: 'Edorer', href: '/news/' },
+  { en: 'Services', na: 'Ekauwe', href: '/services/' },
 ];
 ---
 
 <div class="topbar">
   <div class="topbar-inner">
-    <span>Republic of Nauru — Visitor Information</span>
+    <span>{locale === 'na' ? 'Republik Naoero — Taramit Ñago' : 'Republic of Nauru — Visitor Information'}</span>
     <nav class="topbar-links" aria-label="Utility links">
-      <a href="/about/">About</a>
-      <a href="/visit/">Visit</a>
-      <a href="/news/">Press & Announcements</a>
-      <a href="/contact/">Contact</a>
+      <a href="/about/">{nav.about.en} · {nav.about.na}</a>
+      <a href="/visit/">{nav.visit.en} · {nav.visit.na}</a>
+      <a href="/news/">{nav.press.en} · {nav.press.na}</a>
+      <a href="/contact/">{nav.contact.en} · {nav.contact.na}</a>
       <span class="divider">|</span>
-      <span class="lang-active" aria-current="true">EN</span>
-      <span class="lang-inactive" title="Nauruan translation in progress">NA</span>
+      <a href="/" class:list={["lang-link", locale === 'en' && 'lang-active']} aria-current={locale === 'en' ? 'page' : undefined}>EN</a>
+      <a href="/na/" class:list={["lang-link", locale === 'na' && 'lang-active']} aria-current={locale === 'na' ? 'page' : undefined}>NA</a>
     </nav>
   </div>
   <div class="topbar-topics" aria-label="Quick topic links">
     {topics.map((topic) => (
-      <a href={topic.href} class="topic-pill">{topic.label} →</a>
+      <a href={topic.href} class="topic-pill">{locale === 'na' ? topic.na : topic.en} →</a>
     ))}
   </div>
 </div>
@@ -33,11 +46,11 @@ const topics = [
   .topbar { background:#002B7F; color:#fff; padding:10px 48px; font-size:12px; border-bottom:1px solid rgba(255,255,255,.1); }
   .topbar-inner { max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:16px; }
   .topbar-links { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-  .topbar a { color:#fff; text-decoration:none; opacity:.85; }
+  .topbar a { color:#fff; text-decoration:none; opacity:.9; }
   .topbar a:hover { opacity:1; text-decoration:underline; }
   .divider { opacity:.5; }
-  .lang-active { color:#FFC72C; font-weight:700; }
-  .lang-inactive { opacity:.7; }
+  .lang-link { font-weight:700; }
+  .lang-active { color:#FFC72C; }
   .topbar-topics { max-width:1280px; margin:8px auto 0; display:flex; gap:10px; flex-wrap:wrap; }
   .topic-pill { display:inline-flex; align-items:center; padding:6px 10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:11px; font-weight:700; }
   @media (max-width: 768px) {
