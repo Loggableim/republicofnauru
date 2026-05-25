@@ -1,0 +1,28 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Weather & climate" description="Seasonal conditions, rainfall and why weather planning matters." sectionEmoji="🌦️" sectionLabel="Uab" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Nauru's climate is warm, humid and tropical. Weather matters because it affects travel timing, comfort and what you should pack.</p>
+<div class="fact-grid">
+  <div class="fact"><div class="num">Warm</div><div class="label">All year</div></div>
+  <div class="fact"><div class="num">Wet</div><div class="label">Rain can be intense</div></div>
+  <div class="fact"><div class="num">Sun</div><div class="label">Protection is essential</div></div>
+  <div class="fact"><div class="num">Wind</div><div class="label">Coastal exposure matters</div></div>
+</div>
+<div class="utility-grid">
+  <a href="/na/visit/attire/"><h3>Attire</h3><p>How to pack for climate and respect.</p></a>
+  <a href="/na/visit/communications/"><h3>Communications</h3><p>Be ready if conditions affect connectivity.</p></a>
+  <a href="/na/news/press-climate/"><h3>Climate topic</h3><p>Current resilience context.</p></a>
+  <a href="/na/visit/"><h3>Visit hub</h3><p>Back to the main guide.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

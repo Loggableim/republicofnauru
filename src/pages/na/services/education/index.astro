@@ -1,0 +1,29 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Education & Learning" description="Schools, study support and learning resources for families and students." sectionEmoji="📚" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Use this page when you are looking for learning pathways, school context or general educational information.</p>
+<h2>Checklist</h2>
+<ul>
+  <li>Identify the level of education you are asking about.</li>
+  <li>Keep names, ages and paperwork ready if you are following up.</li>
+  <li>Use the correct ministry or office first.</li>
+  <li>Check the directory for contact details.</li>
+</ul>
+<div class="utility-grid">
+  <a href="/na/directory/"><h3>Directory</h3><p>Education office contacts.</p></a>
+  <a href="/na/about/the-people/"><h3>The People</h3><p>Community and family context.</p></a>
+  <a href="/na/services/"><h3>Services hub</h3><p>Other help pages.</p></a>
+  <a href="/na/news/"><h3>Updates</h3><p>Public announcements and changes.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

@@ -1,0 +1,31 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Naoero i jor · Our Country" description="Geography, reefs, lagoon context and the practical reality of living on a small Pacific island." sectionEmoji="🌍" sectionLabel="Jor i en" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Nauru is a single raised coral island in the central Pacific. The coastline wraps around the island, while the interior plateau carries the history of phosphate mining and the challenges of land rehabilitation.</p>
+<h2>Practical geography</h2>
+<div class="fact-grid">
+  <div class="fact"><div class="num">21 km²</div><div class="label">Land area</div></div>
+  <div class="fact"><div class="num">1</div><div class="label">Island</div></div>
+  <div class="fact"><div class="num">12</div><div class="label">Tribes</div></div>
+  <div class="fact"><div class="num">UTC+12</div><div class="label">Time zone</div></div>
+</div>
+<h2>What matters on the ground</h2>
+<p>Distances are short, but logistics are real: supply chains, weather, accommodation and transport all matter more than in a larger destination.</p>
+<div class="utility-grid">
+  <a href="/na/visit/"><h3>Plan a visit</h3><p>Turn geography into a trip plan.</p></a>
+  <a href="/na/directory/"><h3>Directory</h3><p>Key contacts and offices.</p></a>
+  <a href="/na/about/history/"><h3>History</h3><p>How the island reached today.</p></a>
+  <a href="/na/about/culture/"><h3>Culture</h3><p>How place shapes identity.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

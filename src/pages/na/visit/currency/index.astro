@@ -1,0 +1,28 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Currency & payments" description="Cash, cards and the practical reality of paying for things on a remote island." sectionEmoji="💵" sectionLabel="Pey" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Payments on Nauru are practical rather than fancy. Bring enough cash for small expenses, and do not rely on every card machine or ATM behaving the same way.</p>
+<div class="callout-grid">
+  <div class="callout"><h3>Carry cash</h3><p>Useful for taxis, food and small purchases.</p></div>
+  <div class="callout"><h3>Keep backup payment</h3><p>Have a second method ready.</p></div>
+  <div class="callout"><h3>Budget ahead</h3><p>Remote-island costs can add up quickly.</p></div>
+  <div class="callout"><h3>Check fees</h3><p>Bank and exchange charges may apply.</p></div>
+</div>
+<div class="utility-grid">
+  <a href="/na/visit/accommodation/"><h3>Accommodation</h3><p>Plan where your money goes first.</p></a>
+  <a href="/na/visit/transport/"><h3>Transport</h3><p>Cover arrival and mobility costs.</p></a>
+  <a href="/na/directory/"><h3>Directory</h3><p>Useful contacts and offices.</p></a>
+  <a href="/na/visit/"><h3>Visit hub</h3><p>Back to the guide.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

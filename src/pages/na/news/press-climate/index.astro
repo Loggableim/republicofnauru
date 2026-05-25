@@ -1,0 +1,24 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Climate Resilience & Coastal Protection" description="How climate work affects the island and what visitors should know." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
+  <p>This topic covers coastal adaptation, resilience funding and the longer-term visitor experience. It matters because Nauru's coastline and infrastructure are directly affected by climate pressure.</p>
+<h2>What it means</h2>
+<p>Climate decisions shape roads, public works, shoreline management and the practical comfort of the island. Read it as a context page for travel and public policy.</p>
+<div class="utility-grid">
+  <a href="/na/news/"><h3>Back to news</h3><p>Return to the announcement hub.</p></a>
+  <a href="/na/visit/"><h3>Visit guide</h3><p>How this affects travel planning.</p></a>
+  <a href="/na/about/"><h3>About Nauru</h3><p>Country context.</p></a>
+  <a href="/na/directory/"><h3>Directory</h3><p>Where to find offices and contacts.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

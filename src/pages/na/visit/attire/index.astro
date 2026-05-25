@@ -1,0 +1,28 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Attire & dress code" description="What to wear, how to stay comfortable and how to be respectful." sectionEmoji="👕" sectionLabel="Teba" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Light, breathable clothing works best in Nauru's climate. Respectful dress matters in public spaces, at offices and around community events.</p>
+<div class="callout-grid">
+  <div class="callout"><h3>Light layers</h3><p>Use clothing that handles heat and humidity.</p></div>
+  <div class="callout"><h3>Sun protection</h3><p>Hat, sunscreen and covered shoulders help.</p></div>
+  <div class="callout"><h3>Respectful style</h3><p>Choose modest clothing for public offices and gatherings.</p></div>
+  <div class="callout"><h3>Weather ready</h3><p>Carry a rain layer if you are out and about.</p></div>
+</div>
+<div class="utility-grid">
+  <a href="/na/visit/weather/"><h3>Weather</h3><p>Pack for the climate.</p></a>
+  <a href="/na/visit/"><h3>Visit hub</h3><p>Back to travel planning.</p></a>
+  <a href="/na/about/culture/"><h3>Culture</h3><p>Dress with context.</p></a>
+  <a href="/na/directory/"><h3>Directory</h3><p>Useful contacts.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

@@ -1,0 +1,29 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Transport" description="Airport, road travel and getting around the island." sectionEmoji="🚢" sectionLabel="Ekamok" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Transport is simple on Nauru, but it still needs planning. The airport is compact, local roads are limited and transfers are usually short but important.</p>
+<div class="callout-grid">
+  <div class="callout"><h3>Arrivals</h3><p>Know your airport pickup point and where you are staying.</p></div>
+  <div class="callout"><h3>Island travel</h3><p>Short distances still rely on organised transfers or taxis.</p></div>
+  <div class="callout"><h3>Plan timing</h3><p>Flight schedules and local transport should be matched carefully.</p></div>
+  <div class="callout"><h3>Keep contacts handy</h3><p>Directory numbers matter on arrival day.</p></div>
+</div>
+<h2>Next pages</h2>
+<div class="link-grid">
+  <a href="/na/visit/accommodation/">Accommodation</a>
+  <a href="/na/visit/visa/">Visa</a>
+  <a href="/na/directory/">Directory</a>
+  <a href="/na/news/">News</a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

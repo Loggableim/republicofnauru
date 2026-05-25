@@ -1,0 +1,25 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Naoero ebõk · Culture & Heritage" description="Food, family, church, language and the symbols that carry Nauruan identity." sectionEmoji="🎭" sectionLabel="Ebõk i en" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Nauruan culture is shaped by island life: family, church, fishing, local gatherings and a history that is carried through language and stories. Heritage matters because it keeps the country connected to the land and sea around it.</p>
+<h2>Culture in practice</h2>
+<p>Tradition is visible in community events, ceremony, food and the way people support one another. The island's small size makes cultural continuity very visible.</p>
+<div class="info-box"><h4>🪶 Identity markers</h4><p>Flag, coat of arms, anthem, church life and tribal memory are all part of how Nauru understands itself.</p></div>
+<div class="utility-grid">
+  <a href="/na/about/the-people/"><h3>The People</h3><p>Community and language.</p></a>
+  <a href="/na/about/history/"><h3>History</h3><p>Why culture developed this way.</p></a>
+  <a href="/na/news/"><h3>Current stories</h3><p>Culture in the present day.</p></a>
+  <a href="/na/visit/attire/"><h3>Attire</h3><p>What to wear respectfully.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

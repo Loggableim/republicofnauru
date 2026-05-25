@@ -1,0 +1,24 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Eco-Tourism & Visitor Experience" description="Tourism developments that matter when you plan a trip to Nauru." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
+  <p>This topic connects policy announcements with the practical realities of accommodation, transport and visitor services.</p>
+<h2>What it means</h2>
+<p>Tourism announcements usually connect directly to the things visitors care about: where to stay, how to get around, and what the island wants to showcase next.</p>
+<div class="utility-grid">
+  <a href="/na/news/"><h3>Back to news</h3><p>Open the news hub.</p></a>
+  <a href="/na/visit/"><h3>Visit guide</h3><p>Practical trip planning.</p></a>
+  <a href="/na/about/culture/"><h3>Culture</h3><p>What the island wants to protect.</p></a>
+  <a href="/na/directory/"><h3>Directory</h3><p>Useful contacts.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

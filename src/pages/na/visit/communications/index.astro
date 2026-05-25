@@ -1,0 +1,28 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Communications" description="Internet, phone coverage and how to stay connected while on Nauru." sectionEmoji="📶" sectionLabel="Kom" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Connectivity exists, but it is not something you should assume will be perfect. Plan to keep offline copies of the documents and directions you need most.</p>
+<div class="callout-grid">
+  <div class="callout"><h3>Save offline</h3><p>Maps, bookings and ID should be stored locally too.</p></div>
+  <div class="callout"><h3>Expect variation</h3><p>Coverage and speed can change by location.</p></div>
+  <div class="callout"><h3>Have contact numbers</h3><p>Directory numbers are more reliable than assumptions.</p></div>
+  <div class="callout"><h3>Travel prepared</h3><p>Download what you need before arrival.</p></div>
+</div>
+<div class="utility-grid">
+  <a href="/na/directory/"><h3>Directory</h3><p>Key phone numbers and offices.</p></a>
+  <a href="/na/visit/"><h3>Visit hub</h3><p>All travel pages together.</p></a>
+  <a href="/na/news/"><h3>News</h3><p>Context and current updates.</p></a>
+  <a href="/na/contact/"><h3>Contact</h3><p>Reach the site team.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

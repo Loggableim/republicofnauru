@@ -1,0 +1,31 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Citizenship & Identity" description="Identity, registration and where to start if you need help with a record or document." sectionEmoji="🛂" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Use this page when you need a citizen record, identity confirmation or help understanding which office handles your request.</p>
+<h2>Checklist</h2>
+<ul>
+  <li>Confirm the office you need before visiting.</li>
+  <li>Bring any identity documents you already have.</li>
+  <li>Keep copies of forms and correspondence.</li>
+  <li>Verify office hours before travelling to Yaren.</li>
+</ul>
+<h2>How it works</h2>
+<p>Start with the Government Information Office, then follow the referral to the responsible department if a specialist review is needed.</p>
+<div class="utility-grid">
+  <a href="/na/directory/"><h3>Directory</h3><p>Contact details and offices.</p></a>
+  <a href="/na/contact/"><h3>Contact</h3><p>Ask the site team.</p></a>
+  <a href="/na/services/immigration/"><h3>Immigration & entry</h3><p>Travel documents and entry.</p></a>
+  <a href="/na/news/"><h3>Updates</h3><p>Policy or office changes.</p></a>
+</div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>

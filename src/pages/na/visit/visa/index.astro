@@ -1,0 +1,30 @@
+---
+import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+---
+
+<SubpageLayout title="Viza" description="Entry rules, document prep and lead time." sectionEmoji="🛂" sectionLabel="Taramit Ñago" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Viza ekea: always confirm entry rules before travel. Processing can take weeks, so the safest plan is to check early and keep copies of all supporting papers.</p>
+<div class="callout-grid">
+  <div class="callout"><h3>Prepare documents</h3><p>Passport, forms and any confirmation letters.</p></div>
+  <div class="callout"><h3>Expect lead time</h3><p>Do not leave visa work to the last minute.</p></div>
+  <div class="callout"><h3>Verify rules</h3><p>Requirements can change — re-check before departure.</p></div>
+  <div class="callout"><h3>Keep copies</h3><p>Use both digital and printed backups.</p></div>
+</div>
+<h2>Checklist</h2>
+<ul>
+  <li>Check passport validity.</li>
+  <li>Confirm the current entry requirement for your nationality.</li>
+  <li>Apply with enough lead time.</li>
+  <li>Keep onward travel and accommodation proof ready.</li>
+</ul>
+<div class="info-box"><h4>Contact</h4><p>Use the directory or Government Information Office to verify the latest requirements before you travel.</p></div>
+</SubpageLayout>
+
+<style>
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
+  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  
+  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+</style>
