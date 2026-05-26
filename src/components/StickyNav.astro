@@ -11,9 +11,10 @@ const defaultLinks = locale === 'na'
       { label: 'Edorer', url: '/na/news/' },
       { label: 'Ekauwe', url: '/na/services/' },
       { label: 'Etimine', url: '/na/about/' },
-      { label: 'Edorer', url: '/na/about/history/' },
+      { label: 'History', url: '/na/about/history/' },
       { label: 'Tebor', url: '/na/directory/' },
       { label: 'Kain kõme', url: '/na/contact/' },
+      { label: 'Kanek', url: '/na/search/' },
     ]
   : [
       { label: 'News', url: '/news/' },
@@ -22,6 +23,7 @@ const defaultLinks = locale === 'na'
       { label: 'History', url: '/about/history/' },
       { label: 'Directory', url: '/directory/' },
       { label: 'Contact', url: '/contact/' },
+      { label: 'Search', url: '/search/' },
     ];
 
 const { links = defaultLinks } = Astro.props as Props;
