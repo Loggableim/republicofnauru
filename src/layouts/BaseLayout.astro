@@ -19,7 +19,7 @@ import locales from '../data/locales.json';
 
 const siteUrl = 'https://republicofnauru.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = new URL('/favicon.svg', siteUrl).toString();
+const ogImage = new URL('/og-image.svg', siteUrl).toString();
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -37,6 +37,29 @@ const organizationSchema = {
   url: siteUrl,
   logo: ogImage,
 };
+
+// Generate BreadcrumbList from URL path
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbs = [{ name: 'Home', url: '/' }];
+let currentPath = '';
+for (const part of pathParts) {
+  currentPath += '/' + part;
+  breadcrumbs.push({
+    name: part.charAt(0).toUpperCase() + part.slice(1).replace(/-/g, ' '),
+    url: currentPath + '/',
+  });
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: crumb.name,
+    item: new URL(crumb.url, siteUrl).toString(),
+  })),
+};
 ---
 
 <!DOCTYPE html>
@@ -50,6 +73,8 @@ const organizationSchema = {
 
   <link rel="canonical" href={canonicalUrl} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#002B7F" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Republic of Nauru" />
@@ -65,9 +90,11 @@ const organizationSchema = {
 
   <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <slot name="head" />
 </head>

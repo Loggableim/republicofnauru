@@ -3,6 +3,7 @@ import '../styles/global.css';
 import BaseLayout from './BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
@@ -28,13 +29,43 @@ const {
 
 const homeHref = locale === 'na' ? '/na/' : '/';
 const homeLabel = locale === 'na' ? 'Mwet' : 'Home';
+
+// --- Breadcrumb generation ---
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+// If locale is 'na', the first segment is the language prefix — strip it
+const segments = locale === 'na' ? pathSegments.slice(1) : pathSegments;
+
+const segmentLabels: Record<string, { en: string; na: string }> = {
+  about: { en: 'About', na: 'Etimine' },
+  visit: { en: 'Visit', na: 'Kain ekawir' },
+  news: { en: 'News', na: 'Edorer' },
+  contact: { en: 'Contact', na: 'Kain kõme' },
+  culture: { en: 'Culture', na: 'Ebõk' },
+  history: { en: 'History', na: 'History' },
+  visa: { en: 'Visa', na: 'Visa' },
+  accommodation: { en: 'Accommodation', na: 'Accommodation' },
+  transport: { en: 'Transport', na: 'Transport' },
+  weather: { en: 'Weather', na: 'Uab' },
+  directory: { en: 'Directory', na: 'Directory' },
+  services: { en: 'Services', na: 'Ekauwe' },
+  search: { en: 'Search', na: 'Kanek' },
+};
+
+const prefix = locale === 'na' ? '/na/' : '/';
+const breadcrumbPath = segments.map((seg, i) => {
+  const label = segmentLabels[seg]?.[locale] || seg.charAt(0).toUpperCase() + seg.slice(1);
+  const url = prefix + segments.slice(0, i + 1).join('/') + '/';
+  return { label, url };
+});
 ---
 
 <BaseLayout title={title} description={description} locale={locale}>
+  <a href="#main-content" class="skip-link">Skip to content</a>
   {includeTopBar && <TopBar locale={locale} />}
   <div class="page-wrapper">
     <header class="page-header">
       <a href={homeHref} class="page-back">← {homeLabel}</a>
+      {breadcrumbPath.length > 0 && <Breadcrumbs path={breadcrumbPath} />}
       <h1>{title}</h1>
       {description && <p class="page-subtitle">{description}</p>}
       {sectionLabel && (
@@ -43,14 +74,56 @@ const homeLabel = locale === 'na' ? 'Mwet' : 'Home';
         </div>
       )}
     </header>
-    <main class={`page-content ${bgClass}`}>
+    <main id="main-content" class={`page-content ${bgClass}`}>
       <article class="page-article">
         <slot />
       </article>
     </main>
   </div>
   {includeFooter && <Footer />}
+  <button id="scroll-top-btn" class="scroll-top" aria-label="Scroll to top">↑</button>
 </BaseLayout>
+
+<script>
+  (function() {
+    const btn = document.getElementById('scroll-top-btn');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<style>
+  .scroll-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #002B7F;
+    color: #FFC72C;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scroll-top:hover {
+    background: #001547;
+    transform: translateY(-2px) scale(1.05);
+  }
+</style>
 
 <style>
   .page-wrapper {

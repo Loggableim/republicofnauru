@@ -99,3 +99,37 @@ img { max-width: 100%; height: auto; }
   .section.no-bottom-padding { padding-bottom: 0; }
 }
 
+/* === A11Y: Focus States === */
+:focus-visible {
+  outline: 2px solid #FFC72C;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* === A11Y: Skip Link === */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 10000;
+  background: #002B7F;
+  color: #FFC72C;
+  padding: 12px 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 8px;
+  outline: 2px solid #FFC72C;
+}
+
+/* === A11Y: Scroll Target === */
+#main-content {
+  scroll-margin-top: 80px;
+}
+
+/* === Font Display === */
+/* (Google Fonts API already uses display=swap, but ensure it) */

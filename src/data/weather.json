@@ -19,5 +19,46 @@
       "heading": "What to Pack",
       "content": "Lightweight, breathable clothing is essential for Nauru's tropical climate:\n\n- Light cotton or linen clothing (shorts, t-shirts, sundresses)\n- Swimwear and rash guard (for reef protection)\n- A light rain jacket or umbrella (especially November–February)\n- Sun protection: broad-brimmed hat, sunglasses, high-SPF sunscreen\n- Comfortable walking shoes or sandals\n- Insect repellent (mosquitoes can be present, especially after rain)\n- A light sweater or pashmina for air-conditioned interiors\n- Reef shoes or water shoes (for snorkeling and reef walking)"
     }
-  ]
+  ],
+  "climateTable": [
+    {"month": "January", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 280, "humidityPct": 80, "daylightHours": 12.5},
+    {"month": "February", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 250, "humidityPct": 80, "daylightHours": 12.3},
+    {"month": "March", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 200, "humidityPct": 78, "daylightHours": 12.0},
+    {"month": "April", "avgHighC": 30, "avgLowC": 25, "rainfallMm": 140, "humidityPct": 76, "daylightHours": 11.8},
+    {"month": "May", "avgHighC": 30, "avgLowC": 24, "rainfallMm": 110, "humidityPct": 74, "daylightHours": 11.5},
+    {"month": "June", "avgHighC": 30, "avgLowC": 24, "rainfallMm": 90, "humidityPct": 73, "daylightHours": 11.3},
+    {"month": "July", "avgHighC": 30, "avgLowC": 24, "rainfallMm": 80, "humidityPct": 73, "daylightHours": 11.3},
+    {"month": "August", "avgHighC": 30, "avgLowC": 24, "rainfallMm": 85, "humidityPct": 73, "daylightHours": 11.5},
+    {"month": "September", "avgHighC": 31, "avgLowC": 24, "rainfallMm": 100, "humidityPct": 74, "daylightHours": 11.8},
+    {"month": "October", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 120, "humidityPct": 76, "daylightHours": 12.0},
+    {"month": "November", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 220, "humidityPct": 79, "daylightHours": 12.3},
+    {"month": "December", "avgHighC": 31, "avgLowC": 25, "rainfallMm": 280, "humidityPct": 80, "daylightHours": 12.5}
+  ],
+  "packingBySeason": {
+    "wet": [
+      "Light cotton t-shirts and shorts (multiple changes recommended)",
+      "Quick-dry clothing and synthetic activewear",
+      "Compact travel umbrella or lightweight waterproof rain jacket",
+      "Waterproof dry bag for electronics and documents",
+      "Insect repellent with high DEET concentration (mosquitoes more active after rain)",
+      "Broad-brimmed sun hat (UV protection still essential even on overcast days)",
+      "High-SPF sunscreen (SPF 50+, reef-safe)",
+      "Sandals that can handle wet conditions (e.g. Crocs or sport sandals)",
+      "Rash guard or UV-protective swim shirt (for cloud-cover sunburn risk)",
+      "Power bank (in case of weather-related power disruptions)"
+    ],
+    "dry": [
+      "Light cotton and linen clothing (shorts, t-shirts, sundresses)",
+      "Swimwear and rash guard (optimal conditions for swimming and snorkeling)",
+      "Snorkeling gear (mask, snorkel, fins — best water visibility of the year)",
+      "Reef shoes or water shoes for reef walking",
+      "Sunglasses with polarised lenses (glare reduction for water activities)",
+      "Sun hat with chin strap (breezier conditions, trade winds)",
+      "High-SPF sunscreen (SPF 50+, reef-safe — reapply frequently)",
+      "Light long-sleeved shirt for sun protection during extended outdoor activity",
+      "Reusable water bottle (higher temperatures increase hydration needs)",
+      "Light fleece or windbreaker (trade winds can feel cool in evenings)",
+      "Fishing gear (if interested — dry season offers excellent offshore conditions)"
+    ]
+  }
 }

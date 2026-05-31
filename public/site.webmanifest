@@ -1,0 +1,12 @@
+{
+  "name": "Republic of Nauru",
+  "short_name": "nauru·info",
+  "description": "Visitor information portal for the Republic of Nauru",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f0",
+  "theme_color": "#002B7F",
+  "icons": [
+    {"src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}

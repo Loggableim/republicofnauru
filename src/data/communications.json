@@ -23,5 +23,26 @@
       "heading": "Media & Broadcasting",
       "content": "Radio Nauru (broadcasting on AM and FM) is the national radio station, providing news, music, and community programming in both Nauruan and English. It can be streamed online at radionauru.nr.\n\nThere is no locally produced television service — satellite TV (Digicel Play) is available in some hotels and homes. International news channels are accessible via satellite.\n\nThe Nauru Bulletin is the government's official newspaper, published periodically and available online through the Government Information Office."
     }
-  ]
+  ],
+  "connectivity": {
+    "mobileProviders": [
+      {
+        "name": "Digicel Nauru",
+        "coverage": "4G LTE in populated coastal areas including Yaren, Aiwo, Denigomodu, and Meneng districts. Limited to no coverage in the interior plateau and some remote coastal stretches. 2G/3G fallback available in fringe areas.",
+        "dataPlans": [
+          {"plan": "Prepaid starter pack", "price": "$5 – $10 AUD", "includes": "SIM card plus initial data and call credit"},
+          {"plan": "Daily data bundle", "price": "~$3 AUD", "validity": "24 hours", "data": "500 MB – 1 GB"},
+          {"plan": "Weekly data bundle", "price": "~$10 – $15 AUD", "validity": "7 days", "data": "3 – 5 GB"},
+          {"plan": "Monthly data bundle", "price": "~$30 – $50 AUD", "validity": "30 days", "data": "10 – 20 GB"}
+        ]
+      }
+    ],
+    "internetSpeed": "2–10 Mbps typical download speed for most connections (satellite-based, with limited submarine fibre capacity). Starlink low-earth-orbit satellite service is becoming available in select hotels and residences, offering significantly higher speeds (up to 100–200 Mbps) where installed. Mobile data via Digicel 4G can reach 5–20 Mbps within coverage areas. Upload speeds are generally much lower, typically 1–3 Mbps.",
+    "wifiAvailability": "Wi-Fi is available at Menen Hotel and OD-N-Aiwo Hotel, but speed and reliability vary significantly — expect 1–5 Mbps during peak usage. Some guesthouses and private rentals may offer Wi-Fi; confirm before booking. Cenpac Internet Café in Yaren provides public terminal access for a fee. Free public Wi-Fi is extremely limited; the Nauru Library offers occasional access. Increasingly, hotels are installing Starlink terminals for improved connectivity — ask when booking.",
+    "simCard": {
+      "where": "Digicel store in Yaren (main retail outlet, located near the government office precinct) or the Digicel agent in Aiwo. Look for Digicel signage — it is the only mobile network provider on the island.",
+      "cost": "$5 – $10 AUD for the prepaid starter pack, which includes the SIM card plus an initial allocation of data and call credit.",
+      "requirements": "Valid passport required for mandatory registration under Nauruan telecommunications regulations. Non-Nauruan citizens must present their passport and visa (or visa approval letter). SIM activation typically takes 15–30 minutes on weekdays. Top-up vouchers are available at the Digicel store and select retail outlets across the island."
+    }
+  }
 }

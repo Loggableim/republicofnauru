@@ -19,5 +19,80 @@
       "heading": "What to Expect",
       "content": "Accommodation in Nauru is functional rather than luxurious. Expect:\n- Basic but clean rooms with essential furnishings\n- Air conditioning (not always available in budget options)\n- Limited Wi-Fi — internet connectivity can be slow and unreliable island-wide\n- Cold-water showers in some budget accommodations\n- Mosquito nets or screens (recommended during the wet season)\n- Generators or backup power during occasional outages\n\nThe lack of high-end or resort-style accommodation reflects Nauru's status as an emerging destination — this is changing slowly as tourism interest grows."
     }
+  ],
+  "listings": [
+    {
+      "name": "Menen Hotel",
+      "type": "Hotel",
+      "location": "Aiwo District, western coast near Anibare Bay",
+      "phone": "+674 557 3100",
+      "email": "menen@nauru.gov.nr",
+      "priceRange": "$100 – $180 AUD per night",
+      "rooms": 39,
+      "amenities": [
+        "Air conditioning",
+        "Private bathroom with hot water",
+        "Restaurant (local and international cuisine)",
+        "Bar / lounge",
+        "Conference facilities",
+        "Wi-Fi (limited speed, satellite-based)",
+        "Power backup generator",
+        "Laundry service",
+        "Airport transfers (available on request)",
+        "Satellite TV in common area",
+        "On-site parking"
+      ],
+      "notes": "Government-owned property and Nauru's largest hotel with 39 rooms. Primary choice for government visitors and business travellers. Some rooms offer ocean views over Anibare Bay. The hotel restaurant is one of the few formal dining options on the island, serving both local Nauruan dishes and international fare. Mixed guest reviews — praised for location and staff friendliness, but noted for dated facilities and inconsistent maintenance. Advance booking essential, typically 4–8 weeks ahead."
+    },
+    {
+      "name": "OD-N-Aiwo Hotel",
+      "type": "Hotel",
+      "location": "Aiwo District, near the port area",
+      "phone": "+674 557 1001",
+      "email": null,
+      "priceRange": "$80 – $120 AUD per night",
+      "rooms": 12,
+      "amenities": [
+        "Air conditioning",
+        "Private bathroom",
+        "In-house restaurant serving local cuisine",
+        "Wi-Fi (limited speed)",
+        "On-site parking"
+      ],
+      "notes": "Smaller family-owned hotel offering a more intimate and personalised experience compared to the Menen. The 12 rooms fill up quickly — advance booking is essential. The attached restaurant is popular with locals and praised for its authentic Nauruan dishes. More basic than the Menen Hotel but often noted for warmer hospitality and a homely atmosphere. Phone inquiries recommended for reservations."
+    },
+    {
+      "name": "Private Rental Apartments",
+      "type": "Apartment / Self-Catering",
+      "location": "Various locations — typically Yaren, Aiwo, or Denigomodu districts",
+      "phone": null,
+      "email": "Inquire through Nauru Tourism or Government Information Office",
+      "priceRange": "$60 – $100 AUD per night",
+      "rooms": null,
+      "amenities": [
+        "Kitchenette or self-catering facilities",
+        "Washing machine (some units)",
+        "Air conditioning (some units, not guaranteed)",
+        "More living space than hotel rooms",
+        "Basic furnishings and cookware"
+      ],
+      "notes": "Privately owned apartment-style units available for short-term rental. Best suited for longer stays or travellers who prefer self-catering flexibility. No online booking platforms — all arrangements made via email inquiry. When contacting, specify whether you prefer a hotel or apartment so the best available option can be arranged. Limited availability; book well in advance."
+    },
+    {
+      "name": "Government Guesthouse",
+      "type": "Guesthouse",
+      "location": "Yaren District, near government office precinct",
+      "phone": "+674 557 3133",
+      "email": null,
+      "priceRange": "$70 – $100 AUD per night",
+      "rooms": 6,
+      "amenities": [
+        "Basic room furnishings",
+        "Ceiling fan (air conditioning not always available)",
+        "Shared bathroom facilities (some rooms)",
+        "Simple meals available (inquire upon booking)"
+      ],
+      "notes": "Very basic accommodation primarily reserved for government officials on official business. Occasionally available to visitors when not fully booked. Best to inquire through official contacts or the Nauru Government Information Office. The most budget-friendly option but with the fewest amenities and limited availability."
+    }
   ]
 }

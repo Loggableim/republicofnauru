@@ -23,5 +23,92 @@
       "heading": "Packing Recommendations",
       "content": "For a visit to Nauru, pack:\n- Light cotton clothing for daily wear\n- One or two smart-casual outfits for official meetings or dinner at the Menen Hotel\n- A modest outfit for church attendance (if planning to attend)\n- Swimwear and a cover-up for the beach\n- A lightweight scarf or shawl (useful for sun protection or covering shoulders)\n- Solid walking shoes for exploring the island and coastal areas"
     }
-  ]
+  ],
+  "packingList": [
+    {
+      "category": "Clothing",
+      "items": [
+        {"item": "Light cotton t-shirts and singlets", "essential": true, "note": "Multiple changes recommended due to humidity and perspiration"},
+        {"item": "Shorts (khaki, cotton, or board shorts)", "essential": true, "note": "Standard daily wear for most visitors"},
+        {"item": "Lightweight long trousers or jeans", "essential": true, "note": "Needed for government visits, business meetings, and church"},
+        {"item": "Sundresses and skirts", "essential": false, "note": "Preferred by many women in the tropical climate"},
+        {"item": "Collared polo or button-down shirts", "essential": true, "note": "Required dress code for government appointments and nicer venues"},
+        {"item": "Modest church outfit", "essential": false, "note": "Necessary if attending Sunday service — covered shoulders and long trousers or skirt required"},
+        {"item": "Light sweater or pashmina", "essential": false, "note": "Useful in air-conditioned hotel restaurants and offices"},
+        {"item": "Swimwear and cover-up", "essential": true, "note": "Swimwear only at beach or pool; cover-up required when leaving the water"},
+        {"item": "Rash guard or UV-protective shirt", "essential": false, "note": "Recommended for reef snorkeling and extended sun exposure"}
+      ]
+    },
+    {
+      "category": "Footwear",
+      "items": [
+        {"item": "Flip-flops or thongs", "essential": true, "note": "Standard everyday footwear for casual wear"},
+        {"item": "Comfortable walking shoes or trainers", "essential": true, "note": "Essential for exploring the island and the coastal path (Botswanan Walk)"},
+        {"item": "Reef shoes or water shoes", "essential": false, "note": "Highly recommended for reef walking and snorkeling — coral is extremely sharp"},
+        {"item": "Smart sandals or loafers", "essential": false, "note": "Appropriate for business meetings and evening dining"}
+      ]
+    },
+    {
+      "category": "Accessories",
+      "items": [
+        {"item": "Broad-brimmed sun hat", "essential": true, "note": "Critical sun protection — equatorial UV index is extreme"},
+        {"item": "Sunglasses (polarised recommended)", "essential": true, "note": "Glare is intense in the tropical sun; polarised lenses improve water visibility"},
+        {"item": "High-SPF sunscreen (SPF 50+)", "essential": true, "note": "Reef-safe sunscreen strongly recommended for water activities"},
+        {"item": "Insect repellent (DEET or picaridin)", "essential": true, "note": "Mosquitoes present year-round, particularly prevalent after rainfall"},
+        {"item": "Lightweight scarf or sarong", "essential": false, "note": "Multi-purpose: sun protection, cultural modesty cover, beach towel"}
+      ]
+    },
+    {
+      "category": "Toiletries",
+      "items": [
+        {"item": "Personal toiletries", "essential": true, "note": "Shopping options on the island are very limited — bring everything you need"},
+        {"item": "After-sun lotion or aloe vera gel", "essential": false, "note": "Recommended even with diligent sun protection"},
+        {"item": "Hand sanitiser", "essential": false, "note": "Useful where hand-washing facilities are limited"},
+        {"item": "Lip balm with SPF", "essential": false, "note": "Sun protection for lips is often overlooked"},
+        {"item": "Basic first-aid kit", "essential": false, "note": "Include plasters, antiseptic wipes, pain relief, and anti-diarrhoea medication"}
+      ]
+    },
+    {
+      "category": "Documents",
+      "items": [
+        {"item": "Valid passport (6+ months validity)", "essential": true, "note": "Required for SIM card registration, hotel check-in, and visa processing"},
+        {"item": "Visa approval letter (if applicable)", "essential": true, "note": "Most nationalities require a pre-approved visa before travel to Nauru"},
+        {"item": "Travel insurance documents", "essential": true, "note": "Comprehensive cover including medical evacuation is strongly advised"},
+        {"item": "Flight itinerary and hotel confirmations", "essential": true, "note": "Printed copies recommended as digital access can be unreliable"},
+        {"item": "International driver's permit (if driving)", "essential": false, "note": "Required alongside your valid home country licence for car rental"}
+      ]
+    },
+    {
+      "category": "Electronics",
+      "items": [
+        {"item": "Universal travel adapter", "essential": true, "note": "Nauru uses Australian-style 3-pin flat plugs (Type I), 240 V / 50 Hz"},
+        {"item": "Power bank / portable charger", "essential": false, "note": "Useful during occasional power outages"},
+        {"item": "Camera or GoPro", "essential": false, "note": "Great for capturing unique landscapes, WWII relics, and marine life"},
+        {"item": "Waterproof phone pouch", "essential": false, "note": "Protects phone during beach trips, boat excursions, and rainy conditions"},
+        {"item": "Torch or headlamp", "essential": false, "note": "Some areas have limited street lighting; useful for evening walks"}
+      ]
+    }
+  ],
+  "seasonalRecommendations": {
+    "wetSeason": {
+      "period": "November – February",
+      "description": "Higher rainfall, intense humidity, frequent tropical downpours",
+      "additionalItems": [
+        {"item": "Compact umbrella or lightweight rain jacket", "essential": true, "note": "Essential for sudden and intense tropical downpours"},
+        {"item": "Waterproof bag or dry bag", "essential": false, "note": "Protects electronics, documents, and camera from rain"},
+        {"item": "Quick-dry clothing", "essential": false, "note": "Helpful as laundry takes longer to dry in high humidity"},
+        {"item": "Extra pairs of socks and underwear", "essential": false, "note": "May need more frequent changes due to increased perspiration"}
+      ]
+    },
+    "drySeason": {
+      "period": "March – October",
+      "description": "Lower rainfall, more sunshine, trade winds provide relief from humidity",
+      "additionalItems": [
+        {"item": "Light long-sleeved shirt", "essential": false, "note": "Provides sun protection while staying cooler than heavy fabrics"},
+        {"item": "Snorkeling gear (mask, snorkel, fins)", "essential": false, "note": "Best water visibility of the year — bring your own for ideal fit"},
+        {"item": "Fishing gear (if interested)", "essential": false, "note": "Dry season offers excellent offshore fishing conditions"},
+        {"item": "Extra reusable water bottle", "essential": true, "note": "Higher temperatures and increased outdoor activity raise hydration needs"}
+      ]
+    }
+  }
 }

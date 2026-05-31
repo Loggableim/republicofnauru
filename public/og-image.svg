@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+      text { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Navy background -->
+  <rect width="1200" height="630" fill="#002B7F"/>
+
+  <!-- Yellow stripe in the middle, ~25% height (157.5px) -->
+  <rect y="236" width="1200" height="158" fill="#FFC72C"/>
+
+  <!-- White star in the yellow zone (Nauru flag symbol) -->
+  <polygon points="600,285 610,310 637,310 615,326 623,354 600,338 577,354 585,326 563,310 590,310"
+           fill="#FFFFFF" opacity="0.9"/>
+
+  <!-- Title text -->
+  <text x="600" y="160" text-anchor="middle" fill="#FFFFFF" font-size="62" font-weight="700" letter-spacing="1">Republic of Nauru</text>
+
+  <!-- Sub-text -->
+  <text x="600" y="460" text-anchor="middle" fill="#FFC72C" font-size="32" font-weight="500" letter-spacing="4">Visitor Information</text>
+</svg>
