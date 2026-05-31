@@ -5,22 +5,90 @@ import accomData from '../../data/accommodation.json';
 
 <SubpageLayout title={accomData.title} description={accomData.subtitle} sectionEmoji="🏨" sectionLabel="Places to Stay" includeTopBar={true} includeFooter={true}>
   <p set:html={accomData.intro} />
+
   <div class="callout-grid">
-    <div class="callout"><h3>Book early</h3><p>Rooms are limited; the best strategy is to reserve before you confirm travel.</p></div>
-    <div class="callout"><h3>Match stay to trip</h3><p>Short visits suit simple accommodation; longer stays benefit from better amenities.</p></div>
-    <div class="callout"><h3>Ask about inclusions</h3><p>Confirm breakfast, airport transfers, Wi-Fi and payment methods in advance.</p></div>
-    <div class="callout"><h3>Have a backup</h3><p>Keep one alternative property in mind in case availability changes.</p></div>
+    <div class="callout"><h3>📌 Book early</h3><p>Rooms are limited; the best strategy is to reserve before you confirm travel. 4–8 weeks ahead is recommended.</p></div>
+    <div class="callout"><h3>💰 Price ranges</h3><p>Expect $60–$180 AUD per night. Budget guesthouses start around $70, while the Menen Hotel ranges $100–$180.</p></div>
+    <div class="callout"><h3>📞 Contact directly</h3><p>No online booking platforms list Nauru properties. Email and phone are the standard — call +674 557 3100 for the Menen Hotel.</p></div>
+    <div class="callout"><h3>🔄 Have a backup</h3><p>Keep one alternative property in mind in case availability changes. With only ~60 hotel rooms total, options fill fast.</p></div>
   </div>
+
   {accomData.sections.map((s) => (
     <Fragment>
       <h2>{s.heading}</h2>
       {s.content.split('\n\n').map((p) => (p.trim() ? <p>{p}</p> : null))}
     </Fragment>
-  ))}</SubpageLayout>
+  ))}
+
+  <h2>🏨 Full Accommodation Listings</h2>
+  <p>The table below summarises every known accommodation option on the island, with <strong>price ranges, contact information, and key amenities</strong> for each.</p>
+
+  <div class="listings-block">
+    {accomData.listings.map((l) => (
+      <div class="listing-card">
+        <div class="listing-header">
+          <h3>{l.name}</h3>
+          <span class="listing-type">{l.type}</span>
+        </div>
+        <div class="listing-details">
+          <div class="detail-row"><strong>📍 Location:</strong> {l.location}</div>
+          <div class="detail-row"><strong>💰 Price Range:</strong> {l.priceRange}</div>
+          {l.phone && <div class="detail-row"><strong>📞 Phone:</strong> {l.phone}</div>}
+          {l.email && <div class="detail-row"><strong>✉️ Email:</strong> {l.email}</div>}
+          {l.rooms && <div class="detail-row"><strong>🛏️ Rooms:</strong> {l.rooms}</div>}
+        </div>
+        <div class="amenities-row">
+          {l.amenities.map((a) => (
+            <span class="amenity-tag">{a}</span>
+          ))}
+        </div>
+        <p class="listing-notes">{l.notes}</p>
+      </div>
+    ))}
+  </div>
+
+  <h2>📋 Booking Checklist</h2>
+  <ul>
+    <li><strong>Reserve 4–8 weeks ahead</strong> — especially during national holidays or events.</li>
+    <li><strong>Confirm before buying flights</strong> — accommodation availability determines your trip, not the other way around.</li>
+    <li><strong>Contact by email or phone</strong> — Menen Hotel: <code>menen@nauru.gov.nr</code> or +674 557 3100.</li>
+    <li><strong>Ask about meals:</strong> Some properties offer full board; others are room-only. Breakfast inclusions vary.</li>
+    <li><strong>Clarify payment method:</strong> Most prefer cash (AUD) or bank transfer. Credit cards are accepted only at Menen Hotel, subject to surcharge.</li>
+    <li><strong>Request airport transfer</strong> — Menen Hotel can arrange pickup on request.</li>
+    <li><strong>Check Wi-Fi availability</strong> — Starlink is becoming available; ask if your property has it.</li>
+  </ul>
+
+  <h2>💡 Pro Tips for Your Stay</h2>
+  <div class="info-box">
+    <h4>🪟 Ask for an ocean-view room</h4>
+    <p>Some rooms at the Menen Hotel offer views over Anibare Bay. Request one when booking — these are the best rooms on the island.</p>
+  </div>
+  <div class="info-box">
+    <h4>🔌 Power outages happen</h4>
+    <p>Nauru experiences occasional power disruptions. The Menen Hotel has a backup generator. Bring a power bank for your devices.</p>
+  </div>
+  <div class="info-box">
+    <h4>🌴 Longer stays? Choose self-catering</h4>
+    <p>Private rental apartments with kitchenettes and washing machines are available for $60–$100 AUD/night — ideal for stays of a week or more.</p>
+  </div>
+</SubpageLayout>
 
 <style>
   .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
   .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .listings-block{display:flex;flex-direction:column;gap:20px;margin:1.5rem 0}
+  .listing-card{background:#fff;border:2px solid #1a1a2e;padding:24px;box-shadow:4px 4px 0 #1a1a2e}
+  .listing-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+  .listing-header h3{margin:0;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.2rem}
+  .listing-type{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;background:#FFC72C;padding:4px 10px;border:1px solid #1a1a2e}
+  .listing-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+  .detail-row{font-size:14px;color:#475569}
+  .detail-row strong{color:#1a1a2e}
+  .amenities-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;padding:12px 0;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
+  .amenity-tag{font-size:12px;background:#f0f0f0;padding:4px 10px;border:1px solid #ddd;color:#475569}
+  .listing-notes{font-size:14px;line-height:1.7;color:#64748b;margin:0}
+  @media (max-width: 720px){.listing-details{grid-template-columns:1fr}}
 </style>

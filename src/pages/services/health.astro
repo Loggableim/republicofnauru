@@ -2,35 +2,111 @@
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Health & Medical" description="Hospital access, urgent care and health planning." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
-  <p>Use this page to understand emergency numbers, routine medical planning and what to have ready if you need health support.</p>
+<SubpageLayout title="Health & Medical" description="Hospital access, urgent care, pharmacies, and health planning for residents and visitors." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <p>Use this page to understand emergency numbers, routine medical planning, hospital services, and what to have ready if you need health support while in Nauru.</p>
 
-  <h2>Checklist</h2>
+  <h2>📋 Emergency & Travel Checklist</h2>
   <ul>
-    <li>Save emergency numbers before you travel</li>
-    <li>Carry prescriptions and basic medical info</li>
-    <li>Pack essential medicines in your hand luggage</li>
-    <li>Know the hospital location and transport plan</li>
+    <li><strong>Save emergency numbers</strong> before you travel — Police 110, Fire 111, Ambulance 112</li>
+    <li><strong>Carry prescriptions and basic medical info</strong> — including current medications, known allergies, and blood type</li>
+    <li><strong>Pack essential medicines in your hand luggage</strong> — Nauru's pharmacy may not stock every medication; bring a supply for your entire stay plus a small reserve</li>
+    <li><strong>Know the hospital location</strong> — Nauru General Hospital (Republic of Nauru Hospital) is in Yaren, a short drive from the airport</li>
+    <li><strong>Plan your transport route</strong> — identify how you will reach the hospital in an emergency (car, taxi, or ambulance)</li>
+    <li><strong>Get travel insurance</strong> — medical evacuation insurance is strongly recommended; Nauru cannot treat all complex conditions on-island</li>
+    <li><strong>Check vaccination requirements</strong> — yellow fever vaccination is required if travelling from an endemic area; routine vaccinations (tetanus, hepatitis A/B, typhoid) are recommended</li>
   </ul>
 
-  <h2>Urgent care</h2>
-  <p>For emergencies, use the appropriate emergency number and get help immediately. Do not delay if the issue is serious.</p>
-<h2>Routine care</h2>
-  <p>For less urgent matters, contact the hospital or the relevant health office to confirm the right process.</p>
-<h2>Travel health prep</h2>
-  <p>Visitors should bring regular medication, any required letters and a small first-aid kit for minor issues.</p>
+  <h2>🚨 Emergency Numbers</h2>
+  <div class="info-box">
+    <h4>📞 Key Contacts</h4>
+    <p>
+      <strong>🚓 Police:</strong> 110<br>
+      <strong>🔥 Fire & Rescue:</strong> 111<br>
+      <strong>🚑 Ambulance / Medical Emergency:</strong> 112<br>
+      <strong>🏥 Nauru General Hospital:</strong> +674 557 3199<br>
+      <strong>☎️ International operator:</strong> 0 (then country code)
+    </p>
+  </div>
 
-  <h2>Next steps</h2>
+  <h2>🔢 Step-by-Step Guides</h2>
+
+  <h3>Visiting the Hospital (Non-Emergency)</h3>
+  <ol>
+    <li><strong>Go to Nauru General Hospital</strong> — located in Yaren, open 24/7 for emergencies; outpatient clinics operate Mon–Fri 09:00–16:00</li>
+    <li><strong>Register at the reception desk</strong> — provide your name, date of birth, and reason for visit; visitors should have their passport ready</li>
+    <li><strong>Wait for triage</strong> — a nurse will assess your condition and direct you to the appropriate department (outpatient, specialist clinic, or emergency)</li>
+    <li><strong>Consult with a doctor</strong> — explain your symptoms and medical history; bring a list of current medications</li>
+    <li><strong>Receive treatment or prescription</strong> — the doctor will provide a treatment plan; if medication is prescribed, you will receive a prescription to fill at the hospital pharmacy or a local pharmacy</li>
+    <li><strong>Pay any applicable fees</strong> — Nauruan citizens receive free public healthcare; visitors may be charged a consultation fee (currently ~AUD $20–50, subject to change)</li>
+    <li><strong>Follow up as advised</strong> — schedule any follow-up appointments before leaving the hospital</li>
+  </ol>
+
+  <h3>Getting a Prescription Filled</h3>
+  <ol>
+    <li><strong>Obtain a prescription from a doctor</strong> — prescriptions from Nauru General Hospital or a visiting specialist are accepted at the hospital pharmacy</li>
+    <li><strong>Take the prescription to the pharmacy</strong> — the hospital pharmacy is located on the ground floor of Nauru General Hospital; open Mon–Fri 09:00–16:30</li>
+    <li><strong>Present your identification</strong> — citizens present a national ID or birth certificate; visitors present a passport</li>
+    <li><strong>Pay for the medication</strong> — some medications are subsidised; generic alternatives may be offered if a specific brand is unavailable</li>
+    <li><strong>Confirm dosage and instructions</strong> — ask the pharmacist to explain dosage, timing, and any side effects before leaving</li>
+  </ol>
+
+  <h3>Medical Evacuation (Medevac) — If Specialist Care Is Needed</h3>
+  <ol>
+    <li><strong>Attending doctor assesses</strong> — if a condition exceeds the hospital's capacity, the doctor initiates a medevac request</li>
+    <li><strong>Contact the Medevac Coordinator</strong> — the hospital liaises with overseas medical facilities (typically in Brisbane or Suva)</li>
+    <li><strong>Insurance verification</strong> — travel or health insurance is contacted to confirm coverage; patients without insurance must arrange payment upfront</li>
+    <li><strong>Travel arrangements</strong> — coordinated with airlines (Nauru Airlines) and receiving hospital</li>
+    <li><strong>Patient transport</strong> — patient is escorted by medical staff to the destination hospital</li>
+  </ol>
+
+  <h2>💊 Health Services Overview</h2>
+  <div class="fact-grid">
+    <div class="fact">
+      <div class="num">🏥 Nauru General Hospital</div>
+      <div class="label">72 beds · 24/7 emergency · Yaren</div>
+    </div>
+    <div class="fact">
+      <div class="num">🩺 Outpatient Clinics</div>
+      <div class="label">Mon–Fri 09:00–16:00 · GP and specialists</div>
+    </div>
+    <div class="fact">
+      <div class="num">💊 Hospital Pharmacy</div>
+      <div class="label">Mon–Fri 09:00–16:30 · Ground floor</div>
+    </div>
+    <div class="fact">
+      <div class="num">🚑 Medevac</div>
+      <div class="label">To Brisbane / Suva · insurance required</div>
+    </div>
+  </div>
+
+  <h2>🧳 Travel Health Preparation</h2>
+  <p>Visitors should prepare the following before travelling to Nauru:</p>
+  <ul>
+    <li><strong>Regular medications</strong> — bring enough for your entire stay plus 1–2 weeks extra in case of travel delays</li>
+    <li><strong>Medication letters</strong> — a letter from your doctor detailing your condition and prescribed medications (helpful for customs and emergencies)</li>
+    <li><strong>Small first-aid kit</strong> — plasters, antiseptic wipes, pain relief (paracetamol/ibuprofen), antihistamines, diarrhoea relief, and rehydration sachets</li>
+    <li><strong>Sun protection</strong> — high-SPF sunscreen, sunglasses, wide-brimmed hat (Nauru is near the equator with strong UV year-round)</li>
+    <li><strong>Insect repellent</strong> — mosquito repellent with DEET for dengue prevention; Nauru has periodic dengue fever outbreaks</li>
+    <li><strong>Travel insurance documents</strong> — carry a copy of your policy and emergency contact number</li>
+  </ul>
+
+  <h2>➡️ Next Steps</h2>
   <div class="utility-grid">
-    <a href="/directory/">Directory →</a>
-    <a href="/contact/">Contact →</a>
-    <a href="/visit/transport/">Transport →</a>
-    <a href="/news/">Latest updates →</a>
+    <a href="/directory/" class="utility-card"><h3>📖 Directory</h3><p>Hospital and health office contacts.</p></a>
+    <a href="/contact/" class="utility-card"><h3>✉️ Contact</h3><p>Ask the site team a question.</p></a>
+    <a href="/visit/transport/" class="utility-card"><h3>🚌 Transport</h3><p>Getting to the hospital and around the island.</p></a>
+    <a href="/news/" class="utility-card"><h3>📰 Latest Updates</h3><p>Health advisories and service announcements.</p></a>
   </div>
 </SubpageLayout>
 
 <style>
   .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block}
-  @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
+  .utility-grid a,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block;text-decoration:none}
+  .utility-card h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .utility-card p{margin:0;font-weight:400;font-size:14px;color:#475569;line-height:1.6}
+  .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1rem 0 2rem}
+  .fact{background:#fff;border:2px solid #1a1a2e;padding:20px;text-align:center}
+  .fact .num{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#002B7F}
+  .fact .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
+  @media (max-width: 720px){.utility-grid,.fact-grid{grid-template-columns:1fr}}
 </style>

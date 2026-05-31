@@ -1,49 +1,74 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import servicesData from '../../data/services.json';
+
+const servicePages = [
+  { icon: '🛂', title: 'Citizenship & Identity', desc: 'Naturalisation, birth registration, identity documents, and citizen-facing services.', href: '/services/citizenship/' },
+  { icon: '🎓', title: 'Education & Learning', desc: 'Schools, scholarships, TVET programmes, and e-learning resources.', href: '/services/education/' },
+  { icon: '🏥', title: 'Health & Medical', desc: 'Hospital access, emergency numbers, pharmacies, and travel health preparation.', href: '/services/health/' },
+  { icon: '🛂', title: 'Immigration & Entry', desc: 'Visa types, work permits, application steps, and arrival procedures.', href: '/services/immigration/' },
+];
 ---
 
 <SubpageLayout title="Services" description="Information and resources for citizens and visitors to the Republic of Nauru" sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
-  <p>Nauru offers a range of government services for both citizens and visitors. Use the menu below to jump directly to the most requested topics.</p>
+  <p>Nauru offers a range of government services for both citizens and visitors. Each service page includes a practical checklist, step-by-step application guide, cost and processing time information, and clear next steps. Use the menu below to jump directly to the most requested topics.</p>
 
-  <h2>Quick access</h2>
+  <h2>📑 Service Pages</h2>
+  <div class="service-grid">
+    {servicePages.map(svc => (
+      <a href={svc.href} class="service-card">
+        <h3>{svc.icon} {svc.title}</h3>
+        <p>{svc.desc}</p>
+        <span>Open guide →</span>
+      </a>
+    ))}
+  </div>
+
+  <h2>🔍 Quick Access Topics</h2>
   <div class="service-grid">
     {servicesData.map(svc => (
       <a href={svc.href ?? '/contact/'} class="service-card">
         <h3>{svc.icon} {svc.title}</h3>
         <p>{svc.desc}</p>
-        <span>Open info page →</span>
+        <span>Learn more →</span>
       </a>
     ))}
   </div>
 
-  <h2>What to do next</h2>
+  <h2>➡️ What to Do Next</h2>
   <div class="utility-grid">
-    <a href="/directory/" class="utility-card"><h3>Directory</h3><p>Find the right office or emergency contact.</p></a>
-    <a href="/visit/visa/" class="utility-card"><h3>Visa</h3><p>Travel entry and document guidance.</p></a>
-    <a href="/visit/transport/" class="utility-card"><h3>Transport</h3><p>Arrival and local mobility information.</p></a>
-    <a href="/news/" class="utility-card"><h3>News</h3><p>Current policy and service updates.</p></a>
+    <a href="/directory/" class="utility-card"><h3>📖 Directory</h3><p>Find the right office or emergency contact, including government departments and key services.</p></a>
+    <a href="/visit/visa/" class="utility-card"><h3>🛂 Visa</h3><p>Travel entry requirements, visa types, application process, and document guidance.</p></a>
+    <a href="/visit/transport/" class="utility-card"><h3>🚌 Transport</h3><p>Arrival at Nauru International Airport, car rental, taxis, and local mobility information.</p></a>
+    <a href="/news/" class="utility-card"><h3>📰 News</h3><p>Current policy updates, public announcements, and service changes.</p></a>
   </div>
 
   <div class="info-box">
-    <h4>🏛️ Government Information Office</h4>
-    <p>The GIO is your first point of contact for many administrative inquiries. It publishes official announcements and can point you toward the correct department.</p>
+    <h4>🏛️ Government Information Office (GIO)</h4>
+    <p>The GIO is your first point of contact for many administrative inquiries. Located in the Government Complex in Yaren, it publishes official announcements, distributes forms, and can point you toward the correct department for specialised matters.</p>
+    <p><strong>Hours:</strong> Mon–Fri 09:00–16:45 · <strong>Phone:</strong> +674 557 3131</p>
   </div>
 
-  <h2>Online Resources</h2>
+  <h2>🌐 Online Resources</h2>
   <ul>
-    <li><strong>RONLAW:</strong> Nauru's legislation database at ronlaw.gov.nr</li>
-    <li><strong>Nauru Bulletin:</strong> Official government newspaper</li>
-    <li><strong>Radio Nauru:</strong> Live stream at radionauru.nr</li>
-    <li><strong>Moodle:</strong> e-learning platform for students and educators</li>
+    <li><strong>RONLAW:</strong> Nauru's legislation database — search laws, acts, and regulations at ronlaw.gov.nr</li>
+    <li><strong>Nauru Bulletin:</strong> Official government newspaper published fortnightly, covering policy, notices, and public information</li>
+    <li><strong>Radio Nauru:</strong> Live broadcast at radionauru.nr — news, educational programming, and public announcements</li>
+    <li><strong>Moodle (E-Learning):</strong> Nauru's online learning platform for students and educators, managed by the Ministry of Education</li>
   </ul>
+
+  <div class="info-box" style="margin-top:2rem;">
+    <h4>💡 Need Help?</h4>
+    <p>If you cannot find what you are looking for, try the <a href="/search/">search page</a> or <a href="/contact/">contact the site team</a>. For urgent government matters, call the Government Information Office directly at +674 557 3131.</p>
+  </div>
 </SubpageLayout>
 
 <style>
   .service-grid,.utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .service-card,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .service-card h3,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  .service-card p{margin:0 0 10px;line-height:1.7;color:#475569}
+  .service-card,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block;text-decoration:none}
+  .service-card h3,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.1rem}
+  .service-card p{margin:0 0 10px;line-height:1.7;color:#475569;font-size:14px}
   .service-card span{font-size:12px;font-weight:700;color:#002B7F}
+  .utility-card p{margin:0;font-size:14px;color:#475569;line-height:1.6}
   @media (max-width: 720px){.service-grid,.utility-grid{grid-template-columns:1fr}}
 </style>
