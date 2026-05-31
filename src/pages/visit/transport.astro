@@ -5,23 +5,99 @@ import transportData from '../../data/transport.json';
 
 <SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeTopBar={true} includeFooter={true}>
   <p>{transportData.intro}</p>
+
   <div class="callout-grid">
-    <div class="callout"><h3>Arrival flow</h3><p>Land, clear the airport, collect your bags and move straight to your accommodation or arranged pickup.</p></div>
-    <div class="callout"><h3>Island distances</h3><p>Nauru is tiny — transport is less about distance and more about timing, availability and flexibility.</p></div>
-    <div class="callout"><h3>Local tips</h3><p>Keep your hotel contact handy and confirm pickup arrangements before arrival.</p></div>
-    <div class="callout"><h3>Budgeting</h3><p>Short transfers are common; save cash for the occasional taxi or private arrangement.</p></div>
+    <div class="callout"><h3>✈️ Fly in, fly out</h3><p>Nauru Airlines operates flights from Brisbane (4 hrs) and Nadi/Fiji (3 hrs). No passenger ferries or cruise ships call here.</p></div>
+    <div class="callout"><h3>🚗 Rent a car</h3><p>No public transport. Car hire ($50–80 AUD/day) is the best way to explore. Drive on the left — Australian system.</p></div>
+    <div class="callout"><h3>🌴 Island is 19 km around</h3><p>The ring road circles the entire island. Walking takes 4–5 hours. Bicycles available at some hotels — perfect for exploring.</p></div>
+    <div class="callout"><h3>⚠️ Plan before arrival</h3><p>No ride-hailing apps, no taxi dispatch. Arrange airport pickup or car hire in advance through your hotel.</p></div>
   </div>
+
   {transportData.sections.map((s) => (
     <Fragment>
       <h2>{s.heading}</h2>
       {s.content.split('\n\n').map((p) => (p.trim() ? <p>{p}</p> : null))}
     </Fragment>
-  ))}<h2>Transport checklist</h2>
+  ))}
+
+  <h2>✈️ Nauru Airlines Flight Schedule</h2>
+  <p>Nauru Airlines (formerly Our Airline) is the only commercial carrier serving Nauru International Airport (INU). The airline operates a Boeing 737-700/800 on its regular routes. Below is a summary of current connections — <strong>always verify directly with Nauru Airlines</strong> as schedules change frequently.</p>
+
+  <div class="listings-block">
+    <div class="route-card">
+      <h3>🇦🇺 Brisbane (BNE) → Nauru (INU)</h3>
+      <div class="route-details">
+        <div class="rd"><strong>Duration:</strong> ~4 hours</div>
+        <div class="rd"><strong>Frequency:</strong> 2–3 flights per week</div>
+        <div class="rd"><strong>Aircraft:</strong> Boeing 737-700/800</div>
+        <div class="rd"><strong>Notes:</strong> Main gateway — most visitors arrive via Brisbane. Baggage allowance and meal service vary by fare class.</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <h3>🇫🇯 Nadi (NAN) → Nauru (INU)</h3>
+      <div class="route-details">
+        <div class="rd"><strong>Duration:</strong> ~3 hours</div>
+        <div class="rd"><strong>Frequency:</strong> 1–2 flights per week (less frequent than Brisbane)</div>
+        <div class="rd"><strong>Aircraft:</strong> Boeing 737-700/800</div>
+        <div class="rd"><strong>Notes:</strong> Alternative entry point connecting from Pacific routes. Useful for travellers coming from Asia or New Zealand via Fiji.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h4>🛬 Nauru International Airport (INU) — What to Expect</h4>
+    <p>The airport has a single runway and a compact terminal. There are no jet bridges — you walk across the tarmac. Immigration is straightforward but queues can form when multiple flights arrive simultaneously. The small departures lounge has basic seating and a duty-free shop selling souvenirs, alcohol, and tobacco. No café or restaurant is available airside — bring snacks if needed. Luggage retrieval is manual, so be patient. On departure, arrive at least 2 hours early — check-in and security are slow-paced.</p>
+  </div>
+
+  <h2>🚗 Car Rental in Detail</h2>
+  <p>With no public transport system, a rental car gives you freedom to explore the island at your own pace. Here is what you need to know:</p>
+
+  <div class="rental-card">
+    <h3>Rental Requirements</h3>
+    <ul>
+      <li><strong>Driving licence:</strong> Your home country licence is valid for short-term visits (up to 3 months).</li>
+      <li><strong>Age:</strong> Minimum age is typically 21–25 (varies by provider; check in advance).</li>
+      <li><strong>Deposit:</strong> A cash deposit or credit card pre-authorisation is usually required.</li>
+      <li><strong>Fuel:</strong> Petrol is available at the Nauru Fuel Station in Aiwo. Hours are limited — fill up when you see it open.</li>
+      <li><strong>Insurance:</strong> Basic insurance is included in most rentals; check for excess amounts.</li>
+    </ul>
+  </div>
+
+  <div class="rental-card">
+    <h3>Estimated Costs</h3>
+    <div class="cost-grid">
+      <div class="cost-item"><span>Economy sedan (per day)</span> <strong>$50–$65 AUD</strong></div>
+      <div class="cost-item"><span>SUV / 4WD (per day)</span> <strong>$70–$90 AUD</strong></div>
+      <div class="cost-item"><span>Weekly discount (estimated)</span> <strong>~10–15% off daily rate</strong></div>
+      <div class="cost-item"><span>Fuel (per litre)</span> <strong>~$1.80–$2.20 AUD</strong></div>
+    </div>
+  </div>
+
+  <h2>🚕 Other Transport Options</h2>
+  <div class="transport-options">
+    <div class="option-card">
+      <h3>🚶 Walking</h3>
+      <p>The island is small enough to explore on foot, especially the Yaren and Aiwo districts. The coastal ring road is flat and walkable. A full circuit is about 19 km (4–5 hours). Bring water, sun protection, and sturdy shoes.</p>
+    </div>
+    <div class="option-card">
+      <h3>🚲 Bicycles</h3>
+      <p>Some hotels (Menen Hotel, OD-N-Aiwo) offer bicycle hire for guests. Cycling is an excellent way to cover ground at a leisurely pace. Roads are flat but watch for loose dogs and potholes.</p>
+    </div>
+    <div class="option-card">
+      <h3>🚕 Taxis</h3>
+      <p>Taxi services exist but are ad-hoc — no formal ranks or booking apps. Ask your hotel to arrange one. Fares should be agreed in advance. Expect $10–$20 AUD for most intra-island trips.</p>
+    </div>
+  </div>
+
+  <h2>✅ Transport Checklist</h2>
   <ul>
-    <li>Confirm your arrival and transfer details before departure.</li>
-    <li>Store the airport and accommodation contacts offline.</li>
-    <li>Ask your host about the quickest way from the terminal to your stay.</li>
-    <li>Keep some cash for immediate expenses after arrival.</li>
+    <li>Confirm your arrival flight and arrange hotel pickup <strong>before departure</strong>.</li>
+    <li>Store airport and accommodation contact details <strong>offline</strong>.</li>
+    <li>If renting a car, arrange it before arrival — availability is limited.</li>
+    <li>Keep AUD cash for fuel (cards rarely accepted at petrol stations).</li>
+    <li>Download offline maps (Google Maps or Maps.me) — mobile data is slow.</li>
+    <li>Be cautious driving at night — limited street lighting and animals on roads.</li>
+    <li>Speed limits: 40 km/h in built-up areas, 60 km/h on open roads. No traffic lights anywhere on the island.</li>
   </ul>
 </SubpageLayout>
 
@@ -30,4 +106,30 @@ import transportData from '../../data/transport.json';
   .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .listings-block{display:flex;flex-direction:column;gap:16px;margin:1.5rem 0}
+  .route-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .route-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.1rem}
+  .route-details{display:grid;gap:6px}
+  .rd{font-size:14px;color:#475569;line-height:1.6}
+  .rd strong{color:#1a1a2e}
+
+  .rental-card{background:#fff;border:2px solid #1a1a2e;padding:20px;margin:1rem 0;box-shadow:4px 4px 0 #1a1a2e}
+  .rental-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .rental-card ul{margin:0;list-style:none;padding:0}
+  .rental-card ul li{font-size:14px;line-height:1.7;color:#475569;padding:4px 0;padding-left:1.5rem;position:relative}
+  .rental-card ul li::before{content:'•';position:absolute;left:0;color:#FFC72C;font-weight:bold}
+
+  .cost-grid{display:grid;gap:8px}
+  .cost-item{display:flex;justify-content:space-between;font-size:14px;color:#475569;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .cost-item:last-child{border-bottom:none}
+  .cost-item strong{color:#1a1a2e}
+
+  .transport-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .option-card{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .option-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
+  .option-card p{font-size:13px;line-height:1.7;color:#64748b;margin:0}
+  @media (max-width: 720px){.transport-options{grid-template-columns:1fr}}
+
+  h2 code{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;background:#f0f0f0;padding:2px 8px}
 </style>

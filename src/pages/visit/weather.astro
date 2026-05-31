@@ -1,9 +1,143 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import weatherData from '../../data/weather.json';
+
+const climateLabels = { avgHighC: 'Avg High', avgLowC: 'Avg Low', rainfallMm: 'Rainfall (mm)', humidityPct: 'Humidity (%)', daylightHours: 'Daylight (hrs)' };
 ---
 
 <SubpageLayout title={weatherData.title} description={weatherData.subtitle} sectionEmoji="🌤️" sectionLabel="When to Visit" includeTopBar={true} includeFooter={true}>
   <p>{weatherData.intro}</p>
-  {weatherData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+
+  <div class="callout-grid">
+    <div class="callout"><h3>🌞 Best time: May–October</h3><p>Driest, sunniest months with calm seas. Humidity lower (70–75%). Ideal for snorkelling, fishing, and exploration.</p></div>
+    <div class="callout"><h3>🌧️ Wet season: Nov–Feb</h3><p>Highest rainfall (up to 280mm/month), intense humidity (80–85%), risk of tropical downpours. Still visitable but pack accordingly.</p></div>
+    <div class="callout"><h3>🌡️ Year-round heat</h3><p>Temperatures consistently 28–35°C. Only 53 km south of the equator — UV index is extreme year-round. Sun protection is non-negotiable.</p></div>
+    <div class="callout"><h3>🎉 Cultural timing</h3><p>Plan around Constitution Day (May 17) or Independence Day (Jan 31). Note January is peak wet season — expect rain alongside celebrations.</p></div>
+  </div>
+
+  {weatherData.sections.map(s => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}
+    </Fragment>
+  ))}
+
+  <h2>📊 Monthly Climate Table</h2>
+  <p>The table below shows monthly averages for temperature, rainfall, humidity, and daylight hours. All data is based on long-term observations at Nauru International Airport weather station.</p>
+
+  <div class="table-wrapper">
+    <table class="climate-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Avg High</th>
+          <th>Avg Low</th>
+          <th>Rainfall</th>
+          <th>Humidity</th>
+          <th>Daylight</th>
+        </tr>
+      </thead>
+      <tbody>
+        {weatherData.climateTable.map(row => (
+          <tr>
+            <td data-label="Month"><strong>{row.month}</strong></td>
+            <td data-label="Avg High">{row.avgHighC}°C</td>
+            <td data-label="Avg Low">{row.avgLowC}°C</td>
+            <td data-label="Rainfall">{row.rainfallMm} mm</td>
+            <td data-label="Humidity">{row.humidityPct}%</td>
+            <td data-label="Daylight">{row.daylightHours}h</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🏖️ Best Time to Visit — Season by Season</h2>
+
+  <div class="season-grid">
+    <div class="season-card season-wet">
+      <h3>🌧️ Wet Season (November – February)</h3>
+      <p><strong>Pros:</strong> Lush green landscape; quieter with fewer visitors; cultural events in January.</p>
+      <p><strong>Cons:</strong> Frequent heavy downpours; highest humidity (80–85%); some outdoor activities disrupted; sea can be rougher for snorkelling and fishing.</p>
+      <p><strong>Who it suits:</strong> Budget travellers who don't mind rain; photographers wanting dramatic skies; visitors attending Independence Day events.</p>
+    </div>
+    <div class="season-card season-dry">
+      <h3>☀️ Dry Season (March – October)</h3>
+      <p><strong>Pros:</strong> Lowest rainfall (80–110mm/month May–Aug); trade winds reduce humidity; calmest seas for snorkelling/fishing; best underwater visibility.</p>
+      <p><strong>Cons:</strong> Slightly busier (though Nauru is never crowded); higher demand for accommodation, so book early.</p>
+      <p><strong>Who it suits:</strong> First-time visitors; outdoor enthusiasts; divers and snorkellers; anyone who prefers reliable sunshine.</p>
+    </div>
+    <div class="season-card season-shoulder">
+      <h3>🌤️ Shoulder Months (March, October)</h3>
+      <p>Transitional periods with mixed conditions — still good for travel. March sees the end of the wet season; October marks the return of higher rainfall. Both offer a balance of decent weather and low visitor numbers.</p>
+    </div>
+  </div>
+
+  <h2>🎒 Packing Recommendations by Season</h2>
+
+  <h3>🌧️ Wet Season Essentials (Nov–Feb)</h3>
+  <ul>
+    {weatherData.packingBySeason.wet.map(item => <li>{item}</li>)}
+  </ul>
+
+  <h3>☀️ Dry Season Essentials (Mar–Oct)</h3>
+  <ul>
+    {weatherData.packingBySeason.dry.map(item => <li>{item}</li>)}
+  </ul>
+
+  <h2>⚠️ Important Climate Notes</h2>
+  <div class="info-box">
+    <h4>☀️ Extreme UV Index</h4>
+    <p>Nauru's equatorial latitude means the UV index regularly hits 11+ (extreme) year-round. Even on overcast days, UV rays penetrate cloud cover. Apply SPF 50+ sunscreen every 2 hours, wear a broad-brimmed hat and UV-rated sunglasses, and seek shade between 11 AM and 3 PM.</p>
+  </div>
+  <div class="info-box">
+    <h4>🌀 Tropical Storms & Cyclones</h4>
+    <p>While Nauru is close enough to the equator to be partially protected from the worst cyclones (they typically form further south), the island can still experience tropical squalls, strong winds, and intense thunderstorms during the wet season (Nov–Feb). Check forecasts before and during your trip.</p>
+  </div>
+  <div class="info-box">
+    <h4>💧 Hydration</h4>
+    <p>Heat and humidity mean you lose fluids fast. Carry a reusable water bottle at all times. Tap water is not recommended for drinking — buy bottled water or use purification tablets. Most hotels provide drinking water for guests.</p>
+  </div>
+
+  <h2>📋 Quick Climate Reference</h2>
+  <ul>
+    <li><strong>Annual average temperature:</strong> ~28°C</li>
+    <li><strong>Annual rainfall:</strong> ~2,000 mm</li>
+    <li><strong>Driest months:</strong> June–August (80–90mm/month)</li>
+    <li><strong>Wettest months:</strong> January, December (280mm/month)</li>
+    <li><strong>Highest humidity:</strong> December–February (80–85%)</li>
+    <li><strong>Lowest humidity:</strong> June–August (73%)</li>
+    <li><strong>Best months for snorkelling/diving:</strong> May–October</li>
+  </ul>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .table-wrapper{overflow-x:auto;margin:1.5rem 0;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .climate-table{width:100%;border-collapse:collapse;background:#fff;min-width:500px}
+  .climate-table th{background:#002B7F;color:#fff;padding:12px;font-size:13px;text-align:left;white-space:nowrap}
+  .climate-table td{padding:10px 12px;font-size:14px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06)}
+  .climate-table tbody tr:nth-child(even){background:#faf8f0}
+  .climate-table tbody tr:hover{background:#fff8e1}
+  .climate-table td strong{color:#002B7F}
+  @media (max-width: 600px){
+    .climate-table thead{display:none}
+    .climate-table tr{display:block;padding:12px;border-bottom:2px solid #1a1a2e}
+    .climate-table td{display:flex;justify-content:space-between;padding:6px 0;border:none;gap:12px}
+    .climate-table td::before{content:attr(data-label);font-weight:600;color:#002B7F}
+  }
+
+  .season-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .season-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .season-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;font-size:1rem}
+  .season-card p{font-size:13px;line-height:1.7;color:#64748b;margin:0 0 8px}
+  .season-card p:last-child{margin-bottom:0}
+  .season-wet h3{color:#1a5276}
+  .season-dry h3{color:#b7950b}
+  .season-shoulder h3{color:#117a65}
+  @media (max-width: 720px){.season-grid{grid-template-columns:1fr}}
+</style>

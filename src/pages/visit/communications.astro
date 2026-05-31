@@ -5,5 +5,160 @@ import commsData from '../../data/communications.json';
 
 <SubpageLayout title={commsData.title} description={commsData.subtitle} sectionEmoji="📡" sectionLabel="Staying Connected" includeTopBar={true} includeFooter={true}>
   <p>{commsData.intro}</p>
-  {commsData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+
+  <div class="callout-grid">
+    <div class="callout"><h3>📱 Digicel is the only network</h3><p>Nauru's sole mobile provider offers 4G LTE in coastal areas. Prepaid SIMs from $5–10 AUD at the Digicel store in Yaren. Passport required for registration.</p></div>
+    <div class="callout"><h3>🌐 Internet is slow</h3><p>Typical speeds: 2–10 Mbps (satellite/fibre). Hotel Wi-Fi can drop to 1–5 Mbps. Download maps, guides, and entertainment before arrival.</p></div>
+    <div class="callout"><h3>🚀 Starlink is arriving</h3><p>Starlink low-earth-orbit satellite is becoming available at select hotels and residences — ask when booking. It offers dramatically faster speeds (100–200 Mbps).</p></div>
+    <div class="callout"><h3>📞 Calling code: +674</h3><p>Nauru country code is +674. International roaming works with some Australian/NZ carriers but is expensive — get a local SIM for stays over a few days.</p></div>
+  </div>
+
+  {commsData.sections.map(s => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}
+    </Fragment>
+  ))}
+
+  <h2>📱 Digicel Prepaid Data Plans</h2>
+  <p>The table below shows the current prepaid data bundle options from Digicel Nauru. Prices and availability may change — verify at the Digicel store in Yaren.</p>
+
+  <table class="plan-table">
+    <thead>
+      <tr>
+        <th>Plan</th>
+        <th>Price (AUD)</th>
+        <th>Data Included</th>
+        <th>Validity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {commsData.connectivity.mobileProviders[0].dataPlans.map(plan => (
+        <tr>
+          <td data-label="Plan"><strong>{plan.plan}</strong></td>
+          <td data-label="Price">{plan.price}</td>
+          <td data-label="Data Included">{plan.data}</td>
+          <td data-label="Validity">{plan.validity || 'N/A'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <h4>📋 How to Get a SIM Card</h4>
+    <p>Visit the <strong>Digicel store in Yaren</strong> (near the government office precinct) or the Digicel agent in Aiwo. Bring your <strong>valid passport</strong> (and visa/approval letter if applicable) for mandatory registration. The process takes about 15–30 minutes on weekdays. Top-up vouchers are available at the store and select retail outlets across the island. The starter pack costs $5–$10 AUD and includes initial data and call credit.</p>
+  </div>
+
+  <h2>🌐 Internet Connectivity in Detail</h2>
+
+  <div class="connectivity-grid">
+    <div class="conn-card">
+      <h3>Typical Internet Speeds</h3>
+      <div class="speed-row"><span>Home/business connections</span> <strong>2–10 Mbps</strong></div>
+      <div class="speed-row"><span>Mobile data (Digicel 4G)</span> <strong>5–20 Mbps</strong></div>
+      <div class="speed-row"><span>Hotel Wi-Fi</span> <strong>1–5 Mbps</strong></div>
+      <div class="speed-row"><span>Starlink (where available)</span> <strong>100–200 Mbps</strong></div>
+      <div class="speed-row"><span>Upload speed (typical)</span> <strong>1–3 Mbps</strong></div>
+    </div>
+    <div class="conn-card">
+      <h3>Where to Find Wi-Fi</h3>
+      <ul>
+        <li><strong>Menen Hotel</strong> — satellite-based Wi-Fi, speed varies</li>
+        <li><strong>OD-N-Aiwo Hotel</strong> — limited speed</li>
+        <li><strong>Cenpac Internet Café</strong> (Yaren) — public terminal access for a fee</li>
+        <li><strong>Nauru Library</strong> — occasional free public Wi-Fi</li>
+        <li><strong>Private rentals</strong> — confirm Wi-Fi availability when booking</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>📶 Coverage Map Notes</h2>
+  <p>Digicel's 4G LTE coverage is concentrated along the populated coastal strip — the ring road where most hotels, government buildings, and businesses are located. The following districts have reliable coverage:</p>
+  <ul>
+    <li><strong>Yaren</strong> — government precinct, airport area, Digicel store — best coverage</li>
+    <li><strong>Aiwo</strong> — port area, OD-N-Aiwo Hotel</li>
+    <li><strong>Denigomodu</strong> — residential and industrial area</li>
+    <li><strong>Meneng</strong> — southern district with some coverage</li>
+    <li><strong>Interior plateau (Topside)</strong> — limited to no coverage. If you venture into the phosphate mining area, don't rely on your phone for navigation.</li>
+  </ul>
+
+  <h2>📞 International Roaming</h2>
+  <div class="info-box">
+    <h4>🌏 Roaming from Australia / New Zealand</h4>
+    <p>Telstra, Vodafone AU, and Spark NZ customers may have roaming agreements with Digicel Nauru, but rates are expensive (typically $5–$10 AUD per MB for data). A local SIM is far more economical for stays of more than 2–3 days. Roaming from European, North American, or Asian carriers is generally not available — check with your provider before departure. Wi-Fi calling may work if your accommodation has a stable connection.</p>
+  </div>
+
+  <h2>📮 Postal & Courier Services</h2>
+  <div class="postal-grid">
+    <div class="postal-card">
+      <h3>Nauru Post (Standard Mail)</h3>
+      <div class="postal-row"><span>To/from Australia</span> <strong>1–3 weeks</strong></div>
+      <div class="postal-row"><span>To/from Europe/North America</span> <strong>3–6 weeks</strong></div>
+      <div class="postal-row"><span>Tracking</span> <strong>Not available for standard mail</strong></div>
+      <div class="postal-row"><span>Location</span> <strong>Yaren District</strong></div>
+    </div>
+    <div class="postal-card">
+      <h3>Courier Services (DHL / FedEx)</h3>
+      <div class="postal-row"><span>Availability</span> <strong>Operate to Nauru</strong></div>
+      <div class="postal-row"><span>Cost</span> <strong>Expensive</strong></div>
+      <div class="postal-row"><span>Customs</span> <strong>Subject to clearance procedures</strong></div>
+    </div>
+  </div>
+
+  <h2>📻 Media & Broadcasting</h2>
+  <ul>
+    <li><strong>Radio Nauru</strong> — national radio station broadcasting on AM and FM, with streaming at radionauru.nr. Programming in Nauruan and English.</li>
+    <li><strong>Digicel Play</strong> — satellite TV available in some hotels and homes. International news channels accessible via satellite.</li>
+    <li><strong>Nauru Bulletin</strong> — government-published newspaper, available online via the Government Information Office.</li>
+    <li><strong>No local television service</strong> — all TV content is via satellite or streaming.</li>
+  </ul>
+
+  <h2>✅ Connectivity Checklist</h2>
+  <ul>
+    <li>Download offline maps (Google Maps / Maps.me) before arrival.</li>
+    <li>Download entertainment (movies, podcasts, ebooks) — streaming is unreliable.</li>
+    <li>Bring a power bank — power outages can disrupt charging.</li>
+    <li>If you need reliable internet, check if your accommodation has Starlink.</li>
+    <li>Consider purchasing a Digicel SIM for stays longer than 2–3 days.</li>
+    <li>Keep digital copies of your passport, visa, and booking confirmations offline.</li>
+    <li>Notify family/friends that your response time may be slower than usual.</li>
+    <li>Bring a universal travel adapter (Australia Type I, 240V/50Hz).</li>
+  </ul>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .plan-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .plan-table th{background:#002B7F;color:#fff;padding:10px 12px;font-size:13px;text-align:left}
+  .plan-table td{padding:10px 12px;font-size:13px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06)}
+  .plan-table tbody tr:nth-child(even){background:#faf8f0}
+  @media (max-width: 600px){
+    .plan-table thead{display:none}
+    .plan-table tr{display:block;padding:10px;border-bottom:2px solid #1a1a2e}
+    .plan-table td{display:flex;justify-content:space-between;padding:4px 0;border:none;gap:8px}
+    .plan-table td::before{content:attr(data-label);font-weight:600;color:#002B7F}
+  }
+
+  .connectivity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
+  .conn-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .conn-card h3{margin:0 0 12px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
+  .conn-card ul{margin:0;list-style:none;padding:0}
+  .conn-card ul li{font-size:13px;color:#475569;padding:4px 0 4px 1.5rem;position:relative;line-height:1.6}
+  .conn-card ul li::before{content:'•';position:absolute;left:0;color:#FFC72C;font-weight:bold}
+  .speed-row{display:flex;justify-content:space-between;font-size:13px;color:#475569;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .speed-row:last-child{border-bottom:none}
+  .speed-row strong{color:#1a1a2e}
+  @media (max-width: 720px){.connectivity-grid{grid-template-columns:1fr}}
+
+  .postal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
+  .postal-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .postal-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
+  .postal-row{display:flex;justify-content:space-between;font-size:13px;color:#475569;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .postal-row:last-child{border-bottom:none}
+  .postal-row strong{color:#1a1a2e}
+  @media (max-width: 720px){.postal-grid{grid-template-columns:1fr}}
+</style>

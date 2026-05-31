@@ -5,7 +5,130 @@ import currencyData from '../../data/currency.json';
 
 <SubpageLayout title={currencyData.title} description={currencyData.subtitle} sectionEmoji="💵" sectionLabel="Money Matters" includeTopBar={true} includeFooter={true}>
   <p>{currencyData.intro}</p>
-  {currencyData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
-  <h2>Quick Tips</h2>
-  <ul>{currencyData.quickTips.map(t => <li>{t}</li>)}</ul>
+
+  <div class="callout-grid">
+    <div class="callout"><h3>🇦🇺 Australian Dollar (AUD)</h3><p>Nauru's official currency. Bring all the cash you need for your entire stay — ATMs are unreliable and card acceptance is minimal.</p></div>
+    <div class="callout"><h3>🏧 ATMs are scarce</h3><p>One CBA ATM in Yaren. It frequently runs out of cash or is out of service. Never rely on it as your primary money source.</p></div>
+    <div class="callout"><h3>💳 Cards: limited use</h3><p>Visa/Mastercard accepted at the Menen Hotel (with surcharge) and some government offices. Amex, Apple Pay, Google Pay — virtually nowhere.</p></div>
+    <div class="callout"><h3>💰 Budget for cash</h3><p>Plan $100–$150 AUD/day for meals, transport, and incidentals. Small denominations ($5, $10, $20) are most useful for daily purchases.</p></div>
+  </div>
+
+  {currencyData.sections.map(s => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}
+    </Fragment>
+  ))}
+
+  <h2>🏦 Banking Hours & Services</h2>
+  <div class="banking-grid">
+    <div class="bank-card">
+      <h3>Commonwealth Bank of Australia (CBA)</h3>
+      <p class="bank-location">📍 Yaren District (near government offices)</p>
+      <div class="bank-detail"><strong>Banking hours:</strong> Mon–Fri, 9:00 AM – 2:00 PM</div>
+      <div class="bank-detail"><strong>ATM available:</strong> ✅ Yes (1 machine, reliability varies)</div>
+      <div class="bank-detail"><strong>Foreign exchange:</strong> Subject to availability</div>
+      <div class="bank-detail"><strong>Cash advances:</strong> On Visa/Mastercard</div>
+      <div class="bank-detail"><strong>Services:</strong> Account services, foreign exchange, card transactions</div>
+    </div>
+    <div class="bank-card">
+      <h3>Bank of Nauru</h3>
+      <p class="bank-location">📍 Yaren District</p>
+      <div class="bank-detail"><strong>Banking hours:</strong> Mon–Fri, 9:00 AM – 2:00 PM</div>
+      <div class="bank-detail"><strong>ATM available:</strong> ❌ No public ATM</div>
+      <div class="bank-detail"><strong>Services:</strong> Savings accounts, deposits, transfers — primarily for residents</div>
+      <div class="bank-detail"><strong>Visitors:</strong> Limited service availability for non-residents</div>
+    </div>
+  </div>
+
+  <h2>💳 Accepted Cards & Payment Methods</h2>
+  <table class="pay-table">
+    <thead>
+      <tr>
+        <th>Payment Method</th>
+        <th>Where Accepted</th>
+        <th>Reliability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Payment Method"><strong>Cash (AUD)</strong></td>
+        <td data-label="Where Accepted">Shops, market stalls, taxis, hotels, guesthouses, restaurants</td>
+        <td data-label="Reliability"><span class="tag tag-green">Excellent — primary method</span></td>
+      </tr>
+      <tr>
+        <td data-label="Payment Method"><strong>Visa / Mastercard</strong></td>
+        <td data-label="Where Accepted">Menen Hotel (surcharge applies), some government offices, CBA branch</td>
+        <td data-label="Reliability"><span class="tag tag-yellow">Limited — always have backup cash</span></td>
+      </tr>
+      <tr>
+        <td data-label="Payment Method"><strong>American Express</strong></td>
+        <td data-label="Where Accepted">Virtually nowhere</td>
+        <td data-label="Reliability"><span class="tag tag-red">Not accepted</span></td>
+      </tr>
+      <tr>
+        <td data-label="Payment Method"><strong>Apple Pay / Google Pay</strong></td>
+        <td data-label="Where Accepted">Not in common use</td>
+        <td data-label="Reliability"><span class="tag tag-red">Not accepted</span></td>
+      </tr>
+      <tr>
+        <td data-label="Payment Method"><strong>Bank Transfer</strong></td>
+        <td data-label="Where Accepted">Some hotels (for booking deposits)</td>
+        <td data-label="Reliability"><span class="tag tag-yellow">Possible but slow — allow 3–7 days</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>📋 Quick Tips</h2>
+  <ul>
+    {currencyData.quickTips.map(t => <li>{t}</li>)}
+  </ul>
+
+  <h2>💡 Practical Money Tips</h2>
+  <div class="info-box">
+    <h4>💰 How much cash to bring?</h4>
+    <p>For a 7-day trip, budget approximately <strong>$700–$1,050 AUD</strong> per person for food, transport, incidentals, and small purchases (excluding accommodation). Accommodation is typically pre-booked and can be paid via bank transfer in advance. Carry a mix of small ($5, $10, $20) and larger ($50) notes — small denominations are essential for market stalls and taxis.</p>
+  </div>
+  <div class="info-box">
+    <h4>🔄 Where to exchange currency</h4>
+    <p>Exchange your home currency to Australian dollars <strong>before you travel</strong> — either at your departure airport or at a bank in your home country. The CBA branch in Yaren can exchange major currencies, but don't count on it — stocks are limited and unpredictable. There are no private currency exchange bureaus on the island.</p>
+  </div>
+  <div class="info-box">
+    <h4>📸 Notify your bank</h4>
+    <p>While card use is minimal, it's still wise to notify your bank of your travel to Nauru to avoid any cards being blocked. If you plan to use cash advances at the CBA branch, confirm daily limits with your bank beforehand. Note that Nauru may appear on some banks' high-risk country lists.</p>
+  </div>
+  <div class="info-box">
+    <h4>🧾 Keep receipts</h4>
+    <p>There are no GST refunds or duty-free shopping schemes for departing visitors (aside from the airport duty-free shop). Receipts are rarely issued for small purchases — don't be surprised if a handwritten note is all you get.</p>
+  </div>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .banking-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
+  .bank-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .bank-card h3{margin:0 0 4px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.05rem}
+  .bank-location{font-size:13px;color:#64748b;margin:0 0 12px}
+  .bank-detail{font-size:13px;color:#475569;padding:4px 0;line-height:1.6}
+  .bank-detail strong{color:#1a1a2e}
+  @media (max-width: 720px){.banking-grid{grid-template-columns:1fr}}
+
+  .pay-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .pay-table th{background:#002B7F;color:#fff;padding:12px;font-size:13px;text-align:left}
+  .pay-table td{padding:12px;font-size:13px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:middle}
+  .pay-table tbody tr:nth-child(even){background:#faf8f0}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;white-space:nowrap}
+  .tag-green{background:#d4edda;border:1px solid #28a745;color:#155724}
+  .tag-yellow{background:#fff3cd;border:1px solid #ffc107;color:#856404}
+  .tag-red{background:#f8d7da;border:1px solid #dc3545;color:#721c24}
+  @media (max-width: 600px){
+    .pay-table thead{display:none}
+    .pay-table tr{display:block;padding:12px;border-bottom:2px solid #1a1a2e}
+    .pay-table td{display:flex;justify-content:space-between;padding:6px 0;border:none;gap:12px}
+    .pay-table td::before{content:attr(data-label);font-weight:600;color:#002B7F}
+  }
+</style>

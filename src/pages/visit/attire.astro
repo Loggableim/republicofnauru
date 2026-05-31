@@ -5,5 +5,125 @@ import attireData from '../../data/attire.json';
 
 <SubpageLayout title={attireData.title} description={attireData.subtitle} sectionEmoji="👔" sectionLabel="Dress Code" includeTopBar={true} includeFooter={true}>
   <p>{attireData.intro}</p>
-  {attireData.sections.map(s => (<><h2>{s.heading}</h2>{s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}</>))}
+
+  <div class="callout-grid">
+    <div class="callout"><h3>🌴 Casual is the norm</h3><p>Shorts, t-shirts, and sandals are everyday wear. Natural, breathable fabrics (cotton, linen) are most practical in the heat.</p></div>
+    <div class="callout"><h3>🙏 Dress modestly in public</h3><p>Nauruans dress conservatively. Swimwear is for the beach only — cover up when leaving the water for shops or restaurants.</p></div>
+    <div class="callout"><h3>🏛️ Formal for government</h3><p>Collared shirt and trousers for men; blouse and skirt/trousers for women. A sulu (sarong) over trousers is a respectful choice.</p></div>
+    <div class="callout"><h3>⛪ Sunday church attire</h3><p>Church is an important part of Nauruan life. Covered shoulders and long trousers or skirts are expected. No beachwear or casual shorts.</p></div>
+  </div>
+
+  {attireData.sections.map(s => (
+    <Fragment>
+      <h2>{s.heading}</h2>
+      {s.content.split('\n\n').map(p => p.trim() ? <p>{p}</p> : null)}
+    </Fragment>
+  ))}
+
+  <h2>📋 Complete Packing List</h2>
+  <p>Below is a comprehensive packing guide organised by category. Items marked as <strong>essential</strong> should be considered non-negotiable for a comfortable trip to Nauru.</p>
+
+  {attireData.packingList.map(category => (
+    <Fragment>
+      <h3>{category.category}</h3>
+      <table class="pack-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Essential?</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          {category.items.map(item => (
+            <tr>
+              <td data-label="Item"><strong>{item.item}</strong></td>
+              <td data-label="Essential?">{item.essential ? <span class="tag tag-green">✅ Essential</span> : <span class="tag tag-gray">Optional</span>}</td>
+              <td data-label="Notes" class="note-cell">{item.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Fragment>
+  ))}
+
+  <h2>🌦️ Seasonal Additions</h2>
+  <p>Depending on when you visit, you may need to add the following items to your bag:</p>
+
+  <div class="season-grid">
+    <div class="season-card">
+      <h3>🌧️ Wet Season (Nov – Feb)</h3>
+      <p class="season-desc">{attireData.seasonalRecommendations.wetSeason.description}</p>
+      {attireData.seasonalRecommendations.wetSeason.additionalItems.map(item => (
+        <div class="season-item">
+          <span class="item-label"><strong>{item.item}</strong></span>
+          <span class="item-tag">{item.essential ? '✅ Essential' : 'Optional'}</span>
+          <p class="item-note">{item.note}</p>
+        </div>
+      ))}
+    </div>
+    <div class="season-card">
+      <h3>☀️ Dry Season (Mar – Oct)</h3>
+      <p class="season-desc">{attireData.seasonalRecommendations.drySeason.description}</p>
+      {attireData.seasonalRecommendations.drySeason.additionalItems.map(item => (
+        <div class="season-item">
+          <span class="item-label"><strong>{item.item}</strong></span>
+          <span class="item-tag">{item.essential ? '✅ Essential' : 'Optional'}</span>
+          <p class="item-note">{item.note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <h2>💡 Important Dress Tips</h2>
+  <div class="info-box">
+    <h4>🧴 Sun Protection is Non-Negotiable</h4>
+    <p>Nauru sits just 53 km south of the equator. The UV index reaches extreme levels (11+) every day of the year. Pack SPF 50+ reef-safe sunscreen, a broad-brimmed hat, and UV-rated sunglasses. A rash guard or UV-protective shirt is highly recommended for water activities — you'll be grateful for it after a day on the water.</p>
+  </div>
+  <div class="info-box">
+    <h4>🦟 Insect Repellent</h4>
+    <p>Mosquitoes are present year-round, particularly after rainfall. Pack insect repellent with DEET or picaridin. Consider bringing a mosquito net if you plan to stay in budget accommodation. Dengue fever has been reported in the Pacific region — take precautions.</p>
+  </div>
+  <div class="info-box">
+    <h4>👞 Footwear Strategy</h4>
+    <p>Bring at least three types: flip-flops/thongs for casual wear, comfortable walking shoes for exploring the island (the Botswanan Walk coastal path is worth the trek), and reef shoes for snorkelling — the coral around Nauru is extremely sharp and can cause serious cuts.</p>
+  </div>
+  <div class="info-box">
+    <h4>🎒 The Sarong — Your Most Versatile Item</h4>
+    <p>A lightweight sarong or scarf serves multiple purposes: sun protection for shoulders, a cover-up when leaving the beach, a respectful layer for church or government building visits, and even an improvised towel or picnic blanket. Don't leave home without one.</p>
+  </div>
 </SubpageLayout>
+
+<style>
+  .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
+  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
+
+  .pack-table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .pack-table th{background:#002B7F;color:#fff;padding:10px 12px;font-size:12px;text-align:left}
+  .pack-table td{padding:10px 12px;font-size:13px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:top}
+  .pack-table tbody tr:nth-child(even){background:#faf8f0}
+  .pack-table tbody tr:hover{background:#fff8e1}
+  .pack-table .note-cell{font-size:12px;color:#64748b}
+  .tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;white-space:nowrap}
+  .tag-green{background:#d4edda;border:1px solid #28a745;color:#155724}
+  .tag-gray{background:#e9ecef;border:1px solid #adb5bd;color:#495057}
+  @media (max-width: 600px){
+    .pack-table thead{display:none}
+    .pack-table tr{display:block;padding:10px;border-bottom:2px solid #1a1a2e}
+    .pack-table td{display:flex;justify-content:space-between;padding:4px 0;border:none;gap:8px}
+    .pack-table td::before{content:attr(data-label);font-weight:600;color:#002B7F;white-space:nowrap}
+  }
+
+  .season-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
+  .season-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .season-card h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
+  .season-desc{font-size:13px;color:#64748b;margin:0 0 12px;line-height:1.6}
+  .season-item{font-size:13px;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06)}
+  .season-item:last-child{border-bottom:none}
+  .item-label{display:inline;color:#1a1a2e}
+  .item-tag{font-size:10px;font-weight:600;padding:1px 6px;margin-left:6px}
+  .item-note{font-size:12px;color:#64748b;margin:2px 0 0}
+  @media (max-width: 720px){.season-grid{grid-template-columns:1fr}}
+</style>
