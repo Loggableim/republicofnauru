@@ -1,8 +1,58 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the emergency numbers in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Police: 110, Fire & Rescue: 111, Ambulance / Medical Emergency: 112. For non-emergencies, contact Nauru General Hospital at +674 557 3199.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I visit the hospital for non-emergency care?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Go to Nauru General Hospital in Yaren, open 24/7 for emergencies. Outpatient clinics operate Mon–Fri 09:00–16:00. Register at reception with your passport, wait for triage, and consult with a doctor. Visitors may be charged a consultation fee (approximately AUD $20–50).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need travel insurance for Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Medical evacuation insurance is strongly recommended. Nauru General Hospital has 72 beds and can handle routine and emergency care, but complex conditions requiring specialist treatment may require evacuation to Brisbane or Suva.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What vaccinations do I need?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yellow fever vaccination is required if travelling from an endemic area. Routine vaccinations (tetanus, hepatitis A/B, typhoid) are recommended. Check with your doctor before travel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get a prescription filled?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Take your prescription from a doctor to the hospital pharmacy on the ground floor of Nauru General Hospital, open Mon–Fri 09:00–16:30. Present your passport for identification and pay for the medication.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Health & Medical" description="Hospital access, urgent care, pharmacies, and health planning for residents and visitors." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page to understand emergency numbers, routine medical planning, hospital services, and what to have ready if you need health support while in Nauru.</p>
 
   <h2>📋 Emergency & Travel Checklist</h2>

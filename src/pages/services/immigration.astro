@@ -1,8 +1,58 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need a visa to enter Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. All foreign nationals (except citizens and residents) must obtain a visa before arriving in Nauru. There is no visa on arrival. Contact Nauru Immigration at least 4–6 weeks before your planned travel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents do I need for a visa application?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You need a valid passport (6+ months validity), completed visa application form, 2 passport-sized photographs, travel itinerary with confirmed flight bookings, accommodation booking confirmation, bank statements as proof of sufficient funds, and a return or onward ticket.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does visa processing take?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Typical processing time is 2–6 weeks. Response times vary depending on application volume. Apply at least 4–6 weeks before your intended travel date.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I extend my visa while in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, you can apply for a visa extension at the Department of Immigration in Yaren at least 2 weeks before your visa expires. Provide a written reason for the extension and pay the applicable fee. Extensions are granted at the discretion of the Director of Immigration.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I apply for a work permit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A Nauru-based employer must sponsor your work permit application. The employer files the application with the Department of Immigration. Processing typically takes 4–8 weeks. You will need a valid passport, CV, qualifications, police clearance, and medical examination report.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Immigration & Entry" description="Entry support, visa guidance, work permits, and traveller procedures for entering the Republic of Nauru." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page to understand the most common entry questions — visa types, application steps, work permits, and what to prepare before travel. All foreign nationals (except citizens and residents) must obtain a visa <strong>before</strong> arriving in Nauru. There is no visa on arrival.</p>
 
   <h2>📋 Pre-Travel Checklist</h2>

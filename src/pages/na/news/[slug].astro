@@ -16,9 +16,37 @@ const breadcrumbPath = [
   { label: 'Edorer', url: '/na/news/' },
   { label: article.title, url: '/na/news/' + article.id + '/' },
 ];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.title,
+  description: article.summary,
+  url: new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
+  inLanguage: 'na',
+  author: {
+    '@type': 'Organization',
+    name: 'Republic of Nauru (Independent Information Portal)',
+    url: 'https://republicofnauru.com',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Republic of Nauru (Independent Information Portal)',
+    url: 'https://republicofnauru.com',
+  },
+  datePublished: article.date ? new Date(article.date).toISOString() : undefined,
+  dateModified: article.date ? new Date(article.date).toISOString() : undefined,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
+  },
+};
 ---
 
 <BaseLayout title={article.title + ' · Republik Naoero'} description={article.summary} locale="na">
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema, null, 2)} />
+  </Fragment>
   <TopBar locale="na" />
   <div class="page-wrapper" id="main-content">
     <header class="article-header">

@@ -1,8 +1,50 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I enroll my child in a Nauruan school?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Determine your catchment school based on your district of residence. Collect required documents (birth certificate, immunisation records, previous school reports, passport photos) and visit the school administration office. Complete the enrolment form and receive your student schedule. The academic year starts in February.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I apply for a scholarship to study overseas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Check the annual scholarship bulletin published by the Ministry of Education around August–September. Confirm eligibility (Nauruan citizenship, strong academic record, acceptance into an accredited programme). Submit your application package by the deadline and attend an interview if shortlisted.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What education levels are available in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru offers early childhood education (ages 3–5), primary school (Years 1–6), secondary school (Years 7–12), TVET/vocational programmes, and tertiary education through overseas scholarships. Public primary and secondary education is free and compulsory for children aged 5–16.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I enrol in a TVET/vocational programme?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Visit the Nauru TVET Centre in Aiwo, complete a registration form, take an aptitude assessment, pay the registration fee (concessions available), and attend classes. Programmes run in trimesters and cover hospitality, construction, ICT, and automotive trades.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Education & Learning" description="Schools, scholarships, e-learning and study resources for students, families, and educators." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page for school information, study programmes, scholarships, and e-learning resources. Below you will find an overview of Nauru's education system, step-by-step guidance for common applications, and practical checklists.</p>
 
   <h2>📋 Checklist</h2>

@@ -60,6 +60,25 @@ const breadcrumbSchema = {
     item: new URL(crumb.url, siteUrl).toString(),
   })),
 };
+
+// WebPage schema for all pages
+const webpageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: title,
+  description,
+  url: canonicalUrl,
+  inLanguage: locale,
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'Republic of Nauru',
+    url: siteUrl,
+  },
+  about: {
+    '@type': 'Thing',
+    name: 'Republic of Nauru',
+  },
+};
 ---
 
 <!DOCTYPE html>
@@ -91,6 +110,9 @@ const breadcrumbSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(webpageSchema)} />
+
+  <slot name="jsonld" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

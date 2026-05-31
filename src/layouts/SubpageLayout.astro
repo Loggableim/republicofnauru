@@ -60,6 +60,9 @@ const breadcrumbPath = segments.map((seg, i) => {
 ---
 
 <BaseLayout title={title} description={description} locale={locale}>
+  <Fragment slot="jsonld">
+    <slot name="jsonld" />
+  </Fragment>
   <a href="#main-content" class="skip-link">Skip to content</a>
   {includeTopBar && <TopBar locale={locale} />}
   <div class="page-wrapper">

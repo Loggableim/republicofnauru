@@ -1,8 +1,50 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I apply for naturalisation (citizenship by grant) in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You must have resided in Nauru for at least 7 years, be of good character, and intend to continue living in Nauru. Gather documents including valid passport, birth certificate, police clearance, proof of residence, and passport photos. Submit your application at the Government Information Office in Yaren, pay the fee, and attend an interview if required. Processing typically takes 3–6 months.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I register a birth in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Births must be registered with the Registrar of Births, Deaths and Marriages within 42 days (6 weeks). Provide the hospital birth notification, parents\' identification (passports or national ID), and marriage certificate if applicable. Complete the registration form at the Registrar\'s office in Yaren to receive the birth certificate.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What do I do if I lose my identity documents in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'File a police report at Yaren Police Station, obtain a copy of the report, visit the Government Information Office (GIO) with the report and any remaining identification, complete the replacement form, pay the replacement fee, and collect your new document in 5–10 working days.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the costs and processing times for citizenship services?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Naturalisation fees range from AUD $50–200 and processing takes 3–6 months. Birth registration is free to AUD $20, and document replacement takes 5–10 working days. Fees vary by case and are subject to change.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Citizenship & Identity" description="Identity, registration and citizen-facing services — including naturalisation, birth registration, and ID documents." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page when you need a citizen record, identity confirmation, or help understanding who handles a request. Below you will find step-by-step guides, required documents, and practical checklists.</p>
 
   <h2>📋 Application Checklist</h2>
