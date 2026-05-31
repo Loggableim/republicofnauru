@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import visaData from '../../data/visa.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need a visa to visit Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'All foreign nationals must obtain a visa before arriving in Nauru. There is no visa on arrival. Contact Nauru Immigration at least 4–6 weeks before your planned travel. Processing typically takes 2–6 weeks.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents are required for a visa application?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You need a valid passport (6+ months validity), completed visa application form, 2 passport-sized photographs, travel itinerary with confirmed flight bookings, accommodation booking confirmation, bank statements as proof of sufficient funds, and a return or onward ticket.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to get a Nauru visa?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Visa processing typically takes 2–6 weeks. It is strongly recommended to apply at least 4–6 weeks before your intended travel date. Response times vary depending on application volume.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I contact Nauru Immigration?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Email Nauru Immigration at immigration@nauru.gov.nr. The Department of Immigration is located in the Government Complex in Yaren. Phone: +674 557 3000. Response time for email inquiries is typically 2–7 days.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={visaData.title} description={visaData.subtitle} sectionEmoji="🛂" sectionLabel="Travel Documents" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p set:html={visaData.intro} />
   <div class="callout-grid">
     <div class="callout"><h3>Prepare documents</h3><p>Passport, supporting papers and any required confirmations should be ready before you apply.</p></div>

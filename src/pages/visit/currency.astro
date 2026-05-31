@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import currencyData from '../../data/currency.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What currency is used in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Australian Dollar (AUD) is Nauru\'s official currency. Bring all the cash you need for your entire stay — ATMs are unreliable and card acceptance is minimal.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are there ATMs in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'There is one CBA ATM in Yaren, but it frequently runs out of cash or is out of service. Never rely on it as your primary money source. Plan to bring sufficient cash from home.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use credit cards in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Visa/Mastercard are accepted at the Menen Hotel (with surcharge) and some government offices. Amex, Apple Pay, and Google Pay are virtually not accepted. Cash is the primary payment method.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much cash should I bring for a trip to Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Budget approximately $100–$150 AUD per day for meals, transport, and incidentals. For a 7-day trip, plan $700–$1,050 AUD per person (excluding accommodation). Bring small denominations ($5, $10, $20) for daily purchases.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={currencyData.title} description={currencyData.subtitle} sectionEmoji="💵" sectionLabel="Money Matters" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>{currencyData.intro}</p>
 
   <div class="callout-grid">

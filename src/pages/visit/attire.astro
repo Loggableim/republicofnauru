@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import attireData from '../../data/attire.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What should I wear in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Casual clothing is the norm — shorts, t-shirts, and sandals. Use natural breathable fabrics like cotton and linen. Dress modestly in public: swimwear is for the beach only. For government visits, wear a collared shirt and trousers. Sunday church requires covered shoulders and long trousers or skirts.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I pack for Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Essentials include light clothing, SPF 50+ reef-safe sunscreen, a broad-brimmed hat, UV-rated sunglasses, insect repellent with DEET, comfortable walking shoes, reef shoes for snorkelling, a lightweight sarong, and a reusable water bottle. Bring a power bank as power outages can occur.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need sun protection in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Absolutely. Nauru sits just 53 km south of the equator. The UV index reaches extreme levels (11+) every day of the year. Apply SPF 50+ sunscreen every 2 hours even on overcast days, wear a broad-brimmed hat, UV-rated sunglasses, and seek shade between 11 AM and 3 PM.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is there a dress code for church in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, church is an important part of Nauruan life. Covered shoulders and long trousers or skirts are expected. No beachwear or casual shorts. White clothing is traditional for Sunday services and symbolises purity and respect.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={attireData.title} description={attireData.subtitle} sectionEmoji="👔" sectionLabel="Dress Code" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>{attireData.intro}</p>
 
   <div class="callout-grid">

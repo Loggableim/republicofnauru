@@ -1,8 +1,34 @@
 ---
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the emergency numbers in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Police: 110, Fire: 111, Ambulance: 112. Save these numbers before you travel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I bring for medical purposes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bring any regular medications you need, know where the hospital is located in Yaren, and save emergency contact numbers before travelling.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Healthcare" description="Public health services, emergency contacts and medical planning." sectionEmoji="🏥" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page when you need to know how health services are organised or what to do in an urgent medical situation.</p>
 <h2>Checklist</h2>
 <ul>

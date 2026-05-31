@@ -1,5 +1,28 @@
 ---
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need a visa to visit Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'All foreign nationals must obtain a visa before arriving in Nauru. There is no visa on arrival. Confirm entry rules before travel and apply early as processing can take weeks.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I prepare for my visa application?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Check passport validity, confirm current entry requirements for your nationality, apply with enough lead time, and keep copies of all supporting documents including travel and accommodation proof.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Viza" description="Entry rules, document prep and lead time." sectionEmoji="🛂" sectionLabel="Taramit Ñago" includeTopBar={true} includeFooter={true} locale="na">

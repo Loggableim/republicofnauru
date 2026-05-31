@@ -1,8 +1,34 @@
 ---
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I find education information in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Identify the level of education you are asking about, keep names, ages and paperwork ready, and use the correct ministry or office first. Check the directory for contact details.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What education levels are available in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru offers early childhood education, primary school, secondary school, TVET/vocational programmes, and tertiary education through overseas scholarships.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Education & Learning" description="Schools, study support and learning resources for families and students." sectionEmoji="📚" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page when you are looking for learning pathways, school context or general educational information.</p>
 <h2>Checklist</h2>
 <ul>

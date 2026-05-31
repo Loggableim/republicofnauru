@@ -1,8 +1,34 @@
 ---
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I start the citizenship process in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start with the Government Information Office (GIO) in Yaren. They will confirm the office you need and refer you to the responsible department if a specialist review is needed.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What documents should I bring for citizenship matters?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bring any identity documents you already have, keep copies of forms and correspondence, and verify office hours before travelling to Yaren (typically Mon–Fri 09:00–16:45).',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Citizenship & Identity" description="Identity, registration and where to start if you need help with a record or document." sectionEmoji="🛂" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page when you need a citizen record, identity confirmation or help understanding which office handles your request.</p>
 <h2>Checklist</h2>
 <ul>

@@ -23,6 +23,9 @@ const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, he
 </nav>
 
 <section class="hero">
+  <div class="hero-bg">
+    <img src="/hero-nauru.webp" alt="Aerial view of Nauru island" loading="eager" decoding="async" />
+  </div>
   <div class="hero-top">
     <div class="hero-text">
       <div class="eyebrow">{heroEyebrow}</div>
@@ -112,15 +115,28 @@ const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, he
   .hero {
     min-height: 100vh;
     display: flex; flex-direction: column;
-    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
     position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,43,127,0.55) 0%, rgba(0,20,60,0.35) 100%);
   }
   .hero::after {
     content: '🇳🇷';
     position: absolute; font-size: clamp(20rem, 40vw, 50rem);
     right: -5%; top: -10%; opacity: 0.06; line-height: 1;
-    pointer-events: none;
+    pointer-events: none; z-index: 1;
   }
+  .hero-top, .hero-bottom { position: relative; z-index: 2; }
   .hero-top {
     flex: 1; display: flex; align-items: center;
     padding: 110px 48px 0;

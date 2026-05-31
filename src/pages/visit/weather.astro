@@ -3,9 +3,51 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import weatherData from '../../data/weather.json';
 
 const climateLabels = { avgHighC: 'Avg High', avgLowC: 'Avg Low', rainfallMm: 'Rainfall (mm)', humidityPct: 'Humidity (%)', daylightHours: 'Daylight (hrs)' };
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'When is the best time to visit Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The best time to visit is May to October (dry season) with lower rainfall, calmer seas, and lower humidity (70–75%). The wet season runs November to February with higher rainfall and humidity (80–85%).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the weather like in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru has a tropical climate with temperatures consistently 28–35°C year-round. The UV index is extreme (11+) year-round due to the equatorial latitude. Sun protection is essential at all times.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I pack for Nauru weather?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pack light clothing, high-SPF sunscreen, a broad-brimmed hat, UV-rated sunglasses, insect repellent with DEET, and a reusable water bottle. In wet season (Nov–Feb), add a waterproof jacket and umbrella. In dry season, bring light layers for breezy evenings.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Nauru get cyclones?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru is close enough to the equator to be partially protected from the worst cyclones, but the island can experience tropical squalls, strong winds, and intense thunderstorms during the wet season (Nov–Feb). Check forecasts before and during your trip.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={weatherData.title} description={weatherData.subtitle} sectionEmoji="🌤️" sectionLabel="When to Visit" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>{weatherData.intro}</p>
 
   <div class="callout-grid">

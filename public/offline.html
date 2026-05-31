@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — Republic of Nauru</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #faf8f0;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .offline-card {
+      max-width: 480px;
+      text-align: center;
+      background: #fff;
+      border: 2px solid #1a1a2e;
+      padding: 48px 32px;
+      box-shadow: 8px 8px 0 #002B7F;
+    }
+    .offline-card .icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .offline-card h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #002B7F;
+      margin-bottom: 12px;
+    }
+    .offline-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #475569;
+      margin-bottom: 24px;
+    }
+    .offline-card button {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      background: #FFC72C;
+      color: #002B7F;
+      border: 2px solid #1a1a2e;
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .offline-card button:hover {
+      background: #FFE082;
+      transform: translateY(-2px);
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1a1a2e; color: #faf8f0; }
+      .offline-card { background: #0d0d1a; border-color: #FFC72C; }
+      .offline-card h1 { color: #FFC72C; }
+      .offline-card p { color: #c0c0d0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-card" role="alert">
+    <div class="icon">🌐</div>
+    <h1>You're offline</h1>
+    <p>Connect to the internet and try again. Some pages you've visited before may still be available.</p>
+    <button onclick="window.location.reload()">Try again</button>
+  </div>
+</body>
+</html>

@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import transportData from '../../data/transport.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I get to Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru Airlines operates flights from Brisbane (4 hours) and Nadi/Fiji (3 hours). There are no passenger ferries or cruise ships. Nauru International Airport (INU) has a single runway and compact terminal.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get around Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Car rental ($50–80 AUD/day) is the best option. There is no public transport. The island is 19 km around — walking takes 4–5 hours. Bicycles are available at some hotels. Taxis exist but are ad-hoc with no formal ranks or booking apps.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What do I need to rent a car in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Your home country driving licence is valid for short-term visits (up to 3 months). Minimum age is typically 21–25. A cash deposit or credit card pre-authorisation is usually required. Fuel is available at the Nauru Fuel Station in Aiwo.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get from the airport to my accommodation?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Arrange hotel pickup before departure. Taxis are available outside the terminal but pre-booked hotel transfers are recommended. Store airport and accommodation contact details offline before you travel.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>{transportData.intro}</p>
 
   <div class="callout-grid">

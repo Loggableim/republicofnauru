@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import commsData from '../../data/communications.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is there internet in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, but it is slow. Typical speeds are 2–10 Mbps via satellite and fibre. Hotel Wi-Fi can drop to 1–5 Mbps. Starlink is becoming available at select hotels and offers dramatically faster speeds of 100–200 Mbps. Download maps, guides, and entertainment before arrival.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get a mobile SIM in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Digicel is the only mobile network. Visit the Digicel store in Yaren with your valid passport for mandatory registration. Prepaid SIMs cost $5–10 AUD. The process takes about 15–30 minutes on weekdays.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the country code for Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Nauru\'s country calling code is +674. International roaming works with some Australian/NZ carriers but is expensive. A local SIM is more economical for stays over 2–3 days.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What mobile coverage can I expect?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Digicel 4G LTE coverage is concentrated along the populated coastal strip (Yaren, Aiwo, Denigomodu, Meneng). The interior plateau (Topside) has limited to no coverage. Yaren has the best coverage including the government precinct and airport area.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={commsData.title} description={commsData.subtitle} sectionEmoji="📡" sectionLabel="Staying Connected" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>{commsData.intro}</p>
 
   <div class="callout-grid">

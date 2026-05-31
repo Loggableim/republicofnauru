@@ -1,8 +1,34 @@
 ---
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Do I need a visa to enter Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'All foreign nationals must obtain a visa before arriving in Nauru. There is no visa on arrival. Apply with enough lead time and keep onward travel and accommodation proof ready.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I prepare before travelling to Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Check passport validity, confirm current entry requirements for your nationality, apply with enough lead time, and keep copies of travel and accommodation documents.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title="Immigration & Entry" description="Entry planning, document checks and the steps to take before travel." sectionEmoji="✈️" sectionLabel="Ekauwe" includeTopBar={true} includeFooter={true} locale="na">
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p>Use this page when you are preparing to enter Nauru or checking the documents you need before travel.</p>
 <h2>Checklist</h2>
 <ul>

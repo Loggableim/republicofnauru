@@ -90,10 +90,14 @@ const webpageSchema = {
   <meta name="description" content={description} />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
-  <link rel="canonical" href={canonicalUrl} />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#002B7F" />
+|  <link rel="canonical" href={canonicalUrl} />
+|  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+|  <link rel="manifest" href="/site.webmanifest" />
+|  <meta name="theme-color" content="#002B7F" />
+|  <meta name="mobile-web-app-capable" content="yes" />
+|  <meta name="apple-mobile-web-app-capable" content="yes" />
+|  <meta name="apple-mobile-web-app-title" content="nauru·info" />
+|  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Republic of Nauru" />
@@ -120,9 +124,19 @@ const webpageSchema = {
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <slot name="head" />
 </head>
-<body>
-  <div data-pagefind-body>
-    <slot />
-  </div>
-</body>
+|<body>
+|  <a href="#main-content" class="skip-link">Skip to content</a>
+|  <div data-pagefind-body>
+|    <slot />
+|  </div>
+|  <script is:inline>
+|    if ('serviceWorker' in navigator) {
+|      window.addEventListener('load', () => {
+|        navigator.serviceWorker.register('/sw.js').catch(() => {
+|          // SW registration failed — offline features degraded gracefully
+|        });
+|      });
+|    }
+|  </script>
+|</body>
 </html>

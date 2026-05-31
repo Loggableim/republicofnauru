@@ -1,9 +1,51 @@
 ---
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import accomData from '../../data/accommodation.json';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I book accommodation in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contact properties directly by email or phone. No online booking platforms list Nauru properties. Book 4–8 weeks ahead as rooms are limited. The Menen Hotel can be reached at menen@nauru.gov.nr or +674 557 3100.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the accommodation prices in Nauru?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Prices range from AUD $60–$180 per night. Budget guesthouses start around $70, the Menen Hotel ranges $100–$180, and private rental apartments with kitchenettes are available for $60–$100 AUD per night.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I book accommodation before flights?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, reserve accommodation before confirming flights. With only approximately 60 hotel rooms total on the island, availability determines your trip, not the other way around. Have a backup property in mind.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What payment methods are accepted?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most properties prefer cash (AUD) or bank transfer. Credit cards are accepted only at the Menen Hotel, subject to surcharge. Ask about meal inclusions and Wi-Fi availability when booking.',
+      },
+    },
+  ],
+};
 ---
 
 <SubpageLayout title={accomData.title} description={accomData.subtitle} sectionEmoji="🏨" sectionLabel="Places to Stay" includeTopBar={true} includeFooter={true}>
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+  </Fragment>
   <p set:html={accomData.intro} />
 
   <div class="callout-grid">

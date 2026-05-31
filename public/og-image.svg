@@ -1,24 +1,49 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
-      text { font-family: 'Space Grotesk', sans-serif; }
-    </style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002B7F"/>
+      <stop offset="50%" stop-color="#001A4D"/>
+      <stop offset="100%" stop-color="#002B7F"/>
+    </linearGradient>
+    <linearGradient id="yellowStripe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFC72C"/>
+      <stop offset="50%" stop-color="#FFD95C"/>
+      <stop offset="100%" stop-color="#FFC72C"/>
+    </linearGradient>
+    <linearGradient id="starShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E0E8FF"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
   </defs>
 
-  <!-- Navy background -->
-  <rect width="1200" height="630" fill="#002B7F"/>
+  <!-- Navy gradient background -->
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
 
-  <!-- Yellow stripe in the middle, ~25% height (157.5px) -->
-  <rect y="236" width="1200" height="158" fill="#FFC72C"/>
+  <!-- Yellow stripe ~25% height centered -->
+  <rect y="236" width="1200" height="158" fill="url(#yellowStripe)"/>
 
-  <!-- White star in the yellow zone (Nauru flag symbol) -->
-  <polygon points="600,285 610,310 637,310 615,326 623,354 600,338 577,354 585,326 563,310 590,310"
-           fill="#FFFFFF" opacity="0.9"/>
+  <!-- Subtle wave overlay on stripe edges -->
+  <path d="M0 236 Q300 226 600 236 T1200 236" fill="none" stroke="#002B7F" stroke-width="1.5" opacity="0.15"/>
+  <path d="M0 394 Q300 404 600 394 T1200 394" fill="none" stroke="#002B7F" stroke-width="1.5" opacity="0.15"/>
 
-  <!-- Title text -->
-  <text x="600" y="160" text-anchor="middle" fill="#FFFFFF" font-size="62" font-weight="700" letter-spacing="1">Republic of Nauru</text>
+  <!-- 12-point white star (Nauru flag symbol) centered in yellow zone -->
+  <g transform="translate(600, 315)" filter="url(#shadow)">
+    <!-- Outer 12-point star -->
+    <polygon points="0,-35 5,-12 28,-12 9,2 16,25 0,12 -16,25 -9,2 -28,-12 -5,-12" fill="url(#starShine)" opacity="0.95"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="145" text-anchor="middle" fill="#FFFFFF" font-family="'Space Grotesk','Segoe UI',Arial,sans-serif" font-size="64" font-weight="700" letter-spacing="2">Republic of Nauru</text>
+
+  <!-- Decorative line under title -->
+  <line x1="400" y1="170" x2="800" y2="170" stroke="#FFC72C" stroke-width="3" opacity="0.6"/>
 
   <!-- Sub-text -->
-  <text x="600" y="460" text-anchor="middle" fill="#FFC72C" font-size="32" font-weight="500" letter-spacing="4">Visitor Information</text>
+  <text x="600" y="475" text-anchor="middle" fill="#FFC72C" font-family="'Space Grotesk','Segoe UI',Arial,sans-serif" font-size="28" font-weight="500" letter-spacing="6" opacity="0.95">Visitor Information Portal</text>
+
+  <!-- Bottom accent bar -->
+  <rect y="620" width="1200" height="10" fill="#FFC72C" opacity="0.8"/>
 </svg>
