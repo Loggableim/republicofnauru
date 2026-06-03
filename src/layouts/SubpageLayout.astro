@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { affiliateLinks, amazonTag } from '../data/affiliate-links';
 
 interface Props {
   title: string;
@@ -14,6 +15,8 @@ interface Props {
   includeTopBar?: boolean;
   includeFooter?: boolean;
   locale?: 'en' | 'na';
+  heroImage?: string;
+  hideHero?: boolean;
 }
 
 const {
@@ -25,7 +28,47 @@ const {
   includeTopBar = false,
   includeFooter = false,
   locale = 'en',
+  heroImage = '',
+  hideHero = false,
 } = Astro.props as Props;
+
+// Auto-detect hero image from URL path
+const pathParts = Astro.url.pathname.split('/').filter(Boolean);
+const localePrefix = pathParts[0] === 'na' || pathParts[0] === 'en' ? pathParts[0] : '';
+const sectionSlug = localePrefix ? (pathParts[1] || 'about') : (pathParts[0] || 'about');
+const heroDir = '/images/hero/';
+
+// Map section slugs to hero SVG filenames
+const heroMap: Record<string, string> = {
+  about: 'about',
+  visit: 'visit',
+  news: 'news',
+  services: 'services',
+  directory: 'directory',
+  contact: 'contact',
+  impressum: 'impressum',
+  search: 'search',
+  culture: 'culture',
+  economy: 'economy',
+  history: 'history',
+  'our-country': 'our-country',
+  'the-people': 'the-people',
+  'national-days': 'national-days',
+  accommodation: 'visit',
+  transport: 'visit',
+  weather: 'visit',
+  currency: 'visit',
+  attire: 'visit',
+  communications: 'visit',
+  visa: 'visit',
+  citizenship: 'services',
+  education: 'services',
+  health: 'services',
+  immigration: 'services',
+};
+
+const heroFile = heroImage || heroMap[sectionSlug] || 'about';
+const heroSrc = `${heroDir}${heroFile}.svg`;
 
 const homeHref = locale === 'na' ? '/na/' : '/';
 const homeLabel = locale === 'na' ? 'Mwet' : 'Home';
@@ -64,6 +107,12 @@ const breadcrumbPath = segments.map((seg, i) => {
     <slot name="jsonld" />
   </Fragment>
   {includeTopBar && <TopBar locale={locale} />}
+  {!hideHero && (
+    <div class="subpage-hero">
+      <img src={heroSrc} alt="" class="subpage-hero-img" loading="eager" decoding="async" />
+      <div class="subpage-hero-overlay"></div>
+    </div>
+  )}
   <div class="page-wrapper">
     <header class="page-header">
       <a href={homeHref} class="page-back">← {homeLabel}</a>
@@ -81,6 +130,21 @@ const breadcrumbPath = segments.map((seg, i) => {
         <slot />
       </article>
     </main>
+    <aside class="affiliate-section">
+      <div class="affiliate-inner">
+        <span class="affiliate-label">📚 Recommended Reading</span>
+        <p class="affiliate-note">We earn a small commission from purchases made through these links at no extra cost to you.</p>
+        <div class="affiliate-grid">
+          {affiliateLinks[sectionSlug]?.map(link => (
+            <a href={link.url} class="affiliate-card" target="_blank" rel="noopener sponsored">
+              <strong>{link.title}</strong>
+              <span class="affiliate-desc">{link.description}</span>
+              <span class="affiliate-cta">Check on Amazon →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </aside>
   </div>
   {includeFooter && <Footer />}
   <button id="scroll-top-btn" class="scroll-top" aria-label="Scroll to top">↑</button>
@@ -100,6 +164,27 @@ const breadcrumbPath = segments.map((seg, i) => {
 </script>
 
 <style>
+  .subpage-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: #002B7F;
+  }
+  .subpage-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .subpage-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,43,127,0.3) 0%, rgba(0,43,127,0.1) 50%, rgba(0,20,60,0.6) 100%);
+  }
+  @media (max-width: 768px) {
+    .subpage-hero { height: 200px; }
+  }
   .scroll-top {
     position: fixed;
     bottom: 32px;
@@ -290,5 +375,69 @@ const breadcrumbPath = segments.map((seg, i) => {
     .page-header { padding: 40px 24px 30px; }
     .page-content { padding: 32px 24px; }
     .page-article :global(.fact-grid) { grid-template-columns: 1fr; }
+  }
+</style>
+
+<style>
+  .affiliate-section {
+    background: #f0ede4;
+    padding: 48px 24px;
+    border-top: 2px solid #FFC72C;
+  }
+  .affiliate-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .affiliate-label {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #002B7F;
+    margin-bottom: 8px;
+  }
+  .affiliate-note {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 20px;
+  }
+  .affiliate-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .affiliate-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px;
+    background: #fff;
+    border: 2px solid #1a1a2e;
+    box-shadow: 4px 4px 0 #1a1a2e;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .affiliate-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #002B7F;
+  }
+  .affiliate-card strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: #002B7F;
+  }
+  .affiliate-desc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  .affiliate-cta {
+    font-size: 12px;
+    font-weight: 700;
+    color: #002B7F;
+    margin-top: auto;
+  }
+  @media (max-width: 640px) {
+    .affiliate-grid { grid-template-columns: 1fr; }
   }
 </style>
