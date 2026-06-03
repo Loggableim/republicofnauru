@@ -59,6 +59,32 @@ export const affiliateLinks: Record<string, AffiliateLink[]> = {
       category: 'Safety',
     },
   ],
+  guide: [
+    {
+      title: 'Schnorchelset für Erwachsene',
+      description: 'Hochwertiges Tauchset mit Maske, Schnorchel und Flossen – ideal für die Korallenriffe Naurus.',
+      url: amazonLink('B09QY6H8P2'),
+      category: 'Travel Accessories',
+    },
+    {
+      title: 'Wasserdichte Handyhülle',
+      description: 'Schützt Ihr Smartphone beim Schnorcheln und an den Stränden Naurus vor Wasser und Sand.',
+      url: amazonLink('B08D3Y5PFZ'),
+      category: 'Travel Accessories',
+    },
+    {
+      title: 'Universal Travel Adapter',
+      description: 'Kompakter Weltreisestecker mit USB – kompatibel mit den Steckdosen auf Nauru.',
+      url: amazonLink('B09LB28G5X'),
+      category: 'Travel Accessories',
+    },
+    {
+      title: 'Reiseführer Pazifische Inseln',
+      description: 'Lonely Planet Pacific Islands – umfassender Guide für Nauru und die gesamte Pazifikregion.',
+      url: amazonLink('1786576991'),
+      category: 'Travel Guides',
+    },
+  ],
   culture: [
     {
       title: 'Pacific Islands: Environment & Society',
