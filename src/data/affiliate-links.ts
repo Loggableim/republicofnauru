@@ -91,6 +91,14 @@ export const affiliateLinks: Record<string, AffiliateLink[]> = {
       category: 'Stationery',
     },
   ],
+  impressum: [
+    {
+      title: 'Website Law Guide',
+      description: 'Essential legal reference for website operators and content creators.',
+      url: amazonLink('1641059861'),
+      category: 'Books',
+    },
+  ],
   default: [
     {
       title: 'Pacific Islands Travel Guide',
