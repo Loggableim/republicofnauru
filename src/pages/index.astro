@@ -5,7 +5,11 @@ import NewsTicker from '../components/NewsTicker.astro';
 import Hero from '../components/Hero.astro';
 import StickyNav from '../components/StickyNav.astro';
 import Footer from '../components/Footer.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import StatsSection from '../components/StatsSection.astro';
 import newsData from '../data/news.json';
+import featuresData from '../data/features.json';
+import siteData from '../data/site.json';
 import { affiliateLinks, amazonLink } from '../data/affiliate-links';
 ---
 
@@ -74,6 +78,10 @@ import { affiliateLinks, amazonLink } from '../data/affiliate-links';
         </div>
       </div>
     </section>
+
+<FeaturesSection items={featuresData} />
+
+    <StatsSection stats={siteData.stats} />
 
     <section class="section bg-cream">
       <div class="container">

@@ -1,0 +1,28 @@
+[
+  {
+    "icon": "🏖️",
+    "title": "Beaches & Nature",
+    "desc": "Explore pristine beaches, coral reefs, and the island's unique flora and fauna.",
+    "extendedDesc": "Nauru's coastline is lined with stunning white-sand beaches and vibrant coral reefs, perfect for snorkeling, diving, and relaxation. The interior features dramatic phosphate pinnacles and lush tropical vegetation waiting to be explored."
+  },
+  {
+    "icon": "🍽️",
+    "title": "Food & Dining",
+    "desc": "Sample local cuisine blending Pacific flavors with international influences."
+  },
+  {
+    "icon": "🚀",
+    "title": "Activities & Adventures",
+    "desc": "From sport fishing to island hikes, discover adventures around every corner."
+  },
+  {
+    "icon": "🎒",
+    "title": "Travel Tips & Essentials",
+    "desc": "Practical advice on packing, local customs, money, and staying connected."
+  },
+  {
+    "icon": "🗣️",
+    "title": "Language & Culture",
+    "desc": "Learn basic Nauruan phrases and understand the island's rich cultural heritage."
+  }
+]

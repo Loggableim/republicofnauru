@@ -30,7 +30,7 @@ const defaultLinks = locale === 'na'
 const { links = defaultLinks } = Astro.props as Props;
 ---
 
-<div class="sticky-nav">
+<div class="sticky-nav" id="sticky-nav">
   <div class="nav-inner">
     <a href={locale === 'na' ? '/na/' : '/'} class="logo-sm">
       <div class="flag-mini"></div>
@@ -45,11 +45,32 @@ const { links = defaultLinks } = Astro.props as Props;
   </div>
 </div>
 
+<script is:inline>
+  (function() {
+    const nav = document.getElementById('sticky-nav');
+    if (!nav) return;
+    const toggle = function() { nav.classList.toggle('scrolled', window.scrollY > 100); };
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+  })();
+</script>
+
 <style>
   .sticky-nav {
     background: #fff; border-bottom: 2px solid #1a1a2e;
     padding: 0 48px; position: sticky; top: 0; z-index: 50;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
+  .sticky-nav.scrolled {
+    background: #FFC72C;
+    border-bottom-color: #002B7F;
+  }
+  .sticky-nav.scrolled .logo-sm { color: #002B7F; }
+  .sticky-nav.scrolled .nav-links a {
+    color: #002B7F;
+  }
+  .sticky-nav.scrolled .nav-links a:hover { opacity: 0.7; }
+  .sticky-nav.scrolled + * { --nav-height: 64px; }
   .sticky-nav .nav-inner {
     display: flex; justify-content: space-between; align-items: center;
     max-width: 1280px; margin: 0 auto; height: 64px;

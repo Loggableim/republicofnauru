@@ -1,7 +1,11 @@
 ---
 import siteData from '../data/site.json';
 
-const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, heroFacts } = siteData;
+const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, heroFacts, luxuryHero } = siteData;
+const isLuxury = !!luxuryHero;
+const heroFontClass = isLuxury ? 'playfair' : 'space-grotesk';
+const heroBgClass = isLuxury ? 'hero-luxury' : '';
+const showParticles = isLuxury && luxuryHero.particles;
 ---
 
 <nav>
@@ -22,7 +26,7 @@ const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, he
   </button>
 </nav>
 
-<section class="hero">
+<section class={`hero ${heroFontClass} ${heroBgClass}`}>
   <div class="hero-bg">
     <img src="/hero-nauru.webp" alt="Aerial view of Nauru island" loading="eager" decoding="async" />
   </div>
@@ -45,6 +49,7 @@ const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, he
       <div class="hb-item">{fact.icon} {fact.text}</div>
     ))}
   </div>
+  {showParticles && <div class="gold-particles" aria-hidden="true"><span></span><span></span><span></span></div>}
 </section>
 
 <style>
@@ -218,5 +223,121 @@ const { heroHeadline, heroHeadlineOutline, heroSubtext, heroCta, heroEyebrow, he
     .hero-bottom { gap: 6px; }
     .hero-bottom .hb-item { font-size: 10px; }
     .hero-cta { padding: 12px 24px; font-size: 13px; width: 100%; justify-content: center; }
+  }
+
+  /* ===== LUXURY HERO MODE ===== */
+  .hero-luxury {
+    background: #0a1628;
+  }
+  .hero-luxury .hero-bg img {
+    opacity: 0.3;
+  }
+  .hero-luxury .hero-bg::after {
+    background: linear-gradient(135deg, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.5) 100%);
+  }
+  .hero-luxury::after {
+    display: none;
+  }
+  .hero-luxury .hero-text .eyebrow {
+    color: #C9A94E;
+    border-color: #C9A94E;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+  .hero-luxury.playfair .hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .hero-luxury.playfair .hero-text .outline {
+    -webkit-text-stroke: 2px #C9A94E;
+    color: transparent;
+  }
+  .hero-luxury .hero-text p {
+    color: rgba(255,255,255,0.6);
+  }
+  .hero-luxury .hero-cta {
+    background: #C9A94E;
+    color: #0a1628;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .hero-luxury .hero-cta:hover {
+    background: #dbb856;
+  }
+  .hero-luxury .hero-bottom {
+    border-top-color: rgba(201,169,78,0.2);
+  }
+  .hero-luxury .hero-bottom .hb-item {
+    color: #C9A94E;
+  }
+  .hero-luxury nav .logo-text {
+    color: #ffffff;
+  }
+  .hero-luxury nav .nav-links a {
+    color: rgba(255,255,255,0.7);
+  }
+  .hero-luxury nav .nav-links a:hover {
+    color: #C9A94E;
+    background: rgba(201,169,78,0.1);
+  }
+  .hero-luxury nav .nav-links .btn {
+    background: #C9A94E;
+    color: #0a1628 !important;
+  }
+  .hero-luxury nav .nav-links .btn:hover {
+    background: #dbb856;
+    color: #0a1628 !important;
+  }
+  .hero-luxury nav .flag-mini {
+    background: linear-gradient(180deg, #C9A94E 33%, #0a1628 33% 66%, #C9A94E 66%);
+  }
+  .hero-luxury .hamburger span {
+    background: #ffffff;
+  }
+
+  /* Gold particles — CSS-only pseudo-elements */
+  .gold-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .gold-particles span {
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #C9A94E;
+    opacity: 0;
+    box-shadow: 0 0 6px 2px rgba(201,169,78,0.3);
+  }
+  .gold-particles span:nth-child(1) {
+    left: 10%;
+    top: 15%;
+    animation: floatGold 6s ease-in-out 0s infinite;
+  }
+  .gold-particles span:nth-child(2) {
+    left: 50%;
+    top: 30%;
+    width: 6px;
+    height: 6px;
+    animation: floatGold 8s ease-in-out 1s infinite;
+  }
+  .gold-particles span:nth-child(3) {
+    left: 80%;
+    top: 20%;
+    width: 3px;
+    height: 3px;
+    animation: floatGold 7s ease-in-out 2s infinite;
+  }
+  @keyframes floatGold {
+    0% { opacity: 0; transform: translateY(0) scale(0.8); }
+    25% { opacity: 0.8; }
+    50% { opacity: 1; transform: translateY(-40px) scale(1.2); }
+    75% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateY(-80px) scale(0.6); }
   }
 </style>
