@@ -12,6 +12,9 @@ const {
   description = 'Independent visitor information portal for the Republic of Nauru.',
   locale = 'en',
 } = Astro.props;
+
+// Truncate description to 155 chars for meta tags (SEO best practice)
+const metaDesc = description.length > 155 ? description.slice(0, 152) + '...' : description;
 const isNa = locale === 'na';
 const localeMeta = locales.pages?.home || {};
 
@@ -87,7 +90,7 @@ const webpageSchema = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDesc} />
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
 |  <link rel="canonical" href={canonicalUrl} />
@@ -102,13 +105,13 @@ const webpageSchema = {
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Republic of Nauru" />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDesc} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:image" content={ogImage} />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDesc} />
   <meta name="twitter:image" content={ogImage} />
 
   <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
