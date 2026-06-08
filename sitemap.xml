@@ -2,481 +2,499 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://republicofnauru.com/dist/404/</loc>
-    <lastmod>2026-06-07T19:23:12+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/</loc>
-    <lastmod>2026-06-07T19:23:12+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:44+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/offline/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/culture/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/economy/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/history/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/national-days/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/our-country/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/about/the-people/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/contact/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/directory/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/aktivitaeten/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://republicofnauru.com/dist/guide/anreise/</loc>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/command-ridge/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/einkaufen-souvenirs/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/feste/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://republicofnauru.com/dist/guide/fischen-angeln/</loc>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/fotografie/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/gesundheit-sicherheit/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/hintergrund/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/kulinarik/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://republicofnauru.com/dist/guide/reisekosten-budget/</loc>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/reiseroute-itinerar/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/reisetipps/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/sprache/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/strand-natur/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/tauchen-schnorcheln/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/umwelt-nachhaltigkeit/</loc>
-    <lastmod>2026-06-07T19:23:13+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/guide/unterkuenfte/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:45+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/impressum/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/culture/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/economy/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/history/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/national-days/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/our-country/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/about/the-people/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/contact/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/directory/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/budget/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/climate/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/eco-tourism/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/press-budget/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/press-climate/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/news/press-tourism/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/search/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/services/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/services/citizenship/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/services/education/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/services/health/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/services/immigration/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/</loc>
-    <lastmod>2026-06-07T19:23:14+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:46+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/accommodation/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/attire/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/communications/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/currency/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/transport/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/visa/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/na/visit/weather/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/budget/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/climate/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/eco-tourism/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/press-budget/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/press-climate/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/news/press-tourism/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/search/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/services/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/services/citizenship/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/services/education/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/services/health/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/services/immigration/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/accommodation/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/attire/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/communications/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:47+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/currency/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/transport/</loc>
-    <lastmod>2026-06-07T19:23:15+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/visa/</loc>
-    <lastmod>2026-06-07T19:23:16+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://republicofnauru.com/dist/visit/weather/</loc>
-    <lastmod>2026-06-07T19:23:16+00:00</lastmod>
+    <lastmod>2026-06-08T14:54:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
