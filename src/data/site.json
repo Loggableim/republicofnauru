@@ -26,10 +26,5 @@
     { "icon": "👥", "text": "10,000 islanders" },
     { "icon": "🏝️", "text": "3,000+ years of history" },
     { "icon": "✈️", "text": "Flights from Brisbane & Nadi" }
-  ],
-  "luxuryHero": {
-    "heroBgClass": "hero-luxury",
-    "heroFont": "playfair",
-    "particles": true
-  }
+  ]
 }
