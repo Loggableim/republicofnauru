@@ -49,7 +49,11 @@ const { links = defaultLinks } = Astro.props as Props;
   (function() {
     const nav = document.getElementById('sticky-nav');
     if (!nav) return;
-    const toggle = function() { nav.classList.toggle('scrolled', window.scrollY > 100); };
+    const toggle = function() {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 80);
+      nav.classList.toggle('scrolled-yellow', y > 300);
+    };
     toggle();
     window.addEventListener('scroll', toggle, { passive: true });
   })();
@@ -57,19 +61,27 @@ const { links = defaultLinks } = Astro.props as Props;
 
 <style>
   .sticky-nav {
-    background: #fff; border-bottom: 2px solid #1a1a2e;
-    padding: 0 48px; position: sticky; top: 0; z-index: 50;
+    background: transparent; border-bottom: 2px solid transparent;
+    padding: 0 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
+  .sticky-nav .logo-sm { color: #fff; }
+  .sticky-nav .nav-links a { color: rgba(255,255,255,0.8); }
+  .sticky-nav .nav-links a:hover { color: #FFC72C; }
   .sticky-nav.scrolled {
+    background: #fff;
+    border-bottom-color: #1a1a2e;
+  }
+  .sticky-nav.scrolled .logo-sm { color: #002B7F; }
+  .sticky-nav.scrolled .nav-links a { color: #475569; }
+  .sticky-nav.scrolled .nav-links a:hover { color: #FFC72C; }
+  .sticky-nav.scrolled-yellow {
     background: #FFC72C;
     border-bottom-color: #002B7F;
   }
-  .sticky-nav.scrolled .logo-sm { color: #002B7F; }
-  .sticky-nav.scrolled .nav-links a {
-    color: #002B7F;
-  }
-  .sticky-nav.scrolled .nav-links a:hover { opacity: 0.7; }
+  .sticky-nav.scrolled-yellow .logo-sm { color: #002B7F; }
+  .sticky-nav.scrolled-yellow .nav-links a { color: #002B7F; }
+  .sticky-nav.scrolled-yellow .nav-links a:hover { opacity: 0.7; }
   .sticky-nav.scrolled + * { --nav-height: 64px; }
   .sticky-nav .nav-inner {
     display: flex; justify-content: space-between; align-items: center;
