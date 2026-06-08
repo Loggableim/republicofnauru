@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇳🇷 Nauru Sprint Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#faf8f0;color:#1a1a2e;line-height:1.6;padding:40px 24px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em}
+.hero{text-align:center;margin-bottom:48px}
+.hero h1{font-size:2.5rem;color:#002B7F;margin-bottom:8px}
+.hero p{color:#64748b}
+.board{max-width:1100px;margin:0 auto}
+.lanes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.lane{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:6px 6px 0 #1a1a2e}
+.lane h2{font-size:1.1rem;color:#002B7F;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #FFC72C}
+.card{background:#faf8f0;border:1px solid #e2e8f0;padding:16px;margin-bottom:14px}
+.card h3{font-size:0.95rem;margin-bottom:6px}
+.card p{font-size:12px;color:#64748b;line-height:1.5}
+.card .file{border-top:1px solid #e2e8f0;margin-top:10px;padding-top:8px;font-size:11px;color:#94a3b8;font-family:monospace}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif}
+.badge.navy{background:#002B7F;color:#FFC72C}
+.badge.yellow{background:#FFC72C;color:#1a1a2e}
+.badge.dark{background:#1a1a2e;color:#FFC72C}
+.build-section{margin-top:32px;background:#002B7F;color:#fff;padding:24px;text-align:center}
+.build-section h2{color:#FFC72C;margin-bottom:8px}
+.build-section p{color:rgba(255,255,255,.7);font-size:14px}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🇳🇷 Nauru Sprint — Gap Closure</h1>
+  <p>3 parallele Tasks · Frontend-dev Profile · automatic Build & Deploy</p>
+</div>
+<div class="board">
+  <div class="lanes">
+    <div class="lane">
+      <h2>🎯 T1 · Playfair + V1 Hero</h2>
+      <div class="card">
+        <span class="badge navy">Parallel-ready</span>
+        <h3>Playfair Display Font + Luxus-Hero-Variante</h3>
+        <p>Playfair Display in BaseLayout preloaden, Hero.astro um optionalen Luxury-Modus erweitern (Dark-Navy BG, Gold-Partikel, serifen-Headline). Gold-Akzente CSS in global.css.</p>
+        <div class="file">global.css · Hero.astro · BaseLayout.astro · site.json</div>
+      </div>
+    </div>
+    <div class="lane">
+      <h2>🎯 T2 · Sticky Nav + Stats</h2>
+      <div class="card">
+        <span class="badge yellow">Parallel-ready</span>
+        <h3>Sticky Nav Scroll-Effekt + StatsSection auf Homepage</h3>
+        <p>StickyNav.astro mit scroll-basiertem Background-Transition fixen. StatsSection.astro in homepage index.astro integrieren statt inline facts-grid.</p>
+        <div class="file">StickyNav.astro · index.astro</div>
+      </div>
+    </div>
+    <div class="lane">
+      <h2>🎯 T3 · FeaturesSection + Refactor</h2>
+      <div class="card">
+        <span class="badge dark">Parallel-ready</span>
+        <h3>Asymmetrical Features Grid + Homepage-Refactor</h3>
+        <p>Neue FeaturesSection.astro (asymmetrischer 5-Karten-Grid aus V4). Homepage index.astro splitten: Inline-HTML und Style-Blöcke in Components auslagern.</p>
+        <div class="file">FeaturesSection.astro · index.astro · data/features.json</div>
+      </div>
+    </div>
+  </div>
+  <div class="build-section">
+    <h2>🚀 Schritt 4: Build & Deploy</h2>
+    <p>Nachdem alle 3 parallel Tasks fertig sind: npm run build → git commit → cloudflare wrangler deploy</p>
+  </div>
+</div>
+</body>
+</html>
