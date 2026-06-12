@@ -25,13 +25,13 @@ const articleSchema = {
   url: new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
   inLanguage: 'na',
   author: {
-    '@type': 'Organization',
-    name: 'Republic of Nauru (Independent Information Portal)',
-    url: 'https://republicofnauru.com',
+    '@type': 'Person',
+    name: article.author || 'Republic of Nauru Editorial Team',
+    url: 'https://republicofnauru.com/about/',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Republic of Nauru (Independent Information Portal)',
+    name: 'Republic of Nauru — Independent Visitor Portal',
     url: 'https://republicofnauru.com',
   },
   datePublished: article.date ? new Date(article.date).toISOString() : undefined,
@@ -41,6 +41,10 @@ const articleSchema = {
     '@id': new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
   },
 };
+
+function renderContent(content) {
+  return content.split('\n\n').filter(Boolean);
+}
 ---
 
 <BaseLayout title={article.title + ' · Republik Naoero'} description={article.summary} locale="na">
@@ -55,31 +59,58 @@ const articleSchema = {
       <div class="article-meta">
         <span class="article-tag">{article.emoji} {article.tag}</span>
         <span class="article-date">{article.date}</span>
+        {article.author && <span class="article-author">By {article.author}</span>}
       </div>
       <h1>{article.title}</h1>
       <p class="article-summary">{article.summary}</p>
     </header>
     <main class="article-content">
       <article class="article-body">
-        <p><strong>{article.title}</strong> matters because it touches one of the areas visitors and residents care about most: resilience, budgets, sustainability or tourism development.</p>
-        <p>For visitors, the key question is simple: what changes on the ground, and what should you do with that information? Use this story as a planning cue, then follow the related links below.</p>
+        {article.body && article.body.map(function(section) {
+          const paras = renderContent(section.content);
+          return (
+            <div class="article-section">
+              {section.heading && <h2>{section.heading}</h2>}
+              {paras.map(function(para) {
+                if (para.startsWith('- ') || para.startsWith('• ')) {
+                  const items = para.split('\n').filter(Boolean);
+                  return (
+                    <ul>
+                      {items.map(function(item) {
+                        const clean = item.replace(/^[-•]\s*/, '');
+                        return <li>{clean}</li>;
+                      })}
+                    </ul>
+                  );
+                }
+                if (/^\d+\.\s/.test(para)) {
+                  const items = para.split('\n').filter(Boolean);
+                  return (
+                    <ol>
+                      {items.map(function(item) {
+                        const clean = item.replace(/^\d+\.\s*/, '');
+                        return <li>{clean}</li>;
+                      })}
+                    </ol>
+                  );
+                }
+                return <p>{para}</p>;
+              })}
+            </div>
+          );
+        })}
+
         <div class="info-box">
-          <h4>💡 Why this matters</h4>
-          <p>{article.summary} In practical terms, stories like this affect how you prepare, what you pack and how you plan your stay.</p>
+          <h4>💡 Planning with this story</h4>
+          <p>{article.summary} In practical terms, stories like this affect how you prepare, what you pack, and how you plan your stay. Use the links below to explore related travel information.</p>
         </div>
+
         <h2>What to read next</h2>
-        <ul>
-          <li><a href="/na/visit/">Visit guide</a> — core trip planning.</li>
-          <li><a href="/na/about/">About Nauru</a> — context on history and culture.</li>
-          <li><a href="/na/directory/">Directory</a> — essential contacts and resources.</li>
-          <li><a href="/search/">Search</a> — jump to the exact topic you need.</li>
-        </ul>
-        <h2>Related practical questions</h2>
         <div class="related-grid">
-          <a href="/na/visit/weather/">How does this affect travel timing?</a>
-          <a href="/na/visit/visa/">Does this change entry planning?</a>
-          <a href="/na/visit/accommodation/">Should I book earlier?</a>
-          <a href="/na/visit/communications/">Will connectivity matter more?</a>
+          <a href="/na/visit/">Visit guide</a>
+          <a href="/na/about/">About Nauru</a>
+          <a href="/na/directory/">Directory</a>
+          <a href="/search/">Search the site</a>
         </div>
       </article>
     </main>
@@ -96,6 +127,8 @@ const articleSchema = {
   .article-meta { display:flex; gap:12px; align-items:center; margin-bottom:1rem; position:relative; z-index:2; }
   .article-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#002B7F; background:rgba(0,43,127,.08); padding:4px 12px; border-radius:100px; }
   .article-date { font-size:13px; color:rgba(0,43,127,.5); }
+  .article-author { font-size:12px; color:rgba(0,43,127,.4); font-style:italic; }
+  .article-section { margin-bottom: 2rem; }
   .article-header h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#002B7F; line-height:1.05; margin-bottom:1rem; position:relative; z-index:2; }
   .article-summary { font-size:clamp(0.95rem,1.3vw,1.05rem); color:rgba(0,43,127,.65); max-width:600px; position:relative; z-index:2; }
   .article-content { padding:48px; }

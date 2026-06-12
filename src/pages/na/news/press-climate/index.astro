@@ -2,23 +2,48 @@
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Climate Resilience & Coastal Protection" description="How climate work affects the island and what visitors should know." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
-  <p>This topic covers coastal adaptation, resilience funding and the longer-term visitor experience. It matters because Nauru's coastline and infrastructure are directly affected by climate pressure.</p>
-<h2>What it means</h2>
-<p>Climate decisions shape roads, public works, shoreline management and the practical comfort of the island. Read it as a context page for travel and public policy.</p>
-<div class="utility-grid">
-  <a href="/na/news/"><h3>Back to news</h3><p>Return to the announcement hub.</p></a>
-  <a href="/na/visit/"><h3>Visit guide</h3><p>How this affects travel planning.</p></a>
-  <a href="/na/about/"><h3>About Nauru</h3><p>Country context.</p></a>
-  <a href="/na/directory/"><h3>Directory</h3><p>Where to find offices and contacts.</p></a>
-</div>
+<SubpageLayout title="Climate Resilience & Coastal Protection — Edorer Ijino" description="How the latest climate work affects the island and why it matters for visitors — coastal protection infrastructure, renewable energy transition, and adaptation projects." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Climate change is an immediate reality for Nauru. With a maximum elevation of just 65 metres and the majority of infrastructure along the narrow coastal belt, the island is exceptionally vulnerable to rising sea levels and storm surges. The 2026 Climate Resilience Agreement with the Pacific Island Forum's $500 million Adaptation Fund represents Nauru's most significant investment in its long-term survival.</p>
+
+  <h2>What this means</h2>
+  <p>An initial $18 million allocation funds coastal protection infrastructure, renewable energy transition, and community-based adaptation programs. For visitors, the most visible impact will be construction activity along the western coastline through 2027.</p>
+
+  <h2>Key projects</h2>
+  <div class="info-box">
+    <h4>🏗️ Coastal Protection Wall (3.2 km)</h4>
+    <p>An engineered revetment wall protecting the western coastline — particularly the Aiwo and Denigomodu districts. Construction runs through 2027. Beach access at certain points may be restricted during works.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>☀️ Solar Energy — 3 MW</h4>
+    <p>A 3 MW solar installation on Topside will meet approximately 35% of daytime electricity demand. 6 MWh battery storage for grid stability. Community solar microgrids in Anabar, Anetan, and Ewa. Reducing diesel consumption by 800,000 litres per year.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>⚠️ Early-Warning Systems</h4>
+    <p>Community alert networks for storm surges and king tides in all 14 districts. Visitors should familiarise themselves with warning signals on arrival.</p>
+  </div>
+
+  <h2>Why this matters for your visit</h2>
+  <ul>
+    <li>Construction along the western coast may cause minor traffic disruptions through 2027</li>
+    <li>Beach access at certain points may be restricted during construction</li>
+    <li>Power reliability should improve as solar and battery storage come online from 2027</li>
+    <li>The Topside solar farm area offers excellent views of the island's interior</li>
+  </ul>
+
+  <div class="utility-grid">
+    <a href="/news/climate/"><h3>Nauruan article</h3><p>Open the full Climate article</p></a>
+    <a href="/na/visit/"><h3>Kain ekawir</h3><p>Visit planning</p></a>
+    <a href="/na/visit/weather/"><h3>Uab</h3><p>Weather and climate guide</p></a>
+    <a href="/na/directory/"><h3>Tebor</h3><p>Useful contacts</p></a>
+  </div>
 </SubpageLayout>
 
 <style>
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  
-  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;display:block;text-decoration:none}
+  .utility-grid h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .utility-grid p{margin:0;font-size:13px;color:#64748b}
+  @media (max-width:720px){.utility-grid{grid-template-columns:1fr}}
 </style>

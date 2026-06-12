@@ -165,6 +165,10 @@ const breadcrumbPath = segments.map((seg, i) => {
     </header>
     <main id="main-content" class={`page-content ${bgClass}`}>
       <article class="page-article">
+        <div class="affiliate-disclosure">
+          <span class="ad-label">📢 Affiliate Disclosure</span>
+          <p>Some links on this page are affiliate links. If you click through and make a purchase, we may earn a small commission at no extra cost to you. This helps us maintain and improve this independent guide. <a href="/privacy/#affiliate">Learn more</a>.</p>
+        </div>
         <slot />
       </article>
     </main>
@@ -413,6 +417,39 @@ const breadcrumbPath = segments.map((seg, i) => {
     .page-header { padding: 40px 24px 30px; }
     .page-content { padding: 32px 24px; }
     .page-article :global(.fact-grid) { grid-template-columns: 1fr; }
+  }
+
+  .affiliate-disclosure {
+    background: #fffbeb;
+    border: 1px solid #fbbf24;
+    border-left: 4px solid #f59e0b;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 12px;
+    line-height: 1.6;
+    border-radius: 0 4px 4px 0;
+  }
+  .affiliate-disclosure .ad-label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 10px;
+    color: #92400e;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .affiliate-disclosure p {
+    margin: 0;
+    font-size: 12px !important;
+    color: #78350f !important;
+  }
+  .affiliate-disclosure a {
+    color: #78350f;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  .affiliate-disclosure a:hover {
+    color: #451a03;
   }
 </style>
 

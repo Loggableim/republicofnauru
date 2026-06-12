@@ -2,23 +2,43 @@
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Budget, Infrastructure & Public Services" description="Nauru budget update with context on public services, island priorities and how funding decisions affect everyday life." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
-  <p>This topic explains spending priorities, public services and how infrastructure decisions affect mobility, health and planning.</p>
-<h2>What it means</h2>
-<p>Budget decisions are not abstract here; they shape the services people use, the roads they travel and the support available for visitors and residents.</p>
-<div class="utility-grid">
-  <a href="/na/news/"><h3>Back to news</h3><p>Open the news hub.</p></a>
-  <a href="/na/services/"><h3>Services hub</h3><p>Where public support shows up.</p></a>
-  <a href="/na/about/economy/"><h3>Economy</h3><p>Why budgets matter.</p></a>
-  <a href="/na/directory/"><h3>Directory</h3><p>Contacts and offices.</p></a>
-</div>
+<SubpageLayout title="Budget, Infrastructure & Public Services — Edorer Ijino" description="A practical look at budget decisions and how they shape everyday life on Nauru — government spending priorities, infrastructure projects, and economic outlook." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
+  <p>Nauru's $120 million AUD national budget for 2026 makes record allocations to education, healthcare, and infrastructure. Understanding the budget helps visitors and residents alike make sense of what's changing on the ground.</p>
+
+  <h2>What this means</h2>
+  <p>The budget allocates $26.4 million to infrastructure (roads, water, digital connectivity), $21.6 million to education, and $18 million to healthcare. For a small island nation where infrastructure is stretched thin, these investments have tangible effects on daily life and the visitor experience.</p>
+
+  <h2>Key investments</h2>
+  <div class="info-box">
+    <h4>🛣️ Road & Transport</h4>
+    <p>The island ring road (19 km) is being resurfaced. The causeway between Aiwo and Denigomodu is upgraded. New street lighting in Yaren, Denigomodu, and Aiwo. Visitors may encounter minor traffic delays during construction through 2027.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>💧 Water Security</h4>
+    <p>A new desalination plant at Buada Lagoon will add 500,000 litres per day of potable water capacity. Rainwater harvesting at 12 community buildings. Aging water mains being replaced. Water quality and availability should improve noticeably.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>🌐 Digital Connectivity</h4>
+    <p>Fibre-optic broadband extension to all 14 districts. Public Wi-Fi pilot in Yaren, Aiwo, and Denigomodu. Improving internet reliability for both residents and visitors.</p>
+  </div>
+
+  <h2>Economic context</h2>
+  <p>Fishing licence fees are now the single largest revenue source at approximately $35 million AUD annually. GDP growth is forecast at 2.5% for 2026. The budget deficit is financed through the Nauru Sovereign Wealth Fund and loans from the Asian Development Bank.</p>
+
+  <div class="utility-grid">
+    <a href="/news/budget/"><h3>Nauruan article</h3><p>Open the full Budget article</p></a>
+    <a href="/na/visit/"><h3>Kain ekawir</h3><p>Visit planning</p></a>
+    <a href="/na/about/economy/"><h3>Economy</h3><p>Economic background</p></a>
+    <a href="/na/directory/"><h3>Tebor</h3><p>Useful contacts</p></a>
+  </div>
 </SubpageLayout>
 
 <style>
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  
-  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;display:block;text-decoration:none}
+  .utility-grid h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .utility-grid p{margin:0;font-size:13px;color:#64748b}
+  @media (max-width:720px){.utility-grid{grid-template-columns:1fr}}
 </style>
