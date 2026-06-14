@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import BaseLayout from './BaseLayout.astro';
 import TopBar from '../components/TopBar.astro';
+import StickyNav from '../components/StickyNav.astro';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { affiliateLinks, amazonTag } from '../data/affiliate-links';
@@ -144,6 +145,7 @@ const breadcrumbPath = segments.map((seg, i) => {
   <Fragment slot="jsonld">
     <slot name="jsonld" />
   </Fragment>
+  {includeTopBar && <StickyNav locale={locale} />}
   {includeTopBar && <TopBar locale={locale} />}
   {!hideHero && (
     <div class="subpage-hero">
