@@ -1,19 +1,11 @@
 ---
 import Layout from '../../layouts/BaseLayout.astro';
-import TopBar from '../../components/TopBar.astro';
 import Footer from '../../components/Footer.astro';
 import StickyNav from '../../components/StickyNav.astro';
 import newsData from '../../data/news.json';
 ---
 
 <Layout title="Republik Naoero · Taramit Ñago" description="Dorerin Naoero: a practical bilingual hub for travel, services, news and island context." locale="na">
-  <div class="language-banner">
-    <a href="/">EN</a>
-    <a href="/na/" aria-current="page">NA</a>
-    <span>Dorerin Naoero e eñin. English fallback is always one click away.</span>
-  </div>
-
-  <TopBar locale="na" />
   <StickyNav locale="na" />
 
   <main id="main-content">
@@ -21,7 +13,7 @@ import newsData from '../../data/news.json';
       <div class="container">
         <p class="eyebrow">✦ Republik Naoero</p>
         <h1>Small island.<br/><span>Big heart.</span></h1>
-        <p class="hero-copy">Dorerin Naoero i eñin: use this hub for travel planning, citizen services, local context and the newest announcements. The pages below open the practical routes first.</p>
+        <p class="hero-copy">Dorerin Naoero i eñin: use this hub for travel planning, citizen services, local context and the newest announcements.</p>
         <div class="hero-actions">
           <a href="/na/visit/" class="cta primary">Kain ekawir</a>
           <a href="/na/services/" class="cta">Ekauwe ion ñago</a>
@@ -30,7 +22,7 @@ import newsData from '../../data/news.json';
       </div>
     </section>
 
-    <section class="section bg-white">
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Kain ekawir</span>
@@ -48,7 +40,7 @@ import newsData from '../../data/news.json';
       </div>
     </section>
 
-    <section class="section bg-cream">
+    <section class="section section-alt">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Etimine Naoero</span>
@@ -64,7 +56,7 @@ import newsData from '../../data/news.json';
       </div>
     </section>
 
-    <section class="section bg-white">
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Edorer eñin</span>
@@ -96,33 +88,134 @@ import newsData from '../../data/news.json';
 </Layout>
 
 <style>
-  .language-banner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:2px solid #1a1a2e}
-  .language-banner a{font-weight:700;color:#002B7F}
-  .language-banner span{color:#475569}
-  .section{padding:72px 24px}
-  .container{max-width:1200px;margin:0 auto}
-  .section-head{max-width:760px;margin-bottom:28px}
-  .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:#002B7F;margin-bottom:12px}
-  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
-  p{color:#475569;line-height:1.7}
-  .hero-na{padding:96px 24px 72px;background:linear-gradient(135deg,#FFC72C 0%,#FFE082 50%,#FFC72C 100%);position:relative;overflow:hidden}
-  .hero-na::after{content:'🇳🇷';position:absolute;font-size:clamp(18rem,36vw,44rem);right:-5%;top:-10%;opacity:.06;line-height:1;pointer-events:none}
-  .hero-na h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(3rem,8vw,6.2rem);line-height:.95;color:#002B7F;margin:0 0 1rem;position:relative;z-index:2}
-  .hero-na h1 span{color:transparent;-webkit-text-stroke:2px #002B7F}
-  .hero-copy{max-width:720px;font-size:1.05rem;color:rgba(0,43,127,.72);position:relative;z-index:2}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;position:relative;z-index:2}
-  .cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:2px solid #1a1a2e;background:#fff;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;color:#002B7F}
-  .cta.primary{background:#002B7F;color:#FFC72C}
-  .hub-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-  .hub-card,.news-card,.fact-box{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .hub-card span,.news-tag{display:inline-flex;align-items:center;justify-content:center;background:#002B7F;color:#fff;font-weight:700;width:34px;height:34px;border-radius:999px;margin-bottom:12px}
-  .hub-card h3,.news-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  .news-link{font-size:12px;font-weight:700;color:#002B7F}
-  .facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-  .fact-box strong{display:block;color:#002B7F;margin-bottom:8px}
-  .na-callout{margin-top:18px;border:2px solid #1a1a2e;background:#faf8f0;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:flex;justify-content:space-between;gap:16px;align-items:center}
-  .na-callout p{margin:4px 0 0}
-  .na-callout a{font-weight:700;color:#002B7F;white-space:nowrap}
-  @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}}
-  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr}.na-callout{flex-direction:column;align-items:flex-start}.hero-actions{flex-direction:column;align-items:flex-start}.cta{width:100%}}
+  .section { padding: 80px 24px; }
+  .section-alt { background: #f5f3ee; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-head { max-width: 760px; margin-bottom: 28px; }
+  .eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; color: #002B7F; margin-bottom: 12px; }
+  h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; margin: 0 0 12px; color: #1a1a2e; }
+  p { color: #475569; line-height: 1.7; }
+
+  .hero-na {
+    padding: 96px 24px 72px;
+    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-na::after {
+    content: '🇳🇷'; position: absolute;
+    font-size: clamp(18rem, 36vw, 44rem);
+    right: -5%; top: -10%;
+    opacity: .06; line-height: 1; pointer-events: none;
+  }
+  .hero-na h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 6.2rem);
+    line-height: .95; color: #002B7F;
+    margin: 0 0 1rem; position: relative; z-index: 2;
+  }
+  .hero-na h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px #002B7F;
+  }
+  .hero-copy {
+    max-width: 720px; font-size: 1.05rem;
+    color: rgba(0,43,127,.72); position: relative; z-index: 2;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin-top: 24px; position: relative; z-index: 2;
+  }
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: 700; color: #002B7F;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta:hover {
+    border-color: #002B7F;
+    box-shadow: 0 4px 12px rgba(0,43,127,0.10);
+    transform: translateY(-2px);
+  }
+  .cta.primary {
+    background: #002B7F; color: #FFC72C;
+    border-color: #002B7F;
+  }
+  .cta.primary:hover {
+    background: #001f5c;
+  }
+
+  .hub-grid, .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .hub-card, .news-card, .fact-box {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .hub-card:hover, .news-card:hover {
+    border-color: #002B7F;
+    box-shadow: 0 8px 24px rgba(0,43,127,0.10);
+    transform: translateY(-3px);
+  }
+  .hub-card span, .news-tag {
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #002B7F; color: #fff; font-weight: 700;
+    width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px;
+  }
+  .hub-card h3, .news-card h3 {
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #1a1a2e;
+    font-size: 16px;
+  }
+  .hub-card p, .news-card p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+  }
+  .news-link { font-size: 12px; font-weight: 700; color: #002B7F; display: block; margin-top: 10px; }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .fact-box strong { display: block; color: #002B7F; margin-bottom: 8px; font-size: 14px; }
+  .fact-box p { font-size: 13px; margin: 0; }
+
+  .na-callout {
+    margin-top: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #faf8f0;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+  }
+  .na-callout p { margin: 4px 0 0; font-size: 14px; }
+  .na-callout a { font-weight: 700; color: #002B7F; white-space: nowrap; font-size: 14px; }
+  .na-callout a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .hub-grid, .news-grid, .facts-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hub-grid, .news-grid, .facts-grid { grid-template-columns: 1fr; }
+    .na-callout { flex-direction: column; align-items: flex-start; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .cta { width: 100%; }
+  }
 </style>

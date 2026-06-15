@@ -1,161 +1,459 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import TopBar from '../components/TopBar.astro';
-import NewsTicker from '../components/NewsTicker.astro';
-import Hero from '../components/Hero.astro';
 import StickyNav from '../components/StickyNav.astro';
 import Footer from '../components/Footer.astro';
-import FeaturesSection from '../components/FeaturesSection.astro';
-import StatsSection from '../components/StatsSection.astro';
-import newsData from '../data/news.json';
-import featuresData from '../data/features.json';
 import siteData from '../data/site.json';
-import { affiliateLinks, amazonLink } from '../data/affiliate-links';
+import newsData from '../data/news.json';
 ---
 
-<Layout title="Republic of Nauru · Visitor Information" description="A practical, independent guide to visiting the Republic of Nauru — visas, transport, accommodation, weather, money and local essentials." locale="en">
-<StickyNav locale="en" />
-  <div class="language-banner">
-    <a href="/" aria-current="page">EN</a>
-    <a href="/na/">NA</a>
-    <span>English is live now; the Nauruan-language hub is now available for the main pages.</span>
-  </div>
-  <TopBar locale="en" />
-  <NewsTicker />
-  <Hero />
+<Layout title="Republic of Nauru · Independent Visitor Guide" description="A practical, independent guide to visiting the Republic of Nauru — visas, transport, accommodation, weather, money and local essentials." locale="en">
+  <StickyNav locale="en" />
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="/hero-nauru.webp" alt="Aerial view of Nauru island" loading="eager" decoding="async" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ {siteData.heroEyebrow}</span>
+      <h1>
+        {siteData.heroHeadline.map((line, i) => (
+          i === siteData.heroHeadlineOutline
+            ? <span class="outline">{line}&nbsp;</span>
+            : <span>{line}&nbsp;</span>
+        ))}
+      </h1>
+      <p class="hero-text">{siteData.heroSubtext}</p>
+      <a href="/about/" class="hero-cta">{siteData.heroCta}</a>
+      <div class="hero-facts">
+        {siteData.heroFacts.map(f => (
+          <span class="hero-fact">{f.icon}&nbsp;{f.text}</span>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <main id="main-content">
-    <section class="section action-hub">
+
+    <!-- ===== QUICK STATS ===== -->
+    <section class="stats-bar">
+      <div class="container stats-inner">
+        {siteData.stats.map(s => (
+          <div class="stat">
+            <span class="stat-num">{s.num}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ===== START HERE ===== -->
+    <section class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Quick access</span>
-          <h2>Citizen & Visitor Services</h2>
-          <p>Quick access to the most commonly requested services and information.</p>
+          <span class="eyebrow">Plan your trip</span>
+          <h2>Start here</h2>
+          <p>Everything you need to know about the world's smallest republic — from visas and accommodation to culture and transport.</p>
         </div>
-        <div class="hub-grid">
-          <a class="hub-card" href="/services/"><span>🛠️</span><h3>Services hub</h3><p>Jump to citizenship, immigration, health and education.</p></a>
-          <a class="hub-card" href="/services/immigration/"><span>✈️</span><h3>Immigration & entry</h3><p>What to prepare before arrival and where to verify rules.</p></a>
-          <a class="hub-card" href="/services/health/"><span>🏥</span><h3>Health & medical</h3><p>Emergency numbers, routine care and health planning.</p></a>
-          <a class="hub-card" href="/services/education/"><span>📚</span><h3>Education & learning</h3><p>Schools, study portals and learning resources.</p></a>
-          <a class="hub-card" href="/directory/"><span>📞</span><h3>Directory</h3><p>Key contacts and public services.</p></a>
-          <a class="hub-card" href="/news/"><span>📰</span><h3>News & updates</h3><p>Current announcements and practical changes.</p></a>
+        <div class="card-grid cols-3">
+          <a class="card" href="/visit/visa/">
+            <span class="card-icon">🛂</span>
+            <h3>Visa & entry</h3>
+            <p>Check requirements, apply early — processing takes weeks.</p>
+          </a>
+          <a class="card" href="/visit/accommodation/">
+            <span class="card-icon">🏨</span>
+            <h3>Where to stay</h3>
+            <p>Limited options — book accommodation before your flight.</p>
+          </a>
+          <a class="card" href="/visit/transport/">
+            <span class="card-icon">✈️</span>
+            <h3>Getting there</h3>
+            <p>Flights from Brisbane and Nadi. Airport, taxis and car rental.</p>
+          </a>
+          <a class="card" href="/visit/weather/">
+            <span class="card-icon">🌤️</span>
+            <h3>Weather & climate</h3>
+            <p>Tropical year-round — wet season Nov–Feb, best time May–Oct.</p>
+          </a>
+          <a class="card" href="/visit/currency/">
+            <span class="card-icon">💰</span>
+            <h3>Money & costs</h3>
+            <p>Australian dollar cash is king — ATMs are unreliable.</p>
+          </a>
+          <a class="card" href="/visit/attire/">
+            <span class="card-icon">👕</span>
+            <h3>What to pack</h3>
+            <p>Light clothing, sun protection, reef shoes, insect repellent.</p>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section quick-links bg-white">
+    <!-- ===== EXPLORE NAURU ===== -->
+    <section class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Most useful pages</span>
-          <h2>Explore the core visitor content</h2>
-          <p>Each card below opens a deeper page with practical guidance, checklists or current context.</p>
+          <span class="eyebrow">Discover</span>
+          <h2>Explore Nauru</h2>
+          <p>Learn about the island's people, culture, history and services.</p>
         </div>
-        <div class="link-grid">
-          <a href="/visit/visa/">Visa requirements</a>
-          <a href="/visit/accommodation/">Accommodation guide</a>
-          <a href="/visit/transport/">Transport & arrival</a>
-          <a href="/visit/currency/">Currency & payments</a>
-          <a href="/visit/communications/">Communications</a>
-          <a href="/visit/weather/">Weather & climate</a>
-          <a href="/visit/attire/">What to pack</a>
-          <a href="/about/culture/">Culture & festivals</a>
-          <a href="/about/the-people/">The people</a>
-          <a href="/about/history/">History</a>
-          <a href="/services/">Services hub</a>
-          <a href="/directory/">Directory</a>
+        <div class="card-grid cols-4">
+          <a class="card" href="/about/">
+            <span class="card-icon">🏝️</span>
+            <h3>About Nauru</h3>
+            <p>Country, flag, motto — the essentials.</p>
+          </a>
+          <a class="card" href="/about/the-people/">
+            <span class="card-icon">👥</span>
+            <h3>The people</h3>
+            <p>10,000 islanders, 12 tribes, one identity.</p>
+          </a>
+          <a class="card" href="/about/culture/">
+            <span class="card-icon">🎭</span>
+            <h3>Culture</h3>
+            <p>Dance, food, festivals, community life.</p>
+          </a>
+          <a class="card" href="/about/history/">
+            <span class="card-icon">📜</span>
+            <h3>History</h3>
+            <p>From ancient settlement to independence.</p>
+          </a>
+          <a class="card" href="/about/economy/">
+            <span class="card-icon">📊</span>
+            <h3>Economy</h3>
+            <p>Phosphate, fishing licences, and diversification.</p>
+          </a>
+          <a class="card" href="/services/">
+            <span class="card-icon">🛠️</span>
+            <h3>Services hub</h3>
+            <p>Immigration, health, education, citizenship.</p>
+          </a>
+          <a class="card" href="/directory/">
+            <span class="card-icon">📞</span>
+            <h3>Directory</h3>
+            <p>Key contacts and government offices.</p>
+          </a>
+          <a class="card" href="/news/">
+            <span class="card-icon">📰</span>
+            <h3>News & updates</h3>
+            <p>Current announcements and developments.</p>
+          </a>
         </div>
       </div>
     </section>
 
-    <FeaturesSection items={featuresData} />
-
-    <StatsSection stats={siteData.stats} />
-
-    <section class="section bg-cream">
+    <!-- ===== LATEST NEWS ===== -->
+    <section class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Why this matters</span>
-          <h2>Visitors and citizens need facts, not fluff</h2>
-          <p>Nauru is small, remote and logistics-heavy. These pages are designed to answer the questions people actually ask before booking or requesting a service.</p>
+          <span class="eyebrow">What's new</span>
+          <h2>Latest stories</h2>
+          <p>News and developments that may affect your visit.</p>
         </div>
-        <div class="facts-grid">
-          <div class="fact-box"><strong>Visa timing</strong><p>Applications can take weeks, so planning early is essential.</p></div>
-          <div class="fact-box"><strong>Service routing</strong><p>Knowing which office handles what saves time and repeat visits.</p></div>
-          <div class="fact-box"><strong>Accommodation</strong><p>Options are limited, so availability matters more than choice.</p></div>
-          <div class="fact-box"><strong>Connectivity</strong><p>Internet is functional but not something to build a trip around.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-white">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Quick teasers</span>
-          <h2>What people click most</h2>
-          <p>These cards point to the pages that help visitors and citizens move from a vague question to a concrete next step.</p>
-        </div>
-        <div class="news-grid">
-          {newsData.slice(0,3).map((item) => (
-            <a class="news-card" href={`/news/${item.id}/`}>
-              <span class="news-tag">{item.tag}</span>
-              <h3>{item.emoji} {item.title}</h3>
+        <div class="card-grid cols-3">
+          {newsData.slice(0,3).map(item => (
+            <a class="card news-card" href={`/news/${item.id}/`}>
+              <span class="news-tag">{item.emoji}&nbsp;{item.tag}</span>
+              <h3>{item.title}</h3>
               <p>{item.summary}</p>
-              <span class="news-link">Open story →</span>
+              <span class="news-date">{item.date}</span>
             </a>
           ))}
         </div>
-        <div class="na-callout">
-          <div>
-            <strong>Dorerin Naoero</strong>
-            <p>The Nauruan-language hub is now live for the main pages. Use it for the bilingual navigation and the translated landing pages.</p>
-          </div>
+        <div class="na-promo">
+          <strong>🇳🇷&nbsp;Dorerin Naoero</strong>
+          <span>The Nauruan-language hub is live for the main pages.</span>
           <a href="/na/">Open NA hub →</a>
         </div>
       </div>
     </section>
-  </main>
 
-  <aside class="affiliate-section homepage-affiliate">
-    <div class="affiliate-inner">
-      <span class="affiliate-label">📚 Recommended Reading</span>
-      <p class="affiliate-note">We earn a small commission from purchases made through these links at no extra cost to you.</p>
-      <div class="affiliate-grid">
-        {affiliateLinks.about?.slice(0,2).map(link => (
-          <a href={link.url} class="affiliate-card" target="_blank" rel="noopener sponsored">
-            <strong>{link.title}</strong>
-            <span class="affiliate-desc">{link.description}</span>
-            <span class="affiliate-cta">Check on Amazon →</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </aside>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  .language-banner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#fff;border-bottom:2px solid #1a1a2e}
-  .language-banner a{font-weight:700;color:#002B7F}
-  .language-banner span{color:#475569}
-  .na-callout{margin-top:18px;border:2px solid #1a1a2e;background:#faf8f0;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:flex;justify-content:space-between;gap:16px;align-items:center}
-  .na-callout p{margin:4px 0 0}
-  .na-callout a{font-weight:700;color:#002B7F;white-space:nowrap}
-  .section{padding:72px 24px}
-  .container{max-width:1200px;margin:0 auto}
-  .section-head{max-width:760px;margin-bottom:28px}
-  .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:#002B7F;margin-bottom:12px}
-  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;margin:0 0 12px}
-  p{color:#475569;line-height:1.7}
-  .hub-grid,.news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-  .hub-card,.news-card,.link-grid a,.fact-box{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .hub-card span,.news-tag{display:inline-flex;align-items:center;justify-content:center;background:#002B7F;color:#fff;font-weight:700;width:34px;height:34px;border-radius:999px;margin-bottom:12px}
-  .hub-card h3,.news-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  .link-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-  .link-grid a{font-weight:600;color:#1a1a2e}
-  .facts-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-  .fact-box strong{display:block;color:#002B7F;margin-bottom:8px}
-  .news-link{font-size:12px;font-weight:700;color:#002B7F}
-  @media (max-width: 900px){.hub-grid,.news-grid,.facts-grid{grid-template-columns:1fr 1fr}.link-grid{grid-template-columns:1fr 1fr 1fr}}
-  @media (max-width: 640px){.hub-grid,.news-grid,.facts-grid,.link-grid{grid-template-columns:1fr}.na-callout{flex-direction:column;align-items:flex-start}}
+<style is:global>
+  /* =============================================
+     HERO
+     ============================================= */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,43,127,0.7) 0%, rgba(0,20,60,0.4) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FFC72C;
+    margin-bottom: 1.5rem;
+    border: 2px solid #FFC72C;
+    padding: 6px 20px;
+    border-radius: 999px;
+  }
+  .hero-content h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .hero-content .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    paint-order: stroke fill;
+  }
+  .hero-text {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: rgba(255,255,255,0.85);
+    max-width: 580px;
+    line-height: 1.7;
+    margin: 0 auto 2rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFC72C;
+    color: #002B7F;
+    padding: 16px 36px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 0;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: all .3s;
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta:hover { transform: translateX(4px); background: #fff; color: #002B7F; }
+  .hero-facts {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-fact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+
+  /* =============================================
+     STATS BAR
+     ============================================= */
+  .stats-bar {
+    background: #002B7F;
+    padding: 40px 24px;
+  }
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .stat {
+    text-align: center;
+    flex: 1;
+  }
+  .stat-num {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #FFC72C;
+    line-height: 1;
+  }
+  .stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+  }
+
+  /* =============================================
+     SECTIONS
+     ============================================= */
+  .section {
+    padding: 80px 24px;
+  }
+  .section-alt {
+    background: #f5f3ee;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #002B7F;
+    margin-bottom: 8px;
+  }
+  .section-head h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    margin: 0 0 10px;
+    color: #1a1a2e;
+  }
+  .section-head p {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* =============================================
+     CARD GRID
+     ============================================= */
+  .card-grid {
+    display: grid;
+    gap: 20px;
+  }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    display: block;
+    padding: 28px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card:hover {
+    border-color: #002B7F;
+    box-shadow: 0 8px 24px rgba(0,43,127,0.10);
+    transform: translateY(-3px);
+  }
+  .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #eef2ff;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 8px;
+  }
+  .card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ===== News cards ===== */
+  .news-card { position: relative; }
+  .news-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    background: #002B7F;
+    color: #fff;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .news-date {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 12px;
+  }
+
+  /* ===== NA Promo ===== */
+  .na-promo {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #faf8f0;
+    flex-wrap: wrap;
+  }
+  .na-promo strong { color: #002B7F; white-space: nowrap; font-size: 14px; }
+  .na-promo span { font-size: 14px; color: #475569; }
+  .na-promo a {
+    margin-left: auto;
+    font-weight: 700;
+    color: #002B7F;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .na-promo a:hover { text-decoration: underline; }
+
+  /* =============================================
+     RESPONSIVE
+     ============================================= */
+  @media (max-width: 1024px) {
+    .cols-4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .stats-inner { flex-wrap: wrap; justify-content: center; }
+    .stat { flex: 0 0 auto; min-width: 80px; }
+  }
+  @media (max-width: 768px) {
+    .hero-content { padding: 0 24px; }
+    .hero-facts { gap: 12px; flex-direction: column; align-items: center; }
+    .section { padding: 56px 20px; }
+    .cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 20px; }
+  }
+  @media (max-width: 640px) {
+    .cols-3, .cols-4 { grid-template-columns: 1fr; }
+    .na-promo { flex-direction: column; align-items: flex-start; }
+    .na-promo a { margin-left: 0; }
+    .stat-num { font-size: 1.6rem; }
+  }
 </style>

@@ -11,107 +11,136 @@ const defaultLinks = locale === 'na'
       { label: 'Edorer', url: '/na/news/' },
       { label: 'Ekauwe', url: '/na/services/' },
       { label: 'Etimine', url: '/na/about/' },
-      { label: 'History', url: '/na/about/history/' },
       { label: 'Tebor', url: '/na/directory/' },
-      { label: 'Kain kõme', url: '/na/contact/' },
       { label: 'Kanek', url: '/na/search/' },
     ]
   : [
-      { label: 'News', url: '/news/' },
-      { label: 'Guide', url: '/visit/' },
-      { label: 'Services', url: '/services/' },
+      { label: 'Visit', url: '/visit/' },
       { label: 'About', url: '/about/' },
-      { label: 'History', url: '/about/history/' },
+      { label: 'Services', url: '/services/' },
+      { label: 'News', url: '/news/' },
       { label: 'Directory', url: '/directory/' },
-      { label: 'Contact', url: '/contact/' },
       { label: 'Search', url: '/search/' },
     ];
 
 const { links = defaultLinks } = Astro.props as Props;
+const homeHref = locale === 'na' ? '/na/' : '/';
+const logoSpan = locale === 'na' ? 'Naoero' : 'Nauru';
 ---
 
-<div class="sticky-nav" id="sticky-nav">
+<div class="navbar">
   <div class="nav-inner">
-    <a href={locale === 'na' ? '/na/' : '/'} class="logo-sm">
-      <div class="flag-mini"></div>
-      {locale === 'na' ? 'Rep. Naoero' : 'Rep. of Nauru'}
+    <a href={homeHref} class="nav-logo">
+      <span class="flag-icon"></span>
+      <span class="logo-text">Rep. of {logoSpan}</span>
     </a>
-    <div class="nav-links">
-      {links.map((link) => (
+    <nav class="nav-links">
+      {links.map(link => (
         <a href={link.url}>{link.label}</a>
       ))}
-      <a href={locale === 'na' ? '/na/news/' : '/news/'} class="search-btn" aria-label={locale === 'na' ? 'Edorer' : 'Latest news'}>📰</a>
-    </div>
+      <div class="lang-switch">
+        <a href="/" class:list={{ 'lang-active': locale === 'en' }}>EN</a>
+        <a href="/na/" class:list={{ 'lang-active': locale === 'na' }}>NA</a>
+      </div>
+    </nav>
   </div>
 </div>
 
-<script is:inline>
-  (function() {
-    const nav = document.getElementById('sticky-nav');
-    if (!nav) return;
-    const toggle = function() {
-      const y = window.scrollY;
-      nav.classList.toggle('scrolled', y > 80);
-      nav.classList.toggle('scrolled-yellow', y > 300);
-    };
-    toggle();
-    window.addEventListener('scroll', toggle, { passive: true });
-  })();
-</script>
-
-<style>
-  .sticky-nav {
-    background: transparent; border-bottom: 2px solid transparent;
-    padding: 0 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    transition: background 0.3s ease, border-color 0.3s ease;
+<style is:global>
+  .navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
   }
-  .sticky-nav .nav-inner {
-    display: flex; justify-content: space-between; align-items: center;
-    max-width: 1280px; margin: 0 auto; height: 64px;
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 48px;
   }
-  .sticky-nav .logo-sm {
-    display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px;
-    color: #fff; text-decoration: none;
-  }
-  .sticky-nav .logo-sm .flag-mini {
-    width: 28px; height: 18px; border-radius: 2px;
-    background: linear-gradient(180deg, #002B7F 33%, #FFC72C 33% 66%, #002B7F 66%);
-    display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .sticky-nav .logo-sm .flag-mini::after { content: '★'; color: #fff; font-size: 8px; }
-  .sticky-nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-  .sticky-nav .nav-links a {
-    font-size: 13px; font-weight: 500;
-    color: rgba(255,255,255,0.85);
-    padding: 8px 0; transition: color .25s;
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
   }
-  .sticky-nav .nav-links a:hover { color: #FFC72C; }
-  .sticky-nav .nav-links .search-btn { font-size: 18px; cursor: pointer; text-decoration: none; }
-
-  /* Scrolled (weiß) */
-  .sticky-nav.scrolled {
-    background: #fff;
-    border-bottom-color: #1a1a2e;
+  .flag-icon {
+    width: 28px;
+    height: 18px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #002B7F 33%, #FFC72C 33% 66%, #002B7F 66%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
   }
-  .sticky-nav.scrolled .logo-sm { color: #002B7F; }
-  .sticky-nav.scrolled .nav-links a { color: #475569; }
-  .sticky-nav.scrolled .nav-links a:hover { color: #FFC72C; }
-
-  /* Scrolled gelb */
-  .sticky-nav.scrolled-yellow {
-    background: #FFC72C;
-    border-bottom-color: #002B7F;
+  .flag-icon::after {
+    content: '★';
+    color: #fff;
+    font-size: 8px;
   }
-  .sticky-nav.scrolled-yellow .logo-sm { color: #002B7F; }
-  .sticky-nav.scrolled-yellow .nav-links a { color: #002B7F; }
-  .sticky-nav.scrolled-yellow .nav-links a:hover { opacity: 0.7; }
+  .logo-text {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a1a2e;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: #475569;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-links a:hover {
+    color: #002B7F;
+  }
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 20px;
+    border-left: 1px solid #e2e8f0;
+  }
+  .lang-switch a {
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .lang-switch a:hover {
+    background: #eef2ff;
+  }
+  .lang-active {
+    background: #002B7F !important;
+    color: #fff !important;
+  }
+  .lang-active:hover {
+    background: #001f5c !important;
+  }
 
   @media (max-width: 768px) {
-    .sticky-nav { padding: 0 20px; }
-    .sticky-nav .logo-sm { display: none; }
-    .sticky-nav .nav-links { gap: 0.8rem; font-size: 12px; overflow-x: auto; width: 100%; justify-content: center; }
-    .sticky-nav .nav-links a { font-size: 12px; white-space: nowrap; }
+    .nav-inner { padding: 0 20px; }
+    .logo-text { display: none; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 12px; }
+    .lang-switch { padding-left: 12px; }
   }
 </style>
