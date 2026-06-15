@@ -1,27 +1,52 @@
 ---
 import Layout from '../../layouts/BaseLayout.astro';
-import Footer from '../../components/Footer.astro';
 import StickyNav from '../../components/StickyNav.astro';
+import Footer from '../../components/Footer.astro';
+import siteData from '../../data/site.json';
 import newsData from '../../data/news.json';
 ---
 
 <Layout title="Republik Naoero · Taramit Ñago" description="Dorerin Naoero: a practical bilingual hub for travel, services, news and island context." locale="na">
   <StickyNav locale="na" />
 
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="/hero-nauru.webp" alt="Aerial view of Nauru island" loading="eager" decoding="async" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">✦ Republik Naoero</span>
+      <h1>
+        <span>Small island.&nbsp;</span>
+        <span class="outline">Big heart.&nbsp;</span>
+      </h1>
+      <p class="hero-text">Dorerin Naoero i eñin: use this hub for travel planning, citizen services, local context and the newest announcements.</p>
+      <a href="/na/about/" class="hero-cta">Etimine Naoero →</a>
+      <div class="hero-facts">
+        <span class="hero-fact">📍&nbsp;53 km ion taramit ekwator</span>
+        <span class="hero-fact">👥&nbsp;10,000 eko</span>
+        <span class="hero-fact">🏝️&nbsp;3,000+ eko ebõk</span>
+        <span class="hero-fact">✈️&nbsp;Ibakoi Brisbane me Nadi</span>
+      </div>
+    </div>
+  </section>
+
   <main id="main-content">
-    <section class="hero-na">
-      <div class="container">
-        <p class="eyebrow">✦ Republik Naoero</p>
-        <h1>Small island.<br/><span>Big heart.</span></h1>
-        <p class="hero-copy">Dorerin Naoero i eñin: use this hub for travel planning, citizen services, local context and the newest announcements.</p>
-        <div class="hero-actions">
-          <a href="/na/visit/" class="cta primary">Kain ekawir</a>
-          <a href="/na/services/" class="cta">Ekauwe ion ñago</a>
-          <a href="/na/news/" class="cta">Edorer Ijino</a>
-        </div>
+
+    <!-- ===== QUICK STATS ===== -->
+    <section class="stats-bar">
+      <div class="container stats-inner">
+        {siteData.stats.map(s => (
+          <div class="stat">
+            <span class="stat-num">{s.num}</span>
+            <span class="stat-label">{s.label}</span>
+          </div>
+        ))}
       </div>
     </section>
 
+    <!-- ===== START HERE ===== -->
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -29,193 +54,404 @@ import newsData from '../../data/news.json';
           <h2>Quick access</h2>
           <p>Jump directly to the pages people need most: visas, accommodation, transport, contacts and current news.</p>
         </div>
-        <div class="hub-grid">
-          <a class="hub-card" href="/na/visit/visa/"><span>🛂</span><h3>Viza</h3><p>Entry rules and travel documents.</p></a>
-          <a class="hub-card" href="/na/services/"><span>🛠️</span><h3>Ekauwe ion ñago</h3><p>Citizen and visitor services.</p></a>
-          <a class="hub-card" href="/na/directory/"><span>📞</span><h3>Tebor</h3><p>Key contacts and offices.</p></a>
-          <a class="hub-card" href="/na/about/"><span>🏝️</span><h3>Etimine Naoero</h3><p>Country, people and history.</p></a>
-          <a class="hub-card" href="/na/news/"><span>📰</span><h3>Edorer Ijino</h3><p>Announcements and context.</p></a>
-          <a class="hub-card" href="/na/search/"><span>🔎</span><h3>Kanek</h3><p>Search the site fast.</p></a>
+        <div class="card-grid cols-3">
+          <a class="card" href="/na/visit/visa/">
+            <span class="card-icon">🛂</span>
+            <h3>Viza</h3>
+            <p>Check requirements, apply early — processing takes weeks.</p>
+          </a>
+          <a class="card" href="/na/visit/accommodation/">
+            <span class="card-icon">🏨</span>
+            <h3>Where to stay</h3>
+            <p>Limited options — book accommodation before your flight.</p>
+          </a>
+          <a class="card" href="/na/visit/transport/">
+            <span class="card-icon">✈️</span>
+            <h3>Getting there</h3>
+            <p>Flights from Brisbane and Nadi. Airport, taxis and car rental.</p>
+          </a>
+          <a class="card" href="/na/visit/weather/">
+            <span class="card-icon">🌤️</span>
+            <h3>Uab</h3>
+            <p>Tropical year-round — wet season Nov–Feb, best time May–Oct.</p>
+          </a>
+          <a class="card" href="/na/visit/currency/">
+            <span class="card-icon">💰</span>
+            <h3>Money & costs</h3>
+            <p>Australian dollar cash is king — ATMs are unreliable.</p>
+          </a>
+          <a class="card" href="/na/visit/attire/">
+            <span class="card-icon">👕</span>
+            <h3>What to pack</h3>
+            <p>Light clothing, sun protection, reef shoes, insect repellent.</p>
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- ===== EXPLORE NAURU ===== -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Etimine Naoero</span>
-          <h2>What you need to know first</h2>
-          <p>Nauru is small, remote and logistics-heavy. Planning early makes a real difference for visitors and residents alike.</p>
+          <span class="eyebrow">Etimine</span>
+          <h2>Explore Nauru</h2>
+          <p>Learn about the island's people, culture, history and services.</p>
         </div>
-        <div class="facts-grid">
-          <div class="fact-box"><strong>Visa timing</strong><p>Apply early and verify rules before departure.</p></div>
-          <div class="fact-box"><strong>Accommodation</strong><p>Reserve first, then confirm flights.</p></div>
-          <div class="fact-box"><strong>Cash & payments</strong><p>Bring cash and a backup method.</p></div>
-          <div class="fact-box"><strong>Connectivity</strong><p>Save offline copies of key documents.</p></div>
+        <div class="card-grid cols-4">
+          <a class="card" href="/na/about/">
+            <span class="card-icon">🏝️</span>
+            <h3>Etimine Naoero</h3>
+            <p>Country, flag, motto — the essentials.</p>
+          </a>
+          <a class="card" href="/na/about/the-people/">
+            <span class="card-icon">👥</span>
+            <h3>The people</h3>
+            <p>10,000 islanders, 12 tribes, one identity.</p>
+          </a>
+          <a class="card" href="/na/about/culture/">
+            <span class="card-icon">🎭</span>
+            <h3>Ebõk</h3>
+            <p>Dance, food, festivals, community life.</p>
+          </a>
+          <a class="card" href="/na/about/history/">
+            <span class="card-icon">📜</span>
+            <h3>History</h3>
+            <p>From ancient settlement to independence.</p>
+          </a>
+          <a class="card" href="/na/about/economy/">
+            <span class="card-icon">📊</span>
+            <h3>Economy</h3>
+            <p>Phosphate, fishing licences, and diversification.</p>
+          </a>
+          <a class="card" href="/na/services/">
+            <span class="card-icon">🛠️</span>
+            <h3>Ekauwe ion ñago</h3>
+            <p>Immigration, health, education, citizenship.</p>
+          </a>
+          <a class="card" href="/na/directory/">
+            <span class="card-icon">📞</span>
+            <h3>Tebor</h3>
+            <p>Key contacts and government offices.</p>
+          </a>
+          <a class="card" href="/na/news/">
+            <span class="card-icon">📰</span>
+            <h3>Edorer Ijino</h3>
+            <p>Current announcements and developments.</p>
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- ===== LATEST NEWS ===== -->
     <section class="section">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Edorer eñin</span>
-          <h2>Latest stories with practical context</h2>
-          <p>Use the news feed as a planning cue — what is changing, and what does it mean for your trip or request?</p>
+          <h2>Latest stories</h2>
+          <p>News and developments that may affect your visit.</p>
         </div>
-        <div class="news-grid">
-          {newsData.slice(0,3).map((item) => (
-            <a class="news-card" href={`/na/news/${item.id}/`}>
-              <span class="news-tag">{item.tag}</span>
-              <h3>{item.emoji} {item.title}</h3>
+        <div class="card-grid cols-3">
+          {newsData.slice(0,3).map(item => (
+            <a class="card news-card" href={`/na/news/${item.id}/`}>
+              <span class="news-tag">{item.emoji}&nbsp;{item.tag}</span>
+              <h3>{item.title}</h3>
               <p>{item.summary}</p>
-              <span class="news-link">Open story →</span>
+              <span class="news-date">{item.date}</span>
             </a>
           ))}
         </div>
-        <div class="na-callout">
-          <div>
-            <strong>Dorerin Naoero</strong>
-            <p>The Nauruan-language hub now leads the main pages. Use it first; switch to EN whenever you need the fallback or a cross-check.</p>
-          </div>
+        <div class="na-promo">
+          <strong>🇳🇷&nbsp;Dorerin Naoero</strong>
+          <span>The Nauruan-language hub is live for the main pages.</span>
           <a href="/">Open EN hub →</a>
         </div>
       </div>
     </section>
+
   </main>
 
   <Footer />
 </Layout>
 
-<style>
-  .section { padding: 80px 24px; }
-  .section-alt { background: #f5f3ee; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-head { max-width: 760px; margin-bottom: 28px; }
-  .eyebrow { display: inline-block; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; color: #002B7F; margin-bottom: 12px; }
-  h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.05; margin: 0 0 12px; color: #1a1a2e; }
-  p { color: #475569; line-height: 1.7; }
-
-  .hero-na {
-    padding: 96px 24px 72px;
-    background: linear-gradient(135deg, #FFC72C 0%, #FFE082 50%, #FFC72C 100%);
-    position: relative; overflow: hidden;
+<style is:global>
+  /* =============================================
+     HERO
+     ============================================= */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-na::after {
-    content: '🇳🇷'; position: absolute;
-    font-size: clamp(18rem, 36vw, 44rem);
-    right: -5%; top: -10%;
-    opacity: .06; line-height: 1; pointer-events: none;
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
   }
-  .hero-na h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(3rem, 8vw, 6.2rem);
-    line-height: .95; color: #002B7F;
-    margin: 0 0 1rem; position: relative; z-index: 2;
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
   }
-  .hero-na h1 span {
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,43,127,0.7) 0%, rgba(0,20,60,0.4) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FFC72C;
+    margin-bottom: 1.5rem;
+    border: 2px solid #FFC72C;
+    padding: 6px 20px;
+    border-radius: 999px;
+  }
+  .hero-content h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+  .hero-content .outline {
     color: transparent;
-    -webkit-text-stroke: 2px #002B7F;
+    -webkit-text-stroke: 2px #fff;
+    paint-order: stroke fill;
   }
-  .hero-copy {
-    max-width: 720px; font-size: 1.05rem;
-    color: rgba(0,43,127,.72); position: relative; z-index: 2;
+  .hero-text {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: rgba(255,255,255,0.85);
+    max-width: 580px;
+    line-height: 1.7;
+    margin: 0 auto 2rem;
   }
-  .hero-actions {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin-top: 24px; position: relative; z-index: 2;
-  }
-  .cta {
-    display: inline-flex; align-items: center; justify-content: center;
-    padding: 14px 20px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    background: #fff;
-    font-weight: 700; color: #002B7F;
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFC72C;
+    color: #002B7F;
+    padding: 16px 36px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 0;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+    transition: all .3s;
     text-decoration: none;
-    transition: all 0.2s;
+    margin-bottom: 2.5rem;
   }
-  .cta:hover {
-    border-color: #002B7F;
-    box-shadow: 0 4px 12px rgba(0,43,127,0.10);
-    transform: translateY(-2px);
+  .hero-cta:hover { transform: translateX(4px); background: #fff; color: #002B7F; }
+  .hero-facts {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .cta.primary {
-    background: #002B7F; color: #FFC72C;
-    border-color: #002B7F;
-  }
-  .cta.primary:hover {
-    background: #001f5c;
+  .hero-fact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 600;
   }
 
-  .hub-grid, .news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
+  /* =============================================
+     STATS BAR
+     ============================================= */
+  .stats-bar {
+    background: #002B7F;
+    padding: 40px 24px;
   }
-  .hub-card, .news-card, .fact-box {
+  .stats-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .stat {
+    text-align: center;
+    flex: 1;
+  }
+  .stat-num {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #FFC72C;
+    line-height: 1;
+  }
+  .stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+  }
+
+  /* =============================================
+     SECTIONS
+     ============================================= */
+  .section {
+    padding: 80px 24px;
+  }
+  .section-alt {
+    background: #f5f3ee;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 40px;
+  }
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #002B7F;
+    margin-bottom: 8px;
+  }
+  .section-head h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    margin: 0 0 10px;
+    color: #1a1a2e;
+  }
+  .section-head p {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* =============================================
+     CARD GRID
+     ============================================= */
+  .card-grid {
+    display: grid;
+    gap: 20px;
+  }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .card {
+    display: block;
+    padding: 28px 24px;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     background: #fff;
-    padding: 20px;
-    display: block;
     text-decoration: none;
     transition: all 0.25s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
-  .hub-card:hover, .news-card:hover {
+  .card:hover {
     border-color: #002B7F;
     box-shadow: 0 8px 24px rgba(0,43,127,0.10);
     transform: translateY(-3px);
   }
-  .hub-card span, .news-tag {
-    display: inline-flex; align-items: center; justify-content: center;
-    background: #002B7F; color: #fff; font-weight: 700;
-    width: 36px; height: 36px; border-radius: 10px; margin-bottom: 12px;
+  .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #eef2ff;
+    font-size: 20px;
+    margin-bottom: 14px;
   }
-  .hub-card h3, .news-card h3 {
-    margin: 0 0 8px;
+  .card h3 {
     font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
     color: #1a1a2e;
-    font-size: 16px;
+    margin: 0 0 8px;
   }
-  .hub-card p, .news-card p {
-    font-size: 13px;
+  .card p {
+    font-size: 14px;
     color: #64748b;
+    line-height: 1.6;
     margin: 0;
   }
-  .news-link { font-size: 12px; font-weight: 700; color: #002B7F; display: block; margin-top: 10px; }
 
-  .facts-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
+  /* ===== News cards ===== */
+  .news-card { position: relative; }
+  .news-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    background: #002B7F;
+    color: #fff;
+    border-radius: 999px;
+    margin-bottom: 10px;
   }
-  .fact-box strong { display: block; color: #002B7F; margin-bottom: 8px; font-size: 14px; }
-  .fact-box p { font-size: 13px; margin: 0; }
+  .news-date {
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 12px;
+  }
 
-  .na-callout {
-    margin-top: 24px;
+  /* ===== NA Promo ===== */
+  .na-promo {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     background: #faf8f0;
-    padding: 20px 24px;
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: center;
+    flex-wrap: wrap;
   }
-  .na-callout p { margin: 4px 0 0; font-size: 14px; }
-  .na-callout a { font-weight: 700; color: #002B7F; white-space: nowrap; font-size: 14px; }
-  .na-callout a:hover { text-decoration: underline; }
+  .na-promo strong { color: #002B7F; white-space: nowrap; font-size: 14px; }
+  .na-promo span { font-size: 14px; color: #475569; }
+  .na-promo a {
+    margin-left: auto;
+    font-weight: 700;
+    color: #002B7F;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+  .na-promo a:hover { text-decoration: underline; }
 
+  /* =============================================
+     RESPONSIVE
+     ============================================= */
+  @media (max-width: 1024px) {
+    .cols-4 { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 900px) {
-    .hub-grid, .news-grid, .facts-grid { grid-template-columns: 1fr 1fr; }
+    .stats-inner { flex-wrap: wrap; justify-content: center; }
+    .stat { flex: 0 0 auto; min-width: 80px; }
+  }
+  @media (max-width: 768px) {
+    .hero-content { padding: 0 24px; }
+    .hero-facts { gap: 12px; flex-direction: column; align-items: center; }
+    .section { padding: 56px 20px; }
+    .cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 20px; }
   }
   @media (max-width: 640px) {
-    .hub-grid, .news-grid, .facts-grid { grid-template-columns: 1fr; }
-    .na-callout { flex-direction: column; align-items: flex-start; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
-    .cta { width: 100%; }
+    .cols-3, .cols-4 { grid-template-columns: 1fr; }
+    .na-promo { flex-direction: column; align-items: flex-start; }
+    .na-promo a { margin-left: 0; }
+    .stat-num { font-size: 1.6rem; }
   }
 </style>
