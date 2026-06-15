@@ -47,11 +47,11 @@ import siteData from '../../data/site.json';
 <style>
   .fact-grid,.link-grid,.utility-grid{display:grid;gap:16px}
   .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
-  .fact,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .fact,.utility-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:block;transition:all 0.25s ease}
   .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#002B7F}
   .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
   .link-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:1rem 0 2rem}
-  .link-grid a{border:2px solid #1a1a2e;background:#fff;padding:14px 16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700}
+  .link-grid a{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);font-weight:700;transition:all 0.25s ease}
   .utility-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
   .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.fact-grid,.link-grid,.utility-grid{grid-template-columns:1fr}}
