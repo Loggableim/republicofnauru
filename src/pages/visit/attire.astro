@@ -42,7 +42,7 @@ const faqSchema = {
 };
 ---
 
-<SubpageLayout title={attireData.title} description={attireData.subtitle} sectionEmoji="👔" sectionLabel="Dress Code" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title={attireData.title} description={attireData.subtitle} sectionEmoji="👔" sectionLabel="Dress Code" includeFooter={true}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
