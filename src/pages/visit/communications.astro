@@ -42,7 +42,7 @@ const faqSchema = {
 };
 ---
 
-<SubpageLayout title={commsData.title} description={commsData.subtitle} sectionEmoji="📡" sectionLabel="Staying Connected" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title={commsData.title} description={commsData.subtitle} sectionEmoji="📡" sectionLabel="Staying Connected" includeFooter={true}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
@@ -178,11 +178,11 @@ const faqSchema = {
 
 <style>
   .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
-  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:18px;transition:all 0.25s ease}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
 
-  .plan-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .plan-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:1px solid #e2e8f0;border-radius:8px}
   .plan-table th{background:#002B7F;color:#fff;padding:10px 12px;font-size:13px;text-align:left}
   .plan-table td{padding:10px 12px;font-size:13px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06)}
   .plan-table tbody tr:nth-child(even){background:#faf8f0}
@@ -194,7 +194,7 @@ const faqSchema = {
   }
 
   .connectivity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
-  .conn-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .conn-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:20px;transition:all 0.25s ease}
   .conn-card h3{margin:0 0 12px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
   .conn-card ul{margin:0;list-style:none;padding:0}
   .conn-card ul li{font-size:13px;color:#475569;padding:4px 0 4px 1.5rem;position:relative;line-height:1.6}
@@ -205,7 +205,7 @@ const faqSchema = {
   @media (max-width: 720px){.connectivity-grid{grid-template-columns:1fr}}
 
   .postal-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
-  .postal-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .postal-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:20px;transition:all 0.25s ease}
   .postal-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
   .postal-row{display:flex;justify-content:space-between;font-size:13px;color:#475569;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06)}
   .postal-row:last-child{border-bottom:none}

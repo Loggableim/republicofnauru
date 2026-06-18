@@ -49,7 +49,7 @@ const faqSchema = {
 };
 ---
 
-<SubpageLayout title="Health & Medical" description="Hospital access, urgent care, pharmacies, and health planning for residents and visitors." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title="Health & Medical" description="Hospital access, urgent care, pharmacies, and health planning for residents and visitors." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeFooter={true}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
@@ -151,11 +151,11 @@ const faqSchema = {
 
 <style>
   .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .utility-grid a,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block;text-decoration:none}
+  .utility-grid a,.utility-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);font-weight:700;display:block;text-decoration:none;transition:all 0.25s ease}
   .utility-card h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   .utility-card p{margin:0;font-weight:400;font-size:14px;color:#475569;line-height:1.6}
   .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1rem 0 2rem}
-  .fact{background:#fff;border:2px solid #1a1a2e;padding:20px;text-align:center}
+  .fact{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
   .fact .num{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#002B7F}
   .fact .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
   @media (max-width: 720px){.utility-grid,.fact-grid{grid-template-columns:1fr}}

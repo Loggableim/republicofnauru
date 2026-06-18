@@ -2,23 +2,49 @@
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Eco-Tourism & Visitor Experience" description="Tourism developments that matter when you plan a trip to Nauru." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeTopBar={true} includeFooter={true} locale="na">
-  <p>This topic connects policy announcements with the practical realities of accommodation, transport and visitor services.</p>
-<h2>What it means</h2>
-<p>Tourism announcements usually connect directly to the things visitors care about: where to stay, how to get around, and what the island wants to showcase next.</p>
-<div class="utility-grid">
-  <a href="/na/news/"><h3>Back to news</h3><p>Open the news hub.</p></a>
-  <a href="/na/visit/"><h3>Visit guide</h3><p>Practical trip planning.</p></a>
-  <a href="/na/about/culture/"><h3>Culture</h3><p>What the island wants to protect.</p></a>
-  <a href="/na/directory/"><h3>Directory</h3><p>Useful contacts.</p></a>
-</div>
+<SubpageLayout title="Eco-Tourism & Visitor Experience — Edorer Ijino" description="Tourism developments that matter when you plan a trip to Nauru — eco-tourism programs, sustainable travel practices, and what they mean for your stay on the island." sectionEmoji="📰" sectionLabel="Edorer Ijino" includeFooter={true} locale="na">
+  <p>Tourism on Nauru is at an inflection point. The government has recognised that sustainable, community-based tourism offers a viable path for economic diversification while protecting the island's fragile environment and unique cultural heritage.</p>
+
+  <h2>What this means</h2>
+  <p>The Eco-Tourism Initiative, funded through a $3.2 million AUD grant from the Pacific Tourism Organisation (SPTO), is designed to develop Nauru's tourism infrastructure and service capacity while ensuring strict environmental and cultural safeguards. For visitors, this translates into more accommodation options (certified homestays), structured activities (guided walks, snorkeling tours, cultural workshops), and better information resources.</p>
+
+  <h2>Key developments</h2>
+  <div class="info-box">
+    <h4>🌿 Trail Development (2026–2027)</h4>
+    <p>A network of marked walking trails is being created across the island, covering the Topside phosphate plateau, Buada Lagoon wetlands, the coastal fringe from Anibare Bay to Meneng, and Command Ridge. Interpretive signage in English and Nauruan will accompany all trails.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>🏡 Homestay Certification Program</h4>
+    <p>Twenty Nauruan families are being trained and certified to offer homestay accommodation by end of 2027. This will significantly expand accommodation options beyond the Menen Hotel.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>🤿 Marine Eco-Tourism</h4>
+    <p>Guided snorkeling and diving experiences with strict environmental protocols: reef-safe sunscreen requirements, group size limits, and no-take zones. Local guides receive training in marine ecology and safety.</p>
+  </div>
+
+  <h2>Practical implications for your trip</h2>
+  <ul>
+    <li>Trails are being developed — some sections may be under construction through 2027</li>
+    <li>Homestay options are limited initially but rolling out progressively from early 2027</li>
+    <li>Guided marine tours are piloting now with limited availability</li>
+    <li>Cultural experiences require advance booking (72 hours minimum)</li>
+  </ul>
+
+  <div class="utility-grid">
+    <a href="/news/eco-tourism/"><h3>Nauruan article</h3><p>Open the full Eco-Tourism article</p></a>
+    <a href="/na/visit/"><h3>Kain ekawir</h3><p>Practical trip planning guide</p></a>
+    <a href="/na/about/culture/"><h3>Ebõk</h3><p>Culture and community</p></a>
+    <a href="/na/directory/"><h3>Tebor</h3><p>Useful contacts</p></a>
+  </div>
 </SubpageLayout>
 
 <style>
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  
-  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+  .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
+  .utility-grid a{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:block;text-decoration:none;transition:all 0.25s ease}
+  .utility-grid a:hover{border-color:#002B7F;box-shadow:0 8px 24px rgba(0,43,127,0.10);transform:translateY(-3px)}
+  .utility-grid h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#1a1a2e;font-size:16px}
+  .utility-grid p{margin:0;font-size:13px;color:#64748b;line-height:1.6}
+  @media (max-width:720px){.utility-grid{grid-template-columns:1fr}}
 </style>

@@ -2,7 +2,7 @@
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Communications" description="Internet, phone coverage and Wi-Fi in Nauru, with practical notes for staying connected during travel on the island." sectionEmoji="📶" sectionLabel="Kom" includeTopBar={true} includeFooter={true} locale="na">
+<SubpageLayout title="Communications" description="Internet, phone coverage and Wi-Fi in Nauru, with practical notes for staying connected during travel on the island." sectionEmoji="📶" sectionLabel="Kom" includeFooter={true} locale="na">
   <p>Connectivity exists, but it is not something you should assume will be perfect. Plan to keep offline copies of the documents and directions you need most.</p>
 <div class="callout-grid">
   <div class="callout"><h3>Save offline</h3><p>Maps, bookings and ID should be stored locally too.</p></div>
@@ -19,10 +19,29 @@ import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 </SubpageLayout>
 
 <style>
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  
-  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+  .utility-grid, .link-grid, .callout-grid, .contact-grid { display: grid; gap: 16px; margin: 1rem 0 2rem; }
+  .utility-grid, .link-grid, .callout-grid, .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .utility-card, .callout, .contact-card, .link-grid a {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    display: block;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .utility-card:hover, .callout:hover, .contact-card:hover, .link-grid a:hover {
+    border-color: #002B7F;
+    box-shadow: 0 8px 24px rgba(0,43,127,0.10);
+    transform: translateY(-3px);
+  }
+  .utility-card h3, .callout h3, .contact-card h4 {
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #1a1a2e;
+    font-size: 16px;
+  }
+  .utility-card p, .callout p { margin: 0; font-size: 13px; color: #64748b; line-height: 1.6; }
+  @media (max-width: 720px) { .utility-grid, .link-grid, .callout-grid, .contact-grid { grid-template-columns: 1fr; } }
 </style>

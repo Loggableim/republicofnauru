@@ -8,7 +8,7 @@ import ndData from '../../data/national-days.json';
   description={ndData.subtitle}
   sectionEmoji="🎉"
   sectionLabel="National Days"
-  includeTopBar={true}
+ 
   includeFooter={true}
   hideHero={true}
 >
@@ -40,7 +40,7 @@ import ndData from '../../data/national-days.json';
 
 <style>
   .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .utility-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:block;transition:all 0.25s ease}
   .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
 </style>

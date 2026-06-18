@@ -42,7 +42,7 @@ const faqSchema = {
 };
 ---
 
-<SubpageLayout title={currencyData.title} description={currencyData.subtitle} sectionEmoji="💵" sectionLabel="Money Matters" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title={currencyData.title} description={currencyData.subtitle} sectionEmoji="💵" sectionLabel="Money Matters" includeFooter={true}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
@@ -155,19 +155,19 @@ const faqSchema = {
 
 <style>
   .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
-  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:18px;transition:all 0.25s ease}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
 
   .banking-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:1.5rem 0}
-  .bank-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .bank-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:20px;transition:all 0.25s ease}
   .bank-card h3{margin:0 0 4px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.05rem}
   .bank-location{font-size:13px;color:#64748b;margin:0 0 12px}
   .bank-detail{font-size:13px;color:#475569;padding:4px 0;line-height:1.6}
   .bank-detail strong{color:#1a1a2e}
   @media (max-width: 720px){.banking-grid{grid-template-columns:1fr}}
 
-  .pay-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e;box-shadow:4px 4px 0 #1a1a2e}
+  .pay-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:1px solid #e2e8f0;border-radius:8px}
   .pay-table th{background:#002B7F;color:#fff;padding:12px;font-size:13px;text-align:left}
   .pay-table td{padding:12px;font-size:13px;color:#475569;border-bottom:1px solid rgba(0,0,0,.06);vertical-align:middle}
   .pay-table tbody tr:nth-child(even){background:#faf8f0}

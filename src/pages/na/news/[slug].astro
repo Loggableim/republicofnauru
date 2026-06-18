@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import TopBar from '../../../components/TopBar.astro';
+import StickyNav from '../../../components/StickyNav.astro';
 import Footer from '../../../components/Footer.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import newsData from '../../../data/news.json';
@@ -25,13 +25,13 @@ const articleSchema = {
   url: new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
   inLanguage: 'na',
   author: {
-    '@type': 'Organization',
-    name: 'Republic of Nauru (Independent Information Portal)',
-    url: 'https://republicofnauru.com',
+    '@type': 'Person',
+    name: article.author || 'Republic of Nauru Editorial Team',
+    url: 'https://republicofnauru.com/about/',
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Republic of Nauru (Independent Information Portal)',
+    name: 'Republic of Nauru — Independent Visitor Portal',
     url: 'https://republicofnauru.com',
   },
   datePublished: article.date ? new Date(article.date).toISOString() : undefined,
@@ -41,13 +41,17 @@ const articleSchema = {
     '@id': new URL('/na/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
   },
 };
+
+function renderContent(content) {
+  return content.split('\n\n').filter(Boolean);
+}
 ---
 
 <BaseLayout title={article.title + ' · Republik Naoero'} description={article.summary} locale="na">
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema, null, 2)} />
   </Fragment>
-  <TopBar locale="na" />
+<StickyNav locale="na" />
   <div class="page-wrapper" id="main-content">
     <header class="article-header">
       <Breadcrumbs path={breadcrumbPath} />
@@ -55,31 +59,58 @@ const articleSchema = {
       <div class="article-meta">
         <span class="article-tag">{article.emoji} {article.tag}</span>
         <span class="article-date">{article.date}</span>
+        {article.author && <span class="article-author">By {article.author}</span>}
       </div>
       <h1>{article.title}</h1>
       <p class="article-summary">{article.summary}</p>
     </header>
     <main class="article-content">
       <article class="article-body">
-        <p><strong>{article.title}</strong> matters because it touches one of the areas visitors and residents care about most: resilience, budgets, sustainability or tourism development.</p>
-        <p>For visitors, the key question is simple: what changes on the ground, and what should you do with that information? Use this story as a planning cue, then follow the related links below.</p>
+        {article.body && article.body.map(function(section) {
+          const paras = renderContent(section.content);
+          return (
+            <div class="article-section">
+              {section.heading && <h2>{section.heading}</h2>}
+              {paras.map(function(para) {
+                if (para.startsWith('- ') || para.startsWith('• ')) {
+                  const items = para.split('\n').filter(Boolean);
+                  return (
+                    <ul>
+                      {items.map(function(item) {
+                        const clean = item.replace(/^[-•]\s*/, '');
+                        return <li>{clean}</li>;
+                      })}
+                    </ul>
+                  );
+                }
+                if (/^\d+\.\s/.test(para)) {
+                  const items = para.split('\n').filter(Boolean);
+                  return (
+                    <ol>
+                      {items.map(function(item) {
+                        const clean = item.replace(/^\d+\.\s*/, '');
+                        return <li>{clean}</li>;
+                      })}
+                    </ol>
+                  );
+                }
+                return <p>{para}</p>;
+              })}
+            </div>
+          );
+        })}
+
         <div class="info-box">
-          <h4>💡 Why this matters</h4>
-          <p>{article.summary} In practical terms, stories like this affect how you prepare, what you pack and how you plan your stay.</p>
+          <h4>💡 Planning with this story</h4>
+          <p>{article.summary} In practical terms, stories like this affect how you prepare, what you pack, and how you plan your stay. Use the links below to explore related travel information.</p>
         </div>
+
         <h2>What to read next</h2>
-        <ul>
-          <li><a href="/na/visit/">Visit guide</a> — core trip planning.</li>
-          <li><a href="/na/about/">About Nauru</a> — context on history and culture.</li>
-          <li><a href="/na/directory/">Directory</a> — essential contacts and resources.</li>
-          <li><a href="/search/">Search</a> — jump to the exact topic you need.</li>
-        </ul>
-        <h2>Related practical questions</h2>
         <div class="related-grid">
-          <a href="/na/visit/weather/">How does this affect travel timing?</a>
-          <a href="/na/visit/visa/">Does this change entry planning?</a>
-          <a href="/na/visit/accommodation/">Should I book earlier?</a>
-          <a href="/na/visit/communications/">Will connectivity matter more?</a>
+          <a href="/na/visit/">Visit guide</a>
+          <a href="/na/about/">About Nauru</a>
+          <a href="/na/directory/">Directory</a>
+          <a href="/search/">Search the site</a>
         </div>
       </article>
     </main>
@@ -96,14 +127,17 @@ const articleSchema = {
   .article-meta { display:flex; gap:12px; align-items:center; margin-bottom:1rem; position:relative; z-index:2; }
   .article-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#002B7F; background:rgba(0,43,127,.08); padding:4px 12px; border-radius:100px; }
   .article-date { font-size:13px; color:rgba(0,43,127,.5); }
+  .article-author { font-size:12px; color:rgba(0,43,127,.4); font-style:italic; }
+  .article-section { margin-bottom: 2rem; }
   .article-header h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#002B7F; line-height:1.05; margin-bottom:1rem; position:relative; z-index:2; }
   .article-summary { font-size:clamp(0.95rem,1.3vw,1.05rem); color:rgba(0,43,127,.65); max-width:600px; position:relative; z-index:2; }
   .article-content { padding:48px; }
   .article-body { max-width:720px; margin:0 auto; }
   .article-body p, .article-body li { font-size:15px; line-height:1.8; color:#475569; margin-bottom:1rem; }
-  .article-body .info-box { background:#fff; border:2px solid #1a1a2e; padding:24px; margin:1.5rem 0; box-shadow:4px 4px 0 #1a1a2e; }
+  .article-body .info-box { background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:24px; margin:1.5rem 0; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
   .article-body .info-box h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; color:#002B7F; margin-bottom:.5rem; }
   .related-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:1rem; }
-  .related-grid a { padding:14px 16px; border:2px solid #1a1a2e; background:#fff; box-shadow:4px 4px 0 #1a1a2e; font-weight:700; color:#002B7F; }
+  .related-grid a { padding:14px 16px; border:1px solid #e2e8f0; border-radius:12px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.04); font-weight:700; color:#002B7F; display:block; text-decoration:none; transition:all 0.25s ease; }
+  .related-grid a:hover { border-color:#002B7F; box-shadow:0 8px 24px rgba(0,43,127,0.10); transform:translateY(-3px); }
   @media (max-width: 768px) { .article-header { padding:40px 24px 30px; } .article-content { padding:32px 24px; } .related-grid { grid-template-columns:1fr; } }
 </style>

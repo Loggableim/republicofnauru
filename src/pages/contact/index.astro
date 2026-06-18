@@ -8,7 +8,7 @@ import contactData from '../../data/contact.json';
   description="Contact information for republicofnauru.com, including questions about visiting Nauru, travel planning, directory updates and site feedback."
   sectionEmoji="✉️"
   sectionLabel="Get in Touch"
-  includeTopBar={true}
+ 
   includeFooter={true}
 >
   <p>Whether you're planning a visit, researching Nauru for academic purposes, or just curious about the world's smallest republic — we'd love to hear from you. Our team aims to respond to all inquiries within 2–3 business days.</p>
@@ -27,15 +27,16 @@ import contactData from '../../data/contact.json';
   </div>
 
   <h2>Send Us a Message</h2>
-  <p>Use the form below to send us a message. Fields marked with * are required.</p>
+  <p>Use the form below to send us a message, or email us directly at <a href="mailto:info@republicofnauru.com">info@republicofnauru.com</a>. Fields marked with * are required. We aim to respond within 2–3 business days.</p>
 
-  <form class="contact-form" action="#" method="post">
-    <input type="text" placeholder="Your Name *" required />
-    <input type="email" placeholder="Your Email *" required />
-    <input type="text" placeholder="Subject" />
-    <textarea placeholder="Your Message *" required></textarea>
-    <button type="button" class="submit-btn">Send Message →</button>
+  <form class="contact-form" action="mailto:info@republicofnauru.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your Name *" required />
+    <input type="email" name="email" placeholder="Your Email *" required />
+    <input type="text" name="subject" placeholder="Subject" />
+    <textarea name="message" placeholder="Your Message *" required></textarea>
+    <button type="submit" class="submit-btn">Send Message →</button>
   </form>
+  <p class="form-note">Alternatively, send an email directly to <a href="mailto:info@republicofnauru.com">info@republicofnauru.com</a> — we read every message.</p>
 
   <h2>Visiting in Person?</h2>
     <p>The Government Information Office is located in the Government Complex in Yaren District. Walk-in visitors are welcome during business hours (Monday–Friday, 9:00 AM – 5:00 PM Nauru Time UTC+12). It's advisable to call ahead to schedule an appointment with the specific department you need.</p>
@@ -89,5 +90,10 @@ import contactData from '../../data/contact.json';
   }
   .submit-btn:hover {
     transform: translateX(4px);
+  }
+  .form-note {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 12px;
   }
 </style>

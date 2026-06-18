@@ -2,7 +2,7 @@
 import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Naoero ekonomi · Economy" description="The economy after phosphate, with public services, fisheries and future opportunities." sectionEmoji="📈" sectionLabel="Ekonomi" includeTopBar={true} includeFooter={true} locale="na">
+<SubpageLayout title="Naoero ekonomi · Economy" description="The economy after phosphate, with public services, fisheries and future opportunities." sectionEmoji="📈" sectionLabel="Ekonomi" includeFooter={true} locale="na">
   <p>Nauru's economy has been shaped by phosphate extraction, the loss of that resource and the ongoing effort to build a more resilient base through services, fisheries and public investment.</p>
 <h2>Big picture</h2>
 <p>Today, the country depends on a mix of public-sector activity, international partnerships and narrow but important revenue streams. This means budgets and services matter directly to everyday life.</p>
@@ -15,10 +15,29 @@ import SubpageLayout from '../../../../layouts/SubpageLayout.astro';
 </SubpageLayout>
 
 <style>
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{display:grid;gap:16px;margin:1rem 0 2rem}
-  .utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .utility-card,.callout,.contact-card,.link-grid a{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
-  .utility-card h3,.callout h3,.contact-card h4{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  
-  @media (max-width: 720px){.utility-grid,.link-grid,.callout-grid,.contact-grid{grid-template-columns:1fr}}
+  .utility-grid, .link-grid, .callout-grid, .contact-grid { display: grid; gap: 16px; margin: 1rem 0 2rem; }
+  .utility-grid, .link-grid, .callout-grid, .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .utility-card, .callout, .contact-card, .link-grid a {
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    display: block;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .utility-card:hover, .callout:hover, .contact-card:hover, .link-grid a:hover {
+    border-color: #002B7F;
+    box-shadow: 0 8px 24px rgba(0,43,127,0.10);
+    transform: translateY(-3px);
+  }
+  .utility-card h3, .callout h3, .contact-card h4 {
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #1a1a2e;
+    font-size: 16px;
+  }
+  .utility-card p, .callout p { margin: 0; font-size: 13px; color: #64748b; line-height: 1.6; }
+  @media (max-width: 720px) { .utility-grid, .link-grid, .callout-grid, .contact-grid { grid-template-columns: 1fr; } }
 </style>

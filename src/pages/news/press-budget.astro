@@ -2,13 +2,40 @@
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Budget, Infrastructure & Public Services" description="A practical look at budget decisions and how they shape everyday life on Nauru." sectionEmoji="📰" sectionLabel="Press Topic" includeTopBar={true} includeFooter={true}>
-  <p>A practical look at budget decisions and how they shape everyday life on Nauru.</p>
+<SubpageLayout title="Budget, Infrastructure & Public Services" description="A practical look at budget decisions and how they shape everyday life on Nauru — government spending priorities, infrastructure projects, and economic outlook for 2026 and beyond." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+  <p>Nauru's $120 million AUD national budget for 2026 represents a 9% increase over the previous year and sets spending priorities across education, healthcare, infrastructure, and public services. Understanding the budget helps visitors and residents alike make sense of what's changing on the ground — from road conditions and internet connectivity to the availability of health services and the state of public facilities.</p>
+
   <h2>What this means</h2>
-  <p>This topic explains spending priorities, public services, and how infrastructure decisions affect mobility, health and planning.</p>
+  <p>The 2026 budget makes record allocations to education ($21.6M) and healthcare ($18M), while infrastructure receives the largest single share at $26.4M for roads, water security, and digital connectivity projects. For a small island nation where almost everything must be imported and where infrastructure is stretched thin, these investments have tangible effects on daily life and the visitor experience.</p>
+
+  <h2>Infrastructure developments</h2>
+  <div class="info-box">
+    <h4>🛣️ Road & Transport</h4>
+    <p>The island ring road (approximately 19 km) is being resurfaced with improved drainage. The causeway between Aiwo and Denigomodu — critical for phosphate exports and daily commuters — is being upgraded. New street lighting is being installed in Yaren, Denigomodu, and Aiwo commercial districts. Visitors may encounter minor traffic delays during construction phases through 2027.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>💧 Water Security</h4>
+    <p>A new reverse osmosis desalination plant near Buada Lagoon will add 500,000 litres per day of potable water capacity. Rainwater harvesting infrastructure is being installed at 12 community buildings. Aging water mains in Boe and Meneng districts are being replaced to reduce the estimated 30% water loss from leaks. Water quality and availability should improve noticeably over the budget cycle.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>🌐 Digital Connectivity</h4>
+    <p>Fibre-optic broadband is being extended to all 14 district administrative centres. A public Wi-Fi pilot program is launching in Yaren, Aiwo, and Denigomodu. These improvements build on the fibre-optic link that came online in late 2025 and should gradually improve internet reliability for both residents and visitors.</p>
+  </div>
+
+  <div class="info-box">
+    <h4>🏥 Health Services</h4>
+    <p>Nauru General Hospital receives upgraded diagnostic equipment (digital X-ray, ultrasound). A community health outreach programme deploys NCD nurses to all 14 districts. Mental health services receive dedicated funding for the first time ($1.2M). The pharmaceutical supply budget increases by 25%, ensuring consistent availability of essential medicines.</p>
+  </div>
+
+  <h2>Economic context</h2>
+  <p>Nauru's economy is transitioning away from phosphate mining, which has been the backbone for over a century but is now nearing depletion. Fishing licence fees (via the Parties to the Nauru Agreement) are now the single largest revenue source at approximately $35 million AUD annually. GDP growth is forecast at 2.5% for 2026, and the budget deficit of $8 million AUD (6.7% of GDP) is financed through the Nauru Sovereign Wealth Fund and concessional loans from the Asian Development Bank.</p>
+  <p>For visitors, the most noticeable effects of the budget are likely to be gradual improvements in infrastructure reliability — fewer power outages, better roads, more consistent internet, and improved water quality. These are real, tangible benefits for anyone spending time on the island.</p>
+
   <h2>Related pages</h2>
   <div class="utility-grid">
-    <a href="/news/">Back to news</a>
+    <a href="/news/budget/">Budget article</a>
     <a href="/visit/">Visit guide</a>
     <a href="/about/">About Nauru</a>
     <a href="/directory/">Directory</a>
@@ -25,6 +52,6 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 
 <style>
   .utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .utility-grid a{border:2px solid #1a1a2e;background:#fff;padding:16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700;display:block}
+  .utility-grid a{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);font-weight:700;display:block;transition:all 0.25s ease}
   @media (max-width: 720px){.utility-grid{grid-template-columns:1fr}}
 </style>

@@ -42,7 +42,7 @@ const faqSchema = {
 };
 ---
 
-<SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title={transportData.title} description={transportData.subtitle} sectionEmoji="🚢" sectionLabel="Getting Around" includeFooter={true}>
 
   <img src="/assets/images/nauru_transport_00001_.png" alt="Nauru International Airport with airplane on runway" class="hero-image" style="width:100%;border-radius:8px;margin-bottom:2rem">
   <Fragment slot="jsonld">
@@ -155,18 +155,18 @@ const faqSchema = {
 
 <style>
   .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
-  .callout{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .callout{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:18px;transition:all 0.25s ease}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
 
   .listings-block{display:flex;flex-direction:column;gap:16px;margin:1.5rem 0}
-  .route-card{background:#fff;border:2px solid #1a1a2e;padding:20px;box-shadow:4px 4px 0 #1a1a2e}
+  .route-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:20px;transition:all 0.25s ease}
   .route-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1.1rem}
   .route-details{display:grid;gap:6px}
   .rd{font-size:14px;color:#475569;line-height:1.6}
   .rd strong{color:#1a1a2e}
 
-  .rental-card{background:#fff;border:2px solid #1a1a2e;padding:20px;margin:1rem 0;box-shadow:4px 4px 0 #1a1a2e}
+  .rental-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:20px;margin:1rem 0;transition:all 0.25s ease}
   .rental-card h3{margin:0 0 10px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   .rental-card ul{margin:0;list-style:none;padding:0}
   .rental-card ul li{font-size:14px;line-height:1.7;color:#475569;padding:4px 0;padding-left:1.5rem;position:relative}
@@ -178,7 +178,7 @@ const faqSchema = {
   .cost-item strong{color:#1a1a2e}
 
   .transport-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:1.5rem 0}
-  .option-card{background:#fff;border:2px solid #1a1a2e;padding:18px;box-shadow:4px 4px 0 #1a1a2e}
+  .option-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:18px;transition:all 0.25s ease}
   .option-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F;font-size:1rem}
   .option-card p{font-size:13px;line-height:1.7;color:#64748b;margin:0}
   @media (max-width: 720px){.transport-options{grid-template-columns:1fr}}

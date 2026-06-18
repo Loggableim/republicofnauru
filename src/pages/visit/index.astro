@@ -2,7 +2,7 @@
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Plan Your Visit" description="Everything you need to know about travelling to the Republic of Nauru — visas, money, transport, accommodation, climate and the practical realities on the ground." sectionEmoji="✈️" sectionLabel="Travel Guide" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title="Plan Your Visit" description="Everything you need to know about travelling to the Republic of Nauru — visas, money, transport, accommodation, climate and the practical realities on the ground." sectionEmoji="✈️" sectionLabel="Travel Guide" includeFooter={true}>
   <p>Nauru is tiny, remote and wonderfully unusual. That combination makes trip planning straightforward once the basics are clear — but the basics matter. This page brings together the essential travel decisions you need to make before you book.</p>
   <div class="callout-grid">
     <a href="/visit/visa/" class="callout"><h3>Visa first</h3><p>Start with entry requirements and timing.</p></a>
@@ -50,9 +50,9 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 
 <style>
   .callout-grid,.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
-  .callout,.link-grid a{display:block;padding:18px;border:2px solid #1a1a2e;background:#fff;box-shadow:4px 4px 0 #1a1a2e}
+  .callout,.link-grid a{display:block;padding:18px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04);transition:all 0.25s ease}
   .callout h3{margin:0 0 6px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
-  table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:2px solid #1a1a2e}
+  table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:#fff;border:1px solid #e2e8f0;border-radius:8px}
   th,td{padding:12px;border-bottom:1px solid rgba(26,26,46,.12);text-align:left;vertical-align:top}
   th{background:#002B7F;color:#fff}
   @media (max-width: 720px){.callout-grid,.link-grid{grid-template-columns:1fr}}

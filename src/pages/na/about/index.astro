@@ -2,7 +2,7 @@
 import SubpageLayout from '../../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Etimine Naoero" description="A Nauruan-language hub for the island's land, people, history and culture — with practical links to the pages visitors and researchers open most." sectionEmoji="🏝️" sectionLabel="Republik Naoero" includeTopBar={true} includeFooter={true} locale="na">
+<SubpageLayout title="Etimine Naoero" description="A Nauruan-language hub for the island's land, people, history and culture — with practical links to the pages visitors and researchers open most." sectionEmoji="🏝️" sectionLabel="Republik Naoero" includeFooter={true} locale="na">
   <p><strong>Etimine Naoero</strong> is the starting point for the island's context. Use it when you want the background story, the country basics, and the quickest route into the practical visitor pages.</p>
   <p>The page is structured like a guide: first the country, then the people, then the history, culture and the national days that shape everyday life.</p>
 
@@ -41,12 +41,15 @@ import SubpageLayout from '../../../layouts/SubpageLayout.astro';
 <style>
   .fact-grid,.link-grid,.utility-grid{display:grid;gap:16px}
   .fact-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
-  .fact,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .fact{padding:18px;display:block}
   .num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;color:#002B7F}
   .label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
   .link-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:1rem 0 2rem}
-  .link-grid a{border:2px solid #1a1a2e;background:#fff;padding:14px 16px;box-shadow:4px 4px 0 #1a1a2e;font-weight:700}
+  .link-grid a{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,0.04);font-weight:700;display:block;text-decoration:none;transition:all 0.25s ease}
+  .link-grid a:hover{border-color:#002B7F;box-shadow:0 8px 24px rgba(0,43,127,0.10);transform:translateY(-3px)}
   .utility-grid{grid-template-columns:repeat(2,minmax(0,1fr));margin:1rem 0 2rem}
-  .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .utility-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:block;text-decoration:none;transition:all 0.25s ease}
+  .utility-card:hover{border-color:#002B7F;box-shadow:0 8px 24px rgba(0,43,127,0.10);transform:translateY(-3px)}
+  .utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#1a1a2e;font-size:16px}
   @media (max-width: 720px){.fact-grid,.link-grid,.utility-grid{grid-template-columns:1fr}}
 </style>

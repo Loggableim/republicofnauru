@@ -3,7 +3,7 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 import directoryData from '../../data/directory.json';
 ---
 
-<SubpageLayout title="Key Contacts" description="Important government offices and public services in the Republic of Nauru, organised by what you need them for." sectionEmoji="📞" sectionLabel="Directory" includeTopBar={true} includeFooter={true}>
+<SubpageLayout title="Key Contacts" description="Important government offices and public services in the Republic of Nauru, organised by what you need them for." sectionEmoji="📞" sectionLabel="Directory" includeFooter={true}>
   <p>Use this directory when you need a real-world contact rather than a broad description. The grouped cards below are designed to tell you what each office is for, when you need it, and where it fits into a trip or research workflow.</p>
 
   <h2>Emergency & urgent help</h2>
@@ -40,7 +40,7 @@ import directoryData from '../../data/directory.json';
 
 <style>
   .contact-grid,.utility-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1rem 0 2rem}
-  .contact-card,.utility-card{border:2px solid #1a1a2e;background:#fff;padding:18px;box-shadow:4px 4px 0 #1a1a2e;display:block}
+  .contact-card,.utility-card{border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.04);display:block;transition:all 0.25s ease}
   .contact-card h4,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
   .contact-card p{margin:0 0 8px;line-height:1.7;color:#475569}
   @media (max-width: 720px){.contact-grid,.utility-grid{grid-template-columns:1fr}}
