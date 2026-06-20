@@ -2,7 +2,39 @@
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Eco-Tourism & Visitor Experience" description="Tourism developments that matter when you plan a trip to Nauru — eco-tourism programs, sustainable travel practices, and what they mean for your stay on the island." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+<SubpageLayout title="Eco‑Tourism & Visitor Experience – Press Release" description="Tourism developments that matter when you plan a trip to Nauru — eco-tourism programs, sustainable travel practices, and what they mean for your stay on the island." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Eco-Tourism & Visitor Experience",
+    "description": "Tourism developments that matter when you plan a trip to Nauru — eco-tourism programs, sustainable travel practices, and what they mean for your stay on th",
+    "url": "https://republicofnauru.com/news/press-tourism/",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "name": "Republic of Nauru Editorial Team",
+      "url": "https://republicofnauru.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Republic of Nauru — Independent Visitor Guide",
+      "url": "https://republicofnauru.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://republicofnauru.com/og-image.png"
+      }
+    },
+    "datePublished": "2026-05-15",
+    "dateModified": "2026-05-15",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://republicofnauru.com/news/press-tourism/"
+    }
+  })} />
+  </Fragment>
+
   <p>Tourism on Nauru is at an inflection point. The government has recognised that sustainable, community-based tourism offers a viable path for economic diversification while protecting the island's fragile environment and unique cultural heritage. The 2026 Eco-Tourism Initiative marks the most significant investment in the visitor sector in Nauru's history.</p>
 
   <h2>What this means</h2>

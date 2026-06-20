@@ -13,7 +13,7 @@ interface Props {
   sectionLabel?: string;
 bgClass?: string;
   includeFooter?: boolean;
-  locale?: 'en' | 'na';
+  locale?: 'en' | 'na' | 'de';
   heroImage?: string;
   hideHero?: boolean;
 }
@@ -145,7 +145,7 @@ const breadcrumbPath = segments.map((seg, i) => {
   <StickyNav locale={locale} />
   {!hideHero && (
     <div class="subpage-hero">
-      <img src={heroSrc} alt="" class="subpage-hero-img" loading="eager" decoding="async" />
+      <img src={heroSrc} alt={`${title} — Republic of Nauru`} class="subpage-hero-img" loading="eager" decoding="async" />
       <div class="subpage-hero-overlay"></div>
     </div>
   )}

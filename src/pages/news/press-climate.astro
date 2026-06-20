@@ -2,7 +2,39 @@
 import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
-<SubpageLayout title="Climate Resilience & Coastal Protection" description="How the latest climate work affects the island and why it matters for visitors — coastal protection infrastructure, renewable energy transition, and adaptation projects shaping Nauru's future." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+<SubpageLayout title="Climate Resilience & Coastal Protection – Press Release" description="How the latest climate work affects the island and why it matters for visitors — coastal protection infrastructure, renewable energy transition, and adaptation projects shaping Nauru's future." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Climate Resilience & Coastal Protection",
+    "description": "How the latest climate work affects the island and why it matters for visitors — coastal protection infrastructure, renewable energy transition, and adapta",
+    "url": "https://republicofnauru.com/news/press-climate/",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "name": "Republic of Nauru Editorial Team",
+      "url": "https://republicofnauru.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Republic of Nauru — Independent Visitor Guide",
+      "url": "https://republicofnauru.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://republicofnauru.com/og-image.png"
+      }
+    },
+    "datePublished": "2026-05-21",
+    "dateModified": "2026-05-21",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://republicofnauru.com/news/press-climate/"
+    }
+  })} />
+  </Fragment>
+
   <p>Climate change is not a distant threat for Nauru — it is an immediate and accelerating reality. With a maximum elevation of just 65 metres and the majority of the population and critical infrastructure concentrated along a narrow coastal belt, the island is exceptionally vulnerable to rising sea levels, intensified storm surges, and coastal erosion. The 2026 Climate Resilience Agreement with the Pacific Island Forum's $500 million Adaptation Fund represents Nauru's most significant investment in its long-term survival.</p>
 
   <h2>What this means</h2>

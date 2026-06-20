@@ -4,13 +4,15 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
-  locale?: string;
+  locale?: 'en' | 'na' | 'de';
+  noindex?: boolean;
 }
 
 const {
   title = 'Republic of Nauru',
   description = 'Independent visitor information portal for the Republic of Nauru.',
   locale = 'en',
+  noindex = false,
 } = Astro.props;
 
 // Truncate description to 155 chars for meta tags (SEO best practice)
@@ -22,7 +24,29 @@ import locales from '../data/locales.json';
 
 const siteUrl = 'https://republicofnauru.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = new URL('/og-image.svg', siteUrl).toString();
+const ogImage = new URL('/og-image.png', siteUrl).toString();
+
+// --- hreflang generation ---
+// EN pages: /path/ → NA: /na/path/  |  NA pages: /na/path/ → EN: /path/
+// DE pages (guide/*): no alternate, just self-canonical
+const pathname = Astro.url.pathname;
+const isNaPage = pathname.startsWith('/na/');
+const isDePage = locale === 'de';
+
+// Strip /na/ prefix to get the base path
+const basePath = isNaPage ? pathname.replace(/^\/na\//, '/') : pathname;
+const enUrl = new URL(basePath, siteUrl).toString();
+const naUrl = new URL('/na' + basePath, siteUrl).toString();
+
+// Build hreflang alternates
+const hreflangAlternates: { lang: string; url: string }[] = [];
+if (!isDePage) {
+  // EN and NA pages have alternates to each other
+  hreflangAlternates.push({ lang: 'en', url: enUrl });
+  hreflangAlternates.push({ lang: 'na', url: naUrl });
+  hreflangAlternates.push({ lang: 'x-default', url: enUrl });
+}
+// DE pages: only self-referencing canonical, no alternates (no EN/NA equivalent)
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -91,9 +115,12 @@ const webpageSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={metaDesc} />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
 
   <link rel="canonical" href={canonicalUrl} />
+  {hreflangAlternates.map(alt => (
+    <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+  ))}
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#002B7F" />
