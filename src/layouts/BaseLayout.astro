@@ -15,6 +15,10 @@ const {
   noindex = false,
 } = Astro.props;
 
+// NA pages are 53-58% duplicate of EN — keep noindex to avoid duplicate content penalty
+// Link juice still flows via follow
+const effectiveNoindex = noindex || locale === 'na';
+
 // Truncate description to 155 chars for meta tags (SEO best practice)
 const metaDesc = description.length > 155 ? description.slice(0, 152) + '...' : description;
 const isNa = locale === 'na';
@@ -39,14 +43,15 @@ const enUrl = new URL(basePath, siteUrl).toString();
 const naUrl = new URL('/na' + basePath, siteUrl).toString();
 
 // Build hreflang alternates
+// NA pages are noindex — don't declare them as alternates (would contradict noindex)
 const hreflangAlternates: { lang: string; url: string }[] = [];
-if (!isDePage) {
-  // EN and NA pages have alternates to each other
+if (!isDePage && !isNaPage) {
+  // EN pages: only self-referencing + x-default (NA is noindex, so no alternate)
   hreflangAlternates.push({ lang: 'en', url: enUrl });
-  hreflangAlternates.push({ lang: 'na', url: naUrl });
   hreflangAlternates.push({ lang: 'x-default', url: enUrl });
 }
-// DE pages: only self-referencing canonical, no alternates (no EN/NA equivalent)
+// NA pages: no alternates (they're noindex)
+// DE pages: no alternates (no EN/NA equivalent)
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -115,7 +120,7 @@ const webpageSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={metaDesc} />
-  <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
+  <meta name="robots" content={effectiveNoindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'} />
 
   <link rel="canonical" href={canonicalUrl} />
   {hreflangAlternates.map(alt => (
