@@ -1,6 +1,6 @@
 {
   "title": "Our Country",
-  "subtitle": "Geography, climate, and natural features of the world's smallest republic",
+  "subtitle": "Geography, climate, and natural features of the world's smallest republic — Nauru's location, land area, coastline, and tropical environment explained.",
   "intro": "Nauru is a raised coral island in the central Pacific Ocean, located just 53 kilometres south of the equator. With a land area of just 21 square kilometres — approximately 6 kilometres long and 4 kilometres wide — it is the world's third-smallest country by area after Vatican City and Monaco, the second-least populous after Vatican City, and the only country in the world without an official capital city. Despite its tiny size, Nauru boasts remarkable geographical features, a unique ecosystem shaped by millions of years of geological activity, and an Exclusive Economic Zone (EEZ) of 308,480 square kilometres of Pacific Ocean.",
   "sections": [
     {
@@ -21,13 +21,37 @@
     }
   ],
   "quickFacts": [
-    { "label": "Land Area", "value": "21 km²" },
-    { "label": "Highest Point", "value": "65 m (Command Ridge)" },
-    { "label": "Distance from Equator", "value": "53 km south" },
-    { "label": "Coastline", "value": "30 km" },
-    { "label": "Exclusive Economic Zone", "value": "308,480 km²" },
-    { "label": "Time Zone", "value": "UTC+12" },
-    { "label": "Districts", "value": "8" },
-    { "label": "Road Length", "value": "~19 km (ring road)" }
+    {
+      "label": "Land Area",
+      "value": "21 km²"
+    },
+    {
+      "label": "Highest Point",
+      "value": "65 m (Command Ridge)"
+    },
+    {
+      "label": "Distance from Equator",
+      "value": "53 km south"
+    },
+    {
+      "label": "Coastline",
+      "value": "30 km"
+    },
+    {
+      "label": "Exclusive Economic Zone",
+      "value": "308,480 km²"
+    },
+    {
+      "label": "Time Zone",
+      "value": "UTC+12"
+    },
+    {
+      "label": "Districts",
+      "value": "8"
+    },
+    {
+      "label": "Road Length",
+      "value": "~19 km (ring road)"
+    }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "title": "The People of Nauru",
-  "subtitle": "Population, culture, language, and identity of the Nauruan people",
+  "subtitle": "Population, culture, language, and identity of the Nauruan people — demographics, traditional customs, and daily life on the island.",
   "intro": "Nauru is home to approximately 10,000 to 11,000 people, with a unique cultural heritage shaped by thousands of years of Micronesian tradition, European colonial contact, and modern Pacific identity. The Nauruan people are warm, community-oriented, and deeply proud of their island heritage. Despite the challenges of phosphate depletion, health crises, and climate vulnerability, the spirit of 'engam' — mutual support and solidarity — remains the bedrock of Nauruan society.",
   "sections": [
     {
@@ -25,13 +25,37 @@
     }
   ],
   "statistics": [
-    { "label": "Total Population", "value": "~10,000–11,000" },
-    { "label": "Ethnic Nauruans", "value": "~6,000" },
-    { "label": "Languages", "value": "Nauruan, English" },
-    { "label": "Major Religions", "value": "Christianity (95%)" },
-    { "label": "Original Tribes", "value": "12" },
-    { "label": "Median Age", "value": "~27 years" },
-    { "label": "Voting Age", "value": "20 years" },
-    { "label": "Life Expectancy", "value": "60 (M) / 68 (F)" }
+    {
+      "label": "Total Population",
+      "value": "~10,000–11,000"
+    },
+    {
+      "label": "Ethnic Nauruans",
+      "value": "~6,000"
+    },
+    {
+      "label": "Languages",
+      "value": "Nauruan, English"
+    },
+    {
+      "label": "Major Religions",
+      "value": "Christianity (95%)"
+    },
+    {
+      "label": "Original Tribes",
+      "value": "12"
+    },
+    {
+      "label": "Median Age",
+      "value": "~27 years"
+    },
+    {
+      "label": "Voting Age",
+      "value": "20 years"
+    },
+    {
+      "label": "Life Expectancy",
+      "value": "60 (M) / 68 (F)"
+    }
   ]
 }
