@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   locale?: 'en' | 'na' | 'de';
+  noindex?: boolean;
 }
 
 const {
   title = 'Republic of Nauru',
   description = 'Independent visitor information portal for the Republic of Nauru.',
   locale = 'en',
+  noindex = false,
 } = Astro.props;
 
 // Truncate description to 155 chars for meta tags (SEO best practice)
@@ -22,7 +24,7 @@ import locales from '../data/locales.json';
 
 const siteUrl = 'https://republicofnauru.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImage = new URL('/og-image.svg', siteUrl).toString();
+const ogImage = new URL('/og-image.png', siteUrl).toString();
 
 // --- hreflang generation ---
 // EN pages: /path/ → NA: /na/path/  |  NA pages: /na/path/ → EN: /path/
@@ -113,7 +115,7 @@ const webpageSchema = {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={metaDesc} />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large'} />
 
   <link rel="canonical" href={canonicalUrl} />
   {hreflangAlternates.map(alt => (

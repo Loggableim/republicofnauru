@@ -3,6 +3,38 @@ import SubpageLayout from '../../layouts/SubpageLayout.astro';
 ---
 
 <SubpageLayout title="Budget, Infrastructure & Public Services" description="A practical look at budget decisions and how they shape everyday life on Nauru — government spending priorities, infrastructure projects, and economic outlook for 2026 and beyond." sectionEmoji="📰" sectionLabel="Press Topic" includeFooter={true}>
+
+  <Fragment slot="jsonld">
+    <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Budget, Infrastructure & Public Services",
+    "description": "A practical look at budget decisions and how they shape everyday life on Nauru — government spending priorities, infrastructure projects, and economic outl",
+    "url": "https://republicofnauru.com/news/press-budget/",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "name": "Republic of Nauru Editorial Team",
+      "url": "https://republicofnauru.com/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Republic of Nauru — Independent Visitor Guide",
+      "url": "https://republicofnauru.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://republicofnauru.com/og-image.png"
+      }
+    },
+    "datePublished": "2026-05-18",
+    "dateModified": "2026-05-18",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://republicofnauru.com/news/press-budget/"
+    }
+  })} />
+  </Fragment>
+
   <p>Nauru's $120 million AUD national budget for 2026 represents a 9% increase over the previous year and sets spending priorities across education, healthcare, infrastructure, and public services. Understanding the budget helps visitors and residents alike make sense of what's changing on the ground — from road conditions and internet connectivity to the availability of health services and the state of public facilities.</p>
 
   <h2>What this means</h2>
