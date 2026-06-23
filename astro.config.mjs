@@ -8,5 +8,6 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [sitemap({
     lastmod: new Date(),
+    filter: (page) => !page.includes('/na/'),
   })],
 });
