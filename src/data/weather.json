@@ -2,6 +2,9 @@
   "title": "Weather & Climate",
   "subtitle": "Seasonal weather guide for Nauru with rainfall, humidity, heat, sea conditions and practical planning tips for island visitors.",
   "intro": "Nauru has a warm tropical climate year-round. Understanding the weather patterns will help you plan the best time for your visit and pack appropriately.",
+  "last_updated": "2026-06-01",
+  "next_review_at": "2026-12-01",
+  "review_interval_days": 180,
   "sections": [
     {
       "heading": "Overview",

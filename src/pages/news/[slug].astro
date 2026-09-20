@@ -34,13 +34,15 @@ const articleSchema = {
     name: 'Republic of Nauru — Independent Visitor Portal',
     url: 'https://republicofnauru.com',
   },
-  datePublished: article.date ? new Date(article.date).toISOString() : undefined,
-  dateModified: article.date ? new Date(article.date).toISOString() : undefined,
+  datePublished: article.published_at || (article.date ? new Date(article.date).toISOString() : undefined),
+  dateModified: article.last_verified_at || article.published_at || (article.date ? new Date(article.date).toISOString() : undefined),
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': new URL('/news/' + article.id + '/', 'https://republicofnauru.com').toString(),
   },
 };
+
+const isNoindex = article.verification_status !== 'verified';
 
 // Split content into paragraphs for rendering
 function renderContent(content) {
@@ -48,7 +50,7 @@ function renderContent(content) {
 }
 ---
 
-<BaseLayout title={article.title + ' · Republic of Nauru'} description={article.summary}>
+<BaseLayout title={article.title + ' · Republic of Nauru'} description={article.summary} noindex={isNoindex}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema, null, 2)} />
   </Fragment>
@@ -61,9 +63,20 @@ function renderContent(content) {
         <span class="article-tag">{article.emoji} {article.tag}</span>
         <span class="article-date">{article.date}</span>
         {article.author && <span class="article-author">By {article.author}</span>}
+        {article.verification_status && article.verification_status !== 'verified' && (
+          <span class="article-verify-status">
+            {article.verification_status === 'unverified' ? '⚠️ Unverified' : '📝 Context article'}
+          </span>
+        )}
       </div>
       <h1>{article.title}</h1>
       <p class="article-summary">{article.summary}</p>
+      {article.source_url && article.source_name && (
+        <div class="article-source">
+          <strong>Source:</strong> <a href={article.source_url} target="_blank" rel="noopener">{article.source_name}</a>
+          {article.last_verified_at && <span class="article-verified"> · Verified: {article.last_verified_at.split('T')[0]}</span>}
+        </div>
+      )}
     </header>
     <main class="article-content">
       <article class="article-body">
@@ -126,10 +139,14 @@ function renderContent(content) {
   .article-header::after { content: '\01F4F0'; position: absolute; font-size: clamp(15rem, 30vw, 35rem); right: -3%; top: -15%; opacity: 0.06; line-height: 1; pointer-events: none; }
   .back-link { display:inline-block; font-size:13px; font-weight:500; color:rgba(0,43,127,0.6); margin-bottom:1rem; transition:all .2s; position:relative; z-index:2; }
   .back-link:hover { color:#002B7F; }
-  .article-meta { display:flex; gap:12px; align-items:center; margin-bottom:1rem; position:relative; z-index:2; }
+  .article-meta { display:flex; gap:12px; align-items:center; margin-bottom:1rem; position:relative; z-index:2; flex-wrap:wrap; }
   .article-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#002B7F; background:rgba(0,43,127,.08); padding:4px 12px; border-radius:100px; }
   .article-date { font-size:13px; color:rgba(0,43,127,.5); }
   .article-author { font-size:12px; color:rgba(0,43,127,.4); font-style:italic; }
+  .article-verify-status { font-size:11px; font-weight:700; color:#92400e; background:#fef3c7; padding:4px 12px; border-radius:100px; }
+  .article-source { font-size:12px; color:rgba(0,43,127,.6); margin-top:8px; position:relative; z-index:2; }
+  .article-source a { color:#002B7F; text-decoration:underline; }
+  .article-verified { color:rgba(0,43,127,.4); }
   .article-section { margin-bottom: 2rem; }
   .article-header h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:#002B7F; line-height:1.05; margin-bottom:1rem; position:relative; z-index:2; }
   .article-summary { font-size:clamp(0.95rem,1.3vw,1.05rem); color:rgba(0,43,127,.65); max-width:600px; position:relative; z-index:2; }

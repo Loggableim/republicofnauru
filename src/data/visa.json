@@ -2,6 +2,12 @@
   "title": "Visa Requirements",
   "subtitle": "Nauru visa requirements, documents, processing times and arrival rules for visitors planning travel to the Republic of Nauru.",
   "intro": "All visitors to Nauru (except citizens and residents) require a valid visa to enter the country. Nauru's visa system is straightforward but requires advance planning — it is not possible to obtain a visa on arrival. This guide covers the visa process, application requirements, and important practical information. <strong>Please note: visa requirements can change. Always verify current information with Nauru Immigration or nauru.gov.nr before travelling.</strong>",
+  "official_source_url": "https://nauru.gov.nr/",
+  "authority_name": "Department of Immigration, Republic of Nauru",
+  "data_as_of": "2026-06-01",
+  "last_checked_at": "2026-06-20",
+  "next_review_at": "2026-07-20",
+  "review_interval_days": 30,
   "sections": [
     {
       "heading": "Who Needs a Visa?",

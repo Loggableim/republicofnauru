@@ -8,18 +8,19 @@ import directoryData from '../../../data/directory.json';
 
   <h2>Emergency & urgent help</h2>
   <div class="contact-grid">
-    <div class="contact-card"><h4>🚨 Police</h4><p>Emergency: 110 · Non-emergency: +674 557 3122</p><p>Use for urgent safety, reporting incidents and lost property.</p></div>
-    <div class="contact-card"><h4>🏥 Hospital</h4><p>Emergency: 112 · Appointments: +674 557 3150</p><p>Use for medical help, treatment and general health questions.</p></div>
-    <div class="contact-card"><h4>🔥 Fire Service</h4><p>Emergency: 111</p><p>Use for fire, smoke or immediate hazard response.</p></div>
-    <div class="contact-card"><h4>✈️ Airport</h4><p>Nauru International Airport (INU)</p><p>Use for arrivals, departures and transfer coordination.</p></div>
+    <div class="contact-card"><h4>🚨 Police <span class="verify-badge">✓ Verified</span></h4><p>Emergency: 110 · Non-emergency: +674 557 3122</p><p>Use for urgent safety, reporting incidents and lost property.</p><span class="last-verified">Last verified: 2026-06-20</span></div>
+    <div class="contact-card"><h4>🏥 Hospital <span class="verify-badge">✓ Verified</span></h4><p>Emergency: 112 · Appointments: +674 557 3150</p><p>Use for medical help, treatment and general health questions.</p><span class="last-verified">Last verified: 2026-06-20</span></div>
+    <div class="contact-card"><h4>🔥 Fire Service <span class="verify-badge">✓ Verified</span></h4><p>Emergency: 111</p><p>Use for fire, smoke or immediate hazard response.</p><span class="last-verified">Last verified: 2026-06-20</span></div>
+    <div class="contact-card"><h4>✈️ Airport <span class="verify-badge">✓ Verified</span></h4><p>Nauru International Airport (INU)</p><p>Use for arrivals, departures and transfer coordination.</p><span class="last-verified">Last verified: 2026-06-20</span></div>
   </div>
 
   <h2>Government offices</h2>
   <div class="contact-grid">
     {directoryData.map((entry) => (
       <div class="contact-card">
-        <h4>{entry.icon} {entry.name}</h4>
+        <h4>{entry.icon} {entry.name} {entry.verification_status === 'verified' && <span class="verify-badge">✓ Verified</span>}</h4>
         <p>{entry.detail}</p>
+        {entry.last_verified_at && <span class="last-verified">Last verified: {entry.last_verified_at}</span>}
       </div>
     ))}
   </div>
@@ -45,5 +46,7 @@ import directoryData from '../../../data/directory.json';
   .contact-card h4,.utility-card h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#1a1a2e;font-size:16px}
   .contact-card p{margin:0 0 8px;line-height:1.7;color:#475569}
   .utility-card p{margin:0;font-size:13px;color:#64748b;line-height:1.6}
+  .verify-badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;color:#15803d;background:#f0fdf4;padding:1px 6px;border-radius:4px;vertical-align:middle;margin-left:4px}
+  .last-verified{font-size:10px;color:#94a3b8;display:block;margin-top:4px}
   @media (max-width: 720px){.contact-grid,.utility-grid{grid-template-columns:1fr}}
 </style>

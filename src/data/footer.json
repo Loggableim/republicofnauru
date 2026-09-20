@@ -10,6 +10,7 @@
       "links": [
         { "label": "About Nauru", "url": "/about/", "localeKey": "about" },
         { "label": "Travel Tips", "url": "/visit/", "localeKey": "visit" },
+        { "label": "Reiseführer (DE)", "url": "/guide/", "localeKey": "guide" },
         { "label": "Culture & Heritage", "url": "/about/culture/", "localeKey": "culture" },
         { "label": "History", "url": "/about/history/", "localeKey": "history" }
       ]
@@ -36,5 +37,5 @@
   "social": ["📷", "🎵", "💬", "📺"],
   "copyright": "© 2026 republicofnauru.com",
   "disclaimer": "This is an independent informational website. Content is based on public sources and independent research. For official government information, please visit nauru.gov.nr. All travel information should be verified with relevant authorities before making arrangements.",
-  "lastUpdated": "2026-05-01"
+  "lastUpdated": "2026-09-20"
 }

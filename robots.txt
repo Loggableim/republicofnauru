@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /na/
+Disallow: /affiliate-disclosure/
 
-Sitemap: https://republicofnauru.com/sitemap.xml
+Sitemap: https://republicofnauru.com/sitemap-index.xml

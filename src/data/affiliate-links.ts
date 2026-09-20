@@ -13,7 +13,7 @@ export function amazonLink(asin: string): string {
   return `https://www.amazon.com/dp/${asin}?tag=${tag}`;
 }
 
-// Section-specific affiliate links
+// Section-specific affiliate links — only on travel/guide/relevant pages, NOT on sensitive pages
 export const affiliateLinks: Record<string, AffiliateLink[]> = {
   about: [
     {
@@ -41,22 +41,6 @@ export const affiliateLinks: Record<string, AffiliateLink[]> = {
       description: 'Lightweight foldable daypack for island exploration.',
       url: amazonLink('B07CP84GFG'),
       category: 'Travel Accessories',
-    },
-  ],
-  services: [
-    {
-      title: 'Document Organizer Wallet',
-      description: 'Keep passports, visas, and travel documents safe and organized.',
-      url: amazonLink('B07JW9Y7NL'),
-      category: 'Travel Accessories',
-    },
-  ],
-  directory: [
-    {
-      title: 'Emergency Whistle Keychain',
-      description: 'Compact safety whistle for travel peace of mind.',
-      url: amazonLink('B07KQXGHSL'),
-      category: 'Safety',
     },
   ],
   guide: [
@@ -98,30 +82,6 @@ export const affiliateLinks: Record<string, AffiliateLink[]> = {
       title: 'The History of Nauru',
       description: 'A detailed account of Nauruan history from ancient times to independence.',
       url: amazonLink('982906801X'),
-      category: 'Books',
-    },
-  ],
-  news: [
-    {
-      title: 'The Pacific Island Economies',
-      description: 'Understanding the economic landscape of Pacific island nations.',
-      url: amazonLink('0824821135'),
-      category: 'Books',
-    },
-  ],
-  contact: [
-    {
-      title: 'Notebook & Pen Set',
-      description: 'Essential journal for travel notes and planning.',
-      url: amazonLink('B09QZGY6GY'),
-      category: 'Stationery',
-    },
-  ],
-  impressum: [
-    {
-      title: 'Website Law Guide',
-      description: 'Essential legal reference for website operators and content creators.',
-      url: amazonLink('1641059861'),
       category: 'Books',
     },
   ],

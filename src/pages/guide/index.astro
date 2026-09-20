@@ -1,0 +1,99 @@
+---
+import SubpageLayout from '../../layouts/SubpageLayout.astro';
+
+const guides = [
+  { url: '/guide/reisetipps/', emoji: '🎒', title: 'Reisetipps', desc: 'Packliste, Impfungen, Flugbuchung, Reiseversicherung, beste Reisezeit und Einreisebestimmungen.' },
+  { url: '/guide/anreise/', emoji: '✈️', title: 'Anreise', desc: 'Flüge nach Nauru, Flughafen, Ankunft und der Weg vom Brisbane- oder Nadi-Hub auf die Insel.' },
+  { url: '/guide/reiseroute-itinerar/', emoji: '🗺️', title: 'Reiseroute & Itinerär', desc: 'Wie Sie 3, 5 oder 7 Tage auf Nauru sinnvoll aufteilen — mit konkreten Tagesplänen.' },
+  { url: '/guide/reisekosten-budget/', emoji: '💰', title: 'Reisekosten & Budget', desc: 'Was ein Nauru-Aufenthalt wirklich kostet: Flüge, Unterkunft, Verpflegung, Aktivitäten.' },
+  { url: '/guide/unterkuenfte/', emoji: '🏨', title: 'Unterkünfte', desc: 'Hotels, Guesthouses und die Frage, warum Sie Unterkunft vor Flug buchen sollten.' },
+  { url: '/guide/mobilitaet/', emoji: '🚗', title: 'Mobilität', desc: 'Wie Sie sich auf einer Insel mit 21 km² und minimalem öffentlichen Verkehr fortbewegen.' },
+  { url: '/guide/aktivitaeten/', emoji: '🏄', title: 'Aktivitäten & Ausflüge', desc: 'Was man auf Nauru tatsächlich unternehmen kann — jenseits der Klischees.' },
+  { url: '/guide/tauchen-schnorcheln/', emoji: '🤿', title: 'Tauchen & Schnorcheln', desc: 'Korallenriffe mit kaum Freizeitdruck, Tauchplätze und was Sie mitbringen müssen.' },
+  { url: '/guide/fischen-angeln/', emoji: '🎣', title: 'Fischen & Angeln', desc: 'Hochseefischen, Riffangeln und die Bedeutung der Fischerei für Nauru.' },
+  { url: '/guide/strand-natur/', emoji: '🏖️', title: 'Strände & Natur', desc: 'Anibare Bay, die Küstenlinie und was von der einstigen Vegetation geblieben ist.' },
+  { url: '/guide/flora-fauna/', emoji: '🌿', title: 'Flora & Fauna', desc: 'Was auf dem Phosphatplateau wächst und welche Tiere die Insel bewohnen.' },
+  { url: '/guide/command-ridge/', emoji: '🏔️', title: 'Command Ridge & Topside', desc: 'Der höchste Punkt der Insel, japanische WWII-Stellungen und die Mondlandschaft.' },
+  { url: '/guide/kulinarik/', emoji: '🍽️', title: 'Kulinarik & Restaurants', desc: 'Ika Mata, frischer Thunfisch, Takeaway-Shops und Preise.' },
+  { url: '/guide/einkaufen-souvenirs/', emoji: '🛍️', title: 'Einkaufen & Souvenirs', desc: 'Was es zu kaufen gibt, wo — und welche Mitbringsel wirklich aus Nauru stammen.' },
+  { url: '/guide/feste/', emoji: '🎉', title: 'Feste & Feiertage', desc: 'Angam Day, Constitution Day und die Feste, die den Inselkalender prägen.' },
+  { url: '/guide/sprache/', emoji: '🗣️', title: 'Sprache', desc: 'Dorerin Naoero und Englisch — was Sie im Alltag wirklich brauchen.' },
+  { url: '/guide/gesundheit-sicherheit/', emoji: '🏥', title: 'Gesundheit & Sicherheit', desc: 'Medizinische Versorgung, Impfungen, Notfallnummern und Sicherheitshinweise.' },
+  { url: '/guide/fotografie/', emoji: '📷', title: 'Fotografie', desc: 'Die besten Motive, Lichtsituationen und worauf Sie beim Fotografieren achten sollten.' },
+  { url: '/guide/sport-freizeit/', emoji: '⚽', title: 'Sport & Freizeit', desc: 'Australian Rules Football, Leichtathletik und wie Sport das Inselleben strukturiert.' },
+  { url: '/guide/umwelt-nachhaltigkeit/', emoji: '♻️', title: 'Umwelt & Nachhaltigkeit', desc: 'Phosphatabbau, Klimawandel und Naurus Weg zu mehr Resilienz.' },
+  { url: '/guide/hintergrund/', emoji: '📜', title: 'Hintergrund', desc: 'Geschichte, Politik und Wirtschaft — der größere Kontext hinter der Insel.' },
+];
+---
+
+<SubpageLayout
+  title="Nauru Reiseführer – Alle Guides im Überblick"
+  description="Der komplette Nauru-Reiseführer: Reisetipps, Anreise, Unterkünfte, Kosten, Aktivitäten, Tauchen, Kulinarik und Hintergrund — alle Guides auf einen Blick."
+  sectionEmoji="🌴"
+  sectionLabel="Reiseführer"
+  locale="de"
+  includeFooter={true}
+>
+
+  <p>Nauru ist kein gewöhnliches Reiseziel — die kleinste Republik der Welt, eines der am seltensten besuchten Länder überhaupt, erreichbar nur über Brisbane oder Nadi. Wer hierher reist, braucht gute Vorbereitung. Diese Übersicht bündelt alle unsere deutschsprachigen Guides zu Planung, Anreise, Aufenthalt und Hintergrund.</p>
+
+  <h2>Planung & Vorbereitung</h2>
+  <div class="guide-grid">
+    {guides.slice(0, 6).map(g => (
+      <a href={g.url} class="guide-card">
+        <span class="guide-emoji">{g.emoji}</span>
+        <h3>{g.title}</h3>
+        <p>{g.desc}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Vor Ort erleben</h2>
+  <div class="guide-grid">
+    {guides.slice(6, 14).map(g => (
+      <a href={g.url} class="guide-card">
+        <span class="guide-emoji">{g.emoji}</span>
+        <h3>{g.title}</h3>
+        <p>{g.desc}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Kultur, Alltag & Hintergrund</h2>
+  <div class="guide-grid">
+    {guides.slice(14).map(g => (
+      <a href={g.url} class="guide-card">
+        <span class="guide-emoji">{g.emoji}</span>
+        <h3>{g.title}</h3>
+        <p>{g.desc}</p>
+      </a>
+    ))}
+  </div>
+
+  <h2>Wichtig zu wissen</h2>
+  <div class="info-box">
+    <h4>📌 Vor der Buchung klären</h4>
+    <p>Nauru hat sehr begrenzte Unterkunftskapazitäten und unregelmäßige Flugverbindungen. Buchen Sie die Unterkunft <strong>vor</strong> dem Flug, nicht danach. Australische Dollar in Bar sind essenziell — Kartenakzeptanz ist eingeschränkt und Geldautomaten sind unzuverlässig. Eine Reiseversicherung mit Rücktransport-Abdeckung ist dringend empfohlen, da komplexe medizinische Fälle ins Ausland verlegt werden.</p>
+  </div>
+
+  <h2>Weiter im englischen Bereich</h2>
+  <div class="utility-grid">
+    <a href="/visit/">Visit-Hub (EN)</a>
+    <a href="/about/">Über Nauru (EN)</a>
+    <a href="/news/">Aktuelles (EN)</a>
+    <a href="/directory/">Verzeichnis (EN)</a>
+  </div>
+</SubpageLayout>
+
+<style>
+  .guide-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:1.5rem 0 2rem; }
+  .guide-card { display:block; padding:20px; border:1px solid #e2e8f0; border-radius:12px; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,0.04); transition:all 0.25s ease; text-decoration:none; }
+  .guide-card:hover { border-color:#002B7F; box-shadow:0 8px 24px rgba(0,43,127,0.10); transform:translateY(-3px); }
+  .guide-emoji { font-size:1.6rem; display:block; margin-bottom:8px; }
+  .guide-card h3 { font-family:'Space Grotesk',sans-serif; font-size:1.05rem; font-weight:600; color:#1a1a2e; margin:0 0 6px; }
+  .guide-card p { font-size:13px; color:#64748b; line-height:1.6; margin:0; }
+  .utility-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:1rem 0 2rem; }
+  .utility-grid a { border:1px solid #e2e8f0; border-radius:12px; background:#fff; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.04); font-weight:700; display:block; transition:all 0.25s ease; text-decoration:none; }
+  @media (max-width: 900px) { .guide-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 720px) { .guide-grid, .utility-grid { grid-template-columns:1fr; } }
+</style>

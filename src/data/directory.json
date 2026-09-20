@@ -1,6 +1,50 @@
 [
-  { "icon": "🏛️", "name": "Office of the President", "detail": "Executive Building, Yaren · +674 557 3131" },
-  { "icon": "📊", "name": "Ministry of Finance", "detail": "Government Complex, Yaren · +674 557 3135" },
-  { "icon": "🎓", "name": "Ministry of Education", "detail": "Education Building, Aiwo · +674 557 3140" },
-  { "icon": "🌿", "name": "Ministry of Environment", "detail": "Environmental Centre, Yaren · +674 557 3145" }
+  {
+    "icon": "🏛️",
+    "name": "Office of the President",
+    "detail": "Executive Building, Yaren · +674 557 3131",
+    "category": "government",
+    "phone": "+674 557 3131",
+    "address": "Executive Building, Yaren",
+    "source_url": "https://nauru.gov.nr/",
+    "last_verified_at": "2026-06-20",
+    "verification_status": "verified",
+    "is_emergency_contact": false
+  },
+  {
+    "icon": "📊",
+    "name": "Ministry of Finance",
+    "detail": "Government Complex, Yaren · +674 557 3135",
+    "category": "government",
+    "phone": "+674 557 3135",
+    "address": "Government Complex, Yaren",
+    "source_url": "https://nauru.gov.nr/",
+    "last_verified_at": "2026-06-20",
+    "verification_status": "verified",
+    "is_emergency_contact": false
+  },
+  {
+    "icon": "🎓",
+    "name": "Ministry of Education",
+    "detail": "Education Building, Aiwo · +674 557 3140",
+    "category": "government",
+    "phone": "+674 557 3140",
+    "address": "Education Building, Aiwo",
+    "source_url": "https://nauru.gov.nr/",
+    "last_verified_at": "2026-06-20",
+    "verification_status": "verified",
+    "is_emergency_contact": false
+  },
+  {
+    "icon": "🌿",
+    "name": "Ministry of Environment",
+    "detail": "Environmental Centre, Yaren · +674 557 3145",
+    "category": "government",
+    "phone": "+674 557 3145",
+    "address": "Environmental Centre, Yaren",
+    "source_url": "https://nauru.gov.nr/",
+    "last_verified_at": "2026-06-20",
+    "verification_status": "verified",
+    "is_emergency_contact": false
+  }
 ]

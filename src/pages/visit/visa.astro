@@ -48,6 +48,19 @@ const faqSchema = {
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
+
+  <!-- Verification block -->
+  <div class="verify-block">
+    <span class="verify-label">✅ Verified Information</span>
+    <p>
+      <strong>Source:</strong> {visaData.authority_name}<br />
+      <strong>Data as of:</strong> {visaData.data_as_of}<br />
+      <strong>Last checked:</strong> {visaData.last_checked_at}<br />
+      <strong>Next review:</strong> {visaData.next_review_at}<br />
+      <a href={visaData.official_source_url} target="_blank" rel="noopener">Visit official site →</a>
+    </p>
+  </div>
+
   <p set:html={visaData.intro} />
   <div class="callout-grid">
     <div class="callout"><h3>Prepare documents</h3><p>Passport, supporting papers and any required confirmations should be ready before you apply.</p></div>
@@ -82,5 +95,13 @@ const faqSchema = {
   .callout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:1.5rem 0}
   .callout{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,0.04);padding:18px;transition:all 0.25s ease}
   .callout h3{margin:0 0 8px;font-family:'Space Grotesk',sans-serif;color:#002B7F}
+  .verify-block {
+    background:#f0fdf4; border:1px solid #86efac; border-left:4px solid #22c55e;
+    padding:16px 20px; margin-bottom:24px; border-radius:0 8px 8px 0;
+  }
+  .verify-label { font-size:11px; font-weight:700; text-transform:uppercase; color:#15803d; letter-spacing:.5px; display:block; margin-bottom:4px; }
+  .verify-block p { font-size:13px; color:#166534; margin:0; line-height:1.7; }
+  .verify-block a { color:#15803d; text-decoration:underline; font-weight:600; }
+  .verify-block a:hover { color:#14532d; }
   @media (max-width: 720px){.callout-grid{grid-template-columns:1fr}}
 </style>

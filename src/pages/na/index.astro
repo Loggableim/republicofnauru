@@ -151,7 +151,7 @@ import newsData from '../../data/news.json';
           <p>Ederer me developments õ affect am kain ekawir.</p>
         </div>
         <div class="card-grid cols-3">
-          {newsData.slice(0,3).map(item => (
+          {newsData.filter(item => item.verification_status === 'verified').slice(0,3).map(item => (
             <a class="card news-card" href={`/na/news/${item.id}/`}>
               <span class="news-tag">{item.emoji}&nbsp;{item.tag}</span>
               <h3>{item.title}</h3>

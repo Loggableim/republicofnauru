@@ -1,10 +1,10 @@
 [
-  { "icon": "🛂", "title": "Passports & Visas", "desc": "Apply for or renew travel documents" },
-  { "icon": "🏢", "title": "Business Registry", "desc": "Register companies & permits" },
-  { "icon": "🎓", "title": "Education", "desc": "Schools, scholarships & resources" },
-  { "icon": "🏥", "title": "Healthcare", "desc": "Public health & medical services" },
-  { "icon": "🏠", "title": "Housing & Land", "desc": "Property registration assistance" },
-  { "icon": "⚖️", "title": "Legal & Justice", "desc": "Courts, legislation & legal aid" },
-  { "icon": "🌿", "title": "Environment", "desc": "Climate policy & conservation" },
-  { "icon": "🚢", "title": "Transport", "desc": "Maritime, aviation & roads" }
+  { "icon": "🛂", "title": "Passports & Visas", "desc": "Apply for or renew travel documents", "href": "/services/immigration/" },
+  { "icon": "🏢", "title": "Business Registry", "desc": "Register companies & permits", "href": "/services/" },
+  { "icon": "🎓", "title": "Education", "desc": "Schools, scholarships & resources", "href": "/services/education/" },
+  { "icon": "🏥", "title": "Healthcare", "desc": "Public health & medical services", "href": "/services/health/" },
+  { "icon": "🏠", "title": "Housing & Land", "desc": "Property registration assistance", "href": "/services/" },
+  { "icon": "⚖️", "title": "Legal & Justice", "desc": "Courts, legislation & legal aid", "href": "/services/" },
+  { "icon": "🌿", "title": "Environment", "desc": "Climate policy & conservation", "href": "/about/economy/" },
+  { "icon": "🚢", "title": "Transport", "desc": "Maritime, aviation & roads", "href": "/visit/transport/" }
 ]

@@ -10,7 +10,11 @@
       "code": "na",
       "label": "Dorerin Naoero",
       "flag": "🇳🇷",
-      "active": false
+      "active": false,
+      "status": "beta",
+      "review_needed": true,
+      "reviewed_by": null,
+      "reviewed_at": null
     }
   ],
   "default": "en",
@@ -153,5 +157,13 @@
       "en": "Contact",
       "na": "Kain kõme"
     }
+  },
+  "translationStatus": {
+    "nav": "reviewed",
+    "footer": "reviewed",
+    "hero": "pending",
+    "cards": "pending",
+    "news": "pending",
+    "forms": "pending"
   }
 }

@@ -16,6 +16,7 @@ bgClass?: string;
   locale?: 'en' | 'na' | 'de';
   heroImage?: string;
   hideHero?: boolean;
+  hideAffiliate?: boolean;
 }
 
 const {
@@ -28,6 +29,7 @@ bgClass = 'bg-cream',
   locale = 'en',
   heroImage = '',
   hideHero = false,
+  hideAffiliate = false,
 } = Astro.props as Props;
 
 // Auto-detect hero image from URL path
@@ -35,6 +37,10 @@ const pathParts = Astro.url.pathname.split('/').filter(Boolean);
 const localePrefix = pathParts[0] === 'na' || pathParts[0] === 'en' ? pathParts[0] : '';
 const sectionSlug = localePrefix ? (pathParts[1] || 'about') : (pathParts[0] || 'about');
 const heroDir = '/images/hero/';
+
+// Auto-hide affiliate on sensitive pages: visa, directory, emergency/health, services, contact, privacy, impressum
+const sensitiveSections = ['visa', 'directory', 'health', 'services', 'contact', 'privacy', 'impressum', 'citizenship', 'education', 'immigration'];
+const shouldHideAffiliate = hideAffiliate || sensitiveSections.includes(sectionSlug);
 
 // Map section slugs to hero SVG filenames
 const heroMap: Record<string, string> = {
@@ -162,14 +168,17 @@ const breadcrumbPath = segments.map((seg, i) => {
       )}
     </header>
     <main id="main-content" class={`page-content ${bgClass}`}>
-      <article class="page-article">
-        <div class="affiliate-disclosure">
-          <span class="ad-label">📢 Affiliate Disclosure</span>
-          <p>Some links on this page are affiliate links. If you click through and make a purchase, we may earn a small commission at no extra cost to you. This helps us maintain and improve this independent guide. <a href="/privacy/#affiliate">Learn more</a>.</p>
-        </div>
+        <div class="page-article">
+        {!shouldHideAffiliate && (
+          <div class="affiliate-disclosure">
+            <span class="ad-label">📢 Affiliate Disclosure</span>
+            <p>Some links on this page are affiliate links. If you click through and make a purchase, we may earn a small commission at no extra cost to you. This helps us maintain and improve this independent guide. <a href="/affiliate-disclosure/">Learn more</a>.</p>
+          </div>
+        )}
         <slot />
       </article>
     </main>
+    {!shouldHideAffiliate && (
     <aside class="affiliate-section">
       <div class="affiliate-inner">
         <span class="affiliate-label">📚 Recommended Reading</span>
@@ -185,7 +194,7 @@ const breadcrumbPath = segments.map((seg, i) => {
         </div>
       </div>
     </aside>
-  </div>
+    )}
   {includeFooter && <Footer />}
   <button id="scroll-top-btn" class="scroll-top" aria-label="Scroll to top">↑</button>
 </BaseLayout>

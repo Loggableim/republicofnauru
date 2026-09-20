@@ -1,6 +1,16 @@
 ---
 export interface Props {
-  items: { icon: string; name: string; detail: string }[];
+  items: {
+    icon: string;
+    name: string;
+    detail: string;
+    category?: string;
+    phone?: string;
+    source_url?: string;
+    last_verified_at?: string;
+    verification_status?: string;
+    is_emergency_contact?: boolean;
+  }[];
 }
 
 const { items } = Astro.props;
@@ -20,6 +30,9 @@ const { items } = Astro.props;
           <div>
             <h3>{item.name}</h3>
             <p>{item.detail}</p>
+            {item.last_verified_at && (
+              <span class="dir-verified">✓ Verified {item.last_verified_at}</span>
+            )}
           </div>
         </div>
       ))}
@@ -44,6 +57,7 @@ const { items } = Astro.props;
   }
   .dir-card h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; }
   .dir-card p { font-size: 12px; color: #64748b; }
+  .dir-verified { font-size: 10px; color: #15803d; font-weight: 600; display: inline-block; margin-top: 4px; }
   @media (max-width: 768px) {
     .dir-grid { grid-template-columns: 1fr; }
   }

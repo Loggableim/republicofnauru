@@ -25,6 +25,7 @@ const isNa = locale === 'na';
 const localeMeta = locales.pages?.home || {};
 
 import locales from '../data/locales.json';
+import CookieConsent from '../components/CookieConsent.astro';
 
 const siteUrl = 'https://republicofnauru.com';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
@@ -165,9 +166,15 @@ const webpageSchema = {
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to content</a>
+  {isNa && (
+    <div class="beta-banner">
+      <span>⚠️ <strong>Beta:</strong> Dorerin Naoero translations are a work in progress. Some content may appear in English.</span>
+    </div>
+  )}
   <div data-pagefind-body>
     <slot />
   </div>
+  <CookieConsent />
   <script is:inline>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

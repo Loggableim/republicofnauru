@@ -47,12 +47,33 @@ const faqSchema = {
     },
   ],
 };
+
+const verificationInfo = {
+  authority: 'Department of Immigration, Republic of Nauru',
+  dataAsOf: '2026-06-01',
+  lastChecked: '2026-06-20',
+  nextReview: '2026-07-20',
+  sourceUrl: 'https://nauru.gov.nr/',
+};
 ---
 
 <SubpageLayout title="Immigration & Entry in Nauru" description="Entry support, visa guidance, work permits, and traveller procedures for entering the Republic of Nauru." sectionEmoji="🛠️" sectionLabel="Citizen & Visitor Services" includeFooter={true}>
   <Fragment slot="jsonld">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
   </Fragment>
+
+  <!-- Verification block -->
+  <div class="verify-block">
+    <span class="verify-label">✅ Verified Information</span>
+    <p>
+      <strong>Source:</strong> {verificationInfo.authority}<br />
+      <strong>Data as of:</strong> {verificationInfo.dataAsOf}<br />
+      <strong>Last checked:</strong> {verificationInfo.lastChecked}<br />
+      <strong>Next review:</strong> {verificationInfo.nextReview}<br />
+      <a href={verificationInfo.sourceUrl} target="_blank" rel="noopener">Visit official site →</a>
+    </p>
+  </div>
+
   <p>Use this page to understand the most common entry questions — visa types, application steps, work permits, and what to prepare before travel. All foreign nationals (except citizens and residents) must obtain a visa <strong>before</strong> arriving in Nauru. There is no visa on arrival.</p>
 
   <h2>📋 Pre-Travel Checklist</h2>
@@ -178,5 +199,13 @@ const faqSchema = {
   .fact{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:20px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
   .fact .num{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;color:#002B7F}
   .fact .label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-top:4px}
+  .verify-block {
+    background:#f0fdf4; border:1px solid #86efac; border-left:4px solid #22c55e;
+    padding:16px 20px; margin-bottom:24px; border-radius:0 8px 8px 0;
+  }
+  .verify-label { font-size:11px; font-weight:700; text-transform:uppercase; color:#15803d; letter-spacing:.5px; display:block; margin-bottom:4px; }
+  .verify-block p { font-size:13px; color:#166534; margin:0; line-height:1.7; }
+  .verify-block a { color:#15803d; text-decoration:underline; font-weight:600; }
+  .verify-block a:hover { color:#14532d; }
   @media (max-width: 720px){.utility-grid,.fact-grid{grid-template-columns:1fr}}
 </style>

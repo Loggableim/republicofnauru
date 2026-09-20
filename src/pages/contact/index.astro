@@ -8,8 +8,8 @@ import contactData from '../../data/contact.json';
   description="Contact information for republicofnauru.com, including questions about visiting Nauru, travel planning, directory updates and site feedback."
   sectionEmoji="✉️"
   sectionLabel="Get in Touch"
- 
   includeFooter={true}
+  hideAffiliate={true}
 >
   <p>Whether you're planning a visit, researching Nauru for academic purposes, or just curious about the world's smallest republic — we'd love to hear from you. Our team aims to respond to all inquiries within 2–3 business days.</p>
 
@@ -30,8 +30,26 @@ import contactData from '../../data/contact.json';
   <p>Use the form below to send us a message, or email us directly at <a href="mailto:info@republicofnauru.com">info@republicofnauru.com</a>. Fields marked with * are required. We aim to respond within 2–3 business days.</p>
 
   <form class="contact-form" action="mailto:info@republicofnauru.com" method="post" enctype="text/plain">
+    <select name="category" required>
+      <option value="">— Select a category * —</option>
+      <option value="general">General inquiry</option>
+      <option value="content">Content correction</option>
+      <option value="directory">Directory update</option>
+      <option value="partnership">Partnership / Affiliate</option>
+      <option value="travel">Travel question</option>
+      <option value="other">Other</option>
+    </select>
+
     <input type="text" name="name" placeholder="Your Name *" required />
     <input type="email" name="email" placeholder="Your Email *" required />
+
+    <div id="directory-fields" class="conditional-fields" hidden>
+      <input type="text" name="directory_name" placeholder="Directory entry name" />
+      <input type="url" name="directory_source" placeholder="Source URL (e.g. official website)" />
+      <input type="text" name="directory_phone" placeholder="Verified phone number" />
+      <p class="field-note">Please include a public source URL to help us verify and update the directory entry.</p>
+    </div>
+
     <input type="text" name="subject" placeholder="Subject" />
     <textarea name="message" placeholder="Your Message *" required></textarea>
     <button type="submit" class="submit-btn">Send Message →</button>
@@ -50,6 +68,18 @@ import contactData from '../../data/contact.json';
   </div>
 </SubpageLayout>
 
+<script>
+  (function() {
+    var categorySelect = document.querySelector('select[name="category"]');
+    var dirFields = document.getElementById('directory-fields');
+    if (categorySelect && dirFields) {
+      categorySelect.addEventListener('change', function() {
+        dirFields.hidden = this.value !== 'directory';
+      });
+    }
+  })();
+</script>
+
 <style>
   .contact-form {
     display: flex;
@@ -58,7 +88,8 @@ import contactData from '../../data/contact.json';
     margin: 1.5rem 0;
   }
   .contact-form input,
-  .contact-form textarea {
+  .contact-form textarea,
+  .contact-form select {
     border: 2px solid #1a1a2e;
     padding: 12px 16px;
     font-family: 'Inter', sans-serif;
@@ -66,15 +97,32 @@ import contactData from '../../data/contact.json';
     outline: none;
     transition: border-color .25s;
     background: #fff;
+    border-radius: 0;
+  }
+  .contact-form select {
+    cursor: pointer;
+    appearance: auto;
   }
   .contact-form input:focus,
-  .contact-form textarea:focus {
+  .contact-form textarea:focus,
+  .contact-form select:focus {
     border-color: #FFC72C;
   }
   .contact-form textarea {
     min-height: 120px;
     resize: vertical;
   }
+  .conditional-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-radius: 8px;
+  }
+  .conditional-fields[hidden] { display: none; }
+  .field-note { font-size: 12px; color: #64748b; margin: 0; }
   .submit-btn {
     background: #002B7F;
     color: #FFC72C;

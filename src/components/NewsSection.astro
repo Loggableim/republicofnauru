@@ -8,6 +8,9 @@ export interface Props {
     tag: string;
     emoji: string;
     imgClass: string;
+    source_url?: string;
+    source_name?: string;
+    verification_status?: 'verified' | 'unverified' | 'context';
   }[];
 }
 
@@ -24,12 +27,18 @@ const { news } = Astro.props;
     <div class="news-grid">
       {news.map(item => (
         <a href={`/news/${item.id}/`} class="news-card" aria-label={`Read article: ${item.title}`}>
-          <div class={`news-card-img ${item.imgClass}`}>{item.emoji}</div>
+          <div class={`news-card-img ${item.imgClass}`}>
+            {item.emoji}
+            {item.verification_status && item.verification_status !== 'verified' && (
+              <span class="verification-badge">{item.verification_status === 'unverified' ? '⚠️ Unverified' : '📝 Context'}</span>
+            )}
+          </div>
           <div class="news-card-body">
             <div class="news-card-date">{item.date}</div>
             <h3>{item.title}</h3>
             <p>{item.summary}</p>
             <span class="news-card-tag">{item.tag}</span>
+            {item.source_name && <span class="news-card-source">Source: {item.source_name}</span>}
             <span class="news-card-link">Read full story →</span>
           </div>
         </a>
@@ -42,7 +51,7 @@ const { news } = Astro.props;
   .news-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
   .news-card { background:#fff; border:2px solid #1a1a2e; overflow:hidden; transition:all .25s; box-shadow:4px 4px 0 #1a1a2e; display:block; }
   .news-card:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 #002B7F; }
-  .news-card-img { height:140px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
+  .news-card-img { height:140px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; position:relative; }
   .news-card-img.eco { background:linear-gradient(135deg, #FFC72C, #FFE082); }
   .news-card-img.econ { background:linear-gradient(135deg, #002B7F, #2554a0); }
   .news-card-img.tour { background:linear-gradient(135deg, #1a1a2e, #2d2d4e); }
@@ -50,11 +59,17 @@ const { news } = Astro.props;
   .news-card-date { font-size:11px; color:#94a3b8; font-weight:600; }
   .news-card h3 { font-size:16px; font-weight:700; margin:8px 0; color:#1a1a2e; }
   .news-card p { font-size:13px; color:#64748b; line-height:1.6; }
-  .news-card-tag, .news-card-link {
+  .news-card-tag, .news-card-link, .news-card-source {
     display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
     padding:3px 10px; margin-top:8px;
   }
   .news-card-tag { background:#FFC72C; color:#002B7F; clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%); }
+  .news-card-source { background:transparent; color:#64748b; padding-left:4px; font-weight:400; text-transform:none; }
   .news-card-link { color:#002B7F; padding-left:0; }
+  .verification-badge {
+    position:absolute; bottom:8px; right:8px;
+    font-size:10px; font-weight:700; background:rgba(0,0,0,0.55); color:#fff;
+    padding:3px 8px; border-radius:4px;
+  }
   @media (max-width: 768px) { .news-grid { grid-template-columns:1fr; } }
 </style>
